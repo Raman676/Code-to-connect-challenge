@@ -3,8 +3,8 @@ Loading and preprocessing of the Financial PhraseBank (Malo et al., 2014)
 for the sentiment component of the AI/NLP Risk Engine.
 
 Source: Kaggle "Sentiment Analysis for Financial News"
-(sentiment-analysis-for-financial-news.zip), which contains:
-  - FinancialPhraseBank/Sentences_{50,66,75,All}Agree.txt  ("sentence@label")
+(sentiment-analysis-for-financial-news.zip), stored in data/phrasebank/:
+  - Sentences_{50,66,75,All}Agree.txt  ("sentence@label")
   - all-data.csv  (same sentences as Sentences_50Agree.txt, "label,sentence")
 
 Data quirks handled here (all verified against the raw files):
@@ -27,8 +27,8 @@ from pathlib import Path
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FPB_DIR = PROJECT_ROOT / "FinancialPhraseBank"
-ALL_DATA_CSV = PROJECT_ROOT / "all-data.csv"
+FPB_DIR = PROJECT_ROOT / "data" / "phrasebank"
+ALL_DATA_CSV = FPB_DIR / "all-data.csv"
 
 LABELS = ("negative", "neutral", "positive")
 LABEL_TO_SCORE = {"negative": -1.0, "neutral": 0.0, "positive": 1.0}
