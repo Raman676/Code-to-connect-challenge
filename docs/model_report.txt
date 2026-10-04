@@ -1,0 +1,157 @@
+Model report - generated 2026-10-04 18:22 by src/run_model.py
+scikit-learn 1.9.1, torch 2.14.1+cpu, transformers 5.18.0; FinBERT: yiyanghkust/finbert-tone (mean-pooled last layer, max 64 tokens, no fine-tuning)
+C grid [0.01, 0.03, 0.1, 0.3, 1, 3, 10]; selection by validation impact macro-F1; seed 0
+
+====================================================================================================
+DATA AND SPLITS
+====================================================================================================
+tweets: {'labelled rows': 125245, 'after cap (20 per company-day)': 13987, 'dropped in gaps': 0}
+news: {'labelled rows': 21733, 'dropped in gaps': 281}
+Tweet splits: {'val_start': '2018-09-11', 'test_start': '2018-09-27', 'gap_bdays': 0}; news splits: {'val_start': '2018-11-09', 'test_start': '2019-11-11', 'gap_bdays': 10} (gap in business days)
+Final fit uses validation rows: {'tweets': False, 'news': True}
+  source split  rows  company-days             anchor dates  imp 1 %  imp 4 %  imp 5 %  imp 6 %  imp 7 %  imp 10 %
+  tweets train  9746           684 2017-01-30 -> 2018-09-10   22.900    5.900   12.300   12.400    5.900    40.500
+  tweets  test  2130           155 2018-09-27 -> 2018-10-30   39.000   10.000    7.600   15.500    4.000    23.800
+  tweets   val  2111           150 2018-09-11 -> 2018-09-26   21.100    4.700   12.400   13.300    6.300    42.300
+    news  test  3096           931 2019-11-25 -> 2020-06-10   36.500    5.400    7.800    9.400    4.600    36.300
+    news   val  3146          1138 2018-11-23 -> 2019-11-08   36.100    4.800    9.400   10.500    4.300    34.800
+    news train 15210          5796 2009-08-06 -> 2018-11-08   34.100    4.300    9.300    8.900    4.600    38.800
+
+Masking examples (original -> model input):
+  [news] 24 Stocks Moving In Wednesday's Pre-Market Session
+         24 Stocks Moving In Wednesday's Pre-Market Session
+  [news] Cyber Attack On Adobe Systems (ADBE)
+         Cyber Attack On [COMPANY] Systems ([COMPANY])
+  [news] Eli Lilly Reports Phase 3 Results of Solanezumab; Decline in Expedition1 Study Not Significant
+         [COMPANY] Reports Phase 3 Results of Solanezumab; Decline in Expedition1 Study Not Significant
+  [tweets] RT @DD_FaFa_: Microsoft Access VBA for Non Programmers https://t.co/zNvFJ0Gf6T #VBA
+           RT [COMPANY]: [COMPANY] Access VBA for Non Programmers [URL] #VBA
+  [tweets] RT @is_herq: The last time Messi won the UCL was 2015. The rest was Lays ⬅ Pepsi ⬅Lays 🔂 https://t.co/4fAJs3fI
+           RT [COMPANY]: The last time Messi won the UCL was 2015. The rest was Lays ⬅ [COMPANY] ⬅Lays 🔂 [URL]
+  [tweets] RT @manupubby: $2.2-billion Boeing defence deal now under CAG scanner but in 2008, #UPA Govt ignored series of
+           RT [COMPANY]: $2.2-billion [COMPANY] defence deal now under CAG scanner but in 2008, #UPA Govt ignored series 
+
+====================================================================================================
+VALIDATION METRICS (used to choose C and the best model)
+====================================================================================================
+  experiment      model     C    scored on  sent_acc  sent_f1  imp_acc  imp_f1
+      tweets   majority   NaN val (tweets)     0.603    0.376    0.423   0.099
+      tweets   tfidf_lr 3.000 val (tweets)     0.497    0.483    0.219   0.158
+      tweets finbert_lr 1.000 val (tweets)     0.491    0.484    0.182   0.156
+        news   majority   NaN   val (news)     0.502    0.334    0.348   0.086
+        news   tfidf_lr 3.000   val (news)     0.570    0.570    0.275   0.179
+        news finbert_lr 0.010   val (news)     0.577    0.577    0.195   0.163
+    combined   majority   NaN   val (both)     0.542    0.352    0.378   0.091
+    combined   tfidf_lr 1.000   val (both)     0.544    0.543    0.241   0.179
+    combined finbert_lr 0.010   val (both)     0.558    0.557    0.185   0.159
+
+Best model per source (highest validation impact macro-F1): {'tweets': 'tfidf_lr', 'news': 'tfidf_lr'}
+
+====================================================================================================
+TEST METRICS (sentiment and impact, vs majority baseline)
+====================================================================================================
+
+TWEETS test set (2,130 rows):
+  experiment      model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
+      tweets   majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
+      tweets   tfidf_lr 3.000     0.507    0.505    0.231   0.162             0.013            0.175           -0.008           0.097
+      tweets finbert_lr 1.000     0.497    0.497    0.155   0.136             0.003            0.167           -0.084           0.071
+    combined   majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
+    combined   tfidf_lr 1.000     0.492    0.484    0.170   0.149            -0.002            0.154           -0.069           0.085
+    combined finbert_lr 0.010     0.498    0.494    0.127   0.128             0.004            0.164           -0.111           0.064
+
+NEWS test set (3,096 rows):
+  experiment      model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
+        news   majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
+        news   tfidf_lr 3.000     0.609    0.609    0.312   0.197             0.098            0.270           -0.051           0.108
+        news finbert_lr 0.010     0.599    0.599    0.210   0.173             0.088            0.261           -0.153           0.084
+    combined   majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
+    combined   tfidf_lr 1.000     0.597    0.595    0.309   0.188             0.085            0.257           -0.053           0.100
+    combined finbert_lr 0.010     0.594    0.594    0.238   0.183             0.083            0.256           -0.124           0.094
+
+====================================================================================================
+COMPANY-DAY LEVEL (test): mean sentiment score per company-day vs that day's label
+====================================================================================================
+  experiment      model source  company-days  day_sent_acc  day_sent_f1
+      tweets   majority tweets           155         0.510        0.338
+      tweets   tfidf_lr tweets           155         0.561        0.553
+      tweets finbert_lr tweets           155         0.413        0.413
+        news   majority   news           931         0.470        0.320
+        news   tfidf_lr   news           931         0.699        0.695
+        news finbert_lr   news           931         0.702        0.700
+    combined   majority tweets           155         0.510        0.338
+    combined   majority   news           931         0.470        0.320
+    combined   tfidf_lr tweets           155         0.510        0.450
+    combined   tfidf_lr   news           931         0.698        0.693
+    combined finbert_lr tweets           155         0.458        0.432
+    combined finbert_lr   news           931         0.685        0.680
+
+====================================================================================================
+PREDICTED vs ACTUAL IMPACT CLASSES (test, % of rows)
+====================================================================================================
+
+TWEETS:
+   impact  actual  tweets/majority  tweets/tfidf_lr  tweets/finbert_lr  combined/majority  combined/tfidf_lr  combined/finbert_lr
+        1    39.0              0.0             22.5               15.4                0.0                8.3                  3.5
+        4    10.0              0.0              6.5               14.4                0.0               10.5                 20.9
+        5     7.6              0.0             14.3               16.8                0.0               20.7                 21.3
+        6    15.5              0.0             14.1               19.6                0.0               23.0                 23.8
+        7     4.0              0.0              6.2               16.3                0.0               11.7                 21.4
+       10    23.8            100.0             36.3               17.6              100.0               25.7                  9.2
+
+NEWS:
+   impact  actual  news/majority  news/tfidf_lr  news/finbert_lr  combined/majority  combined/tfidf_lr  combined/finbert_lr
+        1    36.5            0.0           32.1             17.1                0.0               37.4                 25.1
+        4     5.4            0.0            6.9             17.6                0.0                9.2                 16.8
+        5     7.8            0.0           14.0             14.4                0.0               13.0                 12.6
+        6     9.4            0.0           11.2             16.8                0.0                9.9                 12.5
+        7     4.6            0.0            7.9             18.5                0.0                7.8                 17.1
+       10    36.3          100.0           27.8             15.6              100.0               22.7                 16.1
+
+====================================================================================================
+CONFUSION MATRIX of the best model per source (test; rows = actual, columns = predicted)
+====================================================================================================
+
+TWEETS (tfidf_lr):
+  impact   1   4    5    6   7    10
+  impact                            
+  1       198  49  114  142  53  275
+  4        44  17   29   27  10   86
+  5        46   6   25   14  14   56
+  6        61  29   55   39  32  115
+  7        25  12    4   15   1   29
+  10      106  26   78   63  23  212
+
+NEWS (tfidf_lr):
+  impact   1   4    5    6   7    10
+  impact                            
+  1       504  53  177   79  94  224
+  4        44   9   16   23  16   60
+  5        81  11   37   20  19   73
+  6        55  37   36   39  19  106
+  7        52  15   16   13  12   33
+  10      259  88  152  173  86  365
+
+====================================================================================================
+PHRASEBANK CHECK (human-labelled tone, test split) scored by the best news model
+====================================================================================================
+Model: news/tfidf_lr
+     label  sentences  mean_score  share_predicted_positive
+  negative         91       0.001                     0.527
+   neutral        431       0.008                     0.506
+  positive        204       0.029                     0.574
+
+Positive vs negative sentences: {'pos/neg sentences': 295, 'accuracy': 0.542, 'macro_f1': 0.512, 'spearman(score, human -1/0/+1)': np.float64(0.043)}
+
+====================================================================================================
+LIMITATIONS
+====================================================================================================
+- Labels come from the market reaction, not from reading the text: every item about a company on one day shares that day's label, so the text often carries little information about it.
+- Tweets have no gap between splits: a story spanning a cut-off (e.g. Nike's Kaepernick ad, early Sept 2018) can appear in train and validation.
+- The tweet test period (27 Sep - 30 Oct 2018) was a market sell-off: impact 1 is far more common than in training, so results there partly measure a regime change.
+- Product names (iPhone, Windows, Prime, Air Jordan, Xbox games ...) are not masked and still identify companies; masking of names/tickers is rule-based and can miss variants or misspellings.
+- All @mentions are masked as [COMPANY], including mentions of ordinary users.
+- The 10-day news gap uses business days (exchange holidays not removed).
+- FinBERT is used frozen (no fine-tuning); the PhraseBank has a neutral class that our 6-class model cannot predict, so neutral sentences are only described.
+
+Output: data\outputs\sentiment_output_test.csv (5,226 rows; best per-source models {'tweets': 'tfidf_lr', 'news': 'tfidf_lr'})
