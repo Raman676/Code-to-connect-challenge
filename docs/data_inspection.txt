@@ -1,0 +1,480 @@
+Raw data inspection report - generated 2026-10-03 22:53 by src/inspect_data.py
+
+====================================================================================================
+CANDIDATE POOL (47 companies): market caps from yfinance, fetched 2026-10-03 17:23 UTC
+====================================================================================================
+Free-float market cap = floatShares x current price.
+Caveats: for multi-class companies (GOOGL, BRK-B, META) yfinance's share counts may cover only one class,
+so check rows where float/shares_out is far from ~0.8-1.0.
+
+Ranking by total market cap:
+   rank_total  rank_ff ticker            company   price  market_cap ($bn)  ff_market_cap ($bn)  float/shares_out
+            1        1   NVDA             NVIDIA  233.95            5649.2               5411.9             0.958
+            2        2   AAPL              Apple  333.69            4869.9               4861.6             0.998
+            3        4  GOOGL           Alphabet  343.50            4201.0               3737.1             1.854
+            4        3   MSFT          Microsoft  517.53            3842.9               3837.3             0.999
+            5        5   AMZN             Amazon  251.52            2713.0               2467.6             0.910
+            6        7   META     Meta Platforms  728.08            1854.8               1603.1             0.998
+            7        6   AVGO           Broadcom  355.14            1695.3               1674.7             0.988
+            8        8   TSLA              Tesla  370.59            1463.7               1044.8             0.714
+            9       47  BRK-B Berkshire Hathaway  502.65            1076.0                  0.6             0.001
+           10        9    AMD                AMD  633.91            1034.8               1029.2             0.995
+           11       10    LLY          Eli Lilly 1142.85            1019.1               1015.9             0.997
+           12       11    JPM     JPMorgan Chase  332.38             883.5                878.8             0.995
+           13       16    WMT            Walmart  104.26             829.7                505.7             0.609
+           14       14      V               Visa  360.66             677.1                614.4             1.000
+           15       12    XOM        Exxon Mobil  164.01             674.4                673.1             0.998
+           16       15   INTC              Intel  119.33             630.8                551.2             0.874
+           17       13    JNJ  Johnson & Johnson  256.03             617.0                616.0             0.998
+           18       17     MA         Mastercard  552.26             483.8                479.6             0.999
+           19       18   ABBV             AbbVie  262.82             464.4                463.6             0.998
+           20       21   PLTR           Palantir  188.75             453.6                398.3             0.917
+           21       19   CSCO              Cisco  112.20             442.4                441.6             0.998
+           22       31   ORCL             Oracle  142.30             431.4                264.6             0.613
+           23       20   COST             Costco  920.65             408.1                407.3             0.998
+           24       22    CVX            Chevron  206.69             405.4                386.2             0.953
+           25       23    BAC    Bank of America   53.75             375.9                374.4             0.996
+           26       27     KO          Coca-Cola   85.65             368.5                331.8             0.900
+           27       24    MRK              Merck  144.30             356.0                355.4             0.998
+           28       25     PG   Procter & Gamble  144.91             336.6                336.2             0.999
+           29       26    UNH       UnitedHealth  371.90             333.8                332.9             0.997
+           30       28     GE   General Electric  309.56             321.2                320.0             0.996
+           31       29     HD         Home Depot  282.85             282.2                281.7             0.998
+           32       30   NFLX            Netflix   67.06             279.2                277.3             0.993
+           33       32    WFC        Wells Fargo   80.45             243.3                242.6             0.997
+           34       33      C          Citigroup  128.50             215.6                214.9             0.997
+           35       34    IBM                IBM  222.64             209.8                209.3             0.998
+           36       36    CRM         Salesforce  234.69             193.1                187.2             0.969
+           37       35     VZ            Verizon   45.92             190.8                190.5             0.999
+           38       37    DIS             Disney  102.19             176.5                176.2             0.998
+           39       38    PEP            PepsiCo  125.89             172.0                171.4             0.997
+           40       39      T               AT&T   24.30             166.5                166.2             0.998
+           41       40    MCD         McDonald's  231.89             164.1                163.8             0.999
+           42       41    PFE             Pfizer   27.80             158.5                158.2             0.999
+           43       42     BA             Boeing  193.56             153.0                152.7             0.998
+           44       43   ADBE              Adobe  237.69              94.5                 92.2             0.976
+           45       44  CMCSA            Comcast   21.57              76.5                 75.7             0.992
+           46       46    NKE               Nike   33.87              50.2                 39.9             0.979
+           47       45   PYPL             PayPal   52.80              45.2                 45.1             0.998
+
+Ranking by free-float market cap:
+   rank_total  rank_ff ticker            company   price  market_cap ($bn)  ff_market_cap ($bn)  float/shares_out
+            1        1   NVDA             NVIDIA  233.95            5649.2               5411.9             0.958
+            2        2   AAPL              Apple  333.69            4869.9               4861.6             0.998
+            4        3   MSFT          Microsoft  517.53            3842.9               3837.3             0.999
+            3        4  GOOGL           Alphabet  343.50            4201.0               3737.1             1.854
+            5        5   AMZN             Amazon  251.52            2713.0               2467.6             0.910
+            7        6   AVGO           Broadcom  355.14            1695.3               1674.7             0.988
+            6        7   META     Meta Platforms  728.08            1854.8               1603.1             0.998
+            8        8   TSLA              Tesla  370.59            1463.7               1044.8             0.714
+           10        9    AMD                AMD  633.91            1034.8               1029.2             0.995
+           11       10    LLY          Eli Lilly 1142.85            1019.1               1015.9             0.997
+           12       11    JPM     JPMorgan Chase  332.38             883.5                878.8             0.995
+           15       12    XOM        Exxon Mobil  164.01             674.4                673.1             0.998
+           17       13    JNJ  Johnson & Johnson  256.03             617.0                616.0             0.998
+           14       14      V               Visa  360.66             677.1                614.4             1.000
+           16       15   INTC              Intel  119.33             630.8                551.2             0.874
+           13       16    WMT            Walmart  104.26             829.7                505.7             0.609
+           18       17     MA         Mastercard  552.26             483.8                479.6             0.999
+           19       18   ABBV             AbbVie  262.82             464.4                463.6             0.998
+           21       19   CSCO              Cisco  112.20             442.4                441.6             0.998
+           23       20   COST             Costco  920.65             408.1                407.3             0.998
+           20       21   PLTR           Palantir  188.75             453.6                398.3             0.917
+           24       22    CVX            Chevron  206.69             405.4                386.2             0.953
+           25       23    BAC    Bank of America   53.75             375.9                374.4             0.996
+           27       24    MRK              Merck  144.30             356.0                355.4             0.998
+           28       25     PG   Procter & Gamble  144.91             336.6                336.2             0.999
+           29       26    UNH       UnitedHealth  371.90             333.8                332.9             0.997
+           26       27     KO          Coca-Cola   85.65             368.5                331.8             0.900
+           30       28     GE   General Electric  309.56             321.2                320.0             0.996
+           31       29     HD         Home Depot  282.85             282.2                281.7             0.998
+           32       30   NFLX            Netflix   67.06             279.2                277.3             0.993
+           22       31   ORCL             Oracle  142.30             431.4                264.6             0.613
+           33       32    WFC        Wells Fargo   80.45             243.3                242.6             0.997
+           34       33      C          Citigroup  128.50             215.6                214.9             0.997
+           35       34    IBM                IBM  222.64             209.8                209.3             0.998
+           37       35     VZ            Verizon   45.92             190.8                190.5             0.999
+           36       36    CRM         Salesforce  234.69             193.1                187.2             0.969
+           38       37    DIS             Disney  102.19             176.5                176.2             0.998
+           39       38    PEP            PepsiCo  125.89             172.0                171.4             0.997
+           40       39      T               AT&T   24.30             166.5                166.2             0.998
+           41       40    MCD         McDonald's  231.89             164.1                163.8             0.999
+           42       41    PFE             Pfizer   27.80             158.5                158.2             0.999
+           43       42     BA             Boeing  193.56             153.0                152.7             0.998
+           44       43   ADBE              Adobe  237.69              94.5                 92.2             0.976
+           45       44  CMCSA            Comcast   21.57              76.5                 75.7             0.992
+           47       45   PYPL             PayPal   52.80              45.2                 45.1             0.998
+           46       46    NKE               Nike   33.87              50.2                 39.9             0.979
+            9       47  BRK-B Berkshire Hathaway  502.65            1076.0                  0.6             0.001
+
+====================================================================================================
+FILE: tweets_full  (data\raw\tweets\full_dataset-release.csv, 236 MB)
+====================================================================================================
+Rows: 862,231
+
+Columns:
+                     dtype  % missing
+  Unnamed: 0           int       0.00
+  TWEET               text       0.00
+  STOCK               text       0.00
+  DATE                text       0.00
+  LAST_PRICE         float       0.00
+  1_DAY_RETURN       float       0.00
+  2_DAY_RETURN       float       0.00
+  3_DAY_RETURN       float       0.00
+  7_DAY_RETURN       float       0.00
+  PX_VOLUME          float       0.00
+  VOLATILITY_10D     float       0.00
+  VOLATILITY_30D     float       0.02
+  LSTM_POLARITY        int       0.00
+  TEXTBLOB_POLARITY  float       0.00
+
+Dates (column 'DATE'):
+  formats:        {'DD/MM/YYYY': 862231}
+  day-first check: max of 1st field = 31, of 2nd field = 12  (1st > 12 confirms DD/MM)
+  timezone:       none (naive dates)
+  range (local):  2017-01-31 00:00:00 -> 2018-10-31 00:00:00
+  weekend dates:  21.5% of rows
+
+Tickers/companies (column 'STOCK'): 101 unique
+  top 10: {'Facebook': 121285, 'Ford': 93958, 'Nike': 70224, 'Next': 66868, 'Google': 63675, 'Apple': 63543, 'Amazon': 51902, 'Netflix': 51040, 'Disney': 37763, 'eBay': 26144}
+
+Duplicate texts (column 'TWEET'):
+  same text:                 315,333 rows (36.6%) repeat an earlier text
+  same text + ticker:        314,431 rows (36.5%)
+  same text + ticker + date: 280,653 rows (32.5%)
+
+5 example rows (random, seed 0):
+  Unnamed: 0                                                                                                                                 TWEET   STOCK       DATE LAST_PRICE           1_DAY_RETURN          2_DAY_RETURN          3_DAY_RETURN           7_DAY_RETURN  PX_VOLUME VOLATILITY_10D     VOLATILITY_30D LSTM_POLARITY TEXTBLOB_POLARITY
+      249673 RT esarmarbo1972 "Hyundai Genesis (2015): #Hyundai Wheels: 19 x 8. 5J Front &amp; 19 x 9J Rear Power Heated… https://t.co/YB3OPBZt8X" Hyundai 01/09/2017   143000.0  -0.017482517482517484                   0.0  0.006993006993006993    0.01048951048951049   541048.0         18.781             23.621            -1               0.0
+       57401            RT @herbalgirl98: Check out 4.5” INCH Orange TOBACCO Smoking Pipe Herb Bowl Glass Hand Pipes https://t.co/wpR5mIlypl @eBay    eBay 12/09/2018      34.26  -0.004378283712784547  -0.01605370694687674 -0.007880910683012143 -0.0037945125510798435  6035857.0         17.333 14.620999999999999            -1               0.0
+      621163                                                       RT @Tmillerpoetry: Nike about to be be the only N word white people stop saying    Nike 04/09/2018       79.6    0.03266331658291468   0.03266331658291468   0.03266331658291468    0.03743718592964829 18565837.0         20.517             20.153            -1               0.0
+      735082                                                                          RT @kawaljit: Google Maps on CarPlay https://t.co/NWmXDZq7e0  Google 19/09/2018    1174.27 -0.0060974051964199725 -0.012297001541383204  0.003159409675798612 -0.0022737530550896072  1298084.0          16.51             16.828             1               0.0
+      413154                                 I really want a Apple Watch band  with cupcakes on it. Is that a thing?  #applelifestyle #cupcakelife   Apple 05/08/2018     207.99                    0.0                   0.0  -0.00288475407471524   -0.08178277801817405 33447396.0         35.301             23.559             1               0.2
+
+====================================================================================================
+FILE: tweets_reduced  (data\raw\tweets\reduced_dataset-release.csv, 23 MB)
+====================================================================================================
+Rows: 85,176
+
+Columns:
+                     dtype  % missing
+  Unnamed: 0           int       0.00
+  TWEET               text       0.00
+  STOCK               text       0.00
+  DATE                text       0.00
+  LAST_PRICE         float       0.00
+  1_DAY_RETURN       float       0.00
+  2_DAY_RETURN       float       0.00
+  3_DAY_RETURN       float       0.00
+  7_DAY_RETURN       float       0.00
+  PX_VOLUME          float       0.00
+  VOLATILITY_10D     float       0.00
+  VOLATILITY_30D     float       0.02
+  LSTM_POLARITY        int       0.00
+  TEXTBLOB_POLARITY  float       0.00
+  MENTION             text       0.00
+
+Dates (column 'DATE'):
+  formats:        {'DD/MM/YYYY': 85176}
+  day-first check: max of 1st field = 31, of 2nd field = 12  (1st > 12 confirms DD/MM)
+  timezone:       none (naive dates)
+  range (local):  2017-01-31 00:00:00 -> 2018-10-31 00:00:00
+  weekend dates:  18.9% of rows
+
+Tickers/companies (column 'STOCK'): 100 unique
+  top 10: {'Nike': 12888, 'eBay': 12811, 'Reuters': 8193, 'Netflix': 7037, 'Apple': 5008, 'Amazon': 4950, 'Google': 2913, 'Starbucks': 2082, 'Facebook': 2026, 'Disney': 1934}
+
+Duplicate texts (column 'TWEET'):
+  same text:                 24,878 rows (29.2%) repeat an earlier text
+  same text + ticker:        23,976 rows (28.1%)
+  same text + ticker + date: 21,242 rows (24.9%)
+
+5 example rows (random, seed 0):
+  Unnamed: 0                                                                                                       TWEET      STOCK       DATE LAST_PRICE          1_DAY_RETURN          2_DAY_RETURN          3_DAY_RETURN           7_DAY_RETURN PX_VOLUME VOLATILITY_10D    VOLATILITY_30D LSTM_POLARITY TEXTBLOB_POLARITY    MENTION
+       28573                        @Reuters Stop spreading propaganda. Congress isn’t even in session, he’s LYING AGAIN    Reuters 22/10/2018    51.7568 -0.008085894027451497 -0.008085894027451497 -0.008085894027451497   -0.03128284592555946 1111772.0         26.885            23.505            -1              -0.1   @Reuters
+       11542                                                                               RT @amazon: Party on @jmgr24!     Amazon 31/07/2017     987.78   0.03265909413027192   0.03265909413027192   0.03265909413027192   0.051803033064042665 7352063.0         24.818            20.674            -1               0.0    @amazon
+       55503 @Nike Like 90 percent dont even know what the issue is nike you are caulmny incarnate may you run to  Jesus       Nike 09/09/2018       80.3                   0.0                   0.0 0.0012453300124534064   0.023661270236612773 6633912.0         21.364            18.219             1               0.0      @Nike
+       30017           RT @TMobile: Tweet with #HR4HR and we'll donate $2 to hurricane recovery! https://t.co/1E01MHniRM    TMobile 24/10/2018      65.71    0.0543296301932736   0.05782985846903078    0.0614822705828642    0.05128595343174562 5758791.0         38.575 25.22300000000001            -1               0.0   @TMobile
+        2030                                 RT @trvo512: are you fucking kidding me? @McDonalds https://t.co/YgNCoLqJhr McDonald's 01/02/2017     122.42 0.0012252899852964506  0.004901159941186034 0.0035941839568697743 -0.0051462179382453475 3233576.0          7.607             9.573            -1              -0.6 @McDonalds
+
+====================================================================================================
+FILE: raw_partner_headlines  (data\raw\news\raw_partner_headlines.csv, 401 MB)
+====================================================================================================
+Rows: 1,845,559
+
+Columns:
+             dtype  % missing
+  Unnamed: 0   int        0.0
+  headline    text        0.0
+  url         text        0.0
+  publisher   text        0.0
+  date        text        0.0
+  stock       text        0.0
+
+Dates (column 'date'):
+  formats:        {'YYYY-MM-DD HH:MM:SS': 1845559}
+  timezone:       none (naive dates)
+  range (local):  1969-12-31 00:00:00 -> 2020-06-04 00:00:00
+  time of day:    1,845,559 rows have a time; 100.0% are exactly 00:00:00, 100.0% have seconds == 00
+  weekend dates:  6.0% of rows
+
+Tickers/companies (column 'stock'): 6,552 unique
+  top 10: {'KR': 3314, 'GXC': 3238, 'PGJ': 3082, 'YINN': 3027, 'JPM': 2873, 'FXP': 2854, 'XPP': 2806, 'FCAU': 2765, 'CHN': 2698, 'JWN': 2690}
+
+Publishers: 21 unique; top 10: {'Seeking Alpha': 897219, 'Zacks': 438107, 'GuruFocus': 212433, "Investor's Business Daily": 134890, 'webmaster': 59669, 'TalkMarkets': 27209, 'Traders Huddle': 16484, 'TheStreet.Com': 16023, 'Vetr': 10866, 'Small Cap Network': 8059}
+
+Duplicate texts (column 'headline'):
+  same text:                 1,038,561 rows (56.3%) repeat an earlier text
+  same text + ticker:        125,730 rows (6.8%)
+  same text + ticker + date: 22,843 rows (1.2%)
+
+5 example rows (random, seed 0):
+  Unnamed: 0                                                                                           headline                                                                                                                                                                                   url     publisher                date stock
+     1028155                                                                    Wall Street Breakfast: Jobs Day                                                                                       https://seekingalpha.com/article/4301333-wall-street-breakfast-jobs-day?source=partner_benzinga Seeking Alpha 2019-11-01 00:00:00   MAR
+      414231 15% Recession Probability In The Next 6 To 12 Months (Turning Points For The Week Of December 2-6) https://seekingalpha.com/article/4311609-15-recession-probability-in-next-6-to-12-months-turning-points-for-week-of-december-2minus-6?utm_source=partner_&utm_medium=referralbenzinga Seeking Alpha 2019-12-10 00:00:00   DDM
+      507015                                                         2019 Outlook: Be More Active And Selective                                                                                        https://seekingalpha.com/article/4227524-2019-outlook-active-selective?source=partner_benzinga Seeking Alpha 2018-12-11 00:00:00   EFV
+     1705126                                                                          Listen When Markets Speak                                                                                                 https://seekingalpha.com/article/4305318-listen-markets-speak?source=partner_benzinga Seeking Alpha 2019-11-11 00:00:00  VGIT
+       57589                                                       MYL, GLUU, SEDG and CRAY among midday movers                                                                                  https://seekingalpha.com/news/3460027-myl-gluu-sedg-cray-among-midday-movers?source=partner_benzinga Seeking Alpha 2019-05-07 00:00:00  AKRX
+
+====================================================================================================
+FILE: raw_analyst_ratings  (data\raw\news\raw_analyst_ratings.csv, 328 MB)
+====================================================================================================
+Rows: 1,407,328
+
+Columns:
+             dtype  % missing
+  Unnamed: 0   int        0.0
+  headline    text        0.0
+  url         text        0.0
+  publisher   text        0.0
+  date        text        0.0
+  stock       text        0.0
+
+Dates (column 'date'):
+  formats:        {'YYYY-MM-DD HH:MM:SS': 1351341, 'YYYY-MM-DD HH:MM:SS+HH:MM': 55987}
+  timezone:       UTC offsets {'-04:00': 55987}
+  range (local):  2009-02-14 00:00:00 -> 2020-06-11 17:12:35
+  time of day:    1,407,328 rows have a time; 96.0% are exactly 00:00:00, 96.1% have seconds == 00
+  weekend dates:  1.7% of rows
+
+Tickers/companies (column 'stock'): 6,204 unique
+  top 10: {'MRK': 3333, 'MS': 3238, 'NVDA': 3146, 'MU': 3142, 'QQQ': 3106, 'NFLX': 3028, 'M': 3025, 'EBAY': 3018, 'GILD': 2968, 'VZ': 2966}
+
+Publishers: 1,034 unique; top 10: {'Paul Quintaro': 228373, 'Lisa Levin': 186979, 'Benzinga Newsdesk': 150484, 'Charles Gross': 96732, 'Monica Gerson': 82380, 'Eddie Staley': 57254, 'Hal Lindon': 49047, 'ETF Professor': 28489, 'Juan Lopez': 28438, 'Benzinga Staff': 28114}
+
+Duplicate texts (column 'headline'):
+  same text:                 561,558 rows (39.9%) repeat an earlier text
+  same text + ticker:        65,874 rows (4.7%)
+  same text + ticker + date: 11,355 rows (0.8%)
+
+5 example rows (random, seed 0):
+  Unnamed: 0                                                               headline                                                                                                              url     publisher                date stock
+      977009                       Benzinga's Top ETF Gainers (GAZ, AGQ, PALL, TMF)                  https://www.benzinga.com/etfs/bond-etfs/10/10/565243/benzingas-top-etf-gainers-gaz-agq-pall-tmf   Craig Jones 2010-10-29 00:00:00  PALL
+      876889                 Company News for November 19, 2009 - Corporate Summary                               https://www.benzinga.com/43556/company-news-for-november-19-2009-corporate-summary         Zacks 2009-11-19 00:00:00  MXIM
+     1204410 Wunderlich Downgrades Stryker Corporation to Hold, Maintains $71.00 PT https://www.benzinga.com/news/13/07/3766299/wunderlich-downgrades-stryker-corporation-to-hold-maintains-71-00-pt Paul Quintaro 2013-07-19 00:00:00   SYK
+       72362         Is the JP Morgan/Alerian MLP ETN Worth A Look (AMJ, NSH, KMP)?                      https://www.benzinga.com/nsh/20530/is-the-jp-morganalerian-mlp-etn-worth-a-look-amj-nsh-kmp  Eric Mancini 2009-10-05 00:00:00   AMJ
+      508469   Jefferies Maintains Hold on Finisar Corporation, Lowers PT to $16.50   https://www.benzinga.com/news/14/09/4827957/jefferies-maintains-hold-on-finisar-corporation-lowers-pt-to-16-50 Paul Quintaro 2014-09-05 00:00:00  FNSR
+
+====================================================================================================
+FILE: analyst_ratings_processed  (data\raw\news\analyst_ratings_processed.csv, 158 MB)
+====================================================================================================
+Rows: 1,399,180
+
+Columns:
+             dtype  % missing
+  Unnamed: 0   int        0.0
+  title       text        0.0
+  date        text        0.0
+  stock       text        0.0
+
+Dates (column 'date'):
+  formats:        {'YYYY-MM-DD HH:MM:SS+HH:MM': 1399180}
+  timezone:       UTC offsets {'-04:00': 908656, '-05:00': 490524}
+  range (local):  2009-02-14 14:02:00 -> 2020-06-11 17:12:00
+  time of day:    1,399,180 rows have a time; 0.0% are exactly 00:00:00, 100.0% have seconds == 00
+  weekend dates:  1.7% of rows
+
+Tickers/companies (column 'stock'): 6,192 unique
+  top 10: {'MRK': 3342, 'MS': 3244, 'MU': 3144, 'NVDA': 3136, 'QQQ': 3104, 'M': 3079, 'EBAY': 3021, 'NFLX': 3009, 'GILD': 2971, 'VZ': 2937}
+
+Duplicate texts (column 'title'):
+  same text:                 557,659 rows (39.9%) repeat an earlier text
+  same text + ticker:        65,680 rows (4.7%)
+  same text + ticker + date: 2,893 rows (0.2%)
+
+5 example rows (random, seed 0):
+  Unnamed: 0                                                                                                                                                                                                                title                      date stock
+     1072593                                                                                                                                                                           Morgan Keegan Raises PT On RadNet To $5.15 2011-05-16 08:52:00-04:00  RDNT
+      885123 IIF's Dallara: Impact from Greek Exit Could be Worse Than Lehman; Greek Exit Would Have Severe Impact on Spain and Italy; Markets and Europe are far from Ready for a Greek Exit; Contagion Effects Would be Immense 2012-05-16 08:26:00-04:00   NBG
+      747136                                                                                                                            Key Tronic Corporation Announces Plans To Establish New Manufacturing Facility In Vietnam 2018-12-27 09:02:00-05:00  KTCC
+     1038986                                                                                                                  Pluristem Therapeutics Announces Publication of Scientific Study of PLX Cells in 'Clinical Science' 2016-01-06 05:49:00-05:00  PSTI
+      985098                                                                                                                                                                            UPDATE: Pep Boys Says Max Lukens Resigned 2011-09-14 16:37:00-04:00   PBY
+
+====================================================================================================
+TWEETS: full vs reduced
+====================================================================================================
+Rows: full 862,231, reduced 85,176 (9.9% of full)
+Columns only in full:    []
+Columns only in reduced: ['MENTION']
+Date range: full 2017-01-31 -> 2018-10-31, reduced 2017-01-31 -> 2018-10-31
+Companies: full 101, reduced 100; only in full: ['Aviva']
+Reduced rows found in full (same tweet + company + date): 100.0%
+Tweets containing '@': reduced 100.0%, full rows not in reduced 70.3%
+Reduced MENTION column: filled in 100.0% of rows; the mention appears in the tweet text in 100.0% of those
+  most common mentions: {'@eBay': 13520, '@Nike': 12712, '@Reuters': 8689, '@netflix': 7043, '@amazon': 4949, '@Apple': 4842, '@Google': 2861, '@Starbucks': 2044, '@facebook': 1940, '@McDonalds': 1807}
+
+Rows per company (top 15 in full):
+               full  reduced  reduced/full %
+  Facebook   121285     2026             1.7
+  Ford        93958      607             0.6
+  Nike        70224    12888            18.4
+  Next        66868      183             0.3
+  Google      63675     2913             4.6
+  Apple       63543     5008             7.9
+  Amazon      51902     4950             9.5
+  Netflix     51040     7037            13.8
+  Disney      37763     1934             5.1
+  eBay        26144    12811            49.0
+  Starbucks   15258     2082            13.6
+  Walmart     14511     1336             9.2
+  Reuters     13464     8193            60.9
+  Samsung     12071      202             1.7
+  Microsoft   11356      905             8.0
+
+====================================================================================================
+TWEETS (full): value ranges
+====================================================================================================
+                        min           p1         median             p99              max     median |x|  missing
+  LAST_PRICE         3.0100       9.2300       164.4600     45,150.0000     165,500.0000       164.4600        0
+  1_DAY_RETURN      -0.1467      -0.0421         0.0000          0.0559           0.2340         0.0051        0
+  2_DAY_RETURN      -0.1736      -0.0548         0.0000          0.0692           0.2436         0.0094        0
+  3_DAY_RETURN      -0.1779      -0.0580         0.0000          0.0777           0.2436         0.0124        0
+  7_DAY_RETURN      -0.2050      -0.0827        -0.0007          0.1806           0.2671         0.0228        0
+  PX_VOLUME          1.0000 257,866.0000 9,367,454.0000 74,488,637.0000 314,833,202.0000 9,367,454.0000        0
+  VOLATILITY_10D     0.6190       6.5650        20.4490        118.0750         124.1370        20.4490        0
+  VOLATILITY_30D     4.5250       9.5350        22.1740         69.0870          87.6850        22.1740      146
+  LSTM_POLARITY     -1.0000      -1.0000         1.0000          1.0000           1.0000         1.0000        0
+  TEXTBLOB_POLARITY -1.0000      -0.7000         0.0000          1.0000           1.0000         0.0000        4
+
+Returns look like: {'1_DAY_RETURN': 'fractions', '2_DAY_RETURN': 'fractions', '3_DAY_RETURN': 'fractions', '7_DAY_RETURN': 'fractions'}  (median |1-day return| = 0.0051)
+LSTM_POLARITY values: {1: 487120, -1: 375111}
+
+====================================================================================================
+TWEETS (full): what the return and volatility columns measure
+====================================================================================================
+Stock-days: 7,128. Distinct tweet dates: 121 (88 weekdays) out of 457 weekdays in the date range.
+  dates per month: {'2017-01': 1, '2017-02': 2, '2017-03': 2, '2017-04': 3, '2017-05': 1, '2017-06': 2, '2017-07': 2, '2017-08': 2, '2017-09': 3, '2017-10': 1, '2017-11': 2, '2017-12': 3, '2018-07': 21, '2018-08': 31, '2018-09': 30, '2018-10': 15}
+  The checks below compare only truly consecutive weekdays, so sparse dates mean few pairs.
+Share of stock-days where a column takes more than one value across that day's tweets:
+  {'LAST_PRICE': 0.0, '1_DAY_RETURN': 0.0, '2_DAY_RETURN': 0.0, '3_DAY_RETURN': 0.0, '7_DAY_RETURN': 0.0, 'VOLATILITY_10D': 0.0, 'VOLATILITY_30D': 0.0} (%)
+
+Return alignment: % of stock-days where the column equals the LAST_PRICE change over k trading days
+        column direction  k (trading days)  pairs  match %
+  1_DAY_RETURN  backward                 1   5364      3.5
+  1_DAY_RETURN   forward                 1   5364      1.5
+  2_DAY_RETURN  backward                 1   5364      2.4
+  2_DAY_RETURN  backward                 2   4364      1.4
+  3_DAY_RETURN  backward                 1   5364      2.1
+  3_DAY_RETURN   forward                 1   5364      0.8
+  7_DAY_RETURN   forward                 3   3971      0.6
+  7_DAY_RETURN  backward                 5   3464      0.6
+
+Volatility: reported vs realised volatility computed from LAST_PRICE (std of daily log returns x sqrt(252) x 100):
+          column                   window tested  pairs  correlation  median |diff|  median reported  median computed
+  VOLATILITY_10D  trailing, ending on tweet date   2799        0.956           1.08            17.33            17.15
+  VOLATILITY_10D trailing, ending the day before   2700        0.880           1.59            17.42            17.11
+  VOLATILITY_10D       forward, after tweet date   2799        0.226           5.73            17.20            17.15
+  VOLATILITY_30D  trailing, ending on tweet date   1322        0.946           0.57            18.27            17.84
+  VOLATILITY_30D trailing, ending the day before   1272        0.922           0.65            18.18            17.79
+  VOLATILITY_30D       forward, after tweet date   1322        0.259           5.06            21.18            17.84
+
+====================================================================================================
+TWEETS (reduced): value ranges
+====================================================================================================
+                        min         p1         median             p99              max     median |x|  missing
+  LAST_PRICE         3.0100     9.8100        79.9200      6,288.0000     165,500.0000        79.9200        0
+  1_DAY_RETURN      -0.1467    -0.0379         0.0000          0.0586           0.2340         0.0055        0
+  2_DAY_RETURN      -0.1736    -0.0526         0.0008          0.0814           0.2436         0.0100        0
+  3_DAY_RETURN      -0.1779    -0.0550         0.0028          0.0963           0.2436         0.0120        0
+  7_DAY_RETURN      -0.2050    -0.0739         0.0033          0.1569           0.2671         0.0207        0
+  PX_VOLUME          1.0000 2,182.0000 7,612,884.0000 58,597,487.0000 308,106,768.0000 7,612,884.0000        0
+  VOLATILITY_10D     2.3680     6.1030        20.5170         80.4470         124.1370        20.5170        0
+  VOLATILITY_30D     4.5250     8.7280        19.2390         60.2660          74.3550        19.2390       14
+  LSTM_POLARITY     -1.0000    -1.0000         1.0000          1.0000           1.0000         1.0000        0
+  TEXTBLOB_POLARITY -1.0000    -0.7764         0.0000          1.0000           1.0000         0.0000        3
+
+Returns look like: {'1_DAY_RETURN': 'fractions', '2_DAY_RETURN': 'fractions', '3_DAY_RETURN': 'fractions', '7_DAY_RETURN': 'fractions'}  (median |1-day return| = 0.0055)
+LSTM_POLARITY values: {1: 46927, -1: 38249}
+
+====================================================================================================
+NEWS: comparison of the three files
+====================================================================================================
+                       file      rows                               columns               date range UTC offset  time is 00:00:00 % tickers publishers  dup text+ticker %
+      raw_partner_headlines 1,845,559 headline, url, publisher, date, stock 1969-12-31 -> 2020-06-04         no               100.0   6,552         21                6.8
+        raw_analyst_ratings 1,407,328 headline, url, publisher, date, stock 2009-02-14 -> 2020-06-11        yes                96.0   6,204      1,034                4.7
+  analyst_ratings_processed 1,399,180                    title, date, stock 2009-02-14 -> 2020-06-11        yes                 0.0   6,192          -                4.7
+
+Overlap (share of unique headline+ticker pairs in the first file also found in the second):
+  analyst_ratings_processed in raw_analyst_ratings: 97.6%
+  raw_analyst_ratings in analyst_ratings_processed: 97.0%
+  raw_partner_headlines in raw_analyst_ratings:     0.2%
+  (headline only) partner in analyst:               0.3%
+
+====================================================================================================
+CANDIDATE POOL: tweet and news coverage per company
+====================================================================================================
+'in window' = rows dated within the tweets' date range (2017-01-31 -> 2018-10-31).
+  ticker  rank_total  rank_ff            company  tweets_full  tweets_reduced  partner  partner_in_window  analyst  analyst_in_window  processed  processed_in_window
+    NVDA           1        1             NVIDIA            0               0        0                  0     3146                998       3136                  985
+    AAPL           2        2              Apple        63543            5008       32                  0      441                  0        469                    0
+    MSFT           4        3          Microsoft        11356             905        0                  0        0                  0          0                    0
+   GOOGL           3        4           Alphabet        63675            2913      180                  0     2778                209       2794                  207
+    AMZN           5        5             Amazon        51902            4950        0                  0      278                  0        330                    0
+    AVGO           7        6           Broadcom            0               0     2488               1206     1661                496       1647                  474
+    META           6        7     Meta Platforms       121285            2026       53                  0      380                  0        389                    0
+    TSLA           8        8              Tesla            0               0        0                  0     1875                  0       1930                    0
+     AMD          10        9                AMD            0               0        0                  0      250                  0        250                    0
+     LLY          11       10          Eli Lilly            0               0     1121                  0     2417                469       2401                  452
+     JPM          12       11     JPMorgan Chase          687             138     2873                262       10                  0         10                    0
+     XOM          15       12        Exxon Mobil          888             107        5                  0      584                 66        593                   66
+     JNJ          17       13  Johnson & Johnson            0               0        0                  0     2928                508       2930                  495
+       V          14       14               Visa         3042              86       28                  0       10                  0         10                    0
+    INTC          16       15              Intel        10931             376     2465                 55       10                  0         10                    0
+     WMT          13       16            Walmart        14511            1336        1                  0       10                  0         10                    0
+      MA          18       17         Mastercard          733             259        8                  0     2152                262       2190                  256
+    ABBV          19       18             AbbVie            0               0      214                  0      539                186        539                  186
+    CSCO          21       19              Cisco         2146             349      508                  0     1010                425       1003                  418
+    COST          23       20             Costco         2511             100        0                  0        0                  0          0                    0
+    PLTR          20       21           Palantir            0               0        0                  0        0                  0          0                    0
+     CVX          24       22            Chevron          557              51        0                  0        0                  0          0                    0
+     BAC          25       23    Bank of America          205             205        5                  0     1806                504       1796                  493
+     MRK          27       24              Merck            0               0        2                  0     3333                618       3342                  606
+      PG          28       25   Procter & Gamble           97              97        7                  0     1305                366       1303                  366
+     UNH          29       26       UnitedHealth            0               0      170                  0      230                  0        230                    0
+      KO          26       27          Coca-Cola          451             405       77                  0     2797                365       2789                  362
+      GE          30       28   General Electric           55              55        0                  0        0                  0          0                    0
+      HD          31       29         Home Depot          132             132     1841                431     2612                375       2617                  369
+    NFLX          32       30            Netflix        51040            7037        0                  0     3028               1360       3009                 1344
+    ORCL          22       31             Oracle         2615             234        6                  0     2701                374       2697                  367
+     WFC          33       32        Wells Fargo          341             341        0                  0     2612                580       2613                  575
+       C          34       33          Citigroup          489             126        0                  0     1021                480       1008                  467
+     IBM          35       34                IBM         3350             499        2                  0     1090                515       1083                  508
+      VZ          37       35            Verizon         2557             449        6                  0     2966                633       2937                  607
+     CRM          36       36         Salesforce          307             307        5                  0     1483                492       1476                  487
+     DIS          38       37             Disney        37763            1934      933                  0       10                  0         10                    0
+     PEP          39       38            PepsiCo         2519             340       10                  0     2141                360       2133                  356
+       T          40       39               AT&T         1292            1291        4                  0       10                  0         10                    0
+     MCD          41       40         McDonald's         8192            1804        8                  0     2228                428       2208                  420
+     PFE          42       41             Pfizer          654              77        0                  0     1821                682       1798                  662
+      BA          43       42             Boeing         2504             196        0                  0       10                  0         10                    0
+    ADBE          44       43              Adobe         1936             182      127                  0     1999                319       1994                  311
+   CMCSA          45       44            Comcast         1629             391        8                  0     1857                579       1848                  572
+    PYPL          47       45             PayPal         6991             432        0                  0        0                  0          0                    0
+     NKE          46       46               Nike        70224           12888        0                  0        0                  0          0                    0
+   BRK-B           9       47 Berkshire Hathaway            0               0        0                  0      687                150          0                    0
+
+Symbol aliases found in the news files (rows per symbol):
+  GOOGL  Alphabet             {'raw_partner_headlines': {'GOOGL': 175, 'GOOG': 5}, 'raw_analyst_ratings': {'GOOGL': 1579, 'GOOG': 1199}, 'analyst_ratings_processed': {'GOOGL': 1585, 'GOOG': 1209}}
+  META   Meta Platforms       {'raw_partner_headlines': {'FB': 53}, 'raw_analyst_ratings': {'FB': 380}, 'analyst_ratings_processed': {'FB': 389}}
+  BRK-B  Berkshire Hathaway   {'raw_partner_headlines': {}, 'raw_analyst_ratings': {'BRK.B': 348, 'BRK.A': 339}, 'analyst_ratings_processed': {}}
