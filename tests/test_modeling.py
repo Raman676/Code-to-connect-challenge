@@ -45,6 +45,19 @@ def test_majority_baseline_and_metrics():
     assert 0 < m["imp_f1"] < 1
 
 
+def test_random_baselines():
+    y_train = [10] * 80 + [1] * 20
+    uniform = md.RandomBaseline("uniform", seed=1).fit(None, y_train)
+    stratified = md.RandomBaseline("stratified", seed=1).fit(None, y_train)
+    assert np.allclose(uniform.freq_, 1 / 6)
+    assert dict(zip(stratified.classes_, stratified.freq_)) == {1: 0.2, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 10: 0.8}
+    proba = stratified.predict_proba(np.zeros(5000))
+    assert (proba.sum(axis=1) == 1).all()                               # one-hot draws
+    share_10 = proba[:, list(stratified.classes_).index(10)].mean()
+    assert abs(share_10 - 0.8) < 0.03
+    assert (proba == md.RandomBaseline("stratified", seed=1).fit(None, y_train).predict_proba(np.zeros(5000))).all()
+
+
 def test_tfidf_model_learns_and_tune_picks_a_C():
     texts = ["profit beats record growth"] * 20 + ["loss warning layoffs cut"] * 20
     y = [10] * 20 + [1] * 20

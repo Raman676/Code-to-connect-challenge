@@ -1,4 +1,4 @@
-Model report - generated 2026-10-04 18:22 by src/run_model.py
+Model report - generated 2026-10-04 19:19 by src/run_model.py
 scikit-learn 1.9.1, torch 2.14.1+cpu, transformers 5.18.0; FinBERT: yiyanghkust/finbert-tone (mean-pooled last layer, max 64 tokens, no fine-tuning)
 C grid [0.01, 0.03, 0.1, 0.3, 1, 3, 10]; selection by validation impact macro-F1; seed 0
 
@@ -34,16 +34,23 @@ Masking examples (original -> model input):
 ====================================================================================================
 VALIDATION METRICS (used to choose C and the best model)
 ====================================================================================================
-  experiment      model     C    scored on  sent_acc  sent_f1  imp_acc  imp_f1
-      tweets   majority   NaN val (tweets)     0.603    0.376    0.423   0.099
-      tweets   tfidf_lr 3.000 val (tweets)     0.497    0.483    0.219   0.158
-      tweets finbert_lr 1.000 val (tweets)     0.491    0.484    0.182   0.156
-        news   majority   NaN   val (news)     0.502    0.334    0.348   0.086
-        news   tfidf_lr 3.000   val (news)     0.570    0.570    0.275   0.179
-        news finbert_lr 0.010   val (news)     0.577    0.577    0.195   0.163
-    combined   majority   NaN   val (both)     0.542    0.352    0.378   0.091
-    combined   tfidf_lr 1.000   val (both)     0.544    0.543    0.241   0.179
-    combined finbert_lr 0.010   val (both)     0.558    0.557    0.185   0.159
+  experiment             model     C    scored on  sent_acc  sent_f1  imp_acc  imp_f1
+      tweets          majority   NaN val (tweets)     0.603    0.376    0.423   0.099
+      tweets          tfidf_lr 3.000 val (tweets)     0.497    0.483    0.219   0.158
+      tweets        finbert_lr 1.000 val (tweets)     0.491    0.484    0.182   0.156
+      tweets    uniform_random   NaN val (tweets)     0.500    0.495    0.167   0.146
+      tweets stratified_random   NaN val (tweets)     0.520    0.501    0.259   0.166
+        news          majority   NaN   val (news)     0.502    0.334    0.348   0.086
+        news          tfidf_lr 3.000   val (news)     0.570    0.570    0.275   0.179
+        news        finbert_lr 0.010   val (news)     0.577    0.577    0.195   0.163
+        news    uniform_random   NaN   val (news)     0.501    0.501    0.167   0.141
+        news stratified_random   NaN   val (news)     0.499    0.499    0.280   0.167
+    combined          majority   NaN   val (both)     0.542    0.352    0.378   0.091
+    combined          tfidf_lr 1.000   val (both)     0.544    0.543    0.241   0.179
+    combined        finbert_lr 0.010   val (both)     0.558    0.557    0.185   0.159
+    combined    uniform_random   NaN   val (both)     0.501    0.500    0.167   0.144
+    combined stratified_random   NaN   val (both)     0.504    0.500    0.267   0.167
+(uniform_random / stratified_random: averages over 100 random draws)
 
 Best model per source (highest validation impact macro-F1): {'tweets': 'tfidf_lr', 'news': 'tfidf_lr'}
 
@@ -52,39 +59,55 @@ TEST METRICS (sentiment and impact, vs majority baseline)
 ====================================================================================================
 
 TWEETS test set (2,130 rows):
-  experiment      model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
-      tweets   majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
-      tweets   tfidf_lr 3.000     0.507    0.505    0.231   0.162             0.013            0.175           -0.008           0.097
-      tweets finbert_lr 1.000     0.497    0.497    0.155   0.136             0.003            0.167           -0.084           0.071
-    combined   majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
-    combined   tfidf_lr 1.000     0.492    0.484    0.170   0.149            -0.002            0.154           -0.069           0.085
-    combined finbert_lr 0.010     0.498    0.494    0.127   0.128             0.004            0.164           -0.111           0.064
+  experiment             model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
+      tweets          majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
+      tweets          tfidf_lr 3.000     0.507    0.505    0.231   0.162             0.013            0.175           -0.008           0.097
+      tweets        finbert_lr 1.000     0.497    0.497    0.155   0.136             0.003            0.167           -0.084           0.071
+      tweets    uniform_random   NaN     0.499    0.499    0.167   0.147             0.006            0.169           -0.072           0.083
+      tweets stratified_random   NaN     0.500    0.496    0.225   0.158             0.006            0.166           -0.014           0.094
+    combined          majority   NaN     0.494    0.331    0.238   0.064             0.000            0.000            0.000           0.000
+    combined          tfidf_lr 1.000     0.492    0.484    0.170   0.149            -0.002            0.154           -0.069           0.085
+    combined        finbert_lr 0.010     0.498    0.494    0.127   0.128             0.004            0.164           -0.111           0.064
+    combined    uniform_random   NaN     0.499    0.499    0.167   0.147             0.006            0.169           -0.072           0.083
+    combined stratified_random   NaN     0.500    0.499    0.243   0.160             0.006            0.169            0.005           0.096
 
 NEWS test set (3,096 rows):
-  experiment      model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
-        news   majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
-        news   tfidf_lr 3.000     0.609    0.609    0.312   0.197             0.098            0.270           -0.051           0.108
-        news finbert_lr 0.010     0.599    0.599    0.210   0.173             0.088            0.261           -0.153           0.084
-    combined   majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
-    combined   tfidf_lr 1.000     0.597    0.595    0.309   0.188             0.085            0.257           -0.053           0.100
-    combined finbert_lr 0.010     0.594    0.594    0.238   0.183             0.083            0.256           -0.124           0.094
+  experiment             model     C  sent_acc  sent_f1  imp_acc  imp_f1  sent_acc vs base  sent_f1 vs base  imp_acc vs base  imp_f1 vs base
+        news          majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
+        news          tfidf_lr 3.000     0.609    0.609    0.312   0.197             0.098            0.270           -0.051           0.108
+        news        finbert_lr 0.010     0.599    0.599    0.210   0.173             0.088            0.261           -0.153           0.084
+        news    uniform_random   NaN     0.500    0.499    0.167   0.140            -0.012            0.161           -0.195           0.051
+        news stratified_random   NaN     0.500    0.500    0.285   0.166            -0.011            0.161           -0.078           0.077
+    combined          majority   NaN     0.511    0.338    0.363   0.089             0.000            0.000            0.000           0.000
+    combined          tfidf_lr 1.000     0.597    0.595    0.309   0.188             0.085            0.257           -0.053           0.100
+    combined        finbert_lr 0.010     0.594    0.594    0.238   0.183             0.083            0.256           -0.124           0.094
+    combined    uniform_random   NaN     0.500    0.499    0.167   0.140            -0.012            0.161           -0.195           0.051
+    combined stratified_random   NaN     0.501    0.500    0.276   0.166            -0.010            0.161           -0.087           0.077
 
 ====================================================================================================
 COMPANY-DAY LEVEL (test): mean sentiment score per company-day vs that day's label
 ====================================================================================================
-  experiment      model source  company-days  day_sent_acc  day_sent_f1
-      tweets   majority tweets           155         0.510        0.338
-      tweets   tfidf_lr tweets           155         0.561        0.553
-      tweets finbert_lr tweets           155         0.413        0.413
-        news   majority   news           931         0.470        0.320
-        news   tfidf_lr   news           931         0.699        0.695
-        news finbert_lr   news           931         0.702        0.700
-    combined   majority tweets           155         0.510        0.338
-    combined   majority   news           931         0.470        0.320
-    combined   tfidf_lr tweets           155         0.510        0.450
-    combined   tfidf_lr   news           931         0.698        0.693
-    combined finbert_lr tweets           155         0.458        0.432
-    combined finbert_lr   news           931         0.685        0.680
+  experiment             model source  company-days  day_sent_acc  day_sent_f1
+    combined          majority   news       931.000         0.470        0.320
+    combined          tfidf_lr   news       931.000         0.698        0.693
+    combined        finbert_lr   news       931.000         0.685        0.680
+    combined    uniform_random   news       931.000         0.495        0.494
+    combined stratified_random   news       931.000         0.493        0.487
+        news          majority   news       931.000         0.470        0.320
+        news          tfidf_lr   news       931.000         0.699        0.695
+        news        finbert_lr   news       931.000         0.702        0.700
+        news    uniform_random   news       931.000         0.495        0.494
+        news stratified_random   news       931.000         0.493        0.490
+    combined          majority tweets       155.000         0.510        0.338
+    combined          tfidf_lr tweets       155.000         0.510        0.450
+    combined        finbert_lr tweets       155.000         0.458        0.432
+    combined    uniform_random tweets       155.000         0.504        0.500
+    combined stratified_random tweets       155.000         0.505        0.485
+      tweets          majority tweets       155.000         0.510        0.338
+      tweets          tfidf_lr tweets       155.000         0.561        0.553
+      tweets        finbert_lr tweets       155.000         0.413        0.413
+      tweets    uniform_random tweets       155.000         0.504        0.500
+      tweets stratified_random tweets       155.000         0.509        0.459
 
 ====================================================================================================
 PREDICTED vs ACTUAL IMPACT CLASSES (test, % of rows)

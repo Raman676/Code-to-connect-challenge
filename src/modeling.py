@@ -85,6 +85,27 @@ class MajorityBaseline:
         return proba
 
 
+class RandomBaseline:
+    """Predicts a random impact class per row: 'uniform' (each class 1/6) or 'stratified'
+    (drawn with the training class frequencies). Sentiment follows from the drawn class."""
+    def __init__(self, strategy: str = "uniform", seed: int = SEED):
+        self.strategy, self.seed = strategy, seed
+
+    def fit(self, X, y):
+        self.classes_ = np.array(IMPACT_CLASSES)
+        if self.strategy == "uniform":
+            self.freq_ = np.full(len(self.classes_), 1 / len(self.classes_))
+        else:
+            self.freq_ = pd.Series(y).value_counts(normalize=True).reindex(self.classes_, fill_value=0).to_numpy()
+        return self
+
+    def predict_proba(self, X):
+        draws = np.random.default_rng(self.seed).choice(len(self.classes_), size=len(X), p=self.freq_)
+        proba = np.zeros((len(X), len(self.classes_)))
+        proba[np.arange(len(X)), draws] = 1.0
+        return proba
+
+
 def make_tfidf_lr(C: float):
     """TF-IDF on words and word pairs + class-weighted logistic regression."""
     return make_pipeline(
@@ -114,15 +135,21 @@ def tune_C(make_model, X_train, y_train, X_val, y_val, grid=C_GRID):
 # FinBERT embeddings (mean of the last hidden layer), cached on disk
 # ---------------------------------------------------------------------------
 
+def load_finbert_tokenizer(name: str = FINBERT_NAME):
+    """Uncased WordPiece tokenizer built from the repo's vocab.txt.
+    (The repo has no tokenizer.json and an old config without model_type, so transformers
+    cannot build it automatically.)"""
+    from huggingface_hub import hf_hub_download
+    from transformers import BertTokenizerFast
+    return BertTokenizerFast(vocab=hf_hub_download(name, "vocab.txt"), do_lower_case=True)
+
+
 class FinbertEmbedder:
     """Mean-pooled last-layer embeddings from FinBERT-tone (no fine-tuning, CPU)."""
     def __init__(self, name: str = FINBERT_NAME, max_tokens: int = FINBERT_MAX_TOKENS, batch_size: int = 64):
         import torch
-        from huggingface_hub import hf_hub_download
-        from transformers import BertModel, BertTokenizerFast
-        # The repo has only vocab.txt and an old config without model_type, so the
-        # tokenizer and model classes are given explicitly.
-        self.tokenizer = BertTokenizerFast(vocab=hf_hub_download(name, "vocab.txt"), do_lower_case=True)
+        from transformers import BertModel
+        self.tokenizer = load_finbert_tokenizer(name)
         self.model = BertModel.from_pretrained(name).eval()
         if self.tokenizer.vocab_size != self.model.config.vocab_size:
             raise RuntimeError(f"tokenizer vocab {self.tokenizer.vocab_size} != model vocab {self.model.config.vocab_size}")

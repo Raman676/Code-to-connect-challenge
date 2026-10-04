@@ -39,6 +39,7 @@ OUTPUT_PATH = PROJECT_ROOT / "data" / "outputs" / "sentiment_output_test.csv"
 REPORT_PATH = PROJECT_ROOT / "docs" / "model_report.txt"
 TWEET_CAP = 20
 SEED = 0
+RANDOM_SEEDS = 100        # random baselines are averaged over this many draws
 
 # Chronological splits by anchor date (approved). Items in the gap after a cut-off are dropped.
 SPLITS = {
@@ -129,7 +130,29 @@ def run_experiment(name, items, emb, train, val, refit, tests: dict):
             rows.append({"experiment": name, "model": model_name, "C": C, "scored on": f"test ({source})",
                          **md.metrics(y(test), pred)})
         models[model_name], chosen[model_name] = (model, feature), C
-    return rows, preds, models, chosen
+
+    # Random baselines: metrics averaged over RANDOM_SEEDS draws (row level and company-day level)
+    day_rows = []
+    for strategy in ("uniform", "stratified"):
+        val_m, test_m, day_m = [], {s: [] for s in tests}, {s: [] for s in tests}
+        for seed in range(RANDOM_SEEDS):
+            model = md.RandomBaseline(strategy, seed).fit(None, y(train | refit))
+            val_m.append(md.metrics(y(val), md.predictions(model.predict_proba(y(val)), model.classes_)))
+            for source, test in tests.items():
+                pred = md.predictions(model.predict_proba(y(test)), model.classes_)
+                pred.index = items.index[test]
+                test_m[source].append(md.metrics(y(test), pred))
+                day_m[source].append(company_day_metrics(items, pred))
+        model_name = f"{strategy}_random"
+        rows.append({"experiment": name, "model": model_name, "C": None,
+                     "scored on": "val (both)" if name == "combined" else f"val ({name})",
+                     **pd.DataFrame(val_m).mean().to_dict()})
+        for source in tests:
+            rows.append({"experiment": name, "model": model_name, "C": None, "scored on": f"test ({source})",
+                         **pd.DataFrame(test_m[source]).mean().to_dict()})
+            day_rows.append({"experiment": name, "model": model_name, "source": source,
+                             **pd.DataFrame(day_m[source]).mean().to_dict()})
+    return rows, preds, models, chosen, day_rows
 
 
 def company_day_metrics(items: pd.DataFrame, pred: pd.DataFrame) -> dict:
@@ -211,19 +234,22 @@ def main() -> int:
             "combined": dict(train=(spl == "train").to_numpy(), val=(spl == "val").to_numpy(),
                              refit=is_("news", "val"), tests={"tweets": is_("tweets", "test"), "news": is_("news", "test")}),
         }
-        all_rows, all_preds, all_models, chosen_C = [], {}, {}, {}
+        all_rows, all_preds, all_models, chosen_C, random_day_rows = [], {}, {}, {}, []
         for name, exp in experiments.items():
-            rows, preds, models, chosen = run_experiment(name, items, emb, **exp)
+            rows, preds, models, chosen, day_rows = run_experiment(name, items, emb, **exp)
             all_rows += rows
             all_preds.update(preds)
             all_models[name], chosen_C[name] = models, chosen
+            random_day_rows += day_rows
         results = pd.DataFrame(all_rows)
 
         section("VALIDATION METRICS (used to choose C and the best model)")
         print(fmt(results[results["scored on"].str.startswith("val")]))
+        print(f"(uniform_random / stratified_random: averages over {RANDOM_SEEDS} random draws)")
         best = {}
         for source in ("tweets", "news"):
-            val = results[(results["experiment"] == source) & results["scored on"].str.startswith("val")]
+            val = results[(results["experiment"] == source) & results["scored on"].str.startswith("val")
+                          & results["model"].isin(MODELS)]
             best[source] = val.loc[val["imp_f1"].idxmax(), "model"]
         print(f"\nBest model per source (highest validation impact macro-F1): {best}")
 
@@ -240,7 +266,8 @@ def main() -> int:
         section("COMPANY-DAY LEVEL (test): mean sentiment score per company-day vs that day's label")
         day_rows = [{"experiment": e, "model": m, "source": s, **company_day_metrics(items, p)}
                     for (e, m, s), p in all_preds.items()]
-        print(fmt(pd.DataFrame(day_rows)))
+        day_table = pd.DataFrame(day_rows + random_day_rows).sort_values(["source", "experiment"], kind="stable")
+        print(fmt(day_table))
 
         section("PREDICTED vs ACTUAL IMPACT CLASSES (test, % of rows)")
         for source in ("tweets", "news"):

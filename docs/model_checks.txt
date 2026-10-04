@@ -1,0 +1,130 @@
+Model checks - generated 2026-10-04 19:24 by src/model_checks.py
+
+====================================================================================================
+1a. TOKENIZER SANITY
+====================================================================================================
+Vocab size: tokenizer 30873, model 30873
+Model labels (config.json id2label): {0: 'Neutral', 1: 'Positive', 2: 'Negative'}
+Lowercasing: vocab has 24 pieces with capitals (['##D', 'M', 'U', 'N', '##C', '##S'] ...) -> uncased vocab; tokenizer lowercases: True
+Special tokens in vocab: [PAD]=0, [UNK]=2, [CLS]=3, [SEP]=4 (non-standard ids; standard BERT uses 0/100/101/102)
+Encoded 'profits are flat': [3, 1458, 21, 1002, 4] -> ['[CLS]', 'profits', 'are', 'flat', '[SEP]']
+  starts with [CLS]: True, ends with [SEP]: True, tokenizer pad id 0 == model pad id 0: True
+
+[UNK] rates on the model inputs (masked texts):
+  [news] '[COMPANY] To Present New Data For Upadacitinib and HUMIRA® (adalimumab) At 2018 ACR/ARHP A'
+      -> [ company ] to present new data for up ##ada ##cit ##inib and [UNK] ( ada ##lim ##umab ) at 2018 acr / ar ##hp annual meeting october 19 - 24
+  [news] 'Logmore Secures €4.5M In Series A To Boost Logistics Quality Control'
+      -> log ##more secure ##s [UNK] . 5m in series a to boost logistics quality control
+  [tweets] '[COMPANY] pancakes made my day❤'
+      -> [ company ] panc ##ake ##s made my [UNK]
+  [tweets] '[COMPANY] and [COMPANY] are the best 😿👏'
+      -> [ company ] and [ company ] are the best [UNK]
+  source  texts  word pieces  [UNK] % of pieces  % texts with [UNK]
+    news  21452       394806               0.01                 0.2
+  tweets  13987       406230               0.45                 9.4
+
+====================================================================================================
+1b. FINBERT-TONE ON THE PHRASEBANK TEST SPLIT (human tone labels)
+====================================================================================================
+Sentences: 726; accuracy 0.759, macro-F1 0.714
+                      negative  neutral  positive
+  actual \ predicted                             
+  negative                  59       28         4
+  neutral                    9      390        32
+  positive                   5       97       102
+
+====================================================================================================
+1c. DOES HUMAN-STYLE TONE PREDICT OUR MARKET LABELS? (news test set, original headlines)
+====================================================================================================
+Rows: 3,096; finbert-tone labels: {'neutral': 1488, 'positive': 886, 'negative': 722}
+sign(tone) vs market sentiment:   accuracy 0.616, macro-F1 0.615
+  only rows tone calls pos/neg (1,608): accuracy 0.702
+company-day (mean tone, 931 days): accuracy 0.720, macro-F1 0.719
+Spearman(tone, 1-day return r1): 0.313
+Reference, TF-IDF + LR trained on market labels (docs/model_report.txt): accuracy 0.609, company-day 0.699
+
+====================================================================================================
+2. TOP TF-IDF TERMS FOR NEWS SENTIMENT (news/tfidf_lr, C=3.0, fit on train+val)
+====================================================================================================
+Weight = mean coefficient of classes 10/6/4 minus mean of classes 7/5/1.
+       most positive  weight +        most negative  weight -
+      trading higher     4.579        trading lower    -4.844
+            upgrades     2.597                lower    -4.057
+              higher     2.583          results for    -2.166
+        higher after     2.568                 vote    -2.145
+  upgrades [company]     2.376               monday    -2.138
+              halted     2.194          lower after    -2.122
+            strength     2.169                   60    -2.118
+                  16     2.152           downgrades    -2.103
+                  10     2.150                  hot    -2.055
+        monday trade     2.115               losers    -2.011
+    update jefferies     2.011              july 16    -1.982
+            diabetes     1.993              26 2016    -1.977
+             26 2019     1.943              23 2015    -1.844
+                  17     1.851               akamai    -1.843
+           22 stocks     1.817                 soft    -1.840
+      market gainers     1.817             march 21    -1.833
+                move     1.815             clinical    -1.814
+               doesn     1.776          november 15    -1.800
+            march 15     1.775                signs    -1.800
+            april 22     1.769                  coo    -1.771
+               picks     1.716           march 2019    -1.769
+          week highs     1.698             currency    -1.767
+              cramer     1.638             telecoms    -1.760
+                line     1.633                 fall    -1.746
+             tuesday     1.624                moves    -1.738
+                reit     1.614           october 13    -1.732
+           canaccord     1.614             economic    -1.691
+    [company] higher     1.603 oppenheimer upgrades    -1.662
+             gainers     1.602             april 18    -1.661
+         december 13     1.600           january 12    -1.647
+
+10 test headlines predicted most POSITIVE:
+        date ticker  score  actual sent  actual imp                                                                                            text
+  2019-12-17    LLY  0.910            1          10              Eli Lilly shares are trading higher after the company issued upbeat FY20 guidance.
+  2020-06-05   AVGO  0.896            1           6 Broadcom shares are trading higher after the company reported better-than-expected Q1 sales res
+  2019-12-19    JNJ  0.875            1          10                  Barclays Upgrades Johnson & Johnson to Overweight, Raises Price Target to $173
+  2020-03-13   ORCL  0.874            1          10 Oracle shares are trading higher after the company reported better-than-expected Q3 EPS and sal
+  2020-03-13   ADBE  0.868            1          10 Adobe shares are trading higher after the company reported better-than-expected Q1 EPS and sale
+  2020-01-30     KO  0.865            1          10 Coca-Cola shares are trading higher after the company reported better-than-expected Q4 sales re
+  2019-12-17   NFLX  0.860            1          10 Netflix shares are trading higher after the company released international revenue and subscrip
+  2019-12-12   ADBE  0.851            1          10 Adobe shares are trading higher after the company reported better-than-expected Q4 EPS and sale
+  2019-12-19   NVDA  0.846            1          10 NVIDIA shares are trading higher in sympathy with Micron, which reported Q1 results and issued 
+  2020-02-10   NVDA  0.842            1          10 NVIDIA shares are trading higher after RBC Capital maintained an Outperform rating on the stock
+
+10 test headlines predicted most NEGATIVE:
+        date ticker  score  actual sent  actual imp                                                                                            text
+  2020-06-10    XOM -0.941           -1           1 Shares of several energy companies are trading lower after API reported an 8.42 million barrel 
+  2020-03-16   AVGO -0.916           -1           1 Shares of several technology stocks are trading lower amid demand and supply chain disruption c
+  2020-03-16    CRM -0.916           -1           5 Shares of several technology stocks are trading lower amid demand and supply chain disruption c
+  2020-03-16   NVDA -0.916           -1           5 Shares of several technology stocks are trading lower amid demand and supply chain disruption c
+  2019-12-16    PEP -0.915           -1           1                                               Morgan Stanley Downgrades PepsiCo to Equal-Weight
+  2020-02-20    AMD -0.910           -1           1 Advanced Micro Devices shares are trading lower after Wells Fargo downgraded the stock from Ove
+  2019-12-03   NFLX -0.910           -1           1 Netflix shares are trading lower after Citigroup downgraded the stock from Buy to Neutral and l
+  2019-12-04    CRM -0.909           -1           1 Salesforce.Com shares are trading lower after the company issued Q4 EPS guidance below analyst 
+  2020-01-09   TSLA -0.906           -1           7 Tesla shares are trading lower after analysts at Baird downgraded the stock from Outperform to 
+  2019-12-03   NFLX -0.890           -1           1                            Citigroup Downgrades Netflix to Neutral, Lowers Price Target to $325
+  most positive: 10/10 have that actual market sentiment
+  most negative: 10/10 have that actual market sentiment
+
+====================================================================================================
+4. SAME-DAY vs NEXT-DAY LABELS (news; TF-IDF + LR, same split dates and procedure)
+====================================================================================================
+current : anchor = last close BEFORE the item's date -> the 1-day return includes the news day
+next-day: anchor = close ON the item's date          -> the 1-day return is entirely after the news
+
+Next-day relabelling, rows at each step:
+                                            step    rows  dropped
+        raw rows (analyst_ratings_processed.csv) 1399180        0
+        pool tickers (FB -> META, GOOG -> GOOGL)   57552  1341628
+  drop duplicate headline+ticker (keep earliest)   54697     2855
+      anchor found + full price window available   54687       10
+      volatility filter (10d after > 10d before)   25303    29384
+  no zero return (sign defined for all horizons)   25015      288
+          sign pattern in impact table (6 of 16)   17823     7192
+
+    labels     C  train  val  test  sent_acc  sent_f1  day_sent_acc  company-days  imp_acc  imp_f1  test majority-sentiment share
+   current 3.000  15210 3146  3096     0.609    0.609         0.699           931    0.312   0.197                          0.511
+  next-day 0.300  12427 2406  2741     0.496    0.495         0.481           892    0.188   0.154                          0.503
+
+Items labelled under both schemes: 10,247; same sentiment in 77.0%

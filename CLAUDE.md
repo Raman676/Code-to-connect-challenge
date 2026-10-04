@@ -21,6 +21,7 @@ impact_score (1-10, 1 = bearish, 10 = bullish), news_type
 - Before writing code, explain in plain language what you will do and why.
 - After each step, summarize what changed and how to run or test it.
 - Never install a package or download data without asking me first.
+- If you need to deviate from an approved plan, ask first.
 - Keep code simple, commented and readable. I must be able to explain every line
   to a jury.
 - Every new module in src/ gets a test in tests/.
