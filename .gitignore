@@ -1,6 +1,9 @@
 # Large Kaggle downloads (tweets, news). Never commit.
 data/raw/
 
+# Pipeline outputs too large to track (samples go to data/samples/)
+data/interim/
+
 # Original Kaggle archives
 *.zip
 

@@ -1,0 +1,2 @@
+Adjusted closes from yfinance (auto_adjust=True), 2009-01-01 to 2020-07-31.
+Downloaded 2026-10-03 18:10 UTC.

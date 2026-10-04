@@ -1,0 +1,207 @@
+Labelling report - generated 2026-10-03 23:40 by src/labels.py
+Rules: horizons [1, 2, 3, 7] trading days; volatility window 10 trading days; impact table {'++++': 10, '--++': 7, '+++-': 6, '---+': 5, '++--': 4, '----': 1}
+
+====================================================================================================
+PRICES
+====================================================================================================
+47 tickers x 2,914 trading days (2009-01-02 -> 2020-07-30), from data\prices\adj_close.csv
+Tickers with prices starting after 2009-01-31: {'ABBV': '2013-01-02', 'AVGO': '2009-08-06', 'META': '2012-05-18', 'PYPL': '2015-07-06', 'TSLA': '2010-06-29'}
+Tickers without any prices: ['PLTR']
+
+====================================================================================================
+NEWS TIMESTAMP SPOT-CHECK (analyst_ratings_processed vs raw_analyst_ratings rows with real times)
+====================================================================================================
+Raw rows with a real time: 55,987 (2011-04-27 21:01:48 -> 2020-06-11 17:12:35), offsets {'-04:00': 55987}
+Matched to a processed row (same headline + ticker): 55,421
+  same_date            99.9%
+  within_1h            75.0%
+  within_1min          74.5%
+  exact_minute_floor   74.5%
+  exact_minute_round   39.0%
+  median |difference|: 0 days 00:00:39
+  most common differences (processed - raw, minutes): {0: 21867, -1: 19413, -60: 7262, -61: 6872, 11: 1}
+Verdict: NOT reliable (rule: at least 95% within 1 minute) -> news treated as date-only
+
+====================================================================================================
+NEWS: time of day by year (plausibility of times the spot-check cannot cover; pool tickers)
+====================================================================================================
+   year  rows  % before 09:30  % 09:30-16:00  % from 16:00 most common time  its share %  distinct times
+   2009   309            43.4           46.3          10.4            09:00          4.9             215
+   2010  1623            33.1           52.0          14.9            09:30          0.9             736
+   2011  2428            44.6           41.6          13.9            08:01          0.5             832
+   2012  2863            39.4           45.3          15.3            08:01          0.6             849
+   2013  3093            37.9           44.9          17.2            06:34          0.6             824
+   2014  3874            37.7           41.1          21.2            16:46          0.6             878
+   2015  4013            39.5           46.0          14.5            07:00          0.6             903
+   2016  6335            37.0           51.3          11.7            08:00          0.5             964
+   2017  6886            37.9           50.5          11.6            09:00          0.6             877
+   2018  7083            36.2           52.2          11.6            09:00          0.5             892
+   2019  8801            36.6           53.2          10.2            10:00          0.6             943
+   2020  7389            41.5           48.2          10.3            09:45          0.5            1039
+
+====================================================================================================
+TWEETS: rows kept and dropped at each step
+====================================================================================================
+                                            step   rows  dropped
+             raw rows (full_dataset-release.csv) 862231        0
+          pool companies (mapped name -> ticker) 543110   319121
+      drop duplicate text+ticker (keep earliest) 342105   201005
+      anchor found + full price window available 342105        0
+      volatility filter (10d after > 10d before) 178712   163393
+  no zero return (sign defined for all horizons) 178291      421
+          sign pattern in impact table (6 of 16) 125245    53046
+
+Output: data\processed\labels_tweets.csv (38.0 MB)
+
+====================================================================================================
+TWEETS: label counts
+====================================================================================================
+    rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+  125245    64993    60252  34567  10571  19068  17987   6617   36435
+
+Per company:
+  ticker          company  rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+    META   Meta Platforms 32441    16214    16227  14103   3506      0   6296   2124    6412
+   GOOGL         Alphabet 14785     8429     6356   2509   1702   3290   2950    557    3777
+    AMZN           Amazon 13641     7230     6411   4159   1005   1586   1477    666    4748
+    AAPL            Apple 12738    10575     2163    985   2012    258   2100    920    6463
+     NKE             Nike 12607     1769    10838   1674     69   9039    391    125    1309
+     DIS           Disney 10528     6569     3959   2914   1302    768   1397    277    3870
+    NFLX          Netflix  9580     3518     6062   3622    236   1768    803    672    2479
+     WMT          Walmart  2678     1796      882    442    102    107     82    333    1612
+    MSFT        Microsoft  2676     1364     1312    849     77    299    627    164     660
+    INTC            Intel  2488      962     1526   1006      0    322    465    198     497
+     MCD       McDonald's  1596     1016      580    126     42    454    174      0     800
+    PYPL           PayPal  1013      509      504    382     41     74    164     48     304
+     IBM              IBM   852      568      284     40     10     99     79    145     479
+      BA           Boeing   804      380      424    140     39    255     16     29     325
+    ORCL           Oracle   759      473      286    174     42     82    131     30     300
+       V             Visa   756      435      321    142     26    147    158     32     251
+    COST           Costco   694      462      232     89     49    134    193      9     220
+   CMCSA          Comcast   693      410      283    192     49     54     17     37     344
+     PEP          PepsiCo   677      347      330    248     74     50     43     32     230
+      VZ          Verizon   623      364      259    172      0     73     45     14     319
+    ADBE            Adobe   469      279      190     84     39     44    110     62     130
+     XOM      Exxon Mobil   312      100      212    150      2     62      3      0      95
+    CSCO            Cisco   300      241       59     18      9      0     90     41     142
+       T             AT&T   284      206       78     78     29      0     49      0     128
+     JPM   JPMorgan Chase   184      145       39     10      4     29      1      0     140
+     CVX          Chevron   167      103       64     48     46      5     11     11      46
+       C        Citigroup   164       97       67     23      6     14     14     30      77
+      MA       Mastercard   136       69       67     34      4     16     28     17      37
+      KO        Coca-Cola   128      106       22     19      0      2     24      1      82
+     PFE           Pfizer   113       93       20     13     16      6      2      1      75
+     WFC      Wells Fargo   104       10       94     69      6      7      2     18       2
+     BAC  Bank of America    88       41       47     26      3      8     26     13      12
+     CRM       Salesforce    80       56       24      7     11      8     13      9      32
+      HD       Home Depot    44       32       12      6      9      4      1      2      22
+      PG Procter & Gamble    23       18        5      3      3      2      4      0      11
+      GE General Electric    20        7       13     11      1      2      1      0       5
+
+Per year (of the item date):
+   year   rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+   2017  20055    12048     8007   4235    630   1482    799   2290   10619
+   2018 105190    52945    52245  30332   9941  17586  17188   4327   25816
+
+====================================================================================================
+NEWS: rows kept and dropped at each step
+====================================================================================================
+                                            step    rows  dropped
+        raw rows (analyst_ratings_processed.csv) 1399180        0
+        pool tickers (FB -> META, GOOG -> GOOGL)   57552  1341628
+  drop duplicate headline+ticker (keep earliest)   54697     2855
+      anchor found + full price window available   54685       12
+      volatility filter (10d after > 10d before)   29940    24745
+  no zero return (sign defined for all horizons)   29597      343
+          sign pattern in impact table (6 of 16)   21733     7864
+
+Output: data\processed\labels_news.csv (6.2 MB)
+
+====================================================================================================
+NEWS: label counts
+====================================================================================================
+   rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+  21733    11165    10568   7581    973   1989   2027    998    8165
+
+Per company:
+  ticker           company  rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+    NFLX           Netflix  1204      684      520    357     76    101    171     62     437
+     MRK             Merck  1178      607      571    365     63    135    136     71     408
+    NVDA            NVIDIA  1166      654      512    384     38     92    140     36     476
+      KO         Coca-Cola  1133      587      546    382     54     97     93     67     440
+    ORCL            Oracle  1128      540      588    493     43     61    104     34     393
+      VZ           Verizon  1124      523      601    459     54    106     90     36     379
+      HD        Home Depot  1005      516      489    310     34    109     89     70     393
+     JNJ Johnson & Johnson   997      509      488    313     50    113    125     62     334
+     WFC       Wells Fargo   935      374      561    397     26    104     76     60     272
+    ADBE             Adobe   911      513      398    302     31     68     43     28     439
+     LLY         Eli Lilly   901      442      459    329     35     88     75     42     332
+      MA        Mastercard   860      493      367    223     36    107     97     37     360
+     MCD        McDonald's   822      470      352    212     68    107     53     33     349
+     PEP           PepsiCo   817      430      387    305     61     62     82     20     287
+    TSLA             Tesla   773      460      313    191     24     81     24     41     412
+     PFE            Pfizer   682      340      342    241     32     74     42     27     266
+    AVGO          Broadcom   671      375      296    215     13     45     75     36     287
+     CRM        Salesforce   661      311      350    295     22     26     68     29     221
+   CMCSA           Comcast   657      346      311    223     33     62     61     26     252
+     BAC   Bank of America   655      307      348    243     31     78     52     27     224
+   GOOGL          Alphabet   642      313      329    239     27     42     76     48     210
+      PG  Procter & Gamble   542      313      229    142     31     59     55     28     227
+     IBM               IBM   486      222      264    198     24     43     50     23     148
+    CSCO             Cisco   393      165      228    201     12     19     27      8     126
+       C         Citigroup   363      169      194    124      4     52     37     18     128
+     XOM       Exxon Mobil   252       96      156    122     14     26     22      8      60
+    ABBV            AbbVie   242      128      114     97     10     14     23      3      95
+    META    Meta Platforms   117       55       62     58     10      0      0      4      45
+    AMZN            Amazon   107       62       45     45      0      0      6      0      56
+     UNH      UnitedHealth   101       63       38     21      3      5     11     12      49
+     AMD               AMD    96       39       57     46      6      9     12      2      21
+    AAPL             Apple    61       44       17     17      8      0      0      0      36
+      BA            Boeing    10        0       10     10      0      0      0      0       0
+     DIS            Disney     9        3        6      6      0      0      3      0       0
+     JPM    JPMorgan Chase     9        5        4      2      0      2      3      0       2
+     WMT           Walmart     7        0        7      7      0      0      0      0       0
+    INTC             Intel     6        3        3      1      0      2      2      0       1
+       T              AT&T     6        1        5      5      0      0      1      0       0
+       V              Visa     4        3        1      1      0      0      3      0       0
+
+Per year (of the item date):
+   year  rows  sent +1  sent -1  imp 1  imp 4  imp 5  imp 6  imp 7  imp 10
+   2009   151       55       96     46      3     47     16      3      36
+   2010   669      362      307    217     25     59     68     31     269
+   2011   904      384      520    386     24     99     89     35     271
+   2012  1199      727      472    318     46    116    104     38     577
+   2013  1354      762      592    367     34    148     97     77     631
+   2014  1554      798      756    536     74    147    155     73     569
+   2015  1448      784      664    423    103    153    140     88     541
+   2016  2603     1267     1336   1008     97    209    248    119     922
+   2017  2823     1561     1262    913    112    211    188    138    1261
+   2018  2942     1395     1547   1147    155    285    309    115     931
+   2019  3409     1732     1677   1164    134    335    330    178    1268
+   2020  2677     1338     1339   1056    166    180    283    103     889
+
+====================================================================================================
+CROSS-CHECK: tweet file's return columns vs returns from yfinance adjusted closes
+====================================================================================================
+Shift 0 = our anchor (last close before the tweet date). Not used for labels.
+   anchor shift (trading days)       column  pairs  match % (|diff| < 0.002)  correlation
+                            -2 1_DAY_RETURN 342105                       8.5        0.017
+                            -1 1_DAY_RETURN 342105                      10.3        0.035
+                             0 1_DAY_RETURN 342105                       7.5       -0.909
+                             1 1_DAY_RETURN 342105                      10.4        0.070
+                             2 1_DAY_RETURN 342105                       9.8       -0.040
+                            -2 2_DAY_RETURN 342105                       7.4       -0.304
+                            -1 2_DAY_RETURN 342105                       6.0       -0.887
+                             0 2_DAY_RETURN 342105                       6.4       -0.538
+                             1 2_DAY_RETURN 342105                       6.4        0.034
+                             2 2_DAY_RETURN 342105                       5.9       -0.006
+                            -2 3_DAY_RETURN 342105                       4.3       -0.825
+                            -1 3_DAY_RETURN 342105                       5.4       -0.618
+                             0 3_DAY_RETURN 342105                       5.7       -0.376
+                             1 3_DAY_RETURN 342105                       6.5        0.076
+                             2 3_DAY_RETURN 342105                       6.8        0.078
+                            -2 7_DAY_RETURN 342105                       3.0       -0.359
+                            -1 7_DAY_RETURN 342105                       3.4       -0.084
+                             0 7_DAY_RETURN 342105                       4.0        0.093
+                             1 7_DAY_RETURN 342105                       2.7        0.336
+                             2 7_DAY_RETURN 342105                       3.6        0.272
