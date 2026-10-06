@@ -1,0 +1,112 @@
+Index data checks - generated 2026-10-06 13:48 by src/index_data.py
+Universe: 101 symbols from data\universe\sp100_constituents.csv; backtest window 2012-01-01 -> 2020-06-30
+
+====================================================================================================
+1. PRICES (yfinance daily closes)
+====================================================================================================
+101 symbols x 3,020 days (2009-01-02 -> 2020-12-30)
+No prices at all: ['GEV', 'SNDK']
+Prices start after 2012-01-01 (8): {'META': '2012-05-18', 'NOW': '2012-06-29', 'PANW': '2012-07-20', 'ABBV': '2013-01-02', 'ANET': '2014-06-06', 'DELL': '2016-08-17', 'UBER': '2019-05-10', 'PLTR': '2020-09-30'}
+
+====================================================================================================
+2. HISTORICAL SHARES OUTSTANDING (Ticker.get_shares_full)
+====================================================================================================
+Symbols with any share history: 101 / 101; none: none
+First year of share history: {2013: 1, 2014: 1, 2015: 91, 2017: 1, 2018: 2, 2019: 1, 2020: 2, 2022: 1, 2024: 1}
+Median data points per symbol: 547
+Symbols with day-to-day changes > 50% (possible data errors or splits): 21 {'TSLA': np.int64(3), 'ACN': np.int64(2), 'ANET': np.int64(2), 'BNY': np.int64(2), 'GOOGL': np.int64(2), 'ISRG': np.int64(2), 'NVDA': np.int64(2), 'PANW': np.int64(2), 'AAPL': np.int64(1), 'AMZN': np.int64(1), 'AVGO': np.int64(1), 'BKNG': np.int64(1), 'CMCSA': np.int64(1), 'COF': np.int64(1), 'GE': np.int64(1)}
+
+Companies we can rank by market cap at each quarterly review (need at least 20; 25 for the buffer):
+      review  with price  price + any shares  price + shares <= 200 days old
+  2012-03-30          91                   0                               0
+  2012-06-29          93                   0                               0
+  2012-09-28          94                   0                               0
+  2012-12-31          94                   0                               0
+  2013-03-28          95                   0                               0
+  2013-06-28          95                   1                               1
+  2013-09-30          95                   1                               1
+  2013-12-31          95                   1                               0
+  2014-03-31          95                   1                               0
+  2014-06-30          96                   2                               1
+  2014-09-30          96                   2                               1
+  2014-12-31          96                   2                               1
+  2015-03-31          96                   2                               0
+  2015-06-30          96                   3                               1
+  2015-09-30          96                   9                               7
+  2015-12-31          96                  92                              90
+  2016-03-31          96                  92                              91
+  2016-06-30          96                  92                              91
+  2016-09-30          97                  92                              90
+  2016-12-30          97                  92                              91
+  2017-03-31          97                  92                              91
+  2017-06-30          97                  92                              92
+  2017-09-29          97                  93                              93
+  2017-12-29          97                  93                              92
+  2018-03-29          97                  93                              11
+  2018-06-29          97                  93                               2
+  2018-09-28          97                  93                               2
+  2018-12-31          97                  95                              95
+  2019-03-29          97                  95                              95
+  2019-06-28          98                  96                              96
+  2019-09-30          98                  96                              96
+  2019-12-31          98                  96                              96
+  2020-03-31          98                  96                              96
+  2020-06-30          98                  97                              96
+
+====================================================================================================
+3. CURRENT SNAPSHOT: shares and free float (yfinance .info)
+====================================================================================================
+Snapshot fetched 2026-10-06 08:18 UTC; float shares missing for 0 symbols
+float / shares outstanding: median 0.997; distribution {Interval(0.0, 0.5, closed='right'): 2, Interval(0.5, 0.8, closed='right'): 5, Interval(0.8, 0.9, closed='right'): 5, Interval(0.9, 0.95, closed='right'): 8, Interval(0.95, 1.0, closed='right'): 78, Interval(1.0, 1.05, closed='right'): 1, Interval(1.05, 10.0, closed='right'): 2}
+
+Flagged (float ratio outside (0.5, 1.05) or missing):
+  ticker   price    market_cap  shares_out  implied_shares_out  float_shares  float_ratio  hist_shares_x_price / market_cap
+   BRK.B 504.260 1079474323456  1408035161          2140709794       1233781        0.001                             1.000
+    GOOG 343.830 4205018349568  5527000000         12229934831   10879441100        1.968                             1.000
+   GOOGL 346.470 4237305577472  5867155790         12229934831   10879441100        1.854                             1.000
+    TMUS 164.640  176604659712  1072671613          1072671613     486284949        0.453                             1.000
+
+Latest historical share count x price differs from market cap by > 10% (share class issues for historical market caps):
+  Empty DataFrame
+  Columns: [ticker, price, market_cap, shares_out, implied_shares_out, float_shares, float_ratio, hist_shares_x_price / market_cap]
+  Index: []
+
+Alphabet (one company, traded as GOOGL):
+  ticker   price    market_cap  shares_out  implied_shares_out  float_shares  float_ratio  hist_shares_x_price / market_cap
+    GOOG 343.830 4205018349568  5527000000         12229934831   10879441100        1.968                             1.000
+   GOOGL 346.470 4237305577472  5867155790         12229934831   10879441100        1.854                             1.000
+
+====================================================================================================
+4. SECTORS
+====================================================================================================
+GICS sector (Wikipedia list): 101 / 101; yfinance sector: 101 / 101
+GICS sectors: {'Information Technology': 24, 'Health Care': 15, 'Financials': 15, 'Industrials': 14, 'Communication Services': 9, 'Consumer Discretionary': 8, 'Consumer Staples': 8, 'Energy': 3, 'Utilities': 3, 'Real Estate': 1, 'Materials': 1}
+
+====================================================================================================
+5. BENCHMARKS
+====================================================================================================
+sp100: 3,020 days, 2009-01-02 -> 2020-12-30
+tbill_13w_pct: 3,018 days, 2009-01-02 -> 2020-12-30
+^OEX Close == Adj Close: True -> price index only (no dividends)
+
+====================================================================================================
+6. NEWS COVERAGE PER YEAR (analyst_ratings_processed.csv, S&P 100 incl. old tickers)
+====================================================================================================
+Old/alternative tickers found: {'BKNG': {'PCLN': 1666}, 'BNY': {'BK': 832, 'BNY': 24}, 'META': {'FB': 389}, 'NEE': {'NEE': 690, 'FPL': 38}}
+   year  headlines  companies >= 1  companies >= 20  companies >= 50  median per company
+   2009        804              35               21                2                 0.0
+   2010       6381              38               36               34                 0.0
+   2011       8721              45               44               43                 0.0
+   2012       8097              51               48               46                 1.0
+   2013       8186              54               54               50                42.0
+   2014       8809              57               56               49                47.0
+   2015       9624              59               57               51                53.0
+   2016      12057              63               60               59                86.0
+   2017      12107              65               64               56                76.0
+   2018      13084              67               67               63               101.0
+   2019      16673              70               69               67               127.0
+   2020      13091              84               75               73               103.0
+
+No headlines at all (15): ['ABT', 'BRK.B', 'COST', 'CVX', 'DELL', 'GE', 'GEV', 'GS', 'ISRG', 'LIN', 'MSFT', 'PLTR', 'PM', 'RTX', 'UBER']
+Exactly 10 headlines in total (suspected cap in the dataset): ['BA', 'DIS', 'GM', 'INTC', 'JPM', 'SCHW', 'T', 'V', 'WMT']
+Fewest headlines (non-zero, 15 lowest): {'INTC': 10, 'V': 10, 'SCHW': 10, 'T': 10, 'GM': 10, 'DIS': 10, 'BA': 10, 'JPM': 10, 'WMT': 10, 'UNP': 50, 'UPS': 90, 'AMGN': 150, 'MDLZ': 218, 'UNH': 230, 'AMD': 250}
