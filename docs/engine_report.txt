@@ -1,0 +1,76 @@
+AI/NLP RISK ENGINE - SUMMARY (2026-10-06)
+Turns financial news headlines and tweets into structured signals: sentiment (-1..1), impact (severity
+1-10) and news type, per company and date, served as a CSV and a REST API.
+
+SOURCES AND ROWS
+  News    Kaggle "Daily Financial News for 6000+ Stocks", analyst_ratings_processed.csv: 1,399,180 headlines
+          -> 117,634 for current S&P 100 members (old tickers mapped: FB->META, PCLN->BKNG, BK->BNY, ...)
+          -> 112,024 after removing duplicate headline+ticker -> 64,028 scored out-of-sample, Jan 2016 - Jun 2020
+          (99 headlines about the old SanDisk under SNDK removed)
+  Social  Kaggle "Tweet Sentiment's Impact on Stock Returns", full file: 862,231 tweets -> 342,105 deduplicated
+          tweets about pool companies -> 2,130 test tweets (27 Sep - 30 Oct 2018) in the engine output
+  Prices  yfinance adjusted closes (labels and volatility only; never an input to the text models)
+  Output  data/outputs/engine_signals.csv: 66,158 rows (64,028 news, 2,130 social), 90 tickers, 10 MB
+
+LABELS (market reaction, no human labelling)
+  Anchor = last close before the item's date. Sentiment label = sign of the 1-day return, kept only when
+  10-day volatility rises after the item and the 1/2/3/7-day sign pattern is in the impact table.
+  Severity label = |1-day return|.
+
+MODELS AND WHY
+  Sentiment  TF-IDF (words + pairs) + class-weighted logistic regression on the 6 sign-pattern classes;
+             sentiment_score = P(10,6,4) - P(7,5,1). Beat FinBERT embeddings + LR on validation; fast, explainable.
+             Company names, tickers, CEOs and subsidiaries are masked so it cannot learn "company = direction".
+  Severity   Ridge regression on log|r1| with TF-IDF, trailing 10-day volatility and that company's headline
+             count on the previous trading day; impact = decile of the prediction among training predictions.
+  News type  Keyword rules, 10 categories, first match wins (Credit Event first ... Other last). Transparent; no
+             labelled news-type data exists to train on.
+  Walk-forward: for each year 2016-2020, train on data whose labels end before that year (10-trading-day gap),
+  tune on the last training year, score every headline of the year.
+
+KEY RESULTS
+  Sentiment vs market label (news test 2019-11 to 2020-06)  item acc 0.609, company-day acc 0.699
+                                                            (majority 0.511, random 0.500)
+  Walk-forward, all years 2016-2020                         item acc 0.572, company-day acc 0.604
+                                                            (0.54 in 2016-18, 0.59 in 2019, 0.66 in 2020)
+  finbert-tone (no training) on the same items              item acc 0.581, company-day acc 0.624
+  Tweets (test Oct 2018)                                    item acc 0.507 vs 0.500 random: no signal
+  NEXT-DAY CHECK  Label = return entirely after the news: accuracy falls from 0.609 to 0.496 (company-day
+                  0.699 -> 0.481). Walk-forward correlation with the tradable next-day return: 0.013 overall,
+                  about 0 in 2016-2019, 0.058 in H1 2020. The signal mostly reads moves already reported in the
+                  headline ("shares trading lower"), it does not predict the next day.
+  PhraseBank (human tone)  finbert-tone with our tokenizer: accuracy 0.759, macro-F1 0.714.
+                           Our market-label model: Spearman with human tone 0.04 (it learns market reaction, not tone).
+  Severity (Spearman with actual |r1|)  walk-forward news 0.443 (0.35-0.44 per year), company-day 0.439;
+                           news test (severity model) 0.509 vs 0.502 for volatility alone; tweets 0.274 vs 0.408
+                           for volatility alone (text adds little; volatility does most of the work).
+  Severity deciles (walk-forward)  mean actual |r1| 0.81% in impact 1 rising to 4.26% in impact 10.
+
+NEWS-TYPE DISTRIBUTION (64,028 walk-forward headlines)
+  Earnings 19.6% | Analyst Rating 14.8% | Merger/Acquisition 2.7% | Geopolitical 2.3% | Management Change 1.8%
+  Legal/Regulatory 1.1% | Product Launch 1.0% | Macroeconomic 1.0% | Credit Event 0.2% | Other 55.5%
+  Hand check: docs/news_type_check.csv (100 rows, to be filled in); accuracy via python src/news_type.py --accuracy
+
+OUTPUT SCHEMA (engine_signals.csv and the API)
+  date (YYYY-MM-DD) | company_name | ticker | source (news/social) | text | sentiment_score (-1..1)
+  | impact (1-10) | news_type | confidence (= |sentiment_score|)
+
+HOW TO RUN (python 3.11, pip install -r requirements.txt, from the project root)
+  python src/labels.py                  market-reaction labels (tweets, pool news)
+  python src/run_model.py               sentiment models and model report
+  python src/severity.py                severity model, tweet test output
+  python src/index_data.py              S&P 100 prices, shares, splits, data checks
+  python src/walk_forward.py            yearly out-of-sample news signals 2016-2020 (~45 min on CPU)
+  python src/news_type.py               news-type counts and hand-check file
+  python src/build_engine_output.py     data/outputs/engine_signals.csv
+  uvicorn src.api:app --reload          API: /health, /signals, /signals/summary (docs at /docs)
+  Tests: python tests/test_<module>.py for each module
+
+LIMITATIONS
+  - Labels come from price moves that include the news day; next-day predictive value is about zero.
+  - News timestamps proved unreliable, so all news is date-only; tweets cover only 121 dates (2017-2018).
+  - Coverage gaps: no headlines for MSFT, BRK.B, CVX and others; JPM, V, WMT, INTC, DIS, T, BA have <= 10.
+  - News type: keyword rules leave 55.5% as Other and can misfire ("Apple Beats" headphones -> Earnings).
+  - Masking is rule-based; product names (iPhone, Prime) still reveal companies.
+  - Confidence is simply |sentiment_score|, not a calibrated probability.
+  - 2020 results cover one half-year dominated by the COVID crash.
