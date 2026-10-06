@@ -106,12 +106,16 @@ class RandomBaseline:
         return proba
 
 
+def make_tfidf() -> TfidfVectorizer:
+    """TF-IDF on words and word pairs; keeps "[company]" / "[url]" as single tokens."""
+    return TfidfVectorizer(ngram_range=(1, 2), min_df=2, sublinear_tf=True, lowercase=True,
+                           token_pattern=r"\[?\b\w\w+\b\]?")
+
+
 def make_tfidf_lr(C: float):
-    """TF-IDF on words and word pairs + class-weighted logistic regression."""
-    return make_pipeline(
-        TfidfVectorizer(ngram_range=(1, 2), min_df=2, sublinear_tf=True, lowercase=True,
-                        token_pattern=r"\[?\b\w\w+\b\]?"),      # keeps "[company]" / "[url]" as one token
-        LogisticRegression(C=C, class_weight="balanced", max_iter=3000, random_state=SEED))
+    """TF-IDF + class-weighted logistic regression."""
+    return make_pipeline(make_tfidf(),
+                         LogisticRegression(C=C, class_weight="balanced", max_iter=3000, random_state=SEED))
 
 
 def make_embedding_lr(C: float):

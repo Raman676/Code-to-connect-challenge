@@ -2,7 +2,8 @@
 Train and evaluate the sentiment/impact models, write test-set predictions and a report.
 
 Run:  python src/run_model.py
-      -> data/outputs/sentiment_output_test.csv, docs/model_report.txt
+      -> data/outputs/sentiment_predictions_test.csv, docs/model_report.txt
+      (then run src/severity.py, which writes the final data/outputs/sentiment_output_test.csv)
       (FinBERT embeddings are cached in data/interim/finbert_embeddings.npz)
 
 Experiments
@@ -35,7 +36,9 @@ LABEL_FILES = {"tweets": PROJECT_ROOT / "data" / "processed" / "labels_tweets.cs
                "news": PROJECT_ROOT / "data" / "processed" / "labels_news.csv"}
 PHRASEBANK_CSV = PROJECT_ROOT / "data" / "processed" / "fpb_sentiment.csv"
 EMBEDDING_CACHE = PROJECT_ROOT / "data" / "interim" / "finbert_embeddings.npz"
-OUTPUT_PATH = PROJECT_ROOT / "data" / "outputs" / "sentiment_output_test.csv"
+# Sentiment predictions only; src/severity.py adds the impact (severity) columns and writes
+# the final data/outputs/sentiment_output_test.csv.
+OUTPUT_PATH = PROJECT_ROOT / "data" / "outputs" / "sentiment_predictions_test.csv"
 REPORT_PATH = PROJECT_ROOT / "docs" / "model_report.txt"
 TWEET_CAP = 20
 SEED = 0
@@ -303,10 +306,9 @@ def main() -> int:
             pred = all_preds[(source, best[source], source)]
             rows = items.loc[pred.index]
             out.append(pd.DataFrame({
-                "date": rows["date"].dt.strftime("%Y-%m-%d"), "company_name": rows["company"],
-                "ticker": rows["ticker"], "source": source, "text": rows["text"],
-                "sentiment_score": pred["sentiment_score"].round(4), "impact": pred["impact"],
-                "actual_sentiment": rows["sentiment"], "actual_impact": rows["impact"]}))
+                "item_id": rows["item_id"], "date": rows["date"].dt.strftime("%Y-%m-%d"),
+                "company_name": rows["company"], "ticker": rows["ticker"], "source": source, "text": rows["text"],
+                "sentiment_score": pred["sentiment_score"].round(4), "actual_sentiment": rows["sentiment"]}))
         out = pd.concat(out, ignore_index=True)
         OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
         out.to_csv(OUTPUT_PATH, index=False, encoding="utf-8")
