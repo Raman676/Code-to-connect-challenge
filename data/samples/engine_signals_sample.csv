@@ -1,0 +1,1006 @@
+date,company_name,ticker,source,text,sentiment_score,impact,news_type,confidence
+2016-01-12,U.S. Bancorp,USB,news,Sell Off In Wells Fargo Offers Opportunity To Buy Stock Which Is 'Rarely Cheap Enough To Do So',-0.5490,7,Other,0.5490
+2016-01-12,Wells Fargo,WFC,news,Stocks Aim Higher After Crude Nears $30 Then Bounces; Earnings Underway,-0.2535,9,Earnings,0.2535
+2016-01-13,Johnson & Johnson,JNJ,news,J&J's Janssen Reports Health Canada Has Approved Stelara for Treatment of Chronic Moderate-to-Severe Plaque Psoriasis in Adolescents,-0.5106,1,Other,0.5106
+2016-01-20,FedEx,FDX,news,Standpoint Research Upgrades FedEx to Buy,0.7136,8,Analyst Rating,0.7136
+2016-01-21,Applied Materials,AMAT,news,Option Alert: AMAT Feb16 18.0 Calls: 7500 @  ASK  $0.28: 8388 traded vs 2133 OI:  Earnings 2/10  $16.84 Ref,0.2443,9,Earnings,0.2443
+2016-01-25,Eli Lilly and Company,LLY,news,Eli Lilly Reports FDA Acceptance of Filing of CV Outcomes Data for Jardiance,0.1489,6,Other,0.1489
+2016-01-25,Lockheed Martin,LMT,news,"Hearing US Marine Corps, Air Force to Send Two Lockheed F-35 Fighter Jets to British Air Shows This Summer",0.3231,3,Other,0.3231
+2016-01-26,Lockheed Martin,LMT,news,Lockheed martin Sees FY EPS $11.45 to $11.75 vs $12.23 est,-0.2935,9,Earnings,0.2935
+2016-01-27,Booking Holdings,BKNG,news,"Goldman Sees 'Peak Travel,' Downgrades Priceline To Neutral, TripAdvisor To Sell",-0.9510,9,Analyst Rating,0.9510
+2016-01-27,NextEra Energy,NEE,news,Goldman Sachs Upgrades NextEra Energy to Conviction Buy,0.6583,6,Analyst Rating,0.6583
+2016-01-28,Pfizer,PFE,news,Large Johnson & Johnson Shareholder Just Revealed 8 Major Concerns,0.2193,3,Other,0.2193
+2016-01-29,Gilead Sciences,GILD,news,"Worst Performing Industries For January 29, 2016",-0.7460,10,Other,0.7460
+2016-01-31,ConocoPhillips,COP,news,Big Oil Earnings Faceoff: Conoco Vs Exxon,-0.2891,10,Earnings,0.2891
+2016-02-04,Bristol Myers Squibb,BMY,news,BristolMyersSquibb Declines Comment on Rumored Takeover Talks With Celgene,0.4778,8,Merger/Acquisition,0.4778
+2016-02-09,Coca-Cola Company (The),KO,news,"Earnings Scheduled For February 9, 2016",-0.3374,8,Earnings,0.3374
+2016-02-09,Coca-Cola Company (The),KO,news,"From Conf Call: Coca-Cola CEO Says With Refranchising, ""We Will Become Less Capital Intensive With Significantly Higher Margins And Returns""",0.0983,4,Management Change,0.0983
+2016-02-16,Lockheed Martin,LMT,news,GAO Rejects Boeing Protest Over Bomber Contract,-0.6846,4,Other,0.6846
+2016-02-17,Home Depot,HD,news,Home Depot Volume Spike,0.1804,10,Other,0.1804
+2016-02-19,Deere & Company,DE,news,7 Must-Watch Stocks Today,-0.5700,10,Other,0.5700
+2016-02-19,Lam Research,LRCX,news,"Watch OEM Peers Following Applied Material's Strong Q1, Outlook",-0.2680,9,Earnings,0.2680
+2016-02-23,Wells Fargo,WFC,news,"Jim Cramer Advises Viewers On Bank of America, Wells Fargo, Airlines And Tesla",-0.2339,7,Other,0.2339
+2016-02-25,Salesforce,CRM,news,Top Analyst Bullish On Salesforce.com Following Record Quarter,0.0365,10,Earnings,0.0365
+2016-02-26,Salesforce,CRM,news,Option Alert: CRM Fri 3/4 71.0 Calls (Wkly) Sweep: 1000 @  ASK  $0.63: 1012 traded vs 160 OI: $69.03 Ref,0.1635,10,Other,0.1635
+2016-02-26,Intuit,INTU,news,"RBC Capital Maintains Sector Perform on Intuit, Raises PT to $93.00",-0.7904,9,Analyst Rating,0.7904
+2016-02-26,Palo Alto Networks,PANW,news,7 Stocks You Should Be Watching Today,0.0198,10,Other,0.0198
+2016-02-27,Medtronic,MDT,news,"Barron's Picks And Pans: Wal-Mart, Medtronic, Palo Alto Networks And More",0.7137,1,Other,0.7137
+2016-02-29,Bank of America,BAC,news,Buffett Still Loves Bank Of America,0.2592,8,Other,0.2592
+2016-03-04,Broadcom,AVGO,news,"FBR Capital Maintains Outperform on Broadcom, Raises PT to $185.00",-0.4796,9,Analyst Rating,0.4796
+2016-03-15,3M,MMM,news,"Danaher Shares Outperform Following BofA's Early-Morning Addition of Stock to 'US 1' List; 3M, Thermo Fisher Removed",0.5432,3,Analyst Rating,0.5432
+2016-03-20,Comcast,CMCSA,news,Barron's: The World's Best CEOs,-0.3125,2,Other,0.3125
+2016-03-30,Salesforce,CRM,news,Salesforce Wins $100M Health & Human Services Deal,0.1180,2,Other,0.1180
+2016-04-05,BlackRock,BLK,news,"Barclays Maintains Equal-weight on BlackRock, Raises PT to $347.00",-0.7783,3,Analyst Rating,0.7783
+2016-04-07,Texas Instruments,TXN,news,"Watch Shares Of TXN, CAJ, SNE Following A Report From Nikkei That Panasonic Has Developed Remote Controlled Factory Machinery",-0.3043,4,Other,0.3043
+2016-04-12,Bristol Myers Squibb,BMY,news,"Benzinga's M&A Chatter for Tuesday April 12, 2016",0.3022,3,Other,0.3022
+2016-04-12,Palo Alto Networks,PANW,news,Watch Network Stocks Following Concern Outlook From Juniper,-0.1122,10,Earnings,0.1122
+2016-04-14,McDonald's,MCD,news,"Report: McDonald's Has Hired Bankers To Help Explore Sale Of 2,800 Restaurants In Asia",0.2511,1,Other,0.2511
+2016-04-14,Southern Company,SO,news,Southern Co's Georgia Power Says Its Base Electric Rates To Remain Flat Until 2019,-0.2564,2,Other,0.2564
+2016-04-14,Wells Fargo,WFC,news,"Keep an Eye on These 7 Stocks for April 14, 2016",0.5601,9,Other,0.5601
+2016-04-18,Danaher Corporation,DHR,news,"Barclays Maintains Overweight on Danaher, Raises PT to $104.00",0.4969,3,Analyst Rating,0.4969
+2016-04-19,Micron Technology,MU,news,CORRECTION: Pacific Crest Assumes Micron Technology at Sector Weight,0.2657,10,Other,0.2657
+2016-04-21,Verizon,VZ,news,"Verizon Reports Q1 EPS $1.06, Inline, Sales $32.2B vs $32.5B Est.",-0.3660,9,Earnings,0.3660
+2016-04-28,Comcast,CMCSA,news,BTIG's Greenfield: Comcast Buying DreamWorks Is A 'Mistake',0.4289,4,Other,0.4289
+2016-04-29,Johnson & Johnson,JNJ,news,"JPMorgan Doesn't See A Competing Bid For St. Jude Medical, Downgrades To Neutral",-0.5839,2,Analyst Rating,0.5839
+2016-05-04,FedEx,FDX,news,The Market In 5 Minutes: May The Fourth,-0.3245,2,Other,0.3245
+2016-05-04,ServiceNow,NOW,news,"NOW Q1 EPS ($0.59) vs ($0.35) est, Revenue $548M vs $540M est",0.5265,10,Earnings,0.5265
+2016-05-04,Thermo Fisher Scientific,TMO,news,"Glenview's Robbins Has CBS, Flex, Labcorp, ThermoFisher On Buy List",-0.0580,3,Other,0.0580
+2016-05-12,Qualcomm,QCOM,news,Option Alert: QCOM May16 51.5 Puts Sweep: 1332 @  ASK  $0.68: 1533 traded vs 993 OI: $51.52 Ref,-0.1943,6,Other,0.1943
+2016-05-13,BlackRock,BLK,news,"Blackrock's Fixed Income Strategist Says Credit Market Recovery Is Over, Sees Best Case Scenario As Holders Receiving Income Going Forward But Not Experiencing Price Appreciation On Holdings",-0.2824,5,Other,0.2824
+2016-05-13,Pfizer,PFE,news,13F Season: A Look Back At Q4 2015,-0.6425,6,Earnings,0.6425
+2016-05-16,Pfizer,PFE,news,Pfizer Acquisition of Anacor Valued at $5.2B,-0.5961,5,Merger/Acquisition,0.5961
+2016-05-17,American Express,AXP,news,"Viacom, American Express Announce Exclusive Partnership, Launch a First-of-Its-Kind Data-Driven Ad Product, ""Vantage Intent, powered by AmEx""",-0.5138,2,Product Launch,0.5138
+2016-05-17,Qualcomm,QCOM,news,"CLSA Initiates Coverage on Qualcomm at Outperform, Announces $65.00 PT",0.7522,3,Analyst Rating,0.7522
+2016-05-19,Eli Lilly and Company,LLY,news,JPMorgan's Take On Big Pharma's New ASCO Abstracts,0.0717,5,Other,0.0717
+2016-05-23,Pfizer,PFE,news,Pfizer Updates CHAMPIX To Add New Safety And Efficacy Data In European Union,-0.0335,2,Other,0.0335
+2016-05-27,Palo Alto Networks,PANW,news,Palo Alto's 'Strong' Execution Was Overshadowed By 2 Factors,0.6412,6,Other,0.6412
+2016-06-07,American Express,AXP,news,"Goldman Sachs Maintains Neutral on American Express, Raises PT to $67.00",0.0214,5,Analyst Rating,0.0214
+2016-06-09,Medtronic,MDT,news,Option Alert: MDT Aug16 87.5 Calls Sweep: 798 @  ASK  $1.24: 1362 traded vs 546 OI: $85.52 Ref,0.1285,5,Other,0.1285
+2016-06-16,Coca-Cola Company (The),KO,news,"Philadelphia City Passes Soda Tax, Becomes Largest City With Sweetened Beverage Levy",0.0434,1,Other,0.0434
+2016-06-20,Comcast,CMCSA,news,"William Blair Comments on Implications for Alarm.com Amid Reports of Competitor Takeout: 'If acquired, view deal as pos as ALRM can leverage iControl's exposure to large security providers.'",-0.4901,2,Merger/Acquisition,0.4901
+2016-06-28,Verizon,VZ,news,Net Neutrality Could Mean Lost Calls For Telecom ETFs,-0.6212,1,Other,0.6212
+2016-06-29,Coca-Cola Company (The),KO,news,Coca-Cola Scales Back On Beverages As Vermont GMO Law Takes Effect,0.2193,6,Other,0.2193
+2016-06-29,PepsiCo,PEP,news,Gen X Rejoice? Crystal Pepsi To Return To Store Shelves,-0.1277,3,Other,0.1277
+2016-06-29,PepsiCo,PEP,news,No Coke... Pepsi! Goldman Sachs Agrees With The Greeks,-0.3481,2,Other,0.3481
+2016-07-05,Caterpillar Inc.,CAT,news,Option Alert: CAT Jul16 74.0 Puts Sweep: 2990 @  ASK  $0.99: 3002 traded vs 912 OI:  Earnings 7/26 Before Open  $74.88 Ref,-0.5507,10,Earnings,0.5507
+2016-07-05,NextEra Energy,NEE,news,NextEra Energy Partners Acquires 285 MW of Contracted Renewables From NextEra Energy Resources,-0.6462,5,Merger/Acquisition,0.6462
+2016-07-05,Southern Company,SO,news,"Southern Company Acquires Passadumkeag Windpark, Terms Not Disclosed",-0.5739,1,Merger/Acquisition,0.5739
+2016-07-06,Southern Company,SO,news,Be Aware Of These Key Technical Levels As You Trade Today,-0.0230,4,Other,0.0230
+2016-07-11,ConocoPhillips,COP,news,ConocoPhilips Gets First Upgrade Of The Year From JPMorgan,0.6589,9,Analyst Rating,0.6589
+2016-07-12,Oracle Corporation,ORCL,news,Hearing SunTrust Says Oracle-NetSuite Deal Unlikely; Would Not Create any Synergies,-0.2602,5,Other,0.2602
+2016-07-13,Bank of America,BAC,news,Benzinga's Top Initiations,0.0400,8,Other,0.0400
+2016-07-13,BlackRock,BLK,news,Another AUM Record For ETFs,0.1214,6,Other,0.1214
+2016-07-14,Morgan Stanley,MS,news,Can Strong JP Morgan Earnings Distract from Bearish UK Rate Decision?,-0.1288,9,Earnings,0.1288
+2016-07-15,Wells Fargo,WFC,news,"Bank Earnings Blitz: PNC, UBS, Citigroup And Wells Fargo Deliver Solid Numbers",0.1481,5,Earnings,0.1481
+2016-07-18,ServiceNow,NOW,news,"ServiceNow Is Strong Buy Now, Vetr Crowd Says",0.1177,9,Other,0.1177
+2016-07-19,Pfizer,PFE,news,Here Are The 14 Stocks Morgan Stanley Wants You To Focus On During Q2 Earnings,0.5132,2,Earnings,0.5132
+2016-07-22,Verizon,VZ,news,UPDATE: Verizon Deal For Yahoo Said To Exclude Patents,-0.3760,1,Other,0.3760
+2016-07-22,Verizon,VZ,news,The Market In 5 Minutes: The Dow's Win Streak Comes To An End,0.8211,1,Other,0.8211
+2016-07-25,Danaher Corporation,DHR,news,Danaher Delivers Better Than Expected Q2 Earnings,0.0506,1,Earnings,0.0506
+2016-07-26,Procter & Gamble,PG,news,"Starbucks, Twitter And Texas Instruments: Fast Money Picks For July 26",-0.2715,1,Other,0.2715
+2016-07-28,Bristol Myers Squibb,BMY,news,"15 Stocks To Watch For July 28, 2016",0.5637,7,Other,0.5637
+2016-07-28,Capital One,COF,news,These 4 Credit Cards Have The Most Fees,0.2071,1,Other,0.2071
+2016-07-29,NextEra Energy,NEE,news,NextEra Energy Delivers 9.33% 5-Year Average Dividend Growth,-0.5696,2,Other,0.5696
+2016-08-04,Texas Instruments,TXN,news,Exane BNP Paribas Says Maxim Could be Takeover Target for TI,-0.1033,7,Merger/Acquisition,0.1033
+2016-08-05,Booking Holdings,BKNG,news,22 Stocks Moving In Friday's Pre-Market Session,0.3207,8,Other,0.3207
+2016-08-08,BlackRock,BLK,news,The Market in 5 Minutes: Can The Momentum Continue?,-0.0605,2,Other,0.0605
+2016-08-08,Bristol Myers Squibb,BMY,news,Citi Doesn't See Merck's Lung Cancer Success Lasting Long,0.7095,10,Other,0.7095
+2016-08-08,Coca-Cola Company (The),KO,news,Drinking And Driving Takes On New Meaning As Coffee May Be The Next Target For Driving Bans,0.4884,4,Other,0.4884
+2016-08-09,Bristol Myers Squibb,BMY,news,"Bernstein Says Merck's Lung Cancer Drug Will Lead The Market Near-Term, But Long-Term Market Share Harder To Predict",-0.2476,10,Other,0.2476
+2016-08-15,Bank of America,BAC,news,"13F from Fairholme Capital Shows Increased Stake in BofA Common Stock, Lands End, St. Joe, Reduced Stake in Sears",0.4103,6,Merger/Acquisition,0.4103
+2016-08-18,Caterpillar Inc.,CAT,news,UPDATE: Caterpillar Estimates Workforce Impact Reduction To Be Up To 155 Positions,0.1121,3,Earnings,0.1121
+2016-08-18,Thermo Fisher Scientific,TMO,news,"Cowen & Co Doubts ILMN, TMO Merger Will Go Through, Says 'We Believe TMO/ILMN Is A Close To 0% Probability'",0.2215,2,Merger/Acquisition,0.2215
+2016-08-22,Coca-Cola Company (The),KO,news,5 Of The Most Successful Athletes Turned Investors,0.2393,1,Other,0.2393
+2016-08-23,Procter & Gamble,PG,news,UPDATE: Edgewell Says 'Gillette's MACH3® patents have expired and we are confident in the quality and performance of our private label products.',0.1582,1,Other,0.1582
+2016-08-30,"Netflix, Inc.",NFLX,news,"Netflix Shares Spiking Over 1%, Traders Circulating Vague Chatter Of Possible Interest From Google",0.2571,7,Other,0.2571
+2016-08-30,"Netflix, Inc.",NFLX,news,"Benzinga's M&A Chatter for Tuesday August 30, 2016",0.2879,6,Other,0.2879
+2016-08-31,Palo Alto Networks,PANW,news,12 Stocks Moving In Wednesday's Pre-Market Session,0.1751,9,Other,0.1751
+2016-08-31,Qualcomm,QCOM,news,"Option Alert: QCOM Sept $62.5 Put; 9,236 @Bid @$0.78",-0.4271,2,Other,0.4271
+2016-09-01,Wells Fargo,WFC,news,"Amazon, Wells Fargo End Short-Lived Partnership Offering Discount Student Loans",-0.0200,2,Other,0.0200
+2016-09-06,Mondelez International,MDLZ,news,JP Morgan Reinstates Overweight on Mondelez International,-0.6429,6,Analyst Rating,0.6429
+2016-09-09,American Express,AXP,news,Management At American Express Has A Plan To Tackle Its Competitive Pressures,-0.0371,1,Other,0.0371
+2016-09-12,Deere & Company,DE,news,Deere Shares Volatile as USDA Issues Crop Report,-0.6842,3,Other,0.6842
+2016-09-13,Intuit,INTU,news,The Market In 5 Minutes: The Fed And IEA Confuse The Market,-0.2040,2,Macroeconomic,0.2040
+2016-09-14,"Netflix, Inc.",NFLX,news,Option Alert: Netflix Oct $115 Puts Sweep at the ask: 520 @ 18.2 vs. Open Interest 87,-0.4843,9,Other,0.4843
+2016-09-16,Oracle Corporation,ORCL,news,Traders Talking Bazaarvoice Takeout; Potential Suitors Decline To Comment,-0.4985,7,Other,0.4985
+2016-09-20,CVS Health,CVS,news,"Target Missing The Mark On Traffic Trends, No Compelling Explanation To Be Found",0.3405,2,Other,0.3405
+2016-09-21,Adobe Inc.,ADBE,news,20 Stocks Moving In Wednesday's Pre-Market Session,-0.0794,9,Other,0.0794
+2016-09-22,Lockheed Martin,LMT,news,Lockheed Adds $2B to Buyback Plan,0.2407,5,Other,0.2407
+2016-09-23,BNY Mellon,BNY,news,Interest Rates Are Still Perking Up,0.3168,4,Other,0.3168
+2016-09-26,Pfizer,PFE,news,Option Alert: PFE 9/30 33.5 Puts (Wkly) Sweep: 4999 @  ASK  $0.16: 5395 traded vs 331 OI:  Earnings 10/25  $33.79 Ref,-0.5932,6,Earnings,0.5932
+2016-10-03,Wells Fargo,WFC,news,Carter Worth And Mike Khouw's Wells Fargo Trade,-0.3284,6,Other,0.3284
+2016-10-04,Salesforce,CRM,news,Salesforce Pops to High on Volume,0.1220,9,Other,0.1220
+2016-10-04,Wells Fargo,WFC,news,Technical Alert: Wells Fargo Matches Monday's Low,-0.6590,6,Other,0.6590
+2016-10-05,Wells Fargo,WFC,news,Wells Fargo Responds to Chicago City Council Ordinance: Says 'Disappointed' City Has Chosen to Suspend Realtionship,-0.0731,5,Other,0.0731
+2016-10-09,IBM,IBM,news,"Gender Bias Remains Strong In Science Jobs Field, Study Suggests",0.4541,3,Other,0.4541
+2016-10-10,"Netflix, Inc.",NFLX,news,"Netflix Is A Sell: Deutsche Bank Likes The Business, But Not The Stock",0.0076,8,Other,0.0076
+2016-10-11,Cisco,CSCO,news,"Exclusive: 10 Minutes With A Top Apptio Industry Peer, Digital Fuel",-0.0096,2,Other,0.0096
+2016-10-11,Gilead Sciences,GILD,news,Technical Alert: Gilead Sciences Lower For Fourth Day In A Row,-0.8135,4,Other,0.8135
+2016-10-11,Palo Alto Networks,PANW,news,Option Alert: PANW Nov16 150 Calls Sweep: 525 @  ASK  $9.985: 525 traded vs 178 OI:  Earnings 11/28  $156.07 Ref,0.2268,4,Earnings,0.2268
+2016-10-12,Salesforce,CRM,news,Has Microsoft Derailed Salesforce?,-0.2938,10,Other,0.2938
+2016-10-12,Qualcomm,QCOM,news,NXP Semi Shares Tick Lower in After-Hours Action as Traders Passing Around Comments from Detwiler Fenton Suggesting Qualcomm Could Have Better Options Than NXP,-0.4427,9,Other,0.4427
+2016-10-12,Wells Fargo,WFC,news,Wells Fargo Press Release Confirms CEO John Stumpf to Retire; Tim Sloan Named Replacement,-0.1096,6,Management Change,0.1096
+2016-10-14,"Netflix, Inc.",NFLX,news,"Hearing M Sciences Issued Comments on Netflix, Said Sept. Data Suggests Churned Subs Have Already Begun Returning",0.0131,9,Other,0.0131
+2016-10-17,Gilead Sciences,GILD,news,Watch These 5 Huge Put Purchases In Monday Trade,-0.5528,4,Other,0.5528
+2016-10-19,"Netflix, Inc.",NFLX,news,"Netflix, Comcast Shares Dip Lower, Time Warner Move Higher Following DJ Report of Google Interest in Working with CBS, Disney for Web Service",-0.5055,10,Other,0.5055
+2016-10-20,Comcast,CMCSA,news,Entire Broadcast Space Spikes Sharply Higher Amid Chatter AT&T May Have Thought About Takeover of Time Warner,0.3013,2,Merger/Acquisition,0.3013
+2016-10-20,Morgan Stanley,MS,news,"The Market In 5 Minutes: Tesla's Announcement, Major Earnings And Jobless Claims",0.0198,8,Earnings,0.0198
+2016-10-21,Intuit,INTU,news,"Intuit, Google Working ON Product Integrations For Small Businesses",0.2312,2,Other,0.2312
+2016-10-21,McDonald's,MCD,news,Dan Nathan Analyses McDonald's Ahead Of Earnings,0.3498,4,Earnings,0.3498
+2016-10-21,Merck & Co.,MRK,news,"Merck Reports KEYNOTE-045 Studying KEYTRUDA in Advanced Bladder Cancer Meets Primary Endpoint, Stops Early",-0.5211,5,Other,0.5211
+2016-10-25,American Express,AXP,news,Q3 Credit Card Showdown: Capital One Vs. Discover Card,-0.3109,10,Earnings,0.3109
+2016-10-25,Caterpillar Inc.,CAT,news,"Caterpillar Q3 EPS $0.85 vs $0.76 est, Revenue $9.16B vs $9.87B est",0.6448,5,Earnings,0.6448
+2016-11-03,Oracle Corporation,ORCL,news,NetSuite's Share Price Hangs In The Balance As Tender Offer Deadline Looms,-0.2585,1,Other,0.2585
+2016-11-04,Arista Networks,ANET,news,Broadcom Finds A Clever Way To Maintain M&A Strategy With Brocade Deal,0.4744,4,Other,0.4744
+2016-11-08,Salesforce,CRM,news,Why Now Is The Time To Be Buying Salesforce,-0.7027,3,Other,0.7027
+2016-11-10,Nvidia,NVDA,news,12 Stocks You Should Be Watching Today,-0.0510,10,Other,0.0510
+2016-11-15,NextEra Energy,NEE,news,NextEra Energy Removed From Bank of America US 1 List,0.2893,7,Other,0.2893
+2016-11-16,Cisco,CSCO,news,Cisco Reports Q1 Rev. $12.4B vs. Est. $12.33B,0.1037,7,Earnings,0.1037
+2016-11-17,Cisco,CSCO,news,"How Cisco's Results Bode For Arista, FireEye, Palo Alto Networks",0.0295,8,Other,0.0295
+2016-11-18,Salesforce,CRM,news,Technical Alert: Salesforce.com Sharply Higher After Q3 Beat,0.6751,10,Earnings,0.6751
+2016-11-18,Lam Research,LRCX,news,"UPDATE: Lam Research Earlier Issued Outlook During Investor, Analyst Meeting: Sees FY17-FY18 Sales $7.25B-$8B, Adj. EPS $8-$9",0.1956,6,Earnings,0.1956
+2016-11-23,Eli Lilly and Company,LLY,news,"Morgan Stanley Calling For Biogen To End The Day Flat To Slightly Up Following Eli Lilly Data Results; Says aducanumab More Potent Than solanezumab, Believes Indication Of Activity/Trends Could Keep Amyloid Debate Alive",-0.5638,9,Other,0.5638
+2016-11-29,Johnson & Johnson,JNJ,news,"Jim Cramer Shares His Thoughts On Johnson & Johnson, Anheuser Busch And Starbucks",0.0866,5,Other,0.0866
+2016-12-01,Bank of America,BAC,news,Standpoint Research Downgrades Bank of America to Hold,-0.0330,7,Analyst Rating,0.0330
+2016-12-01,Coca-Cola Company (The),KO,news,"Sports Business Reporter Scott Soshnick Tweets: 'BREAKING: Coca Cola's Monster Energy replacing Sprint as sponsor of Nascar's top racing tier, source says'",0.4549,3,Other,0.4549
+2016-12-02,Duke Energy,DUK,news,"Electric Utilities Up Early: Exelon 3%, Companhia Paranaense de Energia 3%, Enersis Americas 2.5%, Alliant 2%, OGE 2%, AES 2%, Duke 1.5%, Public Service 1%, Dominion 1%",0.3438,5,Other,0.3438
+2016-12-08,Broadcom,AVGO,news,Broadcom Sees Q1 Sales $4.075B +/- $75M,0.3143,9,Earnings,0.3143
+2016-12-08,Procter & Gamble,PG,news,Trying Times For Staples ETFs,-0.0114,1,Other,0.0114
+2016-12-12,Bank of America,BAC,news,"Allegiant Travel To Be Pressured By 2017, 2018 Costs; Imperial Downgrades",-0.7922,8,Analyst Rating,0.7922
+2016-12-12,Cisco,CSCO,news,"Barron's Picks And Pans: Goodyear, Johnson & Johnson And More",0.7489,1,Other,0.7489
+2016-12-14,Pfizer,PFE,news,FDA Reports Approval of Pfizer's Eucrisa for Eczema,-0.5685,6,Other,0.5685
+2016-12-15,Applied Materials,AMAT,news,Traders Attributing Spike In Applied Materials To WSJ Article Highlighting Lockheed Martin Taking Stake In A Chip Designer IQ-Analog,0.6597,8,Merger/Acquisition,0.6597
+2016-12-16,Booking Holdings,BKNG,news,"Keep an Eye on These 5 Stocks for December 16, 2016",0.8096,7,Other,0.8096
+2016-12-16,"Netflix, Inc.",NFLX,news,Apple Gets Into The Indonesian Market,0.2812,9,Other,0.2812
+2016-12-16,Wells Fargo,WFC,news,CNBC Now Tweets: JUST IN: Wells Fargo branch activity down 3% in Nov. vs. year ago & down 5% in Nov. vs. Oct.; new checking account opens down 9% vs. Oct.,-0.4571,7,Other,0.4571
+2016-12-19,Bristol Myers Squibb,BMY,news,"The Market In 5 Minutes: 'Rogue One', Bullish Commentary Pumps Disney Up",0.8780,5,Other,0.8780
+2016-12-27,"Netflix, Inc.",NFLX,news,Wall Street's Top Picks For 2017: All In One Place,0.2090,2,Other,0.2090
+2016-12-29,Caterpillar Inc.,CAT,news,The Most Overpaid And Underpaid CEOs In The Dow 30 This Year,-0.0359,2,Other,0.0359
+2016-12-29,Merck & Co.,MRK,news,Prima BioMed Announces First Clinical Data from Combination of IMP321 With Keytruda Show No Safety Concerns,0.3855,3,Other,0.3855
+2017-01-03,Medtronic,MDT,news,"Benzinga's Top Upgrades, Downgrades For January 3, 2017",0.1294,2,Analyst Rating,0.1294
+2017-01-04,Mastercard,MA,news,UK's CMA Says Mastercard's Acquisition of VocaLink Gives Rise to Competition Concerns,0.1478,4,Merger/Acquisition,0.1478
+2017-01-11,Pfizer,PFE,news,All The Markets Trump Moved During His Speech Today,-0.1316,3,Other,0.1316
+2017-01-12,Morgan Stanley,MS,news,8 Biggest Price Target Changes For Thursday,-0.1242,9,Analyst Rating,0.1242
+2017-01-13,Coca-Cola Company (The),KO,news,Are Investor Concerns On Monster Beverages Misplaced?,-0.8607,1,Other,0.8607
+2017-01-18,"Netflix, Inc.",NFLX,news,Netflix Reports Q4 Adj. EPS $0.15 vs $0.14 Est.,-0.3003,10,Earnings,0.3003
+2017-01-18,"Netflix, Inc.",NFLX,news,Netflix Reports Q4 Sales $2.48B vs $2.47B Est.,0.3358,10,Earnings,0.3358
+2017-01-19,"Netflix, Inc.",NFLX,news,Netflix Makes New All-Time High After Q4 Beat,0.8983,10,Earnings,0.8983
+2017-01-20,Booking Holdings,BKNG,news,"Benzinga's Top Upgrades, Downgrades For January 20, 2017",-0.3904,4,Analyst Rating,0.3904
+2017-01-23,Lockheed Martin,LMT,news,"Execs from Tesla, J&J, Lockheed, Under Armour, Whirlpool Attend Trump Meeting with Key US Manufacturers",-0.5990,2,Other,0.5990
+2017-01-25,Caterpillar Inc.,CAT,news,"UPDATE: Axiom's Johnson Believes Cat Investors Are Too Focused on US, Believes 'China is much more important when trying to predict global mining CAPEX'",-0.1388,2,Geopolitical,0.1388
+2017-01-25,CVS Health,CVS,news,Benzinga's Option Alert Recap From January 25,0.0397,5,Other,0.0397
+2017-01-25,Coca-Cola Company (The),KO,news,The Market In 5 Minutes: Big Earnings And A Major IPO Acquisition,0.0735,2,Earnings,0.0735
+2017-01-27,CVS Health,CVS,news,Citron's Left Tells Benzinga Trump Should Announce He Will Look Into the PBM Model,0.4375,6,Other,0.4375
+2017-01-27,Lockheed Martin,LMT,news,Recent Weakness In Lockheed Shares Offers Buying Opportunity,-0.1106,5,Other,0.1106
+2017-01-29,Qualcomm,QCOM,news,What To Expect From Semiconductor Earnings This Week,0.2553,10,Earnings,0.2553
+2017-01-30,Merck & Co.,MRK,news,"The Market In 5 Minutes: Walgreens-Rite Aid, Personal Income And Trump's Executive Order",-0.6196,7,Other,0.6196
+2017-01-30,"Netflix, Inc.",NFLX,news,The Second Half Of FANG Reports This Week; Here's What To Look For,-0.5286,4,Other,0.5286
+2017-01-31,Salesforce,CRM,news,Benzinga's Option Alert Recap From January 31,-0.3045,6,Other,0.3045
+2017-02-06,Nvidia,NVDA,news,Advanced Micro Devices Continues To Rip On Potential Intel Deal,0.0266,7,Other,0.0266
+2017-02-07,Procter & Gamble,PG,news,"20 Most Talked About Super Bowl LI Commercials, Ranked",-0.0798,2,Other,0.0798
+2017-02-15,PepsiCo,PEP,news,"Earnings Scheduled For February 15, 2017",-0.2183,6,Earnings,0.2183
+2017-02-16,Cisco,CSCO,news,Cisco Systems Reaches Highest Level Since November 2007,0.5240,7,Other,0.5240
+2017-02-17,Coca-Cola Company (The),KO,news,"Markets Turn Lower As Long Weekend Approaches, But Optimism Seems Evident",-0.2288,6,Other,0.2288
+2017-02-22,T-Mobile US,TMUS,news,T-Mobile To Launch LTE-U 5G In Spring '17 Following Today's FCC Certification Of Equipment,0.4631,8,Product Launch,0.4631
+2017-02-23,Caterpillar Inc.,CAT,news,Option Alert: Caterpillar Feb 24th 96.5 Calls Sweep: 1500 @  ASK  $0.13: 1562 traded vs 271 OI:  Earnings 4/25 Before Open (est)  $95.30 Ref,0.2169,6,Earnings,0.2169
+2017-02-24,Caterpillar Inc.,CAT,news,Watch These 8 Huge Call Purchases In Friday Trade,-0.5539,7,Other,0.5539
+2017-02-28,Palo Alto Networks,PANW,news,"Palo Alto Networks Reports Q2 Adj. EPS $0.63 vs. $0.62 Est., Sales $422.6M vs. $429M Est.",0.0182,7,Earnings,0.0182
+2017-03-01,Palo Alto Networks,PANW,news,"JP Morgan Downgrades Palo Alto Networks To Neutral, Lowers Price Target To $140",-0.9200,7,Analyst Rating,0.9200
+2017-03-03,Caterpillar Inc.,CAT,news,The Market In 5 Minutes,0.0381,10,Other,0.0381
+2017-03-03,Salesforce,CRM,news,Benzinga's Option Alert Recap From March 3,0.0103,4,Other,0.0103
+2017-03-03,Coca-Cola Company (The),KO,news,Indian Dream Fizzling Out: Indian State Pulls U.S. Soft Drinks Over Water Scarcity,-0.3288,1,Other,0.3288
+2017-03-06,Home Depot,HD,news,Watch For Near-Term Profit Taking In Lumber Liquidators Following $0.30 Spike Higher On Unconfirmed M&A Interest From Home Depot,-0.5724,4,Earnings,0.5724
+2017-03-06,PepsiCo,PEP,news,"Benzinga Premarket Prep Host Dennis Dick Tweets: Notable opening imbalances: $XRX +467K, $BAC -353K, $PFE -133K, $CRM -129K, $PEP -89K, $JNJ -72K, $PG -50K",-0.6389,3,Other,0.6389
+2017-03-08,Merck & Co.,MRK,news,REMINDER: Merck's PDUFA Date For Keytruda In Microsatellite Instability-High Cancer Today,0.3262,2,Other,0.3262
+2017-03-09,IBM,IBM,news,Salesforce And Why This Is The Year Of 'Einstein',-0.2501,1,Other,0.2501
+2017-03-10,Nvidia,NVDA,news,"Mobileye, NVIDIA, NXP Semi Shares Quiet Amid Report NIO Has Said Will Have Autonomous Electric Vehicles in US Market in 2020, Wants to Partner with Mobileye, NVIDIA, NXP",-0.0306,8,Other,0.0306
+2017-03-11,Home Depot,HD,news,The Challenges Of Building A Successful Business In Latin America: Accomplished Entrepreneur Shares His Experience,0.8012,1,Other,0.8012
+2017-03-14,Medtronic,MDT,news,"Medtronic Shares Volatile Over Last Few Mins, Slightly Lower Following Recent Report Co.'s Medical Supplies Unit Has Drawn Interest from Cardinal Health",-0.7342,1,Other,0.7342
+2017-03-14,Oracle Corporation,ORCL,news,Q3 2017 Real-Time Call Brief,0.2245,3,Earnings,0.2245
+2017-03-19,Citigroup,C,news,Dan Nathan's Citigroup Trade,-0.6823,3,Other,0.6823
+2017-03-20,Micron Technology,MU,news,Benzinga's Option Alert Recap From March 20,-0.1116,5,Other,0.1116
+2017-03-20,"Netflix, Inc.",NFLX,news,Deutsche Bank Raises Netflix Price Target To $125,0.2627,7,Analyst Rating,0.2627
+2017-03-20,"Netflix, Inc.",NFLX,news,7 Biggest Price Target Changes For Monday,-0.5583,7,Analyst Rating,0.5583
+2017-03-21,Micron Technology,MU,news,Micron Retreats From 21-Month High,-0.2770,7,Other,0.2770
+2017-03-22,Coca-Cola Company (The),KO,news,Guy Adami And David Seaburg Share Their Thoughts On Altria And Coca-Cola,0.2621,1,Other,0.2621
+2017-03-23,Accenture,ACN,news,Accenture Sees Q3 Sales $8.65B to $8.90B vs $8.80B Est,0.2008,4,Earnings,0.2008
+2017-03-30,Oracle Corporation,ORCL,news,Fast Money Traders Share Their Financial And Tech Picks,-0.1890,7,Other,0.1890
+2017-03-31,Micron Technology,MU,news,"Benzinga's Top Upgrades, Downgrades For March 31, 2017",-0.3247,9,Analyst Rating,0.3247
+2017-03-31,Texas Instruments,TXN,news,Macquarie Initiates Coverage On Texas Instruments at Neutral,0.0092,1,Analyst Rating,0.0092
+2017-04-03,Morgan Stanley,MS,news,"Pre-Market Imbalance Update: GE 128K Shares to Sell, Alibaba 65K Shares to Buy, Morgan Stanley 45K to Sell, HP Enterprise 35K to Buy",0.5410,9,Other,0.5410
+2017-04-06,McDonald's,MCD,news,Can Teen Sentiment Inform Stock Picks?,0.4244,1,Other,0.4244
+2017-04-09,Comcast,CMCSA,news,The Street Tries To Get A Clear Signal On Comcast's New Mobile Phone Service,0.2490,3,Other,0.2490
+2017-04-10,CVS Health,CVS,news,What Makes Mylan's Newest EpiPen Lawsuit Different?,-0.0505,1,Legal/Regulatory,0.0505
+2017-04-10,Verizon,VZ,news,"How Walt Mossberg Changed The Way We Think About Apple, Google And Others",0.0389,1,Other,0.0389
+2017-04-11,Home Depot,HD,news,Watch These 9 Huge Call Purchases In Tuesday Trade,-0.5967,1,Other,0.5967
+2017-04-13,Booking Holdings,BKNG,news,2 New Active ETFs With Unique Spins On Risk Management,0.5975,1,Other,0.5975
+2017-04-18,"Netflix, Inc.",NFLX,news,The Sell-Side Responds To Netflix's Q1 Earnings,-0.6113,9,Earnings,0.6113
+2017-04-19,Lam Research,LRCX,news,15 Biggest Mid-Day Gainers For Wednesday,0.8304,10,Other,0.8304
+2017-04-19,Morgan Stanley,MS,news,Mid-Day Market Update: Dow Turns Negative; Argos Therapeutics Shares Spike Higher,0.0450,10,Other,0.0450
+2017-04-19,Texas Instruments,TXN,news,Quarterly Chip Demand for iPhone to Surpass 50M Units in H2 -2017 -DigiTimes,-0.2863,1,Other,0.2863
+2017-04-24,T-Mobile US,TMUS,news,"T-Mobile Reports Q1 Sales $9.6B vs $9.62B Est., Adj. EBITDA $2.7B, Adj. EPS $0.38 vs $0.34 Est.",0.0723,3,Earnings,0.0723
+2017-04-25,Caterpillar Inc.,CAT,news,From Cat Q1 Earnings Conference Call: Sees Strong Market in China Continuing At Least Through Mid 2017 If Policy Remains Supportive,0.5737,10,Earnings,0.5737
+2017-04-25,CVS Health,CVS,news,Benzinga's Option Alert Recap From April 25,-0.8803,5,Other,0.8803
+2017-04-25,Coca-Cola Company (The),KO,news,"Eying 6,000: Nasdaq Close To New Big Number As Relief Rally Seen Continuing",0.5488,2,Other,0.5488
+2017-04-25,McDonald's,MCD,news,Restaurant Analyst: McDonald's U.S. Turnaround Is Happening,0.0532,1,Other,0.0532
+2017-04-25,Texas Instruments,TXN,news,"Texas Instruments Sees Q2 Sales $3.4-$3.7B vs $3.5B, EPS $0.89-$1.01 vs $0.91 Est.",-0.1950,7,Earnings,0.1950
+2017-04-26,"Netflix, Inc.",NFLX,news,Where You Should Expect To See Effects Of Netflix's Breakthrough In China,-0.6590,9,Geopolitical,0.6590
+2017-04-26,ServiceNow,NOW,news,"ServiceNow Sees FY17 Adj. Sales $1.886B-$1.906B vs $1.84B Est., Adj. Total Billings $2.235B-$2.255B",-0.5298,5,Earnings,0.5298
+2017-04-26,PepsiCo,PEP,news,A Peek Into The Markets: U.S. Stock Futures Mostly Higher Ahead Of Earnings,0.1360,6,Earnings,0.1360
+2017-04-27,AbbVie,ABBV,news,"Abbvie CEO Says HCV Patient Volumes Still Trending Down Although At Slower Pace, He Thinks They Are Reaching Some Point Of Stability Going Forward",0.1880,2,Management Change,0.1880
+2017-04-27,Bristol Myers Squibb,BMY,news,"Earnings Scheduled For April 27, 2017",0.1988,1,Earnings,0.1988
+2017-05-01,American Express,AXP,news,"Companies Holding Shareholder Meetings Today Include: American Express, Dish Network, Eli Lilly, And Zynga",0.6183,6,Other,0.6183
+2017-05-02,Booking Holdings,BKNG,news,5 Biggest Price Target Changes For Tuesday,0.0526,7,Analyst Rating,0.0526
+2017-05-11,Verizon,VZ,news,Verizon Communications to Acquire Straight Path Communications for $184/Share in All-Stock Deal,-0.3301,3,Merger/Acquisition,0.3301
+2017-05-17,Cisco,CSCO,news,"8 Stocks To Watch For May 17, 2017",0.7020,8,Other,0.7020
+2017-05-17,Cisco,CSCO,news,Preparing The Shopping List For Bull Market Discounts,-0.5018,4,Other,0.5018
+2017-05-24,Lowe's,LOW,news,Mid-Morning Market Update: Markets Open Higher; Lowe's Misses Q1 Expectations,0.1204,10,Earnings,0.1204
+2017-05-26,Qualcomm,QCOM,news,Blackberry Higher Off Confirmation Of Qualcomm Royalty Payment,0.4277,6,Other,0.4277
+2017-05-30,McDonald's,MCD,news,"McDonald's Shareholder Proposal Requesting Updated Policy On Use Of Antibiotics, Assessment Of Environmental Effect Of Foam Cups By Meat Suppliers Not Approved By Shareholders At Meeting",-0.6286,1,Other,0.6286
+2017-05-31,Bank of America,BAC,news,Financial Stocks Down (XLF ETF Down ~1.1%) Wednesday Amid Comment from JP Morgan CFO Lake About Trading Being Down 15% in 2017,-0.5594,10,Management Change,0.5594
+2017-06-01,Accenture,ACN,news,"Accenture Announces Will Buy LabAnswer, No Terms Disclosed",-0.2077,2,Other,0.2077
+2017-06-04,Accenture,ACN,news,"Barron's Picks And Pans: AT&T, Express Scripts, Accenture And More",-0.5675,1,Other,0.5675
+2017-06-06,PepsiCo,PEP,news,Shares Of Pepsi and Coca-Cola Slightly Lower Premarket; Yesterday Seattle City Council Voted To Impose Tax On Sugary Drinks Beginning In July,-0.3232,1,Other,0.3232
+2017-06-09,Arista Networks,ANET,news,Why Netgear Is Poised To Make A Run,0.3134,2,Other,0.3134
+2017-06-15,Merck & Co.,MRK,news,Merck Reports Expansion Of Distribution Deal With Public Health England,-0.7186,2,Other,0.7186
+2017-06-15,Pfizer,PFE,news,"Regeneron Lower Day After 8-K Filing, Increased Competition For Pain Remedy",-0.1156,6,Other,0.1156
+2017-06-22,Accenture,ACN,news,"Earnings Scheduled For June 22, 2017",-0.3628,3,Earnings,0.3628
+2017-06-22,IBM,IBM,news,Confidence And Hubris: Cramer Appreciative Of Oracle's Conference Call,-0.2889,4,Other,0.2889
+2017-06-22,T-Mobile US,TMUS,news,"T-Mobile Shares Tick Toward Session Highs, Now Up 0.3%, As Traders Circulating Report 'Reports: Sprint, T-Mobile 'Finalizing' Merger Plans, T-Mobile Delays Employee Raises'",0.4553,6,Merger/Acquisition,0.4553
+2017-07-11,IBM,IBM,news,Semiconductor Companies Expected To Fuel Growth In Tech Sector Earnings This Quarter,0.3590,2,Earnings,0.3590
+2017-07-11,Nvidia,NVDA,news,AMD's RX Vega Vs. Nvidia's GTX1080: The Great Rivalry Heats Up,-0.4868,10,Other,0.4868
+2017-07-11,PepsiCo,PEP,news,Mid-Day Market Update: Halcon Resources Jumps After Announcing Sale of Williston Basin Assets; Shiloh Industries Shares Slide,-0.0384,8,Other,0.0384
+2017-07-14,Micron Technology,MU,news,Micron Option Alert: Jul 28 $34 Calls at the Ask: 25000 @ $0.221 vs 708 OI; Ref=$31.85,-0.3392,9,Other,0.3392
+2017-07-17,IBM,IBM,news,"Earnings Roundup: JNJ, IBM, And LMT Report Q2 Results Tomorrow",0.6704,6,Earnings,0.6704
+2017-07-17,Merck & Co.,MRK,news,5 Biggest Price Target Changes For Monday,-0.5583,3,Analyst Rating,0.5583
+2017-07-26,Caterpillar Inc.,CAT,news,5 Biggest Price Target Changes For Wednesday,-0.1649,10,Analyst Rating,0.1649
+2017-07-27,Eli Lilly and Company,LLY,news,"On, Wisconsin: University Wins Half Billion In iPhone Patent Suit, Another Sign Schools Are Research Cash Cows",0.3618,5,Other,0.3618
+2017-07-28,Merck & Co.,MRK,news,Merck Raises FY17 Adj. EPS Outlook,0.8028,8,Earnings,0.8028
+2017-08-10,Micron Technology,MU,news,"Micron Option Alert: Jan, 2019 $13 Puts Sweep (35) at the Bid: 2511 @ $0.54 vs 1161 OI; Ref=$27.67",-0.6447,8,Other,0.6447
+2017-08-13,General Dynamics,GD,news,Barron's Ponders The Future Of Netflix,0.0961,1,Other,0.0961
+2017-08-16,Booking Holdings,BKNG,news,"SunTrust Robinson Humphrey Initiates Coverage On Priceline Group with Buy Rating, Announces $2.2K Price Target",-0.0186,6,Analyst Rating,0.0186
+2017-08-17,Cisco,CSCO,news,15 Biggest Mid-Day Losers For Thursday,-0.8280,10,Other,0.8280
+2017-08-18,Deere & Company,DE,news,"8 Stocks To Watch For August 18, 2017",0.6519,10,Other,0.6519
+2017-08-28,Gilead Sciences,GILD,news,"Gilead CEO On Conf. Call Says Co. Is Not Going Quiet After This Deal, Will Search For More Opportunities",-0.4671,2,Management Change,0.4671
+2017-08-30,General Dynamics,GD,news,General Dynamics Awarded $150M Contract With U.S. Marine Corps,0.3889,1,Other,0.3889
+2017-08-30,Eli Lilly and Company,LLY,news,"UPDATE: Lilly, Incyte Expect FDA To Classify NDA For Baricitinib As Class I Resubmission, Which Will Start A New 6-Month Review Cycle",-0.4741,4,Other,0.4741
+2017-08-30,Eli Lilly and Company,LLY,news,"Eli Lilly, Incyte Report Will Resubmit NDA For Baricitinib Before End Of Jan. '18",0.2655,5,Other,0.2655
+2017-09-06,Deere & Company,DE,news,"Deere Reports Purchase Of Blue River Technology, Will Divest $305M To Fully Acquire Blue River",-0.3532,1,Merger/Acquisition,0.3532
+2017-09-10,Bristol Myers Squibb,BMY,news,Bristol-Myers Squibb Announces Opdivo Plus Yervoy Combination Demonstrated Superior Overall Survival and Showed Durable Responses in Patients with Previously Untreated Advanced or Metastatic Renal Cell Carcinoma in Phase 3 CheckMate-214 Trial at ESMO 2017,-0.1719,6,Other,0.1719
+2017-09-12,FedEx,FDX,news,Will Its Recent Cyberattack Torpedo FedEx Q1 Results?,0.5103,4,Earnings,0.5103
+2017-09-19,Adobe Inc.,ADBE,news,Markets Move Moderately Higher As Wall Street Awaits Balance Sheet Reduction Plan,0.4052,2,Other,0.4052
+2017-09-20,General Dynamics,GD,news,"Dell EMC, General Dynamics, Microsoft Report Winning Of $1B Contract To Advance USAF's IT Transformation",0.3291,2,Other,0.3291
+2017-09-21,Capital One,COF,news,Capital One Hit With New Sell Rating,-0.4869,3,Analyst Rating,0.4869
+2017-09-26,Altria,MO,news,"Benzinga's Top Upgrades, Downgrades For September 26, 2017",-0.2391,6,Analyst Rating,0.2391
+2017-09-28,Home Depot,HD,news,Hacked Foods: Payment Card Security Breach Reported At Whole Foods Market,0.0698,1,Other,0.0698
+2017-09-28,McDonald's,MCD,news,The Market In 5 Minutes: The Market Wakes Up To The Trump Tax Plan,-0.4614,3,Other,0.4614
+2017-10-02,Procter & Gamble,PG,news,A Global Consumer Staples Idea,0.0275,4,Other,0.0275
+2017-10-10,Nvidia,NVDA,news,Robotics Analyst: Nvidia's AI Developments Don't Change The Self-Driving Car Timeline,0.3721,3,Other,0.3721
+2017-10-10,Nvidia,NVDA,news,NVIDIA Issues Release Highlighting Deutsche Post DHL Group Has Selected Co.'s DRIVE PX For Autonomous Delivery Truck Fleet,0.2836,4,Product Launch,0.2836
+2017-10-10,Procter & Gamble,PG,news,Trian's Peltz On CNBC Says The Dissatisfaction On Behalf Of The Retirees And Long-Term Shareholders Is 'Amazing',0.3720,3,Other,0.3720
+2017-10-11,BlackRock,BLK,news,"Earnings Scheduled For October 11, 2017",-0.4591,5,Earnings,0.4591
+2017-10-11,Coca-Cola Company (The),KO,news,"Soda Stocks Slightly Higher Today Following Chicago's 'Sugar Tax' Repeal Tuesday; Pepsi Up 0.62%, Coca-Cola +0.59%, Dr Pepper Snapple +0.41%",0.7977,4,Other,0.7977
+2017-10-11,Texas Instruments,TXN,news,"10 Of The Most Crowded Trades, And 10 Of The Least Crowded",-0.7738,1,Other,0.7738
+2017-10-13,Bank of America,BAC,news,Make Bank Of America Great Again; Analyst Prefers This Stock Into Year End,0.4684,5,Other,0.4684
+2017-10-13,PepsiCo,PEP,news,A New Mega-Cap ETF Comes To Town,0.6382,2,Other,0.6382
+2017-10-17,Comcast,CMCSA,news,"WSJ Reporter Tweets: I asked FCC chairman Ajit Pai about Trump's suggestion to take away NBC license because of ""fake news"". His answer: (BZ NOTE: Link To Statement Is In Body)",-0.3611,6,Management Change,0.3611
+2017-10-17,IBM,IBM,news,BZ NOTE: IBM's $19.153B In Q3 Sales Were Down 0.4% YoY,0.6280,3,Earnings,0.6280
+2017-10-17,Oracle Corporation,ORCL,news,Are Smart Contracts Changing How We Do Business?,-0.1812,1,Other,0.1812
+2017-10-20,Caterpillar Inc.,CAT,news,Upcoming Earnings: Heavy-Equipment Maker Caterpillar And Pharma Giant Eli Lilly Report On Tuesday,0.1526,1,Earnings,0.1526
+2017-10-22,Texas Instruments,TXN,news,Minneapolis Startup Apruve Brings Fintech Solution To B2B Sales,0.1537,2,Earnings,0.1537
+2017-10-23,Adobe Inc.,ADBE,news,Benzinga's Option Alert Recap From October 23,-0.3912,10,Other,0.3912
+2017-10-23,Merck & Co.,MRK,news,The Week Ahead: Earnings Season Starts In Earnest,-0.3820,1,Earnings,0.3820
+2017-10-24,BlackRock,BLK,news,The Financials Trade Playing Out In Leveraged ETFs,0.3893,3,Other,0.3893
+2017-10-24,Gilead Sciences,GILD,news,Gilead Announces GS-0976 In Phase 2 Study Showed Statistically Significant Efficacy Compared To Placebo,-0.1616,4,Other,0.1616
+2017-10-24,3M,MMM,news,33 Stocks Moving In Tuesday's Mid-Day Session,0.3980,6,Other,0.3980
+2017-10-26,Lockheed Martin,LMT,news,This Leveraged ETF Continues Asserting Itself,0.7966,3,Other,0.7966
+2017-10-31,Micron Technology,MU,news,Micron: A Strong Growth Stock Powering Self-Driving Cars,-0.0929,6,Other,0.0929
+2017-10-31,Pfizer,PFE,news,"Earnings Scheduled For October 31, 2017",-0.2173,8,Earnings,0.2173
+2017-11-03,Micron Technology,MU,news,"Najarian Brothers See Unusual Options Activity In Anadarko Petroleum, AIG, Micron And JD.com",0.7157,8,Other,0.7157
+2017-11-06,Booking Holdings,BKNG,news,Priceline Reports Q3 Adj. EPS $35.22 vs $34.25 Est.,-0.1420,8,Earnings,0.1420
+2017-11-06,Citigroup,C,news,5 Stocks To Watch Amid The Arrest Of Saudi Investor Prince Alwaleed bin Talal,-0.1713,2,Other,0.1713
+2017-11-06,Salesforce,CRM,news,12 Stocks Moving In Monday's After-Hours Session,0.1037,5,Other,0.1037
+2017-11-07,Qualcomm,QCOM,news,Mixed Views On A Hot Semiconductor ETF,-0.5154,10,Other,0.5154
+2017-11-08,Home Depot,HD,news,Upcoming Earnings: Macy's Stock Remains Close To Its 52-Week Low Ahead Of Tomorrow's Quarterly Results,-0.0318,6,Earnings,0.0318
+2017-11-09,Adobe Inc.,ADBE,news,Adobe Likely Has More Earnings Upside In Its Future,-0.6190,3,Earnings,0.6190
+2017-11-09,Adobe Inc.,ADBE,news,UBS Initiates Coverage On Adobe Systems with Buy Rating,0.0182,4,Analyst Rating,0.0182
+2017-11-10,Micron Technology,MU,news,"Tech Roundup: Earnings, Responses To Russian Meddling, And More",0.3652,8,Earnings,0.3652
+2017-11-14,American Tower,AMT,news,"Morgan Stanley Maintains Overweight on American Tower, Raises Price Target to $172.00",0.5886,9,Analyst Rating,0.5886
+2017-11-15,"Netflix, Inc.",NFLX,news,8 Key Technical Levels Discussed On Wednesday's PreMarket Prep,-0.6853,6,Other,0.6853
+2017-11-16,Johnson & Johnson,JNJ,news,Watching J&J Shares Amid Report Jury Has Returned $247M Verdict Against Co. Unit Depuy Related To Defective Hip Implant Suit,0.4843,1,Other,0.4843
+2017-11-17,Applied Materials,AMAT,news,"Deutsche Bank Maintains Buy on Applied Materials, Raises Price Target to $65.00",0.6503,10,Analyst Rating,0.6503
+2017-11-17,Applied Materials,AMAT,news,31 Stocks Moving In Friday's Pre-Market Session,-0.2881,10,Other,0.2881
+2017-11-17,Verizon,VZ,news,"Verizon, In Response To Dow Jones Report It Is Contemplating Purchase Of Certain Assets From 21st Century Fox, Tells Benzinga It Declines Comment On Rumors and Speculation",-0.4815,8,Other,0.4815
+2017-11-20,Intuit,INTU,news,"Intuit Reaffirms FY18 Outlook: Adj. EPS $4.90-$5 vs $4.96 Est., Sales $5.64B-$5.74B vs $5.69B Est.",0.0458,3,Earnings,0.0458
+2017-11-21,Qualcomm,QCOM,news,Qualcomm May Suspend Industrial Internet of Things Development Projects with Taiwan IT Players Due to Antitrust Ruling -DigiTimes,0.1379,6,Legal/Regulatory,0.1379
+2017-11-28,Bristol Myers Squibb,BMY,news,UPDATE: CytomX FDA Acceptance Of INDA Triggers $10M Milestone Payment From Bristol-Myers Squibb,0.0477,2,Other,0.0477
+2017-11-30,Lowe's,LOW,news,"Jim Cramer Advises His Viewers On Roku, Estee Lauder And Home Depot",-0.1861,4,Other,0.1861
+2017-11-30,Verizon,VZ,news,"Tech Shares Rebound In Overnight Trading As Focus Turns Toward OPEC, Senate",0.2978,5,Other,0.2978
+2017-12-07,Merck & Co.,MRK,news,Loncar Investment's Brad Loncar Tweets: Roche is trading slightly down in Europe and $MRK seems not to be doing anything in this early pre-market hour. IMpower150 basically in line with high expectations.,-0.0450,6,Other,0.0450
+2017-12-11,3M,MMM,news,Mid-Afternoon Market Update: NASDAQ Up 0.5%; bluebird bio Shares Spike Higher,-0.1075,9,Other,0.1075
+2017-12-12,3M,MMM,news,"3M Sees FY2018 EPS $9.60-10.00, Sees Sales Growth 5 to 7%",0.6570,8,Earnings,0.6570
+2017-12-13,Oracle Corporation,ORCL,news,Najarian Brothers See Unusual Activity In Walmart And Oracle,0.7377,4,Other,0.7377
+2017-12-15,Micron Technology,MU,news,Formosa Plastics Sells 2M Micron Technology Shares for $86.9M -Reuters,0.5141,8,Other,0.5141
+2017-12-17,Caterpillar Inc.,CAT,news,"Benzinga's Weekly Bulls & Bears: Bitcoin, Ford, Lululemon, Nike And More",-0.2064,4,Other,0.2064
+2017-12-18,Capital One,COF,news,PiperJaffray Upgrades Capital One Financial to Neutral,-0.6434,7,Analyst Rating,0.6434
+2017-12-28,Texas Instruments,TXN,news,Chips On The Table: An Aggressive Semiconductor Idea,-0.4621,1,Other,0.4621
+2018-01-03,IBM,IBM,news,"The Market In 5 Minutes: 2018 Predictions, Ant Financial-Moneygram Rejected, Trump Touts 'Bigger, More Powerful' Nuclear Button",-0.0192,1,Other,0.0192
+2018-01-08,Nvidia,NVDA,news,"NVIDIA, Aurora Announce Collaboration to Build Next-Generation Autonomous Vehicle Computer Platform at #CES2018",-0.0264,7,Other,0.0264
+2018-01-11,Booking Holdings,BKNG,news,"Expedia's Investments Will Pay Off In 2019, Morgan Stanley Says In Upgrade",-0.1613,7,Analyst Rating,0.1613
+2018-01-16,Bank of America,BAC,news,"The Week Ahead: Brace Yourself, Earnings Season Is Coming",-0.1235,1,Earnings,0.1235
+2018-01-16,Citigroup,C,news,Mid-Morning Market Update: Markets Open Higher; Citigroup Profit Tops Expectations,0.1064,10,Earnings,0.1064
+2018-01-16,Verizon,VZ,news,"Viacom, CBS Are Better Off Apart, Says Rosenblatt Securities",-0.4175,4,Other,0.4175
+2018-01-17,Bank of America,BAC,news,Benzinga Pro's 6 Stocks To Watch Today,0.3271,9,Other,0.3271
+2018-01-22,"Netflix, Inc.",NFLX,news,"Washington Shutdown Takes Center Stage, But Market Impact Only Slight So Far",-0.1869,7,Other,0.1869
+2018-01-29,Lockheed Martin,LMT,news,Benzinga Pro's 7 Stocks To Watch Today,0.3271,9,Other,0.3271
+2018-01-30,McDonald's,MCD,news,Hearing Hedgeye Named McDonald's New Best Idea Short,-0.0107,2,Other,0.0107
+2018-01-31,Altria,MO,news,CDC Director Brenda Fitzgerald Resigns Amid Controversy Regarding Her Trading Of Tobacco Stocks,-0.1400,5,Management Change,0.1400
+2018-01-31,Nvidia,NVDA,news,"Samsung Enters The Cryptocurrency Mining Space, Announces First-Ever Stock Split",0.4093,4,Other,0.4093
+2018-01-31,Qualcomm,QCOM,news,UPDATE: Samsung will be withdrawing its interventions in Qualcomm's appeal of the KFTC decision in the Seoul High Court.,0.6135,2,Other,0.6135
+2018-02-01,Lowe's,LOW,news,Hearing Lowe's Said To Be In Talks To Sell Tesla Solar Products,-0.2774,6,Other,0.2774
+2018-02-02,Texas Instruments,TXN,news,Texas Instruments Shares Slightly Lower; Late Thursday Several Insiders Including The CEO Filed Form 4s Declaring An Aggregate of 328.7K Shares,-0.0782,8,Management Change,0.0782
+2018-02-05,Home Depot,HD,news,Jefferies' Renewed Optimism For Lowe's Fuels Upgrade,0.3590,5,Analyst Rating,0.3590
+2018-02-05,Wells Fargo,WFC,news,JP Morgan Downgrades Wells Fargo to Underweight,-0.8945,8,Analyst Rating,0.8945
+2018-02-08,Comcast,CMCSA,news,Pyeongchang 2018: A Winter Olympics Stock Portfolio,0.2107,4,Other,0.2107
+2018-02-08,Coca-Cola Company (The),KO,news,Pyeongchang 2018: A Winter Olympics Stock Portfolio,0.2107,5,Other,0.2107
+2018-02-09,Micron Technology,MU,news,5 Tech Growth Stocks To Click With Investors Despite Selloff,-0.2761,10,Other,0.2761
+2018-02-09,Qualcomm,QCOM,news,"Qualcomm Reports Extension Of Cash Tender Offer For NXP Semi To Feb. 23, 2018",0.2189,7,Other,0.2189
+2018-02-12,Broadcom,AVGO,news,Broadcom Secures up to $100B of Debt Funding for Qualcomm Bid -DJ,-0.1652,9,Other,0.1652
+2018-02-12,Gilead Sciences,GILD,news,Traders Circulating Speculation Gilead Pursuing Galapagos Takeover,0.3407,6,Merger/Acquisition,0.3407
+2018-02-13,Mondelez International,MDLZ,news,Mondelēz International Appoints Debra Crew and Peter May to Board of Directors; Trian's Nelson Peltz to Step Down,0.4508,7,Management Change,0.4508
+2018-02-14,Cisco,CSCO,news,"Cisco Sees Q3 Adj. EPS $0.64-$0.66 vs $0.63 Est., Sales Growth 3-5% YoY",0.0131,10,Earnings,0.0131
+2018-02-14,Merck & Co.,MRK,news,"Credit Suisse Maintains Outperform on Merck & Co, Lowers price target to $65.00",0.5826,10,Analyst Rating,0.5826
+2018-02-15,Applied Materials,AMAT,news,"Stifel Raises Applied Material Price Target From $66 To $71, Firm Highlights A Positive Tone For 2018 On Its Earnings As Well As A Long-Term Favorable Outlook In The Display, Semi Industries",0.4034,10,Analyst Rating,0.4034
+2018-02-15,Cisco,CSCO,news,What Wall Street Is Saying About Cisco's Q2 Report,0.0669,10,Earnings,0.0669
+2018-02-15,Micron Technology,MU,news,"Q4 13F Roundup: How Buffett, Einhorn, Loeb, And Others Adjusted Their Portfolio",-0.4350,10,Earnings,0.4350
+2018-02-15,U.S. Bancorp,USB,news,"UPDATE: US Bancorp Fined $185M By U.S. Treasury, $75M By Office Of Comptroller Of The Currency, And $15M By Fed",0.1636,6,Legal/Regulatory,0.1636
+2018-02-27,Palo Alto Networks,PANW,news,"Wells Fargo Maintains Outperform on Palo Alto Networks, Raises Price Target to $215.00",0.5705,9,Analyst Rating,0.5705
+2018-02-28,Bank of America,BAC,news,Baidu's Video Streaming Unit iQIYI Files For IPO,0.2842,3,Other,0.2842
+2018-03-02,Home Depot,HD,news,"Benzinga's Top Upgrades, Downgrades For March 2, 2018",0.2494,4,Analyst Rating,0.2494
+2018-03-02,Oracle Corporation,ORCL,news,"Despite A Pristine Q4, Stifel Downgrades VMWare On Overhang From Parent Dell Technologies (NYSE:DVMT)",-0.3404,7,Analyst Rating,0.3404
+2018-03-06,Lowe's,LOW,news,5 Biggest Price Target Changes For Tuesday,0.4070,9,Analyst Rating,0.4070
+2018-03-06,Wells Fargo,WFC,news,Powell Prompted Inflows To Financial Services ETFs,0.0976,4,Other,0.0976
+2018-03-07,Broadcom,AVGO,news,"Broadcom Pledges to Create a New $1.5 Billion Fund to Invest in the Next Generation of Engineers to Ensure U.S. Leadership in Future Wireless Technology, Says Broadcom-Qualcomm Combination will Enhance Innovation",0.0404,3,Other,0.0404
+2018-03-07,Deere & Company,DE,news,Largest Stock Holdings Of Andreas Halvorsen's New-Look Viking Global,0.5192,5,Other,0.5192
+2018-03-12,Micron Technology,MU,news,Micron Option Alert: Fri $61 Calls Sweep (2) at the Bid: 1450 @ $1.521 vs 318 OI; Earnings 3/22 After Close Ref=$60.42,-0.5210,8,Earnings,0.5210
+2018-03-13,Qualcomm,QCOM,news,CPI Report Relatively Tame; Markets Lose Steam Early On After Tillerson News,-0.3198,9,Other,0.3198
+2018-03-15,Adobe Inc.,ADBE,news,"Adobe Materials Ahead Of Q1 Earnings Call Show Q2 Guidance: Sales ~$2.15B vs $2.14B Est., Adj. EPS ~$1.53 vs $1.51 Est.",-0.2825,9,Earnings,0.2825
+2018-03-15,3M,MMM,news,"Axios Tweets: Better known for Post-It notes, 3M is wading into the world of self-driving cars",-0.3286,6,Other,0.3286
+2018-03-19,"Netflix, Inc.",NFLX,news,The US Vs. AT&T-Time Warner: Inside The M&A Trial Of The Decade,0.6946,7,Other,0.6946
+2018-03-20,FedEx,FDX,news,"San Antonio, TX Fire Department Says Package Bomb has Exploded at FedEx Distribution Center in Texas; 1 Injury",0.0300,6,Other,0.0300
+2018-03-23,Bank of America,BAC,news,New York Attorney General Reports $42M Settlement With BofA Related To Fradulent Masking Scheme In Bank's Electronic Trading Unit,-0.0733,4,Legal/Regulatory,0.0733
+2018-03-26,Nvidia,NVDA,news,What To Expect From Nvidia's Analyst Day,0.4548,8,Other,0.4548
+2018-03-26,U.S. Bancorp,USB,news,Baird Upgrades US Bancorp to Outperform,0.8979,8,Analyst Rating,0.8979
+2018-04-05,Nvidia,NVDA,news,"UBS Initiates Coverage On NVIDIA with Neutral Rating, Announces $250.00 Price Target",-0.2781,9,Analyst Rating,0.2781
+2018-04-09,Citigroup,C,news,Market Starts Week In Or Near Correction Territory After Friday's Sell-Off,-0.6740,9,Other,0.6740
+2018-04-12,BlackRock,BLK,news,"A Peek Into The Markets: US Stock Futures Gain Ahead Of Jobless Claims, Import Prices Data",0.5591,10,Other,0.5591
+2018-04-13,Wells Fargo,WFC,news,"8 Stocks To Watch For April 13, 2018",-0.5310,9,Other,0.5310
+2018-04-16,IBM,IBM,news,"The Week Ahead: Netflix Earnings, Big Bank Results, FDA Actions Abound",-0.3579,6,Earnings,0.3579
+2018-04-17,"Netflix, Inc.",NFLX,news,"The Information Reports That Netflix, A Long-Time AWS Customer, Is Expanding Its Use Of Google Cloud, According To Sources With Knowledge Of The Matter",0.5225,8,Other,0.5225
+2018-04-18,American Express,AXP,news,"10 Stocks To Watch For April 18, 2018",-0.3488,8,Other,0.3488
+2018-04-18,Comcast,CMCSA,news,21st Century Fox Rejected Higher Offer From Comcast Before Accepting Disney Bid,-0.1909,5,Other,0.1909
+2018-04-18,Morgan Stanley,MS,news,"A Peek Into The Markets: US Stock Futures Up Ahead Of Earnings, Beige Book Report",0.1686,9,Earnings,0.1686
+2018-04-18,Verizon,VZ,news,"Verizon Reports Oath Has Hired Former Alibaba Pres, COO K. Guru Gowrappan",0.2290,3,Other,0.2290
+2018-04-19,"Netflix, Inc.",NFLX,news,The 100 Million Club: Putting Amazon's Prime Memberships In Perspective,0.2204,9,Other,0.2204
+2018-04-20,Procter & Gamble,PG,news,"Benzinga's Top Upgrades, Downgrades For April 20, 2018",0.2225,7,Analyst Rating,0.2225
+2018-04-24,Caterpillar Inc.,CAT,news,"12 Stocks To Watch For April 24, 2018",-0.1111,10,Other,0.1111
+2018-04-24,Coca-Cola Company (The),KO,news,Coca-Cola Says Is On Track To Hit FY Targets,-0.3150,4,Other,0.3150
+2018-04-26,General Dynamics,GD,news,"Credit Suisse Maintains Outperform on General Dynamics, Raises Price Target to $263.00",0.4688,10,Analyst Rating,0.4688
+2018-05-02,"Netflix, Inc.",NFLX,news,Online Retail ETF Celebrates Second Anniversary In Style,0.1642,5,Other,0.1642
+2018-05-03,Arista Networks,ANET,news,"Arista Networks Q1 EPS $1.66 Beats $1.51 Estimate, Sales $472.489M Beat $463.75M Estimate",0.2272,9,Earnings,0.2272
+2018-05-08,Comcast,CMCSA,news,Comcast Announces Full Terms Of Post-Offer Undertakings,-0.3734,8,Other,0.3734
+2018-05-08,Johnson & Johnson,JNJ,news,"Benzinga's Daily Biotech Pulse: Valeant Earnings, Lipocine's FDA Watch, Invivo CFO Departure",-0.6538,6,Earnings,0.6538
+2018-05-09,Deere & Company,DE,news,Upcoming Earnings: Nvidia Reports After Thursday's Close,-0.2921,7,Earnings,0.2921
+2018-05-11,Verizon,VZ,news,"Jim Cramer Shares His Thoughts On PayPal, Roku And More",-0.0439,4,Other,0.0439
+2018-05-16,BNY Mellon,BNY,news,"Q1 13F Roundup: How Buffett, Einhorn, Ackman And Others Adjusted Their Portfolio",-0.4955,5,Earnings,0.4955
+2018-05-16,T-Mobile US,TMUS,news,"REMINDER: U.S. Senate Voting Today On Halting FCC Repeal Of Net Neutrality, Watch Wireless, Media, And Streaming Stocks e.g. Netflix, Comcast, AT&T, Verizon, T-Mobile, et al",0.0375,5,Other,0.0375
+2018-05-23,Lowe's,LOW,news,Dan Nathan Sees Unusual Options Activity In Lowe's,0.1070,7,Other,0.1070
+2018-05-24,AbbVie,ABBV,news,UPDATE: AbbVie Says IMBRUVICA Plus GAZYVA Full Study Results Could Support IMBRUVICA-Based Chemotherapy-Free Combo Treatment Option For Patients,-0.3146,4,Other,0.3146
+2018-05-25,Micron Technology,MU,news,"Micron Shares Fall To Session Lows; Traders Circulating Word China's Anti-Monopoly Bureau Of Ministry Of Commerce Held A Meeting With Co. Representatives On May 24, 2018",-0.4049,7,Geopolitical,0.4049
+2018-06-01,Merck & Co.,MRK,news,"EMA Says CHMP Has Recommended Restricting Use Of Merck's Keytruda, Tecentriq As First-Line Treatments For Urothelial Cancer",0.0610,6,Other,0.0610
+2018-06-06,Pfizer,PFE,news,"Pfizer Reports Plan To Invest $600M In Biotech, Other Emerging Growth Cos. Through Its Pfizer Ventures Investment Vehicle",-0.6367,2,Other,0.6367
+2018-06-07,Qualcomm,QCOM,news,Commerce Secretary Wilbur Ross Confirms ZTE Deal,0.0014,3,Other,0.0014
+2018-06-08,Eli Lilly and Company,LLY,news,"Benzinga's Top Upgrades, Downgrades For June 8, 2018",0.4439,2,Analyst Rating,0.4439
+2018-06-08,Eli Lilly and Company,LLY,news,"Cantor Fitzgerald Initiates Coverage On Eli Lilly with Overweight Rating, Announces $100 Price Target",0.5928,2,Analyst Rating,0.5928
+2018-06-11,Qualcomm,QCOM,news,"NXP Semiconductors' Standalone Value Is $119, SunTrust Says In Downgrade",-0.0921,6,Analyst Rating,0.0921
+2018-06-14,Caterpillar Inc.,CAT,news,10 Biggest Price Target Changes For Thursday,0.4775,7,Analyst Rating,0.4775
+2018-06-14,Nvidia,NVDA,news,"What The Latest Steam Gaming Data Means For AMD, Nvidia",-0.3245,4,Other,0.3245
+2018-06-22,Caterpillar Inc.,CAT,news,OPEC Meeting Front And Center As DJIA Enters Session Down Eight-Straight Days,0.2911,5,Other,0.2911
+2018-06-24,Citigroup,C,news,"Benzinga's Bulls & Bears Of The Week: AMD, Disney, Nike, Tesla And More",-0.0854,1,Other,0.0854
+2018-06-25,Lockheed Martin,LMT,news,Lockheed Martin Awarded $1.2B Contract To Build F-16 Block 70 Aircraft For Bahrain,0.0435,3,Other,0.0435
+2018-07-02,Mastercard,MA,news,Credit Suisse Previews Specialty Finance Companies On Deck To Report Earnings,0.4092,3,Earnings,0.4092
+2018-07-05,Broadcom,AVGO,news,The Semiconductor Stocks That Fund Managers Love And Hate,0.5310,3,Other,0.5310
+2018-07-10,"Netflix, Inc.",NFLX,news,TD Ameritrade Traders Adopt Some Old And New Approaches To The Trade War Market In June's IMX,-0.3501,7,Geopolitical,0.3501
+2018-07-11,Micron Technology,MU,news,Micron Technology Option Alert: Aug 17 $65 Calls Sweep (14) near the Ask: 762 @ $0.35 vs 13622 OI; Ref=$54.21,0.2680,10,Other,0.2680
+2018-07-12,Morgan Stanley,MS,news,"TD Ameritrade Senior Trading Specialist Shawn Cruz, In Benzinga Interview, Says Big Bank Q2 Earnings' Trading & Loan Activity Is A Bigger Economic Indicator Than Yield Curve",-0.1797,6,Earnings,0.1797
+2018-07-16,IBM,IBM,news,"Upcoming Earnings: Netflix To Report Monday, Subscriber Growth A Focus",-0.4027,3,Earnings,0.4027
+2018-07-16,"Netflix, Inc.",NFLX,news,Netflix Sees Q3 Sales $3.988B vs $4.13B Est.,-0.0919,10,Earnings,0.0919
+2018-07-16,"Netflix, Inc.",NFLX,news,"Benzinga's Top Upgrades, Downgrades For July 16, 2018",0.5984,9,Analyst Rating,0.5984
+2018-07-17,"Netflix, Inc.",NFLX,news,"Barclays Maintains Overweight on Netflix, Lowers Price Target to $415",0.0754,10,Analyst Rating,0.0754
+2018-07-17,"Netflix, Inc.",NFLX,news,Deutsche Bank Downgrades Netflix to Hold,-0.6955,10,Analyst Rating,0.6955
+2018-07-18,American Express,AXP,news,"American Express Q2 EPS $1.84 Beats $1.82 Estimate, Sales $10.002B Miss $10.06B Estimate",0.3205,7,Earnings,0.3205
+2018-07-19,Comcast,CMCSA,news,"Comcast Issues Statement On 21st Century Fox: 'Comcast does not intend to pursue further the acquisition of the Twenty-First Century Fox assets and, instead, will focus on our recommended offer for Sky'",-0.4100,2,Merger/Acquisition,0.4100
+2018-07-24,Eli Lilly and Company,LLY,news,Eli Lilly Raises FY18 Sales Outlook From $23.7B-$24.2B To $24.0B-$24.5B vs $23.99B Est.,0.0486,8,Earnings,0.0486
+2018-07-24,Thermo Fisher Scientific,TMO,news,Thermo Fisher Scientific's Q2 Earnings Preview,0.2417,5,Earnings,0.2417
+2018-07-25,Qualcomm,QCOM,news,UPDATE: CNBC Reports That Qualcomm Is Planning To Move Forward With Buybacks Instead Of Buying NXP,-0.1293,6,Other,0.1293
+2018-08-02,Cisco,CSCO,news,"UPDATE: Cisco Confirms Purchase Of Duo Security For $2.35B In Cash, Assumed Equity Awards For Duo's Outstanding Shares, Warrants, Equity Incentives",0.2734,3,Other,0.2734
+2018-08-02,Pfizer,PFE,news,"Stocks Trading Ex Dividend For Thurs., Aug. 2, 2018",0.5642,4,Other,0.5642
+2018-08-06,Pfizer,PFE,news,"Gemphire Reports Amended, Restated License Deal With Pfizer For Gemcabene",0.4772,3,Other,0.4772
+2018-08-07,Emerson Electric,EMR,news,Mid-Day Market Update: Mallinckrodt Climbs After Q2 Beat; Gemphire Therapeutics Shares Plummet,0.4983,10,Earnings,0.4983
+2018-08-08,CVS Health,CVS,news,40 Stocks Moving In Wednesday's Pre-Market Session,0.1721,10,Other,0.1721
+2018-08-08,IBM,IBM,news,"Stocks Which Will Trade Ex Dividend On Thurs., Aug. 9, 2018",0.1679,2,Other,0.1679
+2018-08-09,Applied Materials,AMAT,news,"Morgan Stanley Prefers Lam Research Over Applied Materials, Says Semi Equipment Stocks Are Headed For Rangebound Period",-0.1088,5,Other,0.1088
+2018-08-09,Caterpillar Inc.,CAT,news,"Two Major Mergers Fall Through, A Reminder That Deals Don't Always Work Out",-0.5664,7,Other,0.5664
+2018-08-09,Southern Company,SO,news,"Guggenheim Downgrades Southern to Neutral, Lowers Price Target to $47",-0.2106,7,Analyst Rating,0.2106
+2018-08-09,ExxonMobil,XOM,news,ExxonMobil Joins Apache and Subsidiaries of Kinder Morgan and Blackstone In Permian Highway Pipeline Project,-0.0533,2,Other,0.0533
+2018-08-13,"Netflix, Inc.",NFLX,news,"Benzinga Pro's Top 10 Most-Searched Tickers Monday, August 13th",-0.1816,7,Other,0.1816
+2018-08-14,"Netflix, Inc.",NFLX,news,KeyBanc: CFO's Retirement To Cause 'Minimal Disruption' At Netflix,-0.7022,7,Management Change,0.7022
+2018-08-17,Nvidia,NVDA,news,"7 Stocks To Watch For August 17, 2018",-0.0835,10,Other,0.0835
+2018-08-17,Nvidia,NVDA,news,Podcast: 6 Charts Explain Why The Correction Has Started,-0.2620,5,Other,0.2620
+2018-08-17,Southern Company,SO,news,"Stocks Trading Ex Dividend Today, August 17th",0.4123,8,Other,0.4123
+2018-08-21,Cisco,CSCO,news,"Stocks Which Set New 52-Week High Tues., Aug. 21, 2018",0.3185,3,Other,0.3185
+2018-08-22,Medtronic,MDT,news,"The Daily Biotech Pulse: FDA Snub For Allergan, Myriad's Q4 Beat, Mallinckrodt's Stannsoporfin",0.0741,9,Earnings,0.0741
+2018-08-22,"Netflix, Inc.",NFLX,news,10 Biggest Price Target Changes For Wednesday,0.3266,8,Analyst Rating,0.3266
+2018-08-22,Starbucks,SBUX,news,PiperJaffray Downgrades Starbucks to Neutral,-0.8638,2,Analyst Rating,0.8638
+2018-08-24,Nvidia,NVDA,news,The Hot Chips 2018 Conference: Morgan Stanley's Takeaways,-0.0455,5,Other,0.0455
+2018-08-25,Eli Lilly and Company,LLY,news,"Barron's Picks And Pans: Electronic Arts, GlaxoSmithKline, Microsoft, Tesla And More",0.4181,1,Other,0.4181
+2018-08-27,Bank of America,BAC,news,"Seeing upward movement in US banking and financial services stocks; Financial Select Sector SPDR ETF up 1.6%, Morgan Stanley up 3.8%, Goldman Sachs up 3.1%, Citigroup up 2.6%, JPMorgan Chase up 2.2%, Bank of america up 1.8%, Wells Fargo up 1.2%.",0.3856,6,Other,0.3856
+2018-08-28,Alphabet Inc. (Class A),GOOGL,news,'Breaking: Google statement in response to Trump tweet'-CNN Reporter Hadas Gold Tweets; BZ NOTE: Statement From Twitter Post Is In The Body,0.2172,3,Other,0.2172
+2018-08-28,Lam Research,LRCX,news,Bank of America Downgrades Lam Research to Neutral,-0.9350,7,Analyst Rating,0.9350
+2018-08-30,Alphabet Inc. (Class A),GOOGL,news,Google to Launch Mid-tier Pixel Smartphone in India,-0.2891,7,Product Launch,0.2891
+2018-08-30,Thermo Fisher Scientific,TMO,news,"Stocks Which Set New 52-Week High Yesterday, August 29th",0.4448,3,Other,0.4448
+2018-08-31,Pfizer,PFE,news,Attention Biotech Investors: Mark Your Calendar For These September PDUFA Dates,0.6262,2,Other,0.6262
+2018-09-05,Alphabet Inc. (Class A),GOOGL,news,"German finance Ministry Abandons Tax Plan for Google, Amazon, Facebook, Apple",-0.3436,7,Other,0.3436
+2018-09-06,Qualcomm,QCOM,news,"Stocks Which Set New 52-Week High Yesterday, September 5th",0.2842,6,Other,0.2842
+2018-09-07,Verizon,VZ,news,Verizon's Tim Armstrong In Talks To Leave Co.,-0.3321,3,Other,0.3321
+2018-09-12,Bristol Myers Squibb,BMY,news,"Bristol-Myers Squibb Announces Novel, Oral, Selective TYK2 Inhibitor Delivered Significant Skin Clearance in Patients with Moderate to Severe Plaque Psoriasis in Phase 2 Trial",-0.0160,1,Other,0.0160
+2018-09-12,Pfizer,PFE,news,"Market Appears To Be in Wait-and-See Mode Ahead of Apple, Central Bank Events",-0.2680,4,Other,0.2680
+2018-09-13,Home Depot,HD,news,"Stocks Which Set New 52-Week High Yesterday, September 12",0.4805,6,Other,0.4805
+2018-09-14,Adobe Inc.,ADBE,news,32 Stocks Moving In Friday's Mid-Day Session,-0.0505,10,Other,0.0505
+2018-09-14,Caterpillar Inc.,CAT,news,Cat 8-K Shows Rolling 3-Month Retail Machine Sales For Aug. Up 23% Year Over Year,0.4198,5,Earnings,0.4198
+2018-09-17,Accenture,ACN,news,"Accenture Wins a Contract From the SEC, Terms Not Disclosed",0.0600,1,Legal/Regulatory,0.0600
+2018-09-17,FedEx,FDX,news,"The Week Ahead: Alibaba Investor Day, FedEx Earnings, Eventbrite IPO",-0.2356,3,Earnings,0.2356
+2018-09-20,ConocoPhillips,COP,news,RBC Downgrades ConocoPhillips After Stock's Big 2018 Run,-0.6617,7,Analyst Rating,0.6617
+2018-09-20,Texas Instruments,TXN,news,Seeing Notable Block Trade In Texas Instruments; 1.5M Shares at $108.48,-0.1415,7,Other,0.1415
+2018-09-21,Broadcom,AVGO,news,"Traders Circulating Word iFixit Teardown Of Apple's New iPhones Showed Components From Micron, Toshiba, Broadcom, Skyworks; However These Reports Were Out Thurs. Morning",-0.0165,8,Other,0.0165
+2018-09-21,American Express,AXP,news,"Stocks Which Set New 52-Week High Yesterday, September 20th",0.3345,2,Other,0.3345
+2018-09-24,Emerson Electric,EMR,news,"Stocks Which Set New 52-Week High Friday, September 21",0.2446,5,Other,0.2446
+2018-09-25,Lam Research,LRCX,news,"Citigroup Maintains Buy on Lam Research, Lowers Price Target to $177",0.3786,8,Analyst Rating,0.3786
+2018-09-25,Medtronic,MDT,news,"The Daily Biotech Pulse: Syndax Lung Cancer Trial Disappoints, Gemphire To Trim Workforce, Opiant's Offering",-0.3485,4,Other,0.3485
+2018-09-28,Apple Inc.,AAPL,social,"RT @justsammorris: Hmmmm. Apple. Don’t get me wrong. I’m happy with the size of my dick, honest, but I think you fucked up. https://t.co/ZZ…",-0.3395,9,Other,0.3395
+2018-09-28,Adobe Inc.,ADBE,social,Adobe Photoshop Complete course  for begginer in Urdu hindi Part 5 https://t.co/n8oUv4Mqmv via @YouTube,0.7010,8,Other,0.7010
+2018-09-28,Costco,COST,social,Traders Sell Costco Wholesale $COST on Strength $COST https://t.co/DreUygLkTe #markets,0.1630,4,Other,0.1630
+2018-09-28,Intel,INTC,social,RT @fluoresenz: Sergei Skripal Worked for Four Different NATO Intel Agencies  https://t.co/Yj7fYkqkyN,-0.0940,6,Other,0.0940
+2018-09-29,JPMorgan Chase,JPM,social,Raymond James team bests JPMorgan in court fight over solicitation https://t.co/yP7qP1SB88 | by @AndrewWelsch,-0.0405,5,Other,0.0405
+2018-09-29,Microsoft,MSFT,social,@AgentZ0r It depends of which field it is. I suggest you run the official Microsoft tool instead which will offer p… https://t.co/SlSTl3x9pm,-0.1148,6,Other,0.1148
+2018-09-29,Nike,NKE,social,"RT @brkicks: .@KyrieIrving wearing the Nike Kyrie 4 ""Power Is Female"" against Charlotte https://t.co/ImRbrETrLu",-0.2148,7,Other,0.2148
+2018-09-30,Comcast,CMCSA,news,Warner Bros. Animated Film 'Smallfoot' Grosses $37M Globally to Take Top Spot,-0.1897,7,Other,0.1897
+2018-10-01,Apple Inc.,AAPL,social,"@NikeSupport Thanks, that's very disappointing.  I liked using website to view my Apple Watch Nike+ edition NRC app… https://t.co/DK0HZ0SxAb",-0.2780,9,Other,0.2780
+2018-10-01,GE Aerospace,GE,social,GE @generalelectric should buy BTC to save themselves from dying,-0.4053,5,Other,0.4053
+2018-10-01,IBM,IBM,social,RT @IBMFinTech: Join IBM at the InsureTech Connect conference in Las Vegas this week. Find the best ways to connect with us via our blog: h…,-0.0921,4,Other,0.0921
+2018-10-01,Verizon,VZ,social,Verizon? Ok rich girl 😍😍😍,-0.0132,4,Other,0.0132
+2018-10-02,Amazon,AMZN,social,Amazon needs to be applauded on remembering our respected BAPU on his 150th birth anniversary #AmazonSpecialEditionQuiz,-0.5204,9,Other,0.5204
+2018-10-02,Gilead Sciences,GILD,news,"Gilead Subsidiary, Kite, And HiFiBiO Therapeutics Announce Research Collaboration o Develop Technology For The Potential Discovery Of Neoantigen-Reactive T Cell Receptors (TCRs) Cancer Treatment; HiFiBio Will Receive $10M Upfront Payment",0.1720,1,Other,0.1720
+2018-10-02,Alphabet Inc. (Class A),GOOGL,news,"Customer Service Automation Startup, Onward, Says Google Has Bought Co., Terms Not Disclosed",0.0496,3,Other,0.0496
+2018-10-02,PepsiCo,PEP,news,"PepsiCo CFO On Earnings Conference Call; On Cannabis-Based Products, Says We Look At Everything But No Plans At This Point To Do Anything",-0.2980,9,Earnings,0.2980
+2018-10-02,Verizon,VZ,social,"RT @JohnLegere: Verizon says,“there’s 5G &amp; then there’s @Verizon 5G*” - What they mean is Verizon 5G* is available… in tiny pockets of neig…",0.4571,8,Other,0.4571
+2018-10-10,CVS Health,CVS,news,US Justice Department Approval Of CVS Merger With Aetna Could Come As Soon As Wednesday,0.0126,4,Merger/Acquisition,0.0126
+2018-10-11,NextEra Energy,NEE,news,"Stocks Which Set New 52-Week High Yesterday, October 10th",0.4140,3,Other,0.4140
+2018-10-12,Morgan Stanley,MS,news,"A Pro's Case For Buying Small Caps, Financial Stocks During Sell-Off",0.0526,7,Other,0.0526
+2018-10-12,"Netflix, Inc.",NFLX,news,"Stifel Nicolaus Maintains Buy on Netflix, Lowers Price Target to $395",0.3717,10,Analyst Rating,0.3717
+2018-10-12,PepsiCo,PEP,news,"UPDATE: Deutsche Bank Sees Keurig Dr Pepper 'deeper alliances' With Cos. Such As COT, PEP Including 'strategic partnerships or ownership stakes'",0.0823,3,Other,0.0823
+2018-10-13,Altria,MO,news,"Midterms And The Stock Market: Potential Winners, Losers From The Coming Election",-0.0057,7,Geopolitical,0.0057
+2018-10-15,Mastercard,MA,news,"Saudi Arabia Mixes Oil, Politics After Journalist's Disappearance Strains US Ties",0.3409,10,Other,0.3409
+2018-10-15,"Netflix, Inc.",NFLX,news,FANG Weakness Drags New Communication Services ETFs,-0.0573,10,Other,0.0573
+2018-10-16,Johnson & Johnson,JNJ,news,"Johnson & Johnson Q3 EPS $2.05 Beats $2.03 Estimate, Sales $20.348B Beat $20.03B Estimate",0.2286,10,Earnings,0.2286
+2018-10-18,Amazon,AMZN,social,RT @colmmacc: Thursday tweet thread time! This one is all about what we do in Amazon s2n to prevent security issues similar to this week's…,-0.2572,6,Other,0.2572
+2018-10-18,Citigroup,C,social,By the way @Citi @AskCiti - did you EVER call my mother about your defamation of her and restore her @cosco Anywher… https://t.co/Gk0kY112UW,-0.0483,3,Other,0.0483
+2018-10-18,Comcast,CMCSA,social,"Supreme Court Denies Cert in Two-Way Media v. Comcast, Refuses Another 101 Case https://t.co/K9amgR8XRY https://t.co/6AY1cBQiWE",0.2434,5,Other,0.2434
+2018-10-18,Microsoft,MSFT,social,"Come to think about it, Matt Booty did mention that Microsoft was looking at individual IPs along with studios. May… https://t.co/H3HPmvyrBx",0.5135,6,Other,0.5135
+2018-10-18,Verizon,VZ,social,RT @Wirelessmom4: In #NWFL today supporting Verizon employees who are restoring our network in the Panhandle. We are making progress and ar…,-0.0042,2,Other,0.0042
+2018-10-19,Lowe's,LOW,news,Greener Pastures: Pendulum Swings Back After Market Came Up Red Yesterday,-0.1316,7,Other,0.1316
+2018-10-19,Meta Platforms,META,social,I posted a new video to Facebook https://t.co/vjJsNuFy9k,0.4944,10,Other,0.4944
+2018-10-20,Amazon,AMZN,social,RT @myth_vs_facts: This is where the Amazon River in Brazil meets the Black River. The different colors is due to the different soils. http…,0.4349,10,Other,0.4349
+2018-10-20,Comcast,CMCSA,social,Checking out the new #NBCUniversal @comcast @nbc @NBCPhiladelphia skyscraper in #Philly it just opened yesterday https://t.co/JdFkLU0mwC,0.1187,7,Other,0.1187
+2018-10-20,PepsiCo,PEP,social,"RT @yashar: Wrong! Coke Zero, especially Cherry Coke Zero, is always an acceptable alternative.       
+      
+Now, if offered Diet Pepsi this is defini…",-0.0388,7,Other,0.0388
+2018-10-20,PepsiCo,PEP,social,"@FoxNews Amy Schumer is so dumb, She study's for her pap test      
+She took the Pepsi challenge, she chose Jiff      
+She was… https://t.co/tv5vpzZhSK",0.1366,7,Other,0.1366
+2018-10-22,Costco,COST,social,RT @JakeKocoB5Q: Always nice to see my Costco here in Middleton carry #WalkOnThisWay. Good price too!!! https://t.co/b9fzluiYkf,0.2928,6,Other,0.2928
+2018-10-22,Meta Platforms,META,social,How to Use Custom Facebook Frames for Facebook Dynamic Ads https://t.co/fEnD9CG7dE #SMM #SocialMedia #tech,-0.3042,10,Other,0.3042
+2018-10-23,Lowe's,LOW,news,"Citigroup Upgrades Lowe's Companies to Buy, Maintains $112 Price Target",0.1874,6,Analyst Rating,0.1874
+2018-10-23,Microsoft,MSFT,social,RT @PolyCoins: @Khil0ne @Microsoft @msdev @Azure @hackernoon @codingupastorm @mcbeniwal @bokobza @clint_network @gluon Thanks for the menti…,0.0930,10,Other,0.0930
+2018-10-23,PepsiCo,PEP,social,It tastes like Indian Pepsi.,0.4972,6,Other,0.4972
+2018-10-23,Verizon,VZ,news,Mid-Afternoon Market Update: Crude Oil Down Over 4%; Therapix Biosciences Shares Spike Higher,0.3096,10,Other,0.3096
+2018-10-23,Verizon,VZ,news,Wall Street Starts The Day In Risk-off Mood As Global Sentiment Weakens,-0.3259,6,Other,0.3259
+2018-10-23,Verizon,VZ,social,I liked a @YouTube video https://t.co/9VKtWkrkAx LG Gizmopal 2 - Verizon Kid''s watch Review and Test Call,-0.1407,8,Other,0.1407
+2018-10-24,Caterpillar Inc.,CAT,news,56 Biggest Movers From Yesterday,0.4458,9,Other,0.4458
+2018-10-24,Caterpillar Inc.,CAT,news,"Credit Suisse Maintains Outperform on Caterpillar, Lowers Price Target to $183",0.2430,10,Analyst Rating,0.2430
+2018-10-24,Alphabet Inc. (Class A),GOOGL,news,Facebook And Google Seek Assurance From UK About Impact Of Brexit Deal,0.0346,9,Geopolitical,0.0346
+2018-10-24,Lockheed Martin,LMT,news,8 Biggest Price Target Changes For Wednesday,0.1069,8,Analyst Rating,0.1069
+2018-10-24,3M,MMM,news,56 Biggest Movers From Yesterday,0.4458,8,Other,0.4458
+2018-10-24,Oracle Corporation,ORCL,social,Creqting the next Blockbuster Movie on Oracle Cloud - Amit Adar from Snowball studios &amp; Taylor Navile Oracle,0.2639,9,Other,0.2639
+2018-10-24,PepsiCo,PEP,social,RT @ScienceStudioYT: Pepsi in her natural sleeping position 😂 https://t.co/rWGC7jjFyO,-0.0939,6,Other,0.0939
+2018-10-24,ExxonMobil,XOM,social,"RT @insideclimate: After a 3-year investigation, @NewYorkStateAG has sued Exxon, accusing it of defrauding investors by providing misinform…",-0.1667,6,Legal/Regulatory,0.1667
+2018-10-24,ExxonMobil,XOM,news,NY Attorney General Underwood Files Lawsuit Against Exxon Mobil For 'Defrauding' Investors Regarding Financial Risk The Company Faces From Climate Change Regulations,-0.0105,6,Legal/Regulatory,0.0105
+2018-10-25,Apple Inc.,AAPL,social,"Apple Watch Serie 2 38 mm Acciaio con Bracciale in Maglia Milanese | eBay On sale, NOW! Worldwide fast... https://t.co/k8onMSoIEH",-0.4136,10,Other,0.4136
+2018-10-25,ConocoPhillips,COP,news,ConocoPhillips Reports Reached Settlement Deal With PDSVA To Fully Recover Arbitration Award Of ~$2B,-0.6288,6,Legal/Regulatory,0.6288
+2018-10-28,Mastercard,MA,social,@Mastercard Seriously?!😡 You have the audacity to put ur AD on MY SONS VERY Serious hardship?! HE ALMOST DIED! He N… https://t.co/NdffJwDsDQ,0.0253,6,Other,0.0253
+2018-10-29,IBM,IBM,news,42 Stocks Moving In Monday's Mid-Day Session,-0.1922,10,Other,0.1922
+2018-10-29,Eli Lilly and Company,LLY,news,"Dicerna Pharma Announces Licensing and Research Collaboration with Eli Lilly for Development and Commercialization of New Medicines in Cardio-Metabolic Disease, Neurodegeneration and Pain",0.0161,3,Other,0.0161
+2018-10-30,Walmart,WMT,social,Walmart expands speedier checkout service:  https://t.co/5T4WRuELK1,0.5355,6,Other,0.5355
+2018-10-31,Apple Inc.,AAPL,social,RT @imaniiiiii: Am i the only one not pressed about group ft? Apple literally waited until i had no friends...,0.1737,10,Other,0.1737
+2018-10-31,Apple Inc.,AAPL,social,@Imthatuncle @TheoLawson_SR The silly Cougs were ranked 3 back in 2003 I believe going into Apple Cup ... the rose bowl year.,0.0040,10,Other,0.0040
+2018-10-31,American Tower,AMT,news,"KeyBanc Maintains Overweight on American Tower, Raises Price Target to $170",0.5089,10,Analyst Rating,0.5089
+2018-11-02,Arista Networks,ANET,news,64 Stocks Moving In Friday's Mid-Day Session,-0.1499,10,Other,0.1499
+2018-11-02,Micron Technology,MU,news,UMC Responds to Indictment Unsealed on 2018/11/01 by U.S. Attorney's Office for Northern District of California,-0.0591,9,Other,0.0591
+2018-11-08,Cisco,CSCO,news,"Jim Cramer Shares His Thoughts On Albermarle, Cisco And More",0.0286,2,Other,0.0286
+2018-11-09,"Netflix, Inc.",NFLX,news,"The Street Weighs In On Disney's Q4 Earnings, ESPN And Streaming Among Highlights",-0.3226,9,Earnings,0.3226
+2018-11-14,Medtronic,MDT,news,"From 13-F Filing: Temasek Dissolves Share Stakes in Disney, Amgen, Celgene, Biogen, Medtronic",0.2999,6,Other,0.2999
+2018-11-15,Bank of America,BAC,news,"Q3 13F Roundup: How Buffett, Einhorn, Ackman And Others Adjusted Their Portfolio",-0.5519,8,Earnings,0.5519
+2018-11-16,Home Depot,HD,news,"Bank of America Downgrades Home Depot to Neutral, Lowers Price Target to $195",-0.8451,9,Analyst Rating,0.8451
+2018-11-18,Medtronic,MDT,news,"The Week Ahead In Biotech: Earnings, Conferences, PDUFA Dates",-0.1857,1,Earnings,0.1857
+2018-11-20,FedEx,FDX,news,FedEx Freight To Operate Last-Mile Pilots In 5 Markets During First Half Of 2019,0.0423,4,Other,0.0423
+2018-11-20,Lowe's,LOW,news,"Earnings Scheduled For November 20, 2018",0.2453,7,Earnings,0.2453
+2018-11-21,Lowe's,LOW,news,"KeyBanc Maintains Overweight on Lowe's Companies, Lowers Price Target to $115",-0.2680,10,Analyst Rating,0.2680
+2018-11-28,"Netflix, Inc.",NFLX,news,Powell Stepping Up To Stage With Weekend China Talks Waiting in Wings,-0.0298,8,Geopolitical,0.0298
+2018-12-04,Citigroup,C,news,"Financial Select Sector SPDR ETF Down 3% As Downside In Stocks Intensifies Over Last 15 Mins; BofA Shares Down 4.4%, Morgan Stanley Down 4.2%, Citi Down 3.9%, Wells Fargo Down 3.3%, Goldman Down 2.5%, JP Morgan Down 2.3%",-0.7790,10,Other,0.7790
+2018-12-06,Bristol Myers Squibb,BMY,news,Bristol-Myers Raises Qtr. Dividend From $0.40 To $0.41/Share,0.2780,5,Other,0.2780
+2018-12-07,Broadcom,AVGO,news,"MKM Partners Maintains Buy on Broadcom, Raises Price Target to $280",0.1176,10,Analyst Rating,0.1176
+2018-12-09,Alphabet Inc. (Class A),GOOGL,news,Australian Competition & Consumer Commisssion Report Includes Proposal To Prevent Google's Search Engine Being Installed As A Default Search Engine On Internet Browsers,0.2498,7,Credit Event,0.2498
+2018-12-10,General Dynamics,GD,news,"From Sunday: 'Trump reverses course, tells Pentagon to boost budget request to $750 billion' -POLITICO, Citing Sources",0.4040,7,Other,0.4040
+2018-12-11,Nvidia,NVDA,news,Hearing Softbank Considering Plan To Sell Stake In NVIDIA In 2019,-0.2567,9,Merger/Acquisition,0.2567
+2018-12-13,Adobe Inc.,ADBE,news,Adobe Systems Q4 Earnings Preview,-0.0529,9,Earnings,0.0529
+2018-12-14,Eli Lilly and Company,LLY,news,Eli Lilly Reports Expansion Of Collaboration With Evidation Health For Andromeda Data Platform,-0.4787,4,Other,0.4787
+2018-12-19,Johnson & Johnson,JNJ,news,J&J Shares Unaffected Midday Amid NY Times Report 'Johnson & Johnson Loses Bid to Overturn a $4.7 Billion Baby Powder Verdict',-0.3674,10,Other,0.3674
+2018-12-19,Altria,MO,news,UPDATE: Altria Deal For 35% Stake In Juul Would Value Juul At ~$38B,0.4258,5,Merger/Acquisition,0.4258
+2018-12-20,IBM,IBM,news,"China Hacked HP Enterprise, IBM, Then Attacked Clients",0.0086,5,Geopolitical,0.0086
+2018-12-23,Procter & Gamble,PG,news,Losing Its FAANG: Market Struggles In 2018 As Tech Rally Slows,0.3711,4,Other,0.3711
+2018-12-26,Comcast,CMCSA,news,"Pivotal's Predictions For Media, Internet And Communications In 2019",-0.0010,2,Other,0.0010
+2018-12-27,Micron Technology,MU,news,"Micron Technology Plans to Hire 1,000 More Employees in Taiwan in 2019",0.0073,8,Other,0.0073
+2018-12-27,"Netflix, Inc.",NFLX,news,"Stocks across sectors are trading lower, reversing course after strong gains on Wednesday.",-0.4602,10,Other,0.4602
+2019-01-01,Verizon,VZ,news,TEGNA Says No Retransmission Agreement Reached with Verizon Yet,-0.2174,9,Other,0.2174
+2019-01-02,Medtronic,MDT,news,"Morgan Stanley Maintains Equal-Weight on Medtronic, Raises Price Target to $102",-0.2750,7,Analyst Rating,0.2750
+2019-01-02,Micron Technology,MU,news,"'DRAM Market to See Lower Capital Expenditure and Moderated Bit Output in 2019 Due to Weak Demand, Says TrendForce' -DRAMeXchange Earlier Reported",-0.7357,9,Other,0.7357
+2019-01-08,McDonald's,MCD,news,"GE, McDonald's, Nordstrom, Target: 'Fast Money' Picks For January 8",0.5016,6,Other,0.5016
+2019-01-11,"Netflix, Inc.",NFLX,news,"Benzinga Pro's Top 10 Most-Searched Tickers For Afternoon Of Fri., Jan. 11, 2019",-0.3519,10,Other,0.3519
+2019-01-15,Wells Fargo,WFC,news,"Earnings Scheduled For January 15, 2019",-0.0631,10,Earnings,0.0631
+2019-01-15,Wells Fargo,WFC,news,Wells Fargo shares are trading lower after the company missed Q4 sales estimates.,-0.3305,10,Earnings,0.3305
+2019-01-16,"Netflix, Inc.",NFLX,news,"Market Has A Lot To Digest Amid Brexit News, China Stimulus, Bank Earnings",-0.4202,10,Earnings,0.4202
+2019-01-18,"Netflix, Inc.",NFLX,news,"UPDATE: Morgan Stanley On NFLX Sees '4Q results and the 1Q guidance, at a high level, reinforce the investment thesis on NFLX shares - specifically, accelerating net additions, pricing power, and rising visibility into the path towards FCF generation'",0.3049,10,Earnings,0.3049
+2019-01-21,Morgan Stanley,MS,news,"Today's Pickup: Philly Fed Index Posts Decent January, Morgan Warns On High Inventories",0.3750,8,Macroeconomic,0.3750
+2019-01-28,U.S. Bancorp,USB,news,Baird Downgrades US Bancorp to Neutral,-0.7430,3,Analyst Rating,0.7430
+2019-01-29,Pfizer,PFE,news,"The Daily Biotech Pulse: Big Pharma Earnings, Kiniksa Offering, FDA Decision Day For Aquestive",0.3162,5,Earnings,0.3162
+2019-01-30,McDonald's,MCD,news,McDonald's Says Q4 Comps In US Up 2.3% 'driven by growth in average check resulting from both product mix shifts and menu price increases',0.0224,5,Earnings,0.0224
+2019-01-30,ServiceNow,NOW,news,"ServiceNow Sees FY19 Subscription Revenues $2.36B-$3.28B, Subscription Billings $3.77B-$3.79B",0.0288,7,Other,0.0288
+2019-01-31,Alphabet Inc. (Class A),GOOGL,news,Hearing Apple Taking Actions On Google Apps Following Facebook Initative,0.1670,9,Other,0.1670
+2019-01-31,Coca-Cola Company (The),KO,news,"Earnings, Volatility, Brexit Are Key Topics Heading Into February",-0.2068,3,Earnings,0.2068
+2019-01-31,Morgan Stanley,MS,news,"January Markets: Fed Stays ""Patient"" And Earnings Brew",0.1922,8,Earnings,0.1922
+2019-02-01,Eli Lilly and Company,LLY,news,"Optum To Cover Amgen, Eli Lilly Migraine Drugs, Exclude Teva",0.0984,7,Other,0.0984
+2019-02-01,Merck & Co.,MRK,news,Merck & Co shares are trading higher after the company reported inline Q4 EPS figures and beat sales estimates.,0.5231,10,Earnings,0.5231
+2019-02-04,Alphabet Inc. (Class A),GOOGL,news,"Apple Is The 'Better Mind' In The Tech Space, Pro Says",0.2420,6,Other,0.2420
+2019-02-05,Alphabet Inc. (Class A),GOOGL,news,A Peek Into The Markets: US Stock Futures Surge Ahead Of Earnings,0.1273,10,Earnings,0.1273
+2019-02-05,Merck & Co.,MRK,news,"The Daily Biotech Pulse: Gilead Earnings, Codexis Sings Pact With Merck, Eli Lilly Reports Positive Trial Results",0.1851,8,Earnings,0.1851
+2019-02-05,"Netflix, Inc.",NFLX,news,"Disney Reports Big Q1 Earnings Beat, Gets Boost From TV Networks",0.2577,10,Earnings,0.2577
+2019-02-07,Alphabet Inc. (Class A),GOOGL,news,Google Blog Post Highlights Co. Belief EU Copyright Draft Rules Are Not Carefully Balanced And Would Harm Creative Economy In Europe,-0.1299,7,Other,0.1299
+2019-02-08,Deere & Company,DE,news,"USDA's World Agricultural Supply And Demand Estimates Report For Feb. 8, 2019 - Full Report",0.0279,4,Earnings,0.0279
+2019-02-08,Micron Technology,MU,news,"Semiconductor shares are trading lower in sympathy with Qorvo, as the company released weak Q4 guidance, citing weakness in the smartphone market; shares are also potentially affected by concerns over US-China talks.",-0.1968,10,Earnings,0.1968
+2019-02-12,American Tower,AMT,news,8 Biggest Price Target Changes For Tuesday,0.2978,3,Analyst Rating,0.2978
+2019-02-15,Adobe Inc.,ADBE,news,Cowen & Co. Downgrades Adobe to Market Perform,-0.7762,7,Analyst Rating,0.7762
+2019-02-15,Nvidia,NVDA,news,"UPDATE: Loup's Munster Sees NVIDIA Shares Being 'range bound in the coming months, as investors will likely trim revenue expectations'",-0.3986,9,Earnings,0.3986
+2019-02-15,PepsiCo,PEP,news,"10 Stocks To Watch For February 15, 2019",-0.0747,7,Other,0.0747
+2019-02-19,Johnson & Johnson,JNJ,news,"Supreme Court Rejects Maryland's Bid To Revive A Law Aimed At Preventing Price Gouging By Pharmaceutical Companies, Reuters Reports",-0.0938,3,Other,0.0938
+2019-02-20,Accenture,ACN,news,"Accenture Reports Partnership With Minority Equity Investment In Splice Machine, No Terms Disclosed",-0.5034,1,Other,0.5034
+2019-02-20,Caterpillar Inc.,CAT,news,UPDATE From Earlier China Demand Headline: Caterpillar Exec At Barclays Global Industrials Conference Says Seeing 'Very Strong' Chinese Demand In 2019,0.3553,6,Geopolitical,0.3553
+2019-02-21,Intuit,INTU,news,Intuit Q2 Earnings Preview,-0.0629,4,Earnings,0.0629
+2019-02-21,Merck & Co.,MRK,news,Mid-Morning Market Update: Markets Open Lower; Domino's Pizza Misses Q4 Views,-0.2611,10,Earnings,0.2611
+2019-02-23,American Express,AXP,news,"Warren Buffett Gives Thumbs-Up To New Execs, Notes Earnings Impact From Kraft Heinz In Annual Berkshire Hathaway Letter",0.0428,1,Earnings,0.0428
+2019-02-23,Cisco,CSCO,news,Barron's On: The New Cold War in Tech,0.1138,1,Geopolitical,0.1138
+2019-02-25,Danaher Corporation,DHR,news,"As Trade Optimism Grows, Markets Turn Green and Boeing, Caterpillar Among Leaders",-0.0105,1,Other,0.0105
+2019-02-25,ServiceNow,NOW,news,"UPDATE: Goldman Sachs Raises ServiceNow Price Target As Firm Believes 'a rich product roadmap, and ongoing momentum for ITSM, ITOM, HR, and CSM, will all help to sustain above 30% topline growth through FY20E - 2% above what the Street expects'",0.0321,5,Analyst Rating,0.0321
+2019-02-28,Bristol Myers Squibb,BMY,news,Major Shareholders Team To Scuttle Bristol-Myers Squibb's $74B Celgene Buyout: What's Next?,0.0677,6,Merger/Acquisition,0.0677
+2019-03-05,Salesforce,CRM,news,"Macquarie Maintains Outperform on Salesforce.com, Raises Price Target to $188",0.3210,9,Analyst Rating,0.3210
+2019-03-06,Johnson & Johnson,JNJ,news,"The Daily Biotech Pulse: Horizon Pharma Under DoJ Radar, FDA Greenlights J&J's Depression Drug, Endologix Reverse Split",0.1696,1,Legal/Regulatory,0.1696
+2019-03-07,Arista Networks,ANET,news,"Morgan Stanley Maintains Overweight on Arista Networks, Raises Price Target to $300",-0.1027,6,Analyst Rating,0.1027
+2019-03-10,Alphabet Inc. (Class A),GOOGL,news,PwC Exec: Biggest Threat To Banks May Come From Large Tech Firms — Not Fintech,-0.0029,4,Other,0.0029
+2019-03-11,Oracle Corporation,ORCL,news,"Nomura Downgrades Oracle to Reduce, Lowers Price Target to $42",-0.8478,3,Analyst Rating,0.8478
+2019-03-13,Gilead Sciences,GILD,news,Gilead Sciences Option Alert: Apr 18 $70 Calls Sweep (33) near the Ask: 991 @ $0.301 vs 5924 OI; Earnings 4/30 After Close [est] Ref=$65.63,0.3215,7,Earnings,0.3215
+2019-03-14,Oracle Corporation,ORCL,news,Oracle Raises Qtr. Dividend From $0.19 To $0.24/Share,0.5582,2,Other,0.5582
+2019-03-15,Broadcom,AVGO,news,32 Stocks Moving In Friday's Pre-Market Session,-0.0736,10,Other,0.0736
+2019-03-19,Alphabet Inc. (Class A),GOOGL,news,"AMD Analyst Says Cloud Gaming A Good Opportunity, But Stock Is 'Ahead Of Itself'",0.0424,4,Other,0.0424
+2019-03-19,Johnson & Johnson,JNJ,news,A New Look For The Barron's 400 ETF,0.6780,1,Other,0.6780
+2019-03-19,Altria,MO,news,'San Francisco officials seek crackdown on e-cigarette maker Juul' -San Francisco Chronicle,-0.0270,4,Other,0.0270
+2019-03-20,FedEx,FDX,news,41 Stocks Moving In Wednesday's Mid-Day Session,-0.2177,10,Other,0.2177
+2019-03-20,"Netflix, Inc.",NFLX,news,"Netflix shares are trading higher potentially after Barron's released an optimistic article about the company titled ""Netflix Stock Could Keep Surging Because It Truly Is a Global Company.""",0.6409,9,Other,0.6409
+2019-03-22,Citigroup,C,news,Shares of several U.S. bank stocks are trading lower after the yield curved inverted; the 3-month curve topped the 10-year curve for the first time since 2007.,-0.3978,6,Other,0.3978
+2019-03-22,FedEx,FDX,news,"Today's Pickup: UPS Hit With $33.8 Million In NYC Parking Fines; FedEx, $14.9 Million",-0.0546,9,Other,0.0546
+2019-03-23,CVS Health,CVS,news,"The Week In Cannabis: SAFE Banking Act, Stocks In Red, IPOs, High Tech Agro Projects And Celebs In Marijuana",-0.2049,6,Other,0.2049
+2019-03-25,Southern Company,SO,news,U.S. Bankrolls Southern Co's Vogtle With $3.7B Loan Guarantee,0.3818,2,Other,0.3818
+2019-03-26,Johnson & Johnson,JNJ,news,OxyContin Manufacturer Purdue Agrees to Settlement in Oklahoma Lawsuit,0.0050,2,Legal/Regulatory,0.0050
+2019-03-28,Accenture,ACN,news,"8 Stocks To Watch For March 28, 2019",-0.0416,5,Other,0.0416
+2019-03-28,Accenture,ACN,news,From Accenture Q2 Earnings Conference Call: Reaffirms Expectation It Will Invest Up To $1.5B In FY19,-0.1653,6,Earnings,0.1653
+2019-03-28,FedEx,FDX,news,"Benzinga's Top Upgrades, Downgrades For March 28, 2019",-0.0230,7,Analyst Rating,0.0230
+2019-03-29,Micron Technology,MU,news,"Dollar General, Knight-Swift, Micron, SPY: 'Fast Money' Picks For March 29",0.0049,9,Other,0.0049
+2019-04-03,Verizon,VZ,news,"Verizon Shares Spike 0.4% Higher Following Press Release Highlighting Co. Turned On Its 5G Ultra Wideband Network In Select Areas Of Minneapolis, Chicago A Week Ahead Of Schedule",0.5582,6,Product Launch,0.5582
+2019-04-04,AbbVie,ABBV,news,AbbVie Reports New Formulary Listings For Hep C Treatment MAVIRET,-0.3006,4,Other,0.3006
+2019-04-09,Lockheed Martin,LMT,news,US Secretary Of State Mike Pompeo Says Turkey Can't Be In F-35 Program If It Buys S-400 System,0.8286,2,Other,0.8286
+2019-04-10,Citigroup,C,news,"Congress Grills Bank CEOs On Systemic Risks, Russia, Executive Compensation",-0.2902,4,Other,0.2902
+2019-04-10,Deere & Company,DE,news,"Deere Mar. 2019 US, Canada Combine, 4-Wheel Drive Tractors Retail Sales For Rolling 3 Months Up More Than Industry Average",0.0677,4,Earnings,0.0677
+2019-04-12,Wells Fargo,WFC,news,"Wells Fargo Shares Plunge Into Negative Territory As CFO, On Earnings Conference Call, Says Sees Net Interest Income Declining 2-5%",0.0237,9,Earnings,0.0237
+2019-04-16,Bank of America,BAC,news,"Bank of America Q1 EPS $0.7 Beats $0.68 Estimate, Sales $23B Miss $23.3B Estimate",-0.3963,8,Earnings,0.3963
+2019-04-16,"Netflix, Inc.",NFLX,news,Deutsche Bank Upgrades Netflix To Buy Ahead Of Earnings,0.6320,8,Analyst Rating,0.6320
+2019-04-17,Bank of America,BAC,news,"Hot, Fresh Earnings On The Menu As Netflix, Morgan Stanley Results In Focus",-0.0245,8,Earnings,0.0245
+2019-04-17,Qualcomm,QCOM,news,42 Stocks Moving In Wednesday's Mid-Day Session,0.0157,10,Other,0.0157
+2019-04-17,U.S. Bancorp,USB,news,"8 Stocks To Watch For April 17, 2019",0.3658,7,Other,0.3658
+2019-04-18,Danaher Corporation,DHR,news,"Danaher Q1 EPS $1.07 Beats $1.01 Estimate, Sales $4.88B Beat $4.79B Estimate",-0.0828,8,Earnings,0.0828
+2019-04-18,Morgan Stanley,MS,news,"As Earnings Season Rolls On Market Gets Mixed Economic Data From Europe, US",-0.3499,9,Earnings,0.3499
+2019-04-21,Bristol Myers Squibb,BMY,news,"The Week Ahead In Biotech: Conferences, Clinical Trial Readouts, Earnings And IPOs",-0.3711,2,Earnings,0.3711
+2019-04-23,Verizon,VZ,news,UPDATE: Verizon Raises FY19 Adj. EPS Growth Guidance From About Flat Year Over Year To Up In Low Single Digit Percent Range,0.3634,6,Earnings,0.3634
+2019-04-24,Coca-Cola Company (The),KO,news,"UBS Maintains Neutral on Coca-Cola Company (The) Common Stock, Raises Price Target to $52",0.2965,6,Analyst Rating,0.2965
+2019-04-24,Starbucks,SBUX,news,"'Coca-Cola is launching its own coffee, energy drink this year' -NY Post",-0.1890,1,Other,0.1890
+2019-04-25,ServiceNow,NOW,news,"Wells Fargo Maintains Market Perform on ServiceNow, Inc. Common Stock, Raises Price Target to $245",-0.1497,9,Analyst Rating,0.1497
+2019-04-26,Comcast,CMCSA,news,"KeyBanc Maintains Overweight on Comcast Corporation - Class A Common Stock, Raises Price Target to $50",0.7424,9,Analyst Rating,0.7424
+2019-04-30,Caterpillar Inc.,CAT,news,Headline Edge: Is The Surge In Oil Price Revving Up or Running On Empty?,-0.1675,5,Other,0.1675
+2019-04-30,McDonald's,MCD,news,Alphabet Revenue Disappoints Ahead Of Apple Earnings After The Bell,-0.1643,6,Earnings,0.1643
+2019-05-01,McDonald's,MCD,news,"KeyBanc Maintains Overweight on McDonald's Corporation Common Stock, Raises Price Target to $215",0.7025,8,Analyst Rating,0.7025
+2019-05-01,McDonald's,MCD,news,Longbow Research Downgrades McDonald's Corporation Common Stock to Neutral,-0.5496,6,Analyst Rating,0.5496
+2019-05-03,Arista Networks,ANET,news,"Stifel Nicolaus Maintains Buy on Arista Networks, Inc. Common Stock, Lowers Price Target to $287",-0.4755,10,Analyst Rating,0.4755
+2019-05-13,Qualcomm,QCOM,news,"Shares of several technology companies are trading lower amid continued US-China trade concerns. Proposed tariffs between the two nations could raise input costs, while trade tensions could hurt tech companies with China exposure.",-0.1532,7,Geopolitical,0.1532
+2019-05-15,Adobe Inc.,ADBE,news,"13F For JANA Shows Liquidated Stakes In Apple, Adobe, Anthem, Autodesk, Boston Scientific, Mastercard, Microsoft, Teva, Tiffany",0.6225,6,Other,0.6225
+2019-05-16,Johnson & Johnson,JNJ,news,"Credit Suisse Maintains Outperform on Johnson & Johnson Common Stock, Raises Price Target to $156",0.1538,5,Analyst Rating,0.1538
+2019-05-16,Nvidia,NVDA,news,"NVIDIA Q1 Adj. EPS $0.88 Beats $0.79 Estimate, Sales $2.22B Beat $2.2B Estimate",-0.0113,10,Earnings,0.0113
+2019-05-17,BNY Mellon,BNY,news,Banks to Invest $50M in Digital Cash Settlement Project,-0.4797,1,Legal/Regulatory,0.4797
+2019-05-17,Deere & Company,DE,news,A Peek Into The Markets: US Stock Futures Signal Lower Start On Wall Street,-0.4678,10,Other,0.4678
+2019-05-20,Broadcom,AVGO,news,"Intel, Qualcomm, Xilinx, Broadcom  Comply with Trump Ban on Huawei",-0.1925,8,Other,0.1925
+2019-05-20,Qualcomm,QCOM,news,"Intel, Other Chipmakers, Under Pressure Amid Huawei Fallout",-0.3775,7,Other,0.3775
+2019-05-22,IBM,IBM,news,IBM Highlights Global Expansion Of Watson Decision Platform For Agriculture,-0.5148,4,Other,0.5148
+2019-05-23,Nvidia,NVDA,news,Shares of many semiconductor companies are trading lower on continued US-China tension after the Trump administration said it would add up to 5 more Chinese surveillance companies to the blacklist.,-0.0843,8,Geopolitical,0.0843
+2019-05-30,Duke Energy,DUK,news,"Duke Energy Reports Its Renewables Unit Purchased Development Assets Related To 60MW Palmer Solar Project In El Paso County, Colorado From juwi Americas, No Terms Disclosed",-0.1635,2,Other,0.1635
+2019-05-30,Alphabet Inc. (Class A),GOOGL,news,Google Takes Measures To Restrict Marijuana Sales,0.0037,9,Earnings,0.0037
+2019-05-30,Medtronic,MDT,news,"Top 10 Most Overbought Stocks Via Benzinga Pro's Radar Tool For Thur., May 30, 2019",0.1117,5,Other,0.1117
+2019-05-30,Palo Alto Networks,PANW,news,"Wedbush Maintains Outperform on Palo Alto Networks, Lowers Price Target to $275 Price Target",-0.3127,10,Analyst Rating,0.3127
+2019-06-05,Comcast,CMCSA,news,TiVo Wins Patent Case Against Comcast,0.0086,5,Other,0.0086
+2019-06-05,Alphabet Inc. (Class A),GOOGL,news,Cramer Says He Understands The Case For Breaking Up Big Tech,0.5129,8,Other,0.5129
+2019-06-05,Wells Fargo,WFC,news,Wells Fargo Board Is Weighing Interim Chief Executive Parker As Permanent CEO,-0.2235,6,Management Change,0.2235
+2019-06-06,Nvidia,NVDA,news,"Barclays Maintains Overweight on NVIDIA, Lowers Price Target to $180",-0.5310,10,Analyst Rating,0.5310
+2019-06-07,Alphabet Inc. (Class A),GOOGL,news,TranzAct Technologies Joins BiTA To Promote Blockchain In The Supply Chain,-0.0634,7,Other,0.0634
+2019-06-10,Adobe Inc.,ADBE,news,"Shares of several technology companies are trading higher after the U.S. and Mexico signed part of an immigration deal. If reached, Mexico would avoid previously announced tariffs; if not reached, President Trump stated tariffs would be reinstated.",0.5303,8,Other,0.5303
+2019-06-10,Alphabet Inc. (Class A),GOOGL,news,"Trump Talks China, Mexico And Big Tech In CNBC Interview",-0.0137,8,Geopolitical,0.0137
+2019-06-11,ServiceNow,NOW,news,Shares of several software companies are trading lower at what appears to be a sell-off following a continued uptrend for the past four days; not seeing any sector news to justify the drop.,-0.4701,9,Other,0.4701
+2019-06-12,Alphabet Inc. (Class A),GOOGL,news,"Nomura: AMD's Upcoming Products Can Drive Revenue Momentum, Operating Leverage",0.0161,10,Earnings,0.0161
+2019-06-14,Micron Technology,MU,news,"Chip Stocks Fall In Sympathy With Broadcom After Q2 Sales Miss, Guidance Cut",-0.6576,10,Earnings,0.6576
+2019-06-14,Qualcomm,QCOM,news,"Chip Stocks Fall In Sympathy With Broadcom After Q2 Sales Miss, Guidance Cut",-0.6576,9,Earnings,0.6576
+2019-06-15,Verizon,VZ,news,mood33 Announces Distribution Agreement With Carol Bartz And Joe Montana-Backed Caliva,-0.0935,5,Other,0.0935
+2019-06-18,BlackRock,BLK,news,"Shares of several financial companies are trading higher with broader stocks after President Trump said he spoke with China's Xi and announced they will have an extended meeting at G20, renewing trade optimism.",0.4430,5,Geopolitical,0.4430
+2019-06-19,Adobe Inc.,ADBE,news,"8 Stocks To Watch For June 19, 2019",0.0781,9,Other,0.0781
+2019-06-19,Adobe Inc.,ADBE,news,"Barclays Maintains Overweight on Adobe, Raises Price Target to $330",0.4511,7,Analyst Rating,0.4511
+2019-06-20,Alphabet Inc. (Class A),GOOGL,news,'Google is giving up on competing with Apple's iPad as it ends its tablet business and cancels two unreleased devices' -Business Insider,0.4542,4,Other,0.4542
+2019-06-20,Lockheed Martin,LMT,news,Defense Stocks On Watch Amid Growing Tensions Between The US And Iran After Iran Shot Down A US Drone,-0.1321,5,Other,0.1321
+2019-06-20,Oracle Corporation,ORCL,news,"Raymond James Maintains Outperform on Oracle, Raises Price Target to $61",-0.1351,8,Analyst Rating,0.1351
+2019-06-21,Pfizer,PFE,news,Pfizer Receives European Commission Approval For Breast Cancer Drug TALZENNA,-0.1335,2,Other,0.1335
+2019-06-25,FedEx,FDX,news,What The Truck?!? – Headhaul /Backhaul Double Album Of Freight,0.1406,7,Other,0.1406
+2019-06-26,AbbVie,ABBV,news,"AbbVie shares are trading higher, rebounding after dipping on Monday following the announcement that the company will acquire Allergan for $60 billion. SVB Leerink upgraded the stock from Market Perform to Outperform.",0.2578,10,Analyst Rating,0.2578
+2019-06-28,Deere & Company,DE,news,"Top 10 Most Overbought Stocks Via Benzinga Pro's Radar Tool For Friday, June 28, 2019",0.0786,7,Other,0.0786
+2019-07-01,Micron Technology,MU,news,NAND Flash Wafer Prices May See Short-term Rally,-0.4313,10,Other,0.4313
+2019-07-08,Eli Lilly and Company,LLY,news,U.S. Judge Halts Trump Administration Rule Requiring Drug Prices in TV Ads,-0.1723,4,Other,0.1723
+2019-07-09,Thermo Fisher Scientific,TMO,news,FBI Approves Thermo Fisher Scientific Forensic Sequencing Solution For National DNA Index System,0.0081,3,Other,0.0081
+2019-07-15,Citigroup,C,news,Mid-Afternoon Market Update: Carolina Trust BancShares Rises On Acquisition News; Callon Petroleum Shares Tumble,-0.3136,9,Merger/Acquisition,0.3136
+2019-07-15,Alphabet Inc. (Class A),GOOGL,news,'Google accused of ripping off digital ad technology in U.S. lawsuit' -Yahoo Finance,-0.4064,3,Legal/Regulatory,0.4064
+2019-07-16,Cisco,CSCO,news,What Wall Street Analysts Think About Slack's Stock,-0.2868,4,Other,0.2868
+2019-07-16,T-Mobile US,TMUS,news,'SCOOP—Deal sources tell @FoxBusiness major progress now made on @TMobile @sprint negotiations w  @JusticeATR involving divestitures agreement could be announced any day this week. sources say deal cld fall apart but...' -Charles Gasparino Tweets,-0.0879,6,Other,0.0879
+2019-07-17,ConocoPhillips,COP,news,A Peek Into The Markets: US Stock Futures Edge Higher; Bank of America Posts Mixed Q2 Results,-0.0480,10,Earnings,0.0480
+2019-07-17,FedEx,FDX,news,Former FedEx Pilot Warns Lawmakers Of Cargo Safety Gap,-0.1757,4,Other,0.1757
+2019-07-17,Alphabet Inc. (Class A),GOOGL,news,CooTek Sales From Google's Admob May Be Adversely Affected Amid Play Store Removal,0.0530,6,Earnings,0.0530
+2019-07-17,"Netflix, Inc.",NFLX,news,"Netflix Sees Q3 Sales $5.25B vs $5.25B Estimate, EPS $1.04 vs $1.04 Est.",0.0944,8,Earnings,0.0944
+2019-07-17,Wells Fargo,WFC,news,"In The Thick Of It: Bank Results Highlight Morning, With NFLX At Center Screen Late",0.3237,8,Other,0.3237
+2019-07-22,Applied Materials,AMAT,news,UPDATE: Goldman Sachs Takes More Positive View On Memory Stocks As Firm Believes 'excess inventory memory companies are carrying will be depleted faster than our previous expectations',-0.1476,6,Other,0.1476
+2019-07-24,"Tesla, Inc.",TSLA,news,Tesla Q2 Update Full Press Release,-0.0256,9,Earnings,0.0256
+2019-07-25,Bristol Myers Squibb,BMY,news,"Earnings Scheduled For July 25, 2019",0.0187,10,Earnings,0.0187
+2019-07-25,Intuit,INTU,news,"How This Investor Passed On 100,000% Returns",0.2729,1,Other,0.2729
+2019-07-26,Deere & Company,DE,news,Companies That Achieved 52-Week Highs Friday,0.4896,4,Other,0.4896
+2019-07-27,Bristol Myers Squibb,BMY,news,"The Week Ahead In Biotech: Pending Clinical Readouts, Earnings Dominate",-0.6494,6,Earnings,0.6494
+2019-07-28,"Tesla, Inc.",TSLA,news,Dan Nathan Gives An Update On His Tesla Trade,-0.2132,10,Other,0.2132
+2019-07-29,Altria,MO,news,Altria Group's Q2 Earnings Outlook,-0.0688,5,Earnings,0.0688
+2019-07-29,Pfizer,PFE,news,Merck's Keytruda Gets A Double Dose Of Positive News,0.4139,2,Other,0.4139
+2019-07-29,Starbucks,SBUX,news,"UPDATE: Goldman Initiates Starbucks With Buy, $110 Target As Firm Notes 'We find SBUX's sales strongly tied to the macro vs. all the other publicly traded QSRs, with the tightest labor market in over 50 years driving robust sales'",0.1278,10,Analyst Rating,0.1278
+2019-07-30,Merck & Co.,MRK,news,"15 Stocks To Watch For July 30, 2019",-0.4300,9,Other,0.4300
+2019-07-30,Merck & Co.,MRK,news,"Apple On Today's Menu, With Starring Roles From China Talks, Fed Meeting",0.0673,5,Macroeconomic,0.0673
+2019-08-02,Alphabet Inc. (Class A),GOOGL,news,A FANG ETF That Doesn't Hold Many of Those Stocks Scoops Up Beyond Meat Shares,0.5334,9,Other,0.5334
+2019-08-02,Nvidia,NVDA,news,26 Technology Stocks Moving In Today's Pre-Market Session,-0.1313,10,Other,0.1313
+2019-08-03,Merck & Co.,MRK,news,"Bulls And Bears Of The Week: Boeing, GM, Pfizer, Starbucks And More",-0.1676,1,Other,0.1676
+2019-08-05,General Dynamics,GD,news,"General Dynamics To Sell Its SATCOM  Satellite Antenna Systems Business To Communications & Power Industries, Terms Not Disclosed",-0.0006,1,Other,0.0006
+2019-08-07,Micron Technology,MU,news,Micron Technology Option Alert: Fri $41 Puts Sweep (33) near the Ask: 853 @ $0.793 vs 2154 OI; Earnings 9/19 After Close [est] Ref=$41.41,-0.2568,9,Earnings,0.2568
+2019-08-08,Gilead Sciences,GILD,news,"The Daily Biotech Pulse: Glaukos To Buy Avedro, Mixed Adcom Vote For Gilead, Dynavax Offering",-0.0342,6,Other,0.0342
+2019-08-10,"Netflix, Inc.",NFLX,news,"Notable Insider Buys This Past Week: Dish, JPMorgan, Netflix",-0.4692,6,Other,0.4692
+2019-08-13,American Express,AXP,news,Third Point Dissolves Share Stake In American Express,0.1742,5,Merger/Acquisition,0.1742
+2019-08-13,McDonald's,MCD,news,"MKM Partners Initiates Coverage On McDonald's with Buy Rating, Announces $250 Price Target",0.4759,5,Analyst Rating,0.4759
+2019-08-13,Texas Instruments,TXN,news,"Shares of several semiconductor companies are trading higher in sympathy with the overall market after the U.S. Trade Representative reported that some tariffs will be delayed to Dec 15 on some products including cell phones, monitors, and laptops.",0.4636,8,Other,0.4636
+2019-08-15,Starbucks,SBUX,news,"Luckin Coffee CFO Talks Trade War, Competition And Path To Profitability",0.4371,6,Management Change,0.4371
+2019-08-16,Alphabet Inc. (Class A),GOOGL,news,Shares of several large-cap companies are trading higher with the broader market on renewed optimism surrounding US-China trade talks after Donald Trump announced earlier in the week that he would delay additional tariffs on Chinese goods until December.,0.2975,9,Geopolitical,0.2975
+2019-08-19,Alphabet Inc. (Class A),GOOGL,news,This Day In Market History: The Google IPO,-0.3433,8,Other,0.3433
+2019-08-19,"Tesla, Inc.",TSLA,news,'A Tesla car went on fire in a repair shop in Hangzhou' -YouTube,0.1869,9,Other,0.1869
+2019-08-19,"Tesla, Inc.",TSLA,news,Tesla shares are trading higher after reports indicating the company is showing interest in building large factories in India to make lithium-ion batteries.,0.4748,10,Other,0.4748
+2019-08-20,American Tower,AMT,news,Stocks That Hit 52-Week Highs On Tuesday,0.1136,6,Other,0.1136
+2019-08-21,Medtronic,MDT,news,"Deutsche Bank Maintains Buy on Medtronic, Raises Price Target to $118",0.5188,9,Analyst Rating,0.5188
+2019-08-27,Home Depot,HD,news,Home Depot In Q2 Received Grand Jury Subpoena From A U.S. Attorney And An Amendment Of Subpoena From EPA Civil Enforcement Division,-0.1299,8,Earnings,0.1299
+2019-08-29,Texas Instruments,TXN,news,Shares of several semiconductor companies are trading higher after China's Ministry of Commerce said the country is willing to work to resolve US trade tensions and does not want any further escalation.,0.2496,6,Geopolitical,0.2496
+2019-08-30,"Tesla, Inc.",TSLA,news,China Will Exempt 16 Tesla Variants From Purchase Tax,0.6502,8,Geopolitical,0.6502
+2019-09-06,Caterpillar Inc.,CAT,news,6 Industrials Stocks Moving In Friday's Pre-Market Session,0.0273,10,Other,0.0273
+2019-09-08,Eli Lilly and Company,LLY,news,"The Week Ahead In Biotech: Conference Presentations, IPO News Flow Take The Spotlight",-0.5023,4,Other,0.5023
+2019-09-09,American Express,AXP,news,Getting Active With A Financial Services ETF,0.5301,6,Other,0.5301
+2019-09-10,American Express,AXP,news,Shares of several payment processing companies are trading lower on continued momentum. Not seeing any news to justify price action within the sector.,-0.4161,6,Other,0.4161
+2019-09-11,Micron Technology,MU,news,13 Technology Stocks Moving In Wednesday's Pre-Market Session,0.0629,10,Other,0.0629
+2019-09-11,Oracle Corporation,ORCL,news,"Oracle Q1 Adj. EPS $0.81, Inline, Sales $9.218B Miss $9.29B Estimate",-0.0919,7,Earnings,0.0919
+2019-09-12,Broadcom,AVGO,news,"Earnings Scheduled For September 12, 2019",0.4709,9,Earnings,0.4709
+2019-09-12,ConocoPhillips,COP,news,Shares of several oil and gas companies are trading lower after as a potential push-back after the sector trading higher for the last three consecutive sessions on news that OPEC and other countries would agree to extend oil output cuts to support prices. NOTE: Saudi Arabia wants to boost oil prices for the upcoming Aramco IPO in an effort to balance its budget and pull off a $2 trillion valuation.,0.1810,4,Other,0.1810
+2019-09-15,Caterpillar Inc.,CAT,news,"Bulls And Bears Of The Week: Altria, Apple, Caterpillar, Ford, Oracle And More",-0.0447,5,Other,0.0447
+2019-09-24,Caterpillar Inc.,CAT,news,"Citi Maintains Buy on Caterpillar, Lowers Price Target to $145",-0.4189,7,Analyst Rating,0.4189
+2019-09-26,McDonald's,MCD,news,"Hearing Jefferies Analyst On Beyond Meat Responded To McDonald's News, Said Broader Roll Out Of PLT In US Could Conceivably Add 40+% To Firm's FY20 Sales Estimate, Sees Shares Squeezing Sharply Higher",0.3653,4,Earnings,0.3653
+2019-09-29,Merck & Co.,MRK,news,"The Week Ahead In Biotech (Sept. 29-Oct. 5): Conference Presentations, IPOs Hit Top Gear",-0.3310,2,Other,0.3310
+2019-09-29,Micron Technology,MU,news,"PreMarket Prep Recap: Micron Earnings, Wells Fargo's New CEO",-0.0666,10,Earnings,0.0666
+2019-09-30,Emerson Electric,EMR,news,"Benzinga's Top Upgrades, Downgrades For September 30, 2019",-0.1781,7,Analyst Rating,0.1781
+2019-09-30,Micron Technology,MU,news,Micron Analyst Says Lower DRAM Prices Over First Half Of 2020 Will Delay Margin Recovery,-0.5233,10,Other,0.5233
+2019-10-01,BlackRock,BLK,news,Shares of several private equity companies are trading lower after worse-than-expected PMI results.﻿,-0.5463,3,Other,0.5463
+2019-10-02,"Tesla, Inc.",TSLA,news,"UPDATE: Tesla Q3 Model S/X Production 16.318K, Model 3 Production 79.837K",-0.3676,10,Earnings,0.3676
+2019-10-03,Merck & Co.,MRK,news,"PDS Biotech Reports Clinical Collaboration With Merck For Evaluation Of Combo Of PDS0101, Merck's KEYTRUDA",-0.1923,6,Other,0.1923
+2019-10-08,Bristol Myers Squibb,BMY,news,Shares of several healthcare companies are trading lower with the broader market after the US expanded its trade blacklist to include China's top AI firms. The US also will increase its tariffs on $250 billion worth of goods from 25% to 30% on Oct 15.,-0.3171,5,Geopolitical,0.3171
+2019-10-15,BlackRock,BLK,news,BlackRock shares are trading higher after the company reported better-than-expected Q3 EPS results.,0.7186,10,Earnings,0.7186
+2019-10-16,Adobe Inc.,ADBE,news,Adobe shares are trading lower after Citigroup downgraded the company's stock from Buy to Neutral.,-0.8469,10,Analyst Rating,0.8469
+2019-10-17,Home Depot,HD,news,Stocks That Hit 52-Week Highs On Thursday,0.2143,2,Other,0.2143
+2019-10-17,Lowe's,LOW,news,Best Credit Cards For Home Improvement,-0.4984,3,Other,0.4984
+2019-10-17,Morgan Stanley,MS,news,Mid-Day Market Update: Limelight Networks Jumps After Q3 Results; Bionano Genomics Shares Plummet,0.3588,10,Earnings,0.3588
+2019-10-18,Coca-Cola Company (The),KO,news,From Coca-Cola Q3 Earnings Conference Call: Performance In Water Category Has Not Been As Strong As Mgmt. Would Have Liked,-0.2374,4,Earnings,0.2374
+2019-10-18,Micron Technology,MU,news,5 Technology Stocks Moving In Friday's Pre-Market Session,-0.0434,10,Other,0.0434
+2019-10-21,Applied Materials,AMAT,news,13 Stocks With The Highest EPS Growth Over The Past 5 Years,-0.0799,4,Earnings,0.0799
+2019-10-22,McDonald's,MCD,news,"McDonald's Says Excluding Special Items, Q3 Net Income Was Down 4%, EPS Down 2%",-0.4869,8,Earnings,0.4869
+2019-10-23,Eli Lilly and Company,LLY,news,"Lilly Raises FY19 Adj. EPS Guidance From $5.67-$5.77 To $5.75-$5.85 vs $5.72 Est., Sees Sales $22B-$22.5B vs $22.23B Est.",-0.0776,8,Earnings,0.0776
+2019-10-23,Lam Research,LRCX,news,Lam Research shares are trading higher after the company reported better-than-expected Q1 EPS and sales results. The company also issued Q2 EPS and sales guidance above analyst estimates.,0.5501,10,Earnings,0.5501
+2019-10-23,"Tesla, Inc.",TSLA,news,"UPDATE: Tesla Says Positive GAAP Net Income Going Forward Will Possibly Have Temporary Exceptions 'particularly around the launch
+and ramp of new products'",-0.5714,8,Product Launch,0.5714
+2019-10-24,Caterpillar Inc.,CAT,news,"Bank of America Earlier Maintained Buy on Caterpillar, Raised Price Target From $145 To $154",0.0491,10,Analyst Rating,0.0491
+2019-10-24,"Tesla, Inc.",TSLA,news,"Bank of America Reiterates Underperform on Tesla, Raises Price Target to $235",-0.0049,10,Analyst Rating,0.0049
+2019-10-24,"Tesla, Inc.",TSLA,news,Tesla Short Sellers Take $1.4B Earnings Hit,-0.4038,9,Earnings,0.4038
+2019-10-25,FedEx,FDX,news,'Fast Money Halftime Report' Picks For October 24,0.7925,6,Other,0.7925
+2019-10-29,Alphabet Inc. (Class A),GOOGL,news,"Canaccord Genuity Maintains Buy on Alphabet, Raises Price Target to $1,450",0.3976,9,Analyst Rating,0.3976
+2019-10-29,Pfizer,PFE,news,"12 Stocks To Watch For October 29, 2019",0.1503,9,Other,0.1503
+2019-10-31,Alphabet Inc. (Class A),GOOGL,news,"With China Trade Back In Focus, Strong Earnings From Apple, Facebook Blunt The Blow",0.6292,5,Earnings,0.6292
+2019-10-31,Lam Research,LRCX,news,"Lam Research shares are trading lower after the CFO sold 18,693 shares at an average price of $279.03 per share. When an insider sells shares, the market may perceive is as a sign of weak weak confidence in the company's outlook.",-0.5528,10,Earnings,0.5528
+2019-10-31,Starbucks,SBUX,news,"Bank of America Maintains Buy on Starbucks, Lowers Price Target to $97",-0.4908,8,Analyst Rating,0.4908
+2019-10-31,"Tesla, Inc.",TSLA,news,"Morgan Stanley Maintains Equal-Weight on Tesla, Raises Price Target to $250",-0.1323,10,Analyst Rating,0.1323
+2019-11-01,Arista Networks,ANET,news,"Morgan Stanley Maintains Equal-Weight on Arista Networks, Lowers Price Target to $195",-0.6640,8,Analyst Rating,0.6640
+2019-11-03,McDonald's,MCD,news,McDonald's Names Chris Kempczinski As President And CEO Replacing Steve Easterbrook,-0.4363,6,Management Change,0.4363
+2019-11-04,McDonald's,MCD,news,"Stephens On McDonald's Also Notes 'However, we like the quick choice of Mr. Kempczinski' And The Firm Likes 'the stock here and view it as attractive on the recent pullback'",0.0845,6,Other,0.0845
+2019-11-04,McDonald's,MCD,news,"UPDATE: MKM Maintains Buy On McDonald's, Lowers Target To $225 As Firm Notes 'We believe there is more of a psychological impact on the company and stock than actually impacting results'",-0.2791,8,Analyst Rating,0.2791
+2019-11-05,T-Mobile US,TMUS,news,"Raymond James Maintains Strong Buy on T-Mobile US, Lowers Price Target to $94",-0.4029,4,Analyst Rating,0.4029
+2019-11-06,Gilead Sciences,GILD,news,Gilead Presents 96-Week Discover Trial Data Supporting Non-inferior Efficacy And Key Safety Differences Of Descovy For PrEP Compared With Truvada For PrEP,0.2045,4,Other,0.2045
+2019-11-07,Nvidia,NVDA,news,"3 Reasons Why Tesla Will Hit $6,000, According To Ark Invest's Catherine Wood",0.0567,5,Other,0.0567
+2019-11-07,Qualcomm,QCOM,news,75 Stocks Moving In Thursday's Mid-Day Session,0.2305,10,Other,0.2305
+2019-11-12,Citigroup,C,news,Chinese Bitcoin Mining Manufacturer To Go Public Nov. 20,-0.1428,6,Other,0.1428
+2019-11-12,Alphabet Inc. (Class A),GOOGL,news,Experts Discuss Google's Secretive Project Nightingale,0.0343,6,Other,0.0343
+2019-11-13,Alphabet Inc. (Class A),GOOGL,news,"Google To Offer Checking Accounts Through Google Pay; Accounts Would Be Offered By Citigroup, Stanford Federal Credit Union",0.0258,3,Other,0.0258
+2019-11-14,Cisco,CSCO,news,"Barclays Maintains Equal-Weight on Cisco Systems, Lowers Price Target to $47",-0.3721,7,Analyst Rating,0.3721
+2019-11-14,Cisco,CSCO,news,Shoppers Rise To The Occasion As Walmart Reports Another Impressive Quarter,-0.0073,7,Earnings,0.0073
+2019-11-14,Alphabet Inc. (Class A),GOOGL,news,Can Google's New Quantum Computer Hack Bitcoin?,-0.6227,5,Other,0.6227
+2019-11-15,"Netflix, Inc.",NFLX,news,UPDATE: Wedbush On Apple Notes 'we believe Apple and Disney+ could displace roughly 10%+ of Netflix's installed base and it could be disrupted/higher churn by these two stalwarts entering the streaming landscape',0.3671,8,Other,0.3671
+2019-11-15,Nvidia,NVDA,news,"Morgan Stanley Maintains Equal-Weight on NVIDIA, Raises Price Target to $217",0.0410,9,Analyst Rating,0.0410
+2019-11-18,"Tesla, Inc.",TSLA,news,What To Know About Ford's Electric Mustang Mach-E,-0.0988,5,Other,0.0988
+2019-11-20,Qualcomm,QCOM,news,"Cascend Reiterates Buy on Qualcomm, Raises Price Target to $110",0.4986,10,Analyst Rating,0.4986
+2019-11-20,"Tesla, Inc.",TSLA,news,"'Tesla Cybertruck: Elon Musk has to deliver on high expectations, like $50,000 price tag' -Electrek",0.2319,8,Other,0.2319
+2019-11-21,Home Depot,HD,news,Sell-Side Is Constructive On Lowe's After Q3 Earnings Beat,0.1207,10,Earnings,0.1207
+2019-11-22,"Tesla, Inc.",TSLA,news,David Einhorn Tweets an Email He Sent to Elon Musk,-0.3002,7,Other,0.3002
+2019-11-25,Home Depot,HD,news,"Morgan Stanley Maintains Overweight on Home Depot, Lowers Price Target to $235",-0.4292,8,Analyst Rating,0.4292
+2019-11-25,"Netflix, Inc.",NFLX,news,"UPDATE: Wells Fargo On Netflix Notes 'Thus far, SAC including content costs has not demonstrated meaningful cash operating leverage with NFLX still losing around $2/sub/mo (cash) despite >158mm subs'",-0.1797,7,Other,0.1797
+2019-11-25,Nvidia,NVDA,news,"Morgan Stanley Upgrades NVIDIA to Overweight, Announces $259 Price Target",0.8702,8,Analyst Rating,0.8702
+2019-11-25,Nvidia,NVDA,news,"Benzinga's Top Upgrades, Downgrades For November 25, 2019",0.0895,8,Analyst Rating,0.0895
+2019-11-27,Bristol Myers Squibb,BMY,news,Gabelli & Co. Initiates Coverage On Bristol-Myers Squibb with Buy Rating,0.1076,2,Analyst Rating,0.1076
+2019-12-02,Deere & Company,DE,news,Bank of America Downgrades Deere to Underperform,-0.8558,10,Analyst Rating,0.8558
+2019-12-02,"Netflix, Inc.",NFLX,news,Infographic: What Would It Take To Break Up The FAAMG Stocks?,-0.1602,6,Other,0.1602
+2019-12-03,Comcast,CMCSA,news,Needham: Buy The Dip In Roku,0.3822,5,Other,0.3822
+2019-12-04,Alphabet Inc. (Class A),GOOGL,news,Did Alphabet's CEO Shuffle Come As A Surprise?,-0.1095,7,Management Change,0.1095
+2019-12-06,ExxonMobil,XOM,news,Option Trader Bets $1.3M On Exxon Mobil Upside Through 2022,0.3212,3,Other,0.3212
+2019-12-11,Merck & Co.,MRK,news,"Cantor Fitzgerald Says Thinks ArQule May See Other Bidders But Thinks Merck Makes A 'Great Strategic Fit,' Says Thinks Merck's Proposed Acquisition Is 'Fair'",-0.4043,4,Merger/Acquisition,0.4043
+2019-12-12,Lockheed Martin,LMT,news,"Cramer Gives His Opinion On Synopsys, Cisco And More",-0.1421,1,Other,0.1421
+2019-12-12,Starbucks,SBUX,news,McDonald's Boards The Vegan Train In The Technological Era,0.0084,2,Other,0.0084
+2019-12-13,Adobe Inc.,ADBE,news,"Canaccord Genuity Maintains Buy on Adobe, Raises Price Target to $350",0.5295,8,Analyst Rating,0.5295
+2019-12-13,Micron Technology,MU,news,Stocks That Hit 52-Week Highs On Friday,0.1857,9,Other,0.1857
+2019-12-16,Medtronic,MDT,news,"Medtronic Shares Relatively Quiet As Hearing FDA Highlights Co. Issued, On Dec. 13, Added Notification On Synchromed II Implantable Drug Infusion Pump To Provide Further Recommendations",-0.1390,2,Other,0.1390
+2019-12-16,NextEra Energy,NEE,news,"Morgan Stanley Maintains Overweight on NextEra Energy, Lowers Price Target to $240",-0.5286,5,Analyst Rating,0.5286
+2019-12-17,"Tesla, Inc.",TSLA,news,NADA Says U.S. New-vehicle Sales to Fall to 16.8M in 2020,-0.3256,9,Earnings,0.3256
+2019-12-20,Verizon,VZ,news,Stocks That Hit 52-Week Highs On Friday,0.1857,1,Other,0.1857
+2019-12-21,"Netflix, Inc.",NFLX,news,The Key To Financial Security? Living Below Your Means,-0.4017,8,Other,0.4017
+2019-12-22,Caterpillar Inc.,CAT,news,How The Dow Jones Industrial Average Changed Over The Past Decade,0.2501,3,Other,0.2501
+2019-12-24,FedEx,FDX,news,"PreMarket Prep Recap: The Importance Of PRs, FedEx Downgrade And Interviews With A Tesla Bear And Bull",-0.2366,9,Analyst Rating,0.2366
+2019-12-30,"Tesla, Inc.",TSLA,news,Tesla Delivers 15 China Made Model 3 Vehicles From Its Shanghai Plant; Tesla Senior China Official Xue Juncheng Says Firm Will Build Dozens of New Tesla Centers in China Next Year,-0.3018,10,Geopolitical,0.3018
+2019-12-31,"Tesla, Inc.",TSLA,news,4 Consumer Cyclical Stocks Moving In Tuesday's Pre-Market Session,-0.1586,10,Other,0.1586
+2020-01-02,Advanced Micro Devices,AMD,news,Advanced Micro Devices shares are trading higher after Nomura Instinet maintained a Buy rating on the stock and raised the price target from $40 to $58.,0.6423,10,Analyst Rating,0.6423
+2020-01-02,FedEx,FDX,news,Delivery And Logistics Poised To Take Center Stage In New Decade,0.2544,7,Other,0.2544
+2020-01-03,Wells Fargo,WFC,news,26 Financial Services Stocks Moving In Friday's Pre-Market Session,-0.0976,10,Other,0.0976
+2020-01-06,Citigroup,C,news,10 Biggest Price Target Changes For Monday,-0.0077,6,Analyst Rating,0.0077
+2020-01-08,McDonald's,MCD,news,McDonald's Option Alert: Jan 17 $200 Calls Sweep (42) near the Ask: 501 @ $6.899 vs 10229 OI; Earnings 1/29 Before Open [est] Ref=$206.5,0.1795,3,Earnings,0.1795
+2020-01-08,"Netflix, Inc.",NFLX,news,A Decent Outlook For This Facebook-Heavy ETF,0.5535,5,Earnings,0.5535
+2020-01-09,"Tesla, Inc.",TSLA,news,Is Elon Musk's Girlfriend Grimes Pregnant?,-0.1612,9,Other,0.1612
+2020-01-10,Nvidia,NVDA,news,"UPDATE: B Of A Securities On Nvidia Notes 'In our 2020 playbook, we flag NVDA as our top large cap pick... due to its leading growth (15%+ sales/20%+ EPS CAGR, CY19-21E) at a still reasonable valuation (30x CY21 PE, 2-turns below 3-yr avg.)",0.0045,7,Earnings,0.0045
+2020-01-12,Comcast,CMCSA,news,Comcast's '1917' Knocks Disney's 'Star Wars: The Rise of Skywalker' Out of First Place With $36.5M Weekend,0.1545,2,Other,0.1545
+2020-01-14,Wells Fargo,WFC,news,"Wells Fargo Q4 EPS $0.60 Does Not Compare To $1.12 Estimate, Sales $19.9B Miss $20.12B Estimate",-0.2604,8,Earnings,0.2604
+2020-01-15,ConocoPhillips,COP,news,"Baird Initiates Coverage On ConocoPhillips with Outperform Rating, Announces $72 Price Target",0.3853,4,Analyst Rating,0.3853
+2020-01-15,Qualcomm,QCOM,news,"DZ Bank Upgrades Qualcomm to Buy, Announces $104 Price Target",0.6789,3,Analyst Rating,0.6789
+2020-01-16,American Express,AXP,news,Stocks That Hit 52-Week Highs On Thursday,0.5266,3,Other,0.5266
+2020-01-16,Morgan Stanley,MS,news,Morgan Stanley Q4 GAAP EPS Of $1.30 Included $0.10/Share From Intermittent Net Discrete Tax Benefit,0.3160,5,Earnings,0.3160
+2020-01-16,Thermo Fisher Scientific,TMO,news,"Civica Rx Partners With Thermo Fisher Scientific To Develop, Manufacture Drugs With History; Partnership Has An Initial Seven-Year Term",-0.2173,1,Other,0.2173
+2020-01-21,"Netflix, Inc.",NFLX,news,"Netflix Sees Q1 EPS $1.66 May Not Compare To $1.19 Est., Sales $5.731B vs $5.76B Estimate",0.0844,9,Earnings,0.0844
+2020-01-22,Texas Instruments,TXN,news,"From Texas Instruments Q4 Earnings Conference Call: Will Close 2 6-Inch, 150mm Wafer Fabs",0.3334,9,Earnings,0.3334
+2020-01-23,Bristol Myers Squibb,BMY,news,"The Daily Biotech Pulse: Roche Reports Positive SMA Data Readout, Vir Biotech To Work On Virus Treatment",0.1311,2,Other,0.1311
+2020-01-23,McDonald's,MCD,news,"McDonald's Launches Employee-Only App To Facilitate Educational, Career Opportunities",-0.1771,2,Product Launch,0.1771
+2020-01-23,"Tesla, Inc.",TSLA,news,UPDATE: UBS On Tesla Notes 'view Tesla as the original equipment manufacturer with the biggest long-term AV opportunity.',-0.1075,10,Other,0.1075
+2020-01-23,Texas Instruments,TXN,news,"SunTrust Robinson Humphrey Maintains Hold on Texas Instruments, Raises Price Target to $134",0.0981,6,Analyst Rating,0.0981
+2020-01-24,Nvidia,NVDA,news,3 Chip ETFs To Buy On Intel's Stellar Forecast,-0.1149,8,Other,0.1149
+2020-01-26,"Netflix, Inc.",NFLX,news,"Benzinga's Bulls And Bears Of The Week: Apple, Boeing, Netflix, GE And More",-0.2420,7,Other,0.2420
+2020-01-27,Merck & Co.,MRK,news,A Peek Into The Markets: US Stock Futures Down; Dow Futures Tumble Over 400 Points,0.0565,10,Other,0.0565
+2020-01-28,FedEx,FDX,news,Our Research On The Coronavirus,-0.3074,7,Other,0.3074
+2020-01-30,ServiceNow,NOW,news,"Morgan Stanley Maintains Equal-Weight on ServiceNow, Raises Price Target to $336",0.1890,7,Analyst Rating,0.1890
+2020-01-31,Thermo Fisher Scientific,TMO,news,"Baird Maintains Outperform on Thermo Fisher Scientific, Raises Price Target to $340",0.4708,9,Analyst Rating,0.4708
+2020-01-31,ExxonMobil,XOM,news,Stocks That Hit 52-Week Lows On Friday,-0.4342,7,Other,0.4342
+2020-02-03,Gilead Sciences,GILD,news,"Gilead Shares Selling Off Over the Last 30 Minutes, the Stock Traded Higher Early Monday Following a Weekend Report the Company's Remdesivir Would Undergo a Trial for Coronavirus",-0.0752,9,Other,0.0752
+2020-02-03,Lam Research,LRCX,news,Shares of several technology companies are trading higher in sympathy with the overall market on a rebound after increased fear of the Wuhan coronavirus' impact on the economy dropped the Dow roughly 600 points on Friday.,0.2491,10,Other,0.2491
+2020-02-03,Morgan Stanley,MS,news,The Cornerstone Of The Canadian Economy: Oil,-0.0290,5,Other,0.0290
+2020-02-03,"Tesla, Inc.",TSLA,news,Mid-Morning Market Update: Markets Open Higher; SYSCO Reports Mixed Q2 Results,0.0865,10,Earnings,0.0865
+2020-02-03,Verizon,VZ,news,"Verizon Exec Talks 'First 5G Super Bowl,' Musk Downplays 5G Health Scare",0.0254,2,Other,0.0254
+2020-02-04,Alphabet Inc. (Class A),GOOGL,news,"KeyBanc Reiterates Overweight, $1,769 Target On Alphabet As Firm Notes 'We recommend owning GOOGL. 4Q results showed excellent core Search ad revenue growth that appears sustainable for the foreseeable future'",-0.0377,10,Analyst Rating,0.0377
+2020-02-04,Alphabet Inc. (Class A),GOOGL,news,"UPDATE: Piper Sandler Maintains Overweight On Alphabet, Raises Target To $1,600 Notes 'The core advertising business is decelerating, while cloud is accelerating and YouTube growth is outpacing the core'",0.2054,10,Analyst Rating,0.2054
+2020-02-05,Gilead Sciences,GILD,news,"UPDATE: B of A Maintains Neutral On Gilead, Raises Target To $72 Notes 'Overall, we believe that 2020 guidance looks conservative, but we remain concerned over the lack of clear growth drivers that could meaningfully accelerate product sales'",0.1451,10,Analyst Rating,0.1451
+2020-02-10,IBM,IBM,news,"Slack 8-K Includes Response to Business Insider Article On IBM, Says 'IBM has been Slack's largest customer for several years and has expanded its usage of Slack over that time'",-0.0613,7,Other,0.0613
+2020-02-11,Johnson & Johnson,JNJ,news,"The Daily Biotech Pulse: LogicBio Slapped With Clinical Hold, Agile Inks Debt Deal Ahead of Twirla Approval, Gilead Builds Stake In Sierra Oncology",-0.1752,2,Merger/Acquisition,0.1752
+2020-02-11,T-Mobile US,TMUS,news,"Benzinga Pro's Top 5 Stocks To Watch For Tues., Feb. 11, 2020: DISH, HAS, SHOP, CODX, FB",-0.2821,8,Other,0.2821
+2020-02-12,Gilead Sciences,GILD,news,Gilead Sciences Option Alert: Feb 21 $72.5 Calls Sweep (47) near the Ask: 970 @ $0.242 vs 13430 OI; Ref=$66.425,0.2429,8,Other,0.2429
+2020-02-13,Caterpillar Inc.,CAT,news,"Coronavirus Fears Back On Big Earnings Day As Alibaba, PepsiCo, Nvidia All Report",-0.1339,8,Earnings,0.1339
+2020-02-13,Altria,MO,news,"Health And Human Services Secretary Alex Azar Says May Act If Teen Use Of Disposable, Flavored Tobacco Rises",0.0158,3,Other,0.0158
+2020-02-14,"Tesla, Inc.",TSLA,news,"How Tesla Could Use Its $2B In Offering Cash: A Cybertruck Plant, China, Debt Payoff",0.0510,10,Geopolitical,0.0510
+2020-02-18,Arista Networks,ANET,news,"Argus Research Reiterates Buy on Arista Networks, Raises Price Target to $265",0.0510,9,Analyst Rating,0.0510
+2020-02-20,Merck & Co.,MRK,news,"The Daily Biotech Pulse: Heron Pain Drug Review Extended, Disappointment For Teva In Tourette Syndrome Study",0.0346,5,Other,0.0346
+2020-02-20,Morgan Stanley,MS,news,Morgan Stanley CFO Believes E*TRADE Deal Will Be Viewed Favorably By US Regulators,-0.1169,3,Management Change,0.1169
+2020-02-21,NextEra Energy,NEE,news,"UBS Maintains Buy on NextEra Energy, Raises Price Target to $310",-0.1182,7,Analyst Rating,0.1182
+2020-02-24,Intuit,INTU,news,Shares of several software companies are trading lower as the coronavirus cases surge outside of China. NOTE: The virus has raised fear of a global economic slowdown.,-0.6374,7,Geopolitical,0.6374
+2020-02-25,Alphabet Inc. (Class A),GOOGL,news,"UPDATE: Morgan Stanley Maintains Overweight On Alphabet, Raises Target To $1.65K Notes 'New disclosure has arrived, which we see enabling investors to better value the growth/durability of GOOGL's assets'",0.2181,7,Analyst Rating,0.2181
+2020-02-25,Intuit,INTU,news,"UBS Maintains Neutral on Intuit, Raises Price Target to $303",0.1103,9,Analyst Rating,0.1103
+2020-02-25,Palo Alto Networks,PANW,news,"Piper Sandler Maintains Neutral on Palo Alto Networks, Lowers Price Target to $240",-0.3406,9,Analyst Rating,0.3406
+2020-02-25,Palo Alto Networks,PANW,news,"UPDATE: Wedbush Maintains Outperform on Palo Alto Networks, Lowers PT To $240 Believes Co. 'will be able to capitalize on its entrenched position in next-generation firewalls/cybersecurity over the next 12-18 months with a massive installed base and building cloud platform.'",-0.1985,8,Analyst Rating,0.1985
+2020-02-25,"Tesla, Inc.",TSLA,news,NTSB Chair Says US Auto Safety Regulators Have Ignored Board's Recommendations for System Safeguards In Tesla Autopilot Probes,0.0437,9,Other,0.0437
+2020-02-26,Salesforce,CRM,news,"Canaccord Genuity Maintains Buy on Salesforce.com, Raises Price Target to $200",0.3617,10,Analyst Rating,0.3617
+2020-02-27,Applied Materials,AMAT,news,"Shares of companies in the software, technology and semiconductor spaces are trading lower as continued coronavirus fears cause weakness across sectors.",-0.5993,10,Other,0.5993
+2020-02-27,Lowe's,LOW,news,"Stifel Nicolaus Maintains Hold on Lowe's Companies, Lowers Price Target to $115",-0.3476,10,Analyst Rating,0.3476
+2020-02-27,Wells Fargo,WFC,news,Stocks That Hit 52-Week Lows On Thursday,-0.2984,7,Other,0.2984
+2020-02-28,Alphabet Inc. (Class A),GOOGL,news,"Key Stocks Like Apple, Disney Close To Or Already In Bear Territory As Selloff Continues",0.0030,8,Other,0.0030
+2020-03-05,IBM,IBM,news,"Shares of several technology, semiconductor, and software companies are trading lower as global markets continue to experience volatility amid the coronavirus spread.",-0.6662,10,Other,0.6662
+2020-03-05,"Tesla, Inc.",TSLA,news,8 Consumer Cyclical Stocks Moving In Thursday's Pre-Market Session,0.1459,10,Other,0.1459
+2020-03-06,"Tesla, Inc.",TSLA,news,Tesla shares are trading lower in sympathy with the overall market despite the Chinese government giving the company approval to sell longer-range China-made Model 3 vehicles in China.,-0.7045,10,Geopolitical,0.7045
+2020-03-06,ExxonMobil,XOM,news,"Citigroup Maintains Neutral on Exxon Mobil, Lowers Price Target to $52",-0.4861,10,Analyst Rating,0.4861
+2020-03-10,Apple Inc.,AAPL,news,"Airlines Continue Suffering As Delta, American Announce Schedule Cuts, But Crude Bounces",-0.3399,10,Other,0.3399
+2020-03-10,Alphabet Inc. (Class A),GOOGL,news,"FANG Stocks Lose Nearly $150B In A Day As Coronavirus Fears Rise Even More, Oil Crashes",-0.0122,10,Other,0.0122
+2020-03-10,"Tesla, Inc.",TSLA,news,One-Year Anniversary Of Whitney Tilson's $100 Tesla Call,0.2844,10,Other,0.2844
+2020-03-11,Amgen,AMGN,news,Shares of several healthcare companies are trading lower. Movement appears market related amid selloff in equities. The global coronavirus outbreak has caused volatility in global markets and impacted stocks across sectors.,-0.6244,10,Other,0.6244
+2020-03-12,Accenture,ACN,news,"Shares of several technology, software, and semiconductor companies are trading lower as equities sell off amid continued global coronavirus concerns. The virus has caused global economic disruption and negatively impacted stocks across sectors.",-0.7252,10,Other,0.7252
+2020-03-12,Adobe Inc.,ADBE,news,"Adobe Sees Q2 Adj. EPS ~$2.35 vs $2.33 Estimate, Sales ~$3.175B vs $3.22B Est.",0.3425,10,Earnings,0.3425
+2020-03-12,Oracle Corporation,ORCL,news,Stocks That Hit 52-Week Lows On Thursday,-0.2984,10,Other,0.2984
+2020-03-12,Southern Company,SO,news,Shares of several utility companies are trading lower as equities sell off amid continued global coronavirus concerns. The virus has caused global economic disruption and negatively impacted stocks across sectors.,-0.7541,10,Other,0.7541
+2020-03-13,Adobe Inc.,ADBE,news,"Adobe Beats Q1 Targets, But Expects A Coronavirus-Caused Hit In Q2",-0.0938,10,Earnings,0.0938
+2020-03-13,Broadcom,AVGO,news,A Peek Into The Markets: US Stock Futures Rebound; Dow Futures Up Over 700 Points,0.3768,10,Other,0.3768
+2020-03-13,CVS Health,CVS,news,"Target Will Also Help With Test Process, Says Stores Will Stay Open, Highlights CVS Will Also Help",0.1713,9,Other,0.1713
+2020-03-13,"Tesla, Inc.",TSLA,news,"Tesla shares are trading lower, reversing from earlier strength. Not currently seeing company-specific news.",-0.4900,10,Other,0.4900
+2020-03-16,Apple Inc.,AAPL,news,22 Stocks Moving in Monday's Pre-Market Session,-0.3282,10,Other,0.3282
+2020-03-16,Citigroup,C,news,Shares of several financial services companies are trading lower after the Federal Reserve announced on Sunday that it would lower interest rates to combat the impact of coronavirus. Several banks suspended stock buybacks today in response to this.,-0.5178,10,Other,0.5178
+2020-03-16,ConocoPhillips,COP,news,"Morgan Stanley Maintains Overweight on ConocoPhillips, Lowers Price Target to $40",-0.3037,10,Analyst Rating,0.3037
+2020-03-16,ExxonMobil,XOM,news,10 Biggest Price Target Changes For Monday,-0.0077,10,Analyst Rating,0.0077
+2020-03-17,CVS Health,CVS,news,Coronavirus Testing Poses Unique Challenges For Truck Drivers,-0.0553,9,Other,0.0553
+2020-03-17,IBM,IBM,news,"Shares of several technology, semiconductor, and software companies are trading higher, rebounding from Monday's crash. Stocks may also potentially be getting a boost from expectations of further stimulus proposals.",0.3379,10,Other,0.3379
+2020-03-17,Thermo Fisher Scientific,TMO,news,Thermo Fisher Scientific shares are trading higher after the company announced it shipped the first batch of coronavirus tests and plans to produce 5 million tests a week by April.,0.7505,10,Other,0.7505
+2020-03-18,FedEx,FDX,news,FedEx Analysts Say Investors Need To Wait And See What's Next After Guidance Withdrawal,-0.1334,10,Earnings,0.1334
+2020-03-18,Coca-Cola Company (The),KO,news,96 Stocks Moving In Wednesday's Mid-Day Session,0.0289,10,Other,0.0289
+2020-03-18,"Tesla, Inc.",TSLA,news,"Benzinga Pro's Top 5 Stocks To Watch For Wed., Mar. 18, 2020: GIS, TSLA, BYND, ARMK, APRN",-0.3249,10,Other,0.3249
+2020-03-19,Cisco,CSCO,news,"Morgan Stanley Maintains Equal-Weight on Cisco Systems, Lowers Price Target to $43",-0.6552,10,Analyst Rating,0.6552
+2020-03-19,"Tesla, Inc.",TSLA,news,Tesla Says Believes Level Of Liquidity Is Sufficient To Successfully Navigate An Extended Period Of Uncertainty; Says At End Of Q4 2019 Had Available Credit Lines Worth Approximately $3B Including Working Capital Lines,0.0530,10,Earnings,0.0530
+2020-03-20,Verizon,VZ,news,"'Web traffic spiked 20% in one week amid coronavirus shutdown, Verizon CEO says' -CNBC, From Late Thursday",-0.0387,9,Management Change,0.0387
+2020-03-22,"Tesla, Inc.",TSLA,news,Elon Musk Says We Expect to Have Over 1200 Ventilators to Distribute This Week,-0.0277,10,Other,0.0277
+2020-03-23,Advanced Micro Devices,AMD,news,"Shares of several technology, software, and semiconductor companies are trading higher as stocks move higher following Monday morning Fed stimulus action.",0.4048,10,Macroeconomic,0.4048
+2020-03-23,Medtronic,MDT,news,Dr. Oz Says 'Men Die More Frequently Than Women' From Coronavirus,-0.4932,9,Other,0.4932
+2020-03-23,Procter & Gamble,PG,news,Shares of several consumer goods and staples companies are trading lower amid market weakness. Increased concerns of the coronavirus outbreak as well as statewide 'shelter-in-place' orders have caused volatility in consumer demand for household products.,-0.5541,10,Other,0.5541
+2020-03-24,Verizon,VZ,news,Shares of several communication services companies are trading higher as equities gain amid hopes of a US stimulus agreement.,0.4905,10,Other,0.4905
+2020-03-25,Apple Inc.,AAPL,news,"Tesla, Wayfair And Other Profitable Short Trades Could Get A Short Covering Boost",0.0207,10,Other,0.0207
+2020-03-25,McDonald's,MCD,news,"McDonald's Says From Mar. 6 Through Apr. 24, Delivery Through Both Uber Eats And Doordash Is Offering $0 Delivery Fee With Orders Of $15 Minimum Basket Size",-0.1150,10,Other,0.1150
+2020-03-26,Apple Inc.,AAPL,news,Roku Or Netflix – Which One Is Better In The Near Term?,-0.0779,10,Other,0.0779
+2020-03-26,"Netflix, Inc.",NFLX,news,Roku Or Netflix – Which One Is Better In The Near Term?,-0.0779,9,Other,0.0779
+2020-03-30,Qualcomm,QCOM,news,"Citigroup Maintains Buy on Qualcomm, Lowers Price Target to $98",-0.3954,10,Analyst Rating,0.3954
+2020-03-31,United Parcel Service,UPS,news,"Airlines, Governments And 3PLs Get Creative With Emergency Airlifts",-0.1866,9,Other,0.1866
+2020-04-02,Apple Inc.,AAPL,news,Amazon Offers Prime Video Purchases On iOS As Apple Foregoes 30% Third-Party Tax,0.0568,10,Other,0.0568
+2020-04-02,Bristol Myers Squibb,BMY,news,Credit Suisse Compiles List Of Corporations With Most And Least Cash,-0.2058,8,Other,0.2058
+2020-04-02,"Tesla, Inc.",TSLA,news,Chanos Says Tesla Short Still One Of His Favorite Positions,-0.1073,10,Other,0.1073
+2020-04-03,ConocoPhillips,COP,news,"Energy Stocks In Focus As Crude Oil Extends Rally, But Weak Employment Data Could Set the Tone",-0.1557,10,Other,0.1557
+2020-04-06,Gilead Sciences,GILD,news,Gilead Analyst Sees Catalyst Ahead In Data Readout For Potential Coronavirus Treatment,0.1464,8,Other,0.1464
+2020-04-06,Micron Technology,MU,news,Shares of several semiconductor and large technology stocks are trading higher with the broader market on optimism that coronavirus cases in several US hotspots appear to be reaching their peak.,0.2933,10,Other,0.2933
+2020-04-07,Danaher Corporation,DHR,news,Shares of several healthcare companies are trading higher amid optimism that coronavirus cases in Asia are potentially easing. Global slowing cases could raise hopes of a sooner return to spending and economic activity. Several companies in the sector may also be benefiting from increased demand for therapies and medical supplies amid the coronavirus pandemic.,0.2968,10,Other,0.2968
+2020-04-07,Wells Fargo,WFC,news,"Shares of several financial services companies are trading higher amid optimism that coronavirus cases in Asia are potentially easing. Global slowing cases could raise hopes of a sooner return to spending, economic activity and investment.",0.2354,10,Other,0.2354
+2020-04-09,Pfizer,PFE,news,Pfizer And BioNTech Intend To Initiate First Clinical Trials Of Coronavirus Vaccine As Early As Apr. 2020; BioNTech To Receive $185M Upfront And Is Eligible For Up To $563M In Milestones,-0.1482,5,Other,0.1482
+2020-04-13,NextEra Energy,NEE,news,Shares of several utilities companies are trading lower amid overall market weakness. Equities are lower for the session amid uncertainty surrounding coronavirus progress and the reopening of the economy.,-0.8514,10,Other,0.8514
+2020-04-14,Salesforce,CRM,news,"Shares of several technology companies are trading higher as markets gain on positive coronavirus outlook. Optimism surrounding the virus has led to hopes of an upcoming return to economic activity, which would benefit the sector.",0.5124,10,Earnings,0.5124
+2020-04-14,Alphabet Inc. (Class A),GOOGL,news,"Alphabet shares are trading higher as the tech sector gains on positive coronavirus outlook. Optimism surrounding the virus has led to hopes of an upcoming return to economic activity, which would benefit the sector.",0.5651,10,Earnings,0.5651
+2020-04-14,IBM,IBM,news,"Wells Fargo Maintains Equal-Weight on IBM, Lowers Price Target to $120",-0.5287,9,Analyst Rating,0.5287
+2020-04-14,Verizon,VZ,news,OnePlus 85G UW To Be Available On Verizon Starting Apr. 29,-0.2333,6,Other,0.2333
+2020-04-15,Bank of America,BAC,news,"7 Stocks To Watch For April 15, 2020",-0.3992,10,Other,0.3992
+2020-04-15,Deere & Company,DE,news,Every Member Of Trump's 'Great American Economic Revival' Industry Groups,0.0338,7,Other,0.0338
+2020-04-15,Eli Lilly and Company,LLY,news,"The Daily Biotech Pulse: Applied DNA Ships Vaccine Constructs For Animal Testing, Herceptin Biosimilar Now Available In US",-0.0806,6,Other,0.0806
+2020-04-15,U.S. Bancorp,USB,news,"Earnings Scheduled For April 15, 2020",-0.3325,10,Earnings,0.3325
+2020-04-16,Gilead Sciences,GILD,news,Gilead Sciences Option Alert: Aug 21 $80 Calls Sweep (33) near the Ask: 530 @ $5.947 vs 6241 OI; Earnings 4/30 After Close [est] Ref=$74.66,0.4602,10,Earnings,0.4602
+2020-04-16,Coca-Cola Company (The),KO,news,S&P 500 Futures Up 3.2% After Hours; Many Other Stocks Moving Higher With Futures; Investors Reacting Favorably To White Phase Guidelines On Reopening Economy,0.6325,10,Other,0.6325
+2020-04-16,Morgan Stanley,MS,news,"Morgan Stanley Misses On EPS, But Shows Strong Trading Results For Q1 As Banks Wrap Up",0.0498,10,Earnings,0.0498
+2020-04-16,Morgan Stanley,MS,news,Mid-Morning Market Update: Markets Mostly Lower; Morgan Stanley Misses Q1 Expectations,-0.1857,10,Earnings,0.1857
+2020-04-16,"Tesla, Inc.",TSLA,news,"Big Stocks Moving After Hours As Market Cheers Gilead, 'Reopening' Updates",0.0649,10,Other,0.0649
+2020-04-17,Apple Inc.,AAPL,news,"Benzinga's Top Upgrades, Downgrades For April 17, 2020",0.2420,10,Analyst Rating,0.2420
+2020-04-17,Morgan Stanley,MS,news,"Argus Research Maintains Buy on Morgan Stanley, Lowers Price Target to $48",-0.5963,10,Analyst Rating,0.5963
+2020-04-19,Eli Lilly and Company,LLY,news,"The Week Ahead In Biotech (April 19-25): Eli Lilly, Biogen Earnings On Tap, Sanofi Awaits FDA Decision",-0.1185,6,Earnings,0.1185
+2020-04-19,Merck & Co.,MRK,news,"Barron's Picks And Pans: Dropbox, Ford, Johnson & Johnson, Teladoc And More",0.1300,6,Other,0.1300
+2020-04-20,Gilead Sciences,GILD,news,"BMO Capital Downgrades Gilead Sciences to Market Perform, Announces $79 Price Target",-0.4968,10,Analyst Rating,0.4968
+2020-04-21,Texas Instruments,TXN,news,"Texas Instruments Q1 EPS $1.240 Beats $1.000 Estimate, Sales $3.330B Beat $3.170B Estimate",0.2654,10,Earnings,0.2654
+2020-04-22,"Tesla, Inc.",TSLA,news,JD Power Says Auto Retail Sales Show Signs Of Recovery During First 2 Weeks Of Apr.,-0.4083,8,Earnings,0.4083
+2020-04-23,Citigroup,C,news,Shares of several global financial services companies are trading higher as equities gain driven by a rebound in oil.,0.3877,10,Other,0.3877
+2020-04-24,"Tesla, Inc.",TSLA,news,"'China extends new energy vehicle subsidy for two more years, but excludes premium models like Tesla's #Model3. Industry expects @Tesla to cut price to meet subsidy standards' -Tweet From China's National Business Daily",0.0098,9,Geopolitical,0.0098
+2020-04-27,Amazon,AMZN,news,"'Fast Money' Traders Share Their Thoughts On Alibaba, Peloton And More",-0.3999,8,Other,0.3999
+2020-04-27,Emerson Electric,EMR,news,"Shares of several industrial companies are trading higher as equities gain strength on news that some U.S. states will reopen their economies in phases, increasing economic activity and optimism around the coronavirus pandemic.",0.3763,10,Other,0.3763
+2020-04-27,ExxonMobil,XOM,news,"Apple And Amazon Earnings, Fed Meeting Among Highlights In Busy Week Ahead",0.0757,9,Earnings,0.0757
+2020-04-28,Amazon,AMZN,news,Oscar Organizers To Allow Films Released On Streaming Platforms To Be Eligible For 2021 Academic Awards,0.0860,8,Other,0.0860
+2020-04-28,Oracle Corporation,ORCL,news,Zoom Selects Oracle As Cloud Infrastructure Provider For Its Core Online Meeting Service,0.2360,5,Other,0.2360
+2020-04-29,Gilead Sciences,GILD,news,UPDATE: Gilead Says Phase 3 Trial Of Remdesivir Showed Patients Receiving 10-Day Treatment Course Achieved Similar Improvement In Clinical Status vs Those Taking 5-Day Treatment Course,0.0157,9,Other,0.0157
+2020-04-30,Apple Inc.,AAPL,news,"Apple Reports Q2 Service Revenue $13.348B, Up From $11.45B YoY",0.2556,9,Earnings,0.2556
+2020-04-30,Apple Inc.,AAPL,news,"Apple And Amazon Up To Bat this Afternoon As Investors Ponder Microsoft, Facebook Results",0.4108,9,Other,0.4108
+2020-04-30,Amazon,AMZN,news,"Express Shares Rebound From Session Low, Spike ~25% Following Circulation Of TheDeal.com Chatter Amazon Could Be Interested In Co.",0.0702,10,Other,0.0702
+2020-04-30,Meta Platforms,META,news,Munster Says Still 'Neutral' On Facebook's Long-Term Outlook Despite Impressive Q1 Results,-0.3493,10,Earnings,0.3493
+2020-04-30,"Tesla, Inc.",TSLA,news,61 Stocks Moving In Thursday's Mid-Day Session,0.1583,10,Other,0.1583
+2020-05-01,Apple Inc.,AAPL,news,Apple Increased Smartphone Market Share In China In Q1 During Pandemic: Report,-0.1460,10,Earnings,0.1460
+2020-05-01,Apple Inc.,AAPL,news,"Cascend Maintains Buy on Apple, Lowers Price Target to $325",-0.1041,10,Analyst Rating,0.1041
+2020-05-01,Amazon,AMZN,news,"UPDATE: Raymond James Maintains Outperform On Amazon, Raises Target To $2,525 As Firm Cites 4 Reasons:",0.2285,10,Analyst Rating,0.2285
+2020-05-01,Amazon,AMZN,news,"Morgan Stanley Maintains Overweight on Amazon.com, Raises Price Target to $2600",0.4040,10,Analyst Rating,0.4040
+2020-05-01,Gilead Sciences,GILD,news,Reuters Issues Correction: Says Vice President Pence Says The 1.5 Million (Not 1 Million) Vials Of Remdesivir Will Start Being Distributed To Hospitals On Monday,-0.0190,10,Other,0.0190
+2020-05-01,Gilead Sciences,GILD,news,"Markets Have Best Month Since 1987, But End Week On Low Note",-0.0685,10,Other,0.0685
+2020-05-01,ExxonMobil,XOM,news,"Amazon, Exxon Mobil Earnings Weigh On Market To Start New Month As Caution Steers The Wheel",-0.1125,9,Earnings,0.1125
+2020-05-02,Apple Inc.,AAPL,news,Tim Cook On Warren Buffett: 'I Don't Think There's A Better Teacher',-0.2066,10,Other,0.2066
+2020-05-04,ExxonMobil,XOM,news,Exxon Mobil Has Indefinitely Postponed Sale Of $2B In Oil And Gas Assets In The North Sea,-0.0138,9,Other,0.0138
+2020-05-05,Amazon,AMZN,news,"Disney, Beyond Meat And Video Game Makers All Set To Report As Firm Tone Continues",0.2502,9,Other,0.2502
+2020-05-06,Amgen,AMGN,news,Amgen Reports Top-Line Results From Otezla Phase 3 ADVANCE Study In Mild-To-Moderate Plaque Psoriasis,0.0502,8,Other,0.0502
+2020-05-06,Arista Networks,ANET,news,Arista Networks shares are trading lower after the company reported Q1 earnings results.,-0.7611,10,Earnings,0.7611
+2020-05-07,"Tesla, Inc.",TSLA,news,Tesla Preparing to Restart Some Car Production in Fremont,-0.0714,9,Other,0.0714
+2020-05-08,Apple Inc.,AAPL,news,Apple To Reopen Germany Retail Stores May 11,0.4235,5,Other,0.4235
+2020-05-08,Bank of America,BAC,news,How Artificial Intelligence Helped iFlip Save Investor Returns During The 2020 Market Crash,-0.2353,7,Other,0.2353
+2020-05-08,Salesforce,CRM,news,Shares of several technology companies are trading higher amid market strength after US job loss figures came in better than expected. The sector has been strong recently as several companies reported strong earnings and benefited from online services.,0.6040,10,Earnings,0.6040
+2020-05-08,"Tesla, Inc.",TSLA,news,"Tesla Says on May 7. As Part of Expansion of Production at Gigafactory Shanghai, Unit Entered Into a Working Capital Loan Contract; Under 2020 Working Capital Facility, Tesla Shanghai May Draw Funds From Time to Time on an Unsecured Revolving Facility of Up to RMB 4B",0.2813,10,Other,0.2813
+2020-05-13,Apple Inc.,AAPL,news,Apple Plans To Bring Employees Back To Office Even As Tech Peers Hold Off,-0.1111,7,Other,0.1111
+2020-05-13,Cisco,CSCO,news,"5 Stocks To Watch For May 13, 2020",-0.2480,10,Other,0.2480
+2020-05-13,"Tesla, Inc.",TSLA,news,Tesla Reopens Nevada Gigafactory,-0.0597,10,Other,0.0597
+2020-05-16,Apple Inc.,AAPL,news,"Ubisoft Sues Apple, Google Over Alibaba's Rainbow Six ""Ripoff""",-0.1726,6,Legal/Regulatory,0.1726
+2020-05-16,Bank of America,BAC,news,"Q1 13F Roundup: How Buffett, Einhorn, Ackman And Others Adjusted Their Portfolios",0.3991,6,Earnings,0.3991
+2020-05-18,Pfizer,PFE,news,"These 6 Coronavirus Vaccine Candidates Are The Likeliest To Succeed, Says Morgan Stanley",0.1503,7,Other,0.1503
+2020-05-19,Comcast,CMCSA,news,Guggenheim Downgrades Comcast to Neutral,-0.6533,7,Analyst Rating,0.6533
+2020-05-19,Meta Platforms,META,news,What We Know About Facebook Shops,-0.1856,8,Other,0.1856
+2020-05-19,Pfizer,PFE,news,"In The Midst Of Pandemic, Traders Pin Their Hopes On These Healthcare ETFs",0.0294,7,Other,0.0294
+2020-05-20,Deere & Company,DE,news,"Citigroup Maintains Neutral on Deere, Lowers Price Target to $145",-0.4769,9,Analyst Rating,0.4769
+2020-05-20,"Tesla, Inc.",TSLA,news,Tesla Shares Quiet As Hearing Court Records Show Co. Dropped Suit Against California County Over Reopening Its Vehicle Factory Against Lockdown Orders,0.0490,8,Other,0.0490
+2020-05-21,Apple Inc.,AAPL,news,Hearing Evercore ISI Raises Price Target On Apple From $330 To $345,0.2894,8,Analyst Rating,0.2894
+2020-05-21,Amazon,AMZN,news,Making Sense Of Walmart's Decision To Close Jet.com: 'Mission Accomplished',-0.1732,6,Other,0.1732
+2020-05-21,Intuit,INTU,news,"Intuit Q3 Adj. EPS $4.490 Misses $5.480 Estimate, Sales $3.000B Miss $3.340B Estimate",-0.2081,9,Earnings,0.2081
+2020-05-21,Medtronic,MDT,news,"The Daily Biotech Pulse: Mixed Filgotinib Readout For Gilead-Galapagos, Akorn To File For Chapter 11, D-Day For Aquestive",0.3899,9,Credit Event,0.3899
+2020-05-22,Amazon,AMZN,news,The Secret to Tech's Resilience to COVID-19- Infrastructure Expansion,0.2596,5,Other,0.2596
+2020-05-22,Nvidia,NVDA,news,"SunTrust Robinson Humphrey Maintains Buy on NVIDIA, Raises Price Target to $384",0.1907,9,Analyst Rating,0.1907
+2020-05-22,Nvidia,NVDA,news,"Mizuho Reiterates Buy on NVIDIA, Raises Price Target to $400",0.4850,10,Analyst Rating,0.4850
+2020-05-26,Bristol Myers Squibb,BMY,news,Repare Therapeutics Announces Multi-Target Discovery Collaboration with Bristol Myers Squibb; BMS Will Make $65M Upfront Payment Including $15M In Equity Investment,0.1657,3,Other,0.1657
+2020-05-26,"Tesla, Inc.",TSLA,news,Automotive Industry Eyes Slow Recovery,-0.1880,3,Other,0.1880
+2020-05-27,Apple Inc.,AAPL,news,"B of A Securities Maintains Buy on Apple, Raises Price Target to $340",0.3659,8,Analyst Rating,0.3659
+2020-05-27,Adobe Inc.,ADBE,news,"Shares of several companies in the broader technology sector are trading lower despite market strength. Weakness potentially related to business reopenings and eased lockdown restrictions, as several names in the tech sector have benefited from work-from-home, home entertainment and e-commerce trends amid the pandemic.",-0.5513,9,Other,0.5513
+2020-05-27,McDonald's,MCD,news,"Mcdonald's UK Says All Drive-Thrus To Reopen By Jun. 4, 924 Drive-thru Restaurants Will Reopen Between Jun. 2-4; Co. Also Adds 75 Restaurants To McDelivery Via Either Uber Eats Or Just Eat",0.3152,5,Other,0.3152
+2020-05-27,Micron Technology,MU,news,"Micron To Report Q3 Earnings On Mon., Jun. 29, 2020 After Market Close",-0.1601,9,Earnings,0.1601
+2020-05-27,"Tesla, Inc.",TSLA,news,"Twitter Account Highlights Negative Analyst Sentiment On Tesla Following Co.'s North American Price Cuts News, Cites Roth Capital Analyst, Gordon Johnson Of GLJ Research",0.1259,8,Other,0.1259
+2020-05-29,Wells Fargo,WFC,news,"DA Davidson Initiates Coverage On Wells Fargo with Neutral Rating, Announces Price Target of $27",-0.0890,8,Analyst Rating,0.0890
+2020-06-01,U.S. Bancorp,USB,news,"Shares of several financial services companies are trading higher as equities gain amid continued optimism towards a rebound in economic activity, which could lead to a potential rebound in spending and borrowing.",0.3933,10,Other,0.3933
+2020-06-03,Bristol Myers Squibb,BMY,news,"The Daily Biotech Pulse: Regulatory Delay For Novartis' Multiple Sclerosis Drug, FSD Gets Nod For COVID-19 Study",-0.0020,4,Other,0.0020
+2020-06-09,Advanced Micro Devices,AMD,news,Shares of several technology companies are trading higher despite market weakness. The sector recently experienced some welling and appears to be rebounding following dip.,0.1308,10,Other,0.1308
+2020-06-09,Mastercard,MA,news,Citi Becomes First Issuer in U.S. to Enable Push Provisioning to Mastercard's Click to Pay.,0.1170,4,Other,0.1170
+2020-06-10,Starbucks,SBUX,news,"Starbucks Says Comparable Store Sales In China Fell By About 14% In Final Week Of May Compared To Prior Year; Says Recovery In China, Which Started In Late February, Has Continued Into Q3",-0.1343,6,Earnings,0.1343
+2020-06-10,"Tesla, Inc.",TSLA,news,GM On Track To Spend $20B On EV And AV Development By 2025,-0.3664,9,Other,0.3664

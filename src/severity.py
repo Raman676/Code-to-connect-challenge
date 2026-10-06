@@ -7,7 +7,9 @@ Run:  python src/severity.py        (after src/run_model.py)
 
 Label    |r1| = absolute 1-day return from the anchor close (same anchor as the sentiment labels:
          last close before the item's date). Model target: log(|r1| + 0.0001).
-Severity decile of |r1| using the training set's cut-points (1 = smallest moves, 10 = largest).
+Severity actual severity = decile of |r1| on the training set's |r1| cut-points (1 = smallest moves);
+         predicted severity (the 'impact' output) = decile of the prediction among the final model's
+         TRAINING predictions, so all ten scores are used (same rule as src/walk_forward.py).
 Items    all deduplicated pool items with valid prices (before the volatility and pattern filters);
          tweets capped at 20 per company-day.
 Features known before the item: TF-IDF of the masked text, log trailing 10-day volatility, and news
@@ -226,7 +228,7 @@ def main() -> int:
                                    "% with tweet data prev day": round(100 * g["tweet_data_prev"].mean(), 1)})
         print("\n" + indent(pd.DataFrame(split_rows).to_string(index=False)))
 
-        results, final_models, cutpoints, tables = [], {}, {}, {}
+        results, final_models, cutpoints, tables, pred_cutpoints = [], {}, {}, {}, {}
         for source, df in rows.items():
             train_abs = df.loc[df["split"] == "train", "abs_r1"]
             cutpoints[source] = decile_cutpoints(train_abs)
@@ -240,6 +242,8 @@ def main() -> int:
                 tables[(source, name)] = deciles
                 if name == MAIN_MODEL:
                     final_models[source] = model
+                    fit_rows = df[df["split"].isin(["train", "val"] if rm.REFIT_ON_VAL[source] else ["train"])]
+                    pred_cutpoints[source] = decile_cutpoints(model.predict(fit_rows))
         results = pd.DataFrame(results)
 
         section("TRAINING DECILE CUT-POINTS OF |r1| (%)")
@@ -271,7 +275,7 @@ def main() -> int:
             s = sent[sent["source"] == source]
             items = all_items[source].set_index("item_id").loc[s["item_id"]]
             pred = final_models[source].predict(items)
-            out.append(s.assign(impact=to_decile(np.exp(pred) - EPS, cutpoints[source]),
+            out.append(s.assign(impact=to_decile(pred, pred_cutpoints[source]),
                                 actual_impact=to_decile(items["abs_r1"].to_numpy(), cutpoints[source])))
         out = pd.concat(out)[["date", "company_name", "ticker", "source", "text", "sentiment_score", "impact",
                               "actual_sentiment", "actual_impact"]]
