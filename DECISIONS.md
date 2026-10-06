@@ -159,3 +159,14 @@ Management Change, Macroeconomic, Geopolitical, Credit Event, Other.
 Why: includes all five example categories from the problem statement, plus the
 types that dominate company-level news. Credit Event is kept even though it will be
 rare for large companies.
+
+## 2026-10-06
+
+**Old SanDisk headlines dropped (ticker reuse)**
+- The news file files 99 headlines from 2016 under SNDK. They are about SanDisk, which
+  Western Digital acquired in 2016; today's SNDK (Sandisk) was spun off in 2025.
+- Dropped from data/processed/signals_walkforward.csv with
+  walk_forward.drop_reused_ticker_headlines (64,127 -> 64,028 rows). The walk-forward was
+  not re-run, so these headlines were still part of the training data for that run;
+  future runs drop them before training.
+Why: a ticker must always refer to the same company.

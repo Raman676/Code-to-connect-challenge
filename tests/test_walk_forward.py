@@ -60,6 +60,12 @@ def test_previous_day_counts_are_per_company():
     assert wf.previous_day_counts(df).tolist() == [0, 0, 2, 0, 1]
 
 
+def test_drop_reused_ticker_headlines():
+    df = pd.DataFrame({"ticker": ["SNDK", "SNDK", "AAPL"], "date": ["2016-03-01", "2025-03-01", "2016-03-01"]})
+    out = wf.drop_reused_ticker_headlines(df)
+    assert out.index.tolist() == [1, 2]          # old SanDisk headline dropped; new Sandisk and Apple kept
+
+
 def main() -> int:
     tests = [(n, f) for n, f in globals().items() if n.startswith("test_") and callable(f)]
     failures = 0

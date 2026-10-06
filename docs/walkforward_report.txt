@@ -1,0 +1,75 @@
+Walk-forward report - generated 2026-10-06 14:02 by src/walk_forward.py
+Test years [2016, 2017, 2018, 2019, 2020]; gap 10 trading days; validation 252 trading days; sentiment C grid [0.01, 0.03, 0.1, 0.3, 1, 3, 10]; severity alpha grid [1, 3, 10, 30, 100, 300, 1000]
+
+====================================================================================================
+ITEMS
+====================================================================================================
+                                                 step    rows  dropped
+             raw rows (analyst_ratings_processed.csv) 1399180        0
+  S&P 100 tickers (old symbols mapped, GOOG -> GOOGL)  117634  1281546
+       drop duplicate headline+ticker (keep earliest)  112024     5610
+
+   year  headlines  companies  sentiment_labelled  severity_labelled
+   2009        793         35                 317                772
+   2010       5931         38                2199               5765
+   2011       8132         45                3191               7968
+   2012       7776         51                3157               7588
+   2013       7875         54                3225               7706
+   2014       8385         57                3407               8221
+   2015       9005         59                3403               8753
+   2016      11536         63                4639              11438
+   2017      11865         65                4971              11864
+   2018      12828         66                5377              12828
+   2019      15751         69                6269              15751
+   2020      12147         83                4474              12147
+
+====================================================================================================
+MODELS PER TEST YEAR
+====================================================================================================
+   test_year    C  alpha  sent_train_rows  sev_train_rows  val_alpha_spearman first_test_day last_train_anchor  scored
+        2016 10.0     30            18828           46477            0.327161     2016-01-04        2015-12-16   11536
+        2017 10.0     30            23415           57827            0.346229     2017-01-03        2016-12-15   11865
+        2018  3.0     10            28421           69785            0.355195     2018-01-02        2017-12-14   12828
+        2019  3.0     30            33691           82501            0.368263     2019-01-02        2018-12-14   15751
+        2020  1.0     10            39956           98120            0.354694     2020-01-02        2019-12-16   12147
+
+====================================================================================================
+SENTIMENT vs THAT YEAR'S MARKET LABELS, and vs the TRADABLE next-day return
+====================================================================================================
+acc / day_acc: sign of the score vs the same-day market label (labelled rows only; chance = 0.5).
+spearman_tradable: score vs the return from the close after the item's date to the next close.
+  test_year        model  labelled   acc  day_acc  spearman_tradable  top-bottom quintile tradable (bp)
+       2016     tfidf_lr      4639 0.537    0.545              0.005                             -2.812
+       2016 finbert-tone      4639 0.555    0.581              0.024                              2.909
+       2017     tfidf_lr      4971 0.542    0.539              0.011                              4.068
+       2017 finbert-tone      4971 0.536    0.569              0.004                              2.520
+       2018     tfidf_lr      5377 0.538    0.559              0.004                              2.125
+       2018 finbert-tone      5377 0.561    0.565              0.009                              3.012
+       2019     tfidf_lr      6269 0.589    0.638             -0.006                             -3.438
+       2019 finbert-tone      6269 0.613    0.678             -0.015                             -6.969
+       2020     tfidf_lr      4474 0.657    0.756              0.058                             88.043
+       2020 finbert-tone      4474 0.640    0.740              0.049                             80.493
+        all     tfidf_lr     25730 0.572    0.604              0.013                             13.192
+        all finbert-tone     25730 0.581    0.624              0.015                             12.147
+
+====================================================================================================
+SEVERITY vs ACTUAL |r1| (rows with prices)
+====================================================================================================
+  test_year  rows  spearman  company-day spearman  mean |r1| % in severity 1  mean |r1| % in severity 10
+       2016 11438     0.355                 0.309                      0.842                       4.315
+       2017 11864     0.353                 0.293                      0.683                       3.443
+       2018 12828     0.354                 0.290                      0.974                       3.668
+       2019 15751     0.355                 0.331                      0.884                       3.556
+       2020 12147     0.443                 0.572                      0.968                       4.898
+        all 64028     0.443                 0.439                      0.808                       4.256
+
+Severity distribution (all test years): {1: 5046, 2: 4881, 3: 4983, 4: 5254, 5: 5484, 6: 5689, 7: 6091, 8: 6595, 9: 7835, 10: 12269}
+Rows with imputed volatility (too little price history): 99
+
+====================================================================================================
+COVERAGE: scored headlines per company (2016 - Jun 2020)
+====================================================================================================
+85 companies; median 630 headlines; top 10 {'NFLX': 2904, 'NVDA': 2181, 'TSLA': 1882, 'GOOGL': 1796, 'PFE': 1773, 'QCOM': 1771, 'MU': 1679, 'GILD': 1587, 'MRK': 1581, 'JNJ': 1555}
+Fewest: {'UNH': 221, 'MDLZ': 157, 'AMGN': 149, 'SNDK': 99, 'UPS': 90, 'UNP': 49, 'BA': 10, 'INTC': 10, 'JPM': 10, 'DIS': 10, 'GM': 10, 'SCHW': 10, 'T': 10, 'V': 10, 'WMT': 8}
+
+Output: data\processed\signals_walkforward.csv (64,127 rows, 14.6 MB)

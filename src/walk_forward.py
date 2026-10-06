@@ -3,6 +3,8 @@ Walk-forward signals: out-of-sample sentiment and severity for every S&P 100 hea
 
 Run:  python src/walk_forward.py
       -> data/processed/signals_walkforward.csv, docs/walkforward_report.txt
+      python src/walk_forward.py --filter-existing
+      (only apply drop_reused_ticker_headlines to an existing signals file)
       (finbert-tone probabilities cached in data/interim/finbert_tone.npz)
 
 For each test year Y (2016..2020):
@@ -49,6 +51,18 @@ GAP_DAYS = 10                 # label windows reach 10 trading days past the anc
 VAL_DAYS = 252                # ~12 months of trading days used for tuning
 SEVERITY_NUMERIC = ["log_vol_before", "log_news_prev"]
 CLASS_COLS = [f"p_{c}" for c in md.IMPACT_CLASSES]
+# Tickers reused by a different company: headlines before this date are about the old company.
+# SNDK: SanDisk (acquired by Western Digital in 2016) vs today's Sandisk (spun off in 2025).
+REUSED_TICKERS = {"SNDK": "2025-01-01"}
+
+
+def drop_reused_ticker_headlines(df: pd.DataFrame, date_col: str = "date") -> pd.DataFrame:
+    """Remove headlines filed under a ticker before its current company existed (see REUSED_TICKERS)."""
+    dates = pd.to_datetime(df[date_col])
+    old = pd.Series(False, index=df.index)
+    for ticker, since in REUSED_TICKERS.items():
+        old |= (df["ticker"] == ticker) & (dates < pd.Timestamp(since))
+    return df[~old]
 
 
 # ---------------------------------------------------------------------------
@@ -78,6 +92,8 @@ def load_news_items(universe: pd.DataFrame, log: lb.StepLog) -> pd.DataFrame:
     df["local_time"] = pd.to_datetime(df["item_time"].str[:19], format="%Y-%m-%d %H:%M:%S")
     df["item_date"] = df["local_time"].dt.normalize()
     log.add("news", "S&P 100 tickers (old symbols mapped, GOOG -> GOOGL)", len(df))
+    df = drop_reused_ticker_headlines(df, "item_date")
+    log.add("news", "drop headlines of reused tickers (old SanDisk under SNDK)", len(df))
     df = lb.drop_duplicate_texts(df, "local_time")
     log.add("news", "drop duplicate headline+ticker (keep earliest)", len(df))
     df["item_id"] = "nw_" + df["row_id"].astype(str)
@@ -243,7 +259,19 @@ def sentiment_checks(rows: pd.DataFrame, score_col: str) -> dict:
 # Main
 # ---------------------------------------------------------------------------
 
+def filter_existing_output() -> int:
+    """Apply drop_reused_ticker_headlines to an existing signals file without re-running the models."""
+    df = pd.read_csv(SIGNALS_CSV)
+    kept = drop_reused_ticker_headlines(df)
+    kept.to_csv(SIGNALS_CSV, index=False, float_format="%.5f", encoding="utf-8")
+    print(f"{SIGNALS_CSV.relative_to(PROJECT_ROOT)}: {len(df):,} -> {len(kept):,} rows "
+          f"(dropped {len(df) - len(kept)} headlines of reused tickers {list(REUSED_TICKERS)})")
+    return 0
+
+
 def main() -> int:
+    if "--filter-existing" in sys.argv[1:]:
+        return filter_existing_output()
     buffer = io.StringIO()
     log = lb.StepLog()
     with contextlib.redirect_stdout(Tee(sys.stdout, buffer)):
