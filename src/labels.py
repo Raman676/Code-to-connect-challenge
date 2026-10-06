@@ -258,9 +258,10 @@ def market_features(tickers: pd.Series, anchor_pos: np.ndarray, prices: pd.DataF
 
 def sign_pattern(returns: pd.DataFrame) -> pd.Series:
     """'+'/'-' per horizon, e.g. '++-+'. Missing if any return is zero or missing."""
-    signs = np.sign(returns[[f"r{k}" for k in HORIZONS]])
-    ok = (signs != 0).all(axis=1) & signs.notna().all(axis=1)
-    pattern = signs.replace({1.0: "+", -1.0: "-"}).astype(str).agg("".join, axis=1)
+    signs = np.sign(returns[[f"r{k}" for k in HORIZONS]].to_numpy(dtype=float))
+    ok = np.isfinite(signs).all(axis=1) & (signs != 0).all(axis=1)
+    chars = np.where(signs > 0, "+", "-")
+    pattern = pd.Series(["".join(row) for row in chars], index=returns.index)
     return pattern.where(ok)
 
 

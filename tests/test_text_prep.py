@@ -38,7 +38,15 @@ CASES = {
     "Zuckerberg testifies; Tim Cook smiles": "[COMPANY] testifies; [COMPANY] smiles",
     "a good cook": "a good cook",
     # placeholders are not re-masked
-    "[COMPANY] COST cut": "[COMPANY] [COMPANY] cut",
+    "[COMPANY] AAPL cut": "[COMPANY] [COMPANY] cut",
+    # S&P 100 additions, old tickers and ambiguous tickers
+    "Goldman Sachs Upgrades Deere": "[COMPANY] Upgrades [COMPANY]",
+    "PCLN and UTX rise; BK falls": "[COMPANY] and [COMPANY] rise; [COMPANY] falls",
+    "Lowe's (LOW) shares hit 52-Week LOW": "[COMPANY] ([COMPANY]) shares hit 52-Week LOW",
+    "BUY NOW, SO cheap, COST cut": "BUY NOW, SO cheap, COST cut",
+    "3M Raises Guidance after $3M settlement": "[COMPANY] Raises Guidance after $3M settlement",
+    "a kayak trip with Kayak": "a kayak trip with [COMPANY]",
+    "Blankfein and Larry Fink speak": "[COMPANY] and [COMPANY] speak",
 }
 
 

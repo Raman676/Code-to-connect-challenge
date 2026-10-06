@@ -1,4 +1,4 @@
-Index data checks - generated 2026-10-06 13:48 by src/index_data.py
+Index data checks - generated 2026-10-06 14:12 by src/index_data.py
 Universe: 101 symbols from data\universe\sp100_constituents.csv; backtest window 2012-01-01 -> 2020-06-30
 
 ====================================================================================================
@@ -110,3 +110,73 @@ Old/alternative tickers found: {'BKNG': {'PCLN': 1666}, 'BNY': {'BK': 832, 'BNY'
 No headlines at all (15): ['ABT', 'BRK.B', 'COST', 'CVX', 'DELL', 'GE', 'GEV', 'GS', 'ISRG', 'LIN', 'MSFT', 'PLTR', 'PM', 'RTX', 'UBER']
 Exactly 10 headlines in total (suspected cap in the dataset): ['BA', 'DIS', 'GM', 'INTC', 'JPM', 'SCHW', 'T', 'V', 'WMT']
 Fewest headlines (non-zero, 15 lowest): {'INTC': 10, 'V': 10, 'SCHW': 10, 'T': 10, 'GM': 10, 'DIS': 10, 'BA': 10, 'JPM': 10, 'WMT': 10, 'UNP': 50, 'UPS': 90, 'AMGN': 150, 'MDLZ': 218, 'UNH': 230, 'AMD': 250}
+
+====================================================================================================
+7. SHARE-DATA CLEANING (split basis, spikes, remaining jumps) AND FREE-FLOAT FACTORS
+====================================================================================================
+Splits downloaded: 438 for 87 symbols; from 2015 on: 42 {'AAPL 2020-08-31': 4.0, 'AMZN 2022-06-06': 20.0, 'ANET 2021-11-18': 4.0, 'ANET 2024-12-04': 4.0, 'AVGO 2024-07-15': 10.0, 'BKNG 2026-04-06': 25.0, 'CMCSA 2017-02-21': 2.0, 'CMCSA 2026-01-05': 1.067, 'DELL 2018-12-28': 1.806, 'DELL 2021-11-02': 1.973, 'DHR 2016-07-05': 1.319, 'DHR 2023-10-02': 1.128, 'FDX 2026-06-01': 1.241, 'GE 2019-02-26': 1.04, 'GE 2021-08-02': 0.125, 'GE 2023-01-04': 1.281, 'GE 2024-04-02': 1.253, 'GOOG 2015-04-27': 1.0027455, 'GOOG 2022-07-18': 20.0, 'GOOGL 2022-07-18': 20.0, 'IBM 2021-11-04': 1.046, 'ISRG 2017-10-06': 3.0, 'ISRG 2021-10-05': 3.0, 'LRCX 2024-10-03': 10.0, 'MMM 2024-04-01': 1.196, 'MRK 2021-06-03': 1.048, 'NEE 2020-10-27': 4.0, 'NFLX 2015-07-15': 7.0, 'NFLX 2025-11-17': 10.0, 'NOW 2025-12-18': 5.0, 'NVDA 2021-07-20': 4.0, 'NVDA 2024-06-10': 10.0, 'PANW 2022-09-14': 3.0, 'PANW 2024-12-16': 2.0, 'PFE 2020-11-17': 1.054, 'RTX 2020-04-03': 1.589, 'SBUX 2015-04-09': 2.0, 'T 2022-04-11': 1.324, 'TSLA 2020-08-31': 5.0, 'TSLA 2022-08-25': 3.0, 'V 2015-03-19': 4.0, 'WMT 2024-02-26': 3.0}
+Share observations: 55,434 -> 55,413 after removing spikes (saved to data\prices\sp100_shares_clean.csv)
+
+Manual drops (reviewed): 3
+  ticker       date  before          after  change %  in backtest window                                                       action
+     ACN 2015-12-17     NaN    259,977,000       NaN                True        manual drop: bad value (~40% of the real share count)
+    ISRG 2017-08-28     NaN  1,006,659,000       NaN                True manual drop: post-split count reported before the split date
+    NVDA 2020-03-17     NaN 30,019,159,040       NaN                True                 manual drop: one-day outlier (750M vs ~612M)
+
+Spikes removed: 11
+  ticker       date         before           after  change %  in backtest window                action
+    ANET 2019-11-05  1,226,308,864   1,618,560,000        32                True spike removed (2 obs)
+    AVGO 2024-07-13  4,654,880,000  46,548,797,440       900               False spike removed (1 obs)
+    DELL 2019-06-03  1,417,657,764     953,106,991       -33                True spike removed (7 obs)
+    GOOG 2022-07-16 13,103,559,680 262,187,991,040     1,901               False spike removed (1 obs)
+   GOOGL 2022-07-16 13,230,900,480 264,509,992,960     1,899               False spike removed (1 obs)
+   GOOGL 2023-06-09 12,723,399,680   6,823,000,064       -46               False spike removed (1 obs)
+    NVDA 2024-06-08 25,545,799,680 245,983,006,720       863               False spike removed (1 obs)
+    PANW 2022-09-14    598,427,424     199,475,808       -67               False spike removed (1 obs)
+    PANW 2024-12-14    658,723,968   1,312,400,000        99               False spike removed (1 obs)
+     PFE 2025-11-05  5,697,073,707   7,851,440,046        38               False spike removed (1 obs)
+     WMT 2024-02-26  8,076,689,664   2,692,229,888       -67               False spike removed (1 obs)
+
+Known corporate events (kept): 4
+  ticker       date        before         after  change %  in backtest window                                                                             action
+    AVGO 2016-03-04 2,764,970,000 3,904,480,000        41                True kept (known event: Broadcom Ltd merger (Avago acquires Broadcom, closed Feb 2016))
+     BMY 2019-11-22 1,596,220,032 2,344,189,952        47                True                                            kept (known event: Celgene acquisition)
+     CVS 2018-12-05 1,018,800,000 1,293,200,000        27                True                            kept (known event: Aetna acquisition (closed Nov 2018))
+    TMUS 2020-04-03   856,932,992 1,235,929,984        44                True                                                  kept (known event: Sprint merger)
+
+FLAGGED for review (kept as reported until you decide): 16
+  ticker       date         before          after  change %  in backtest window                    action
+    AAPL 2020-08-31 17,102,520,320  4,275,630,080       -75               False flagged for review (kept)
+    AAPL 2020-10-22  4,275,630,080 17,102,499,840       300               False flagged for review (kept)
+     AMD 2022-02-19  1,199,299,968  1,627,360,000        36               False flagged for review (kept)
+    AVGO 2023-11-24  4,127,350,080  5,215,459,840        26               False flagged for review (kept)
+     BNY 2021-06-10     12,976,100     24,608,900        90               False flagged for review (kept)
+     BNY 2026-05-22     24,117,106    686,379,000     2,746               False flagged for review (kept)
+     COF 2025-05-20    383,137,984    640,137,984        67               False flagged for review (kept)
+     COP 2021-01-20  1,068,009,984  1,354,630,016        27               False flagged for review (kept)
+    DELL 2021-11-05  1,509,573,931    773,948,992       -49               False flagged for review (kept)
+    PLTR 2020-10-22  2,200,000,000  1,587,520,000       -28               False flagged for review (kept)
+    PLTR 2021-01-24  1,497,510,016  1,877,929,984        25               False flagged for review (kept)
+    SCHW 2020-10-09  1,465,139,968  1,874,640,000        28               False flagged for review (kept)
+    SNDK 2025-02-25    202,935,000    144,000,000       -29               False flagged for review (kept)
+    SNDK 2025-03-19    114,863,000    144,863,008        26               False flagged for review (kept)
+    TSLA 2020-08-31  2,795,430,000 13,977,120,768       400               False flagged for review (kept)
+    TSLA 2020-10-22 13,977,120,768  2,800,619,904       -80               False flagged for review (kept)
+
+After cleaning, market-cap jumps > 30% without a price move > 20% (2016 - Jun 2020): ['AVGO 2016-03-04 (+50%)', 'BMY 2019-11-22 (+46%)', 'TMUS 2020-04-03 (+40%)']
+
+Free-float factors (today's value, assumed constant 2016-2020):
+  distribution: {Interval(0.0, 0.5, closed='right'): 1, Interval(0.5, 0.8, closed='right'): 5, Interval(0.8, 0.9, closed='right'): 7, Interval(0.9, 0.95, closed='right'): 9, Interval(0.95, 1.0, closed='right'): 79}
+  overrides / special cases:
+    ticker  factor                                                                                source
+     BRK.B    0.85 our estimate: excludes roughly Buffett's ~15% economic stake; yfinance float unusable
+      GOOG    0.89                  Alphabet: floatShares / impliedSharesOutstanding (all share classes)
+     GOOGL    0.89                  Alphabet: floatShares / impliedSharesOutstanding (all share classes)
+  factors below 0.8 (genuine insider/parent holdings unless overridden):
+    ticker  factor                                   source
+       AXP   0.773 yfinance floatShares / sharesOutstanding
+        MS   0.759 yfinance floatShares / sharesOutstanding
+      ORCL   0.613 yfinance floatShares / sharesOutstanding
+      TMUS   0.453 yfinance floatShares / sharesOutstanding
+      TSLA   0.714 yfinance floatShares / sharesOutstanding
+       WMT   0.609 yfinance floatShares / sharesOutstanding

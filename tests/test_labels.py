@@ -69,6 +69,9 @@ def test_sign_pattern_and_impact_table():
     assert sorted(set(patterns) & set(lb.IMPACT_TABLE)) == sorted(lb.IMPACT_TABLE)
     zero = pd.DataFrame({"r1": [0.0], "r2": [0.01], "r3": [0.01], "r7": [0.01]})
     assert lb.sign_pattern(zero).isna().all()
+    missing = pd.DataFrame({"r1": [np.nan, 0.01], "r2": [0.01, 0.01], "r3": [0.01, -0.01], "r7": [0.01, -0.01]})
+    assert lb.sign_pattern(missing).isna().tolist() == [True, False]
+    assert lb.sign_pattern(missing).iloc[1] == "++--"
 
 
 def test_apply_labels_steps():

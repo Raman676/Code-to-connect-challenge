@@ -38,6 +38,35 @@ ADJ_CLOSE_CSV = PRICES_DIR / "sp100_adj_close.csv"
 SHARES_CSV = PRICES_DIR / "sp100_shares_history.csv"
 INFO_CSV = PRICES_DIR / "sp100_info.csv"
 BENCHMARK_CSV = PRICES_DIR / "benchmarks.csv"
+SPLITS_CSV = PRICES_DIR / "sp100_splits.csv"
+SHARES_CLEAN_CSV = PRICES_DIR / "sp100_shares_clean.csv"
+
+# Share-count cleaning
+JUMP = 0.25                  # a share count changing by more than 25% between observations is a "jump"
+REVERT_DAYS = 30             # ... and a spike if it comes back within 30 days
+REVERT_TOLERANCE = 0.10      # "comes back" = within 10% of the value before the jump
+KNOWN_EVENTS = {             # real share-count changes from corporate events (kept as reported);
+                             # keyed by the month the new count first appears in the data
+    ("AVGO", "2016-03"): "Broadcom Ltd merger (Avago acquires Broadcom, closed Feb 2016)",
+    ("BMY", "2019-11"): "Celgene acquisition",
+    ("TMUS", "2020-04"): "Sprint merger",
+    ("CVS", "2018-12"): "Aetna acquisition (closed Nov 2018)",
+}
+# Single bad share-count observations removed by hand (reviewed 2026-10-06)
+MANUAL_DROPS = {
+    # 260M shares between ~628M (Dec 2015) and ~624M (Mar 2016); next value is 3 months later, so
+    # the spike rule misses it. It is the value used at the first review (2015-12-31).
+    ("ACN", "2015-12-17"): "bad value (~40% of the real share count)",
+    # Post-split count (3-for-1, effective 2017-10-06) reported before the split date; next value is
+    # 14 months later, so market cap would be tripled from Aug 2017 to Nov 2018.
+    ("ISRG", "2017-08-28"): "post-split count reported before the split date",
+    # One-day value of 750M between ~612M values; the +23% jump is just under the 25% spike threshold.
+    ("NVDA", "2020-03-17"): "one-day outlier (750M vs ~612M)",
+}
+# Free-float factors that replace yfinance's floatShares / sharesOutstanding (see the report)
+FLOAT_OVERRIDES = {
+    "BRK.B": (0.85, "our estimate: excludes roughly Buffett's ~15% economic stake; yfinance float unusable"),
+}
 REPORT_PATH = PROJECT_ROOT / "docs" / "index_data_checks.txt"
 
 START, END = "2009-01-01", "2020-12-31"
@@ -115,6 +144,26 @@ def download_info(symbols) -> pd.DataFrame:
     return df
 
 
+def download_splits(symbols) -> pd.DataFrame:
+    """Long table (symbol, date, ratio); ratio 2.0 = a 2-for-1 split."""
+    import yfinance as yf
+    rows = []
+    for symbol in symbols:
+        for attempt in range(3):
+            try:
+                s = yf.Ticker(symbol).splits
+                break
+            except Exception:  # noqa: BLE001
+                s = None
+                time.sleep(2)
+        if s is None:
+            continue
+        idx = pd.to_datetime(s.index)
+        idx = idx.tz_localize(None) if idx.tz is not None else idx
+        rows += [{"symbol": symbol, "date": d.normalize(), "ratio": float(r)} for d, r in zip(idx, s.to_numpy())]
+    return pd.DataFrame(rows, columns=["symbol", "date", "ratio"])
+
+
 def download_benchmarks() -> pd.DataFrame:
     import yfinance as yf
     data = yf.download(list(BENCHMARKS), start=START, end=END, auto_adjust=False, progress=False)
@@ -139,6 +188,9 @@ def ensure_downloads(universe: pd.DataFrame, refresh: bool = False):
         download_info(symbols).to_csv(INFO_CSV, index=False)
     if refresh or not BENCHMARK_CSV.exists():
         download_benchmarks().to_csv(BENCHMARK_CSV, float_format="%.6f")
+    if refresh or not SPLITS_CSV.exists():
+        print("  downloading splits ...", file=sys.__stdout__, flush=True)
+        download_splits(symbols).to_csv(SPLITS_CSV, index=False)
 
 
 def load_prices():
@@ -171,6 +223,84 @@ def shares_asof(history: pd.DataFrame, symbol: str, dates, max_age_days: int | N
 def float_ratio(info: pd.DataFrame) -> pd.Series:
     """float shares / shares outstanding, as reported by yfinance (before any manual fixes)."""
     return (info["float_shares"] / info["shares_out"]).rename("float_ratio")
+
+
+def split_adjust_shares(shares: pd.DataFrame, splits: pd.DataFrame) -> pd.DataFrame:
+    """Put share counts on today's split basis (like yfinance closes): multiply each count by the
+    product of all split ratios that happen AFTER its date."""
+    out = shares.copy()
+    out["split_factor"] = 1.0
+    for symbol, sp in splits.groupby("symbol"):
+        rows = out["symbol"] == symbol
+        for date, ratio in zip(sp["date"], sp["ratio"]):
+            out.loc[rows & (out["date"] < date), "split_factor"] *= ratio
+    out["shares_adj"] = out["shares"] * out["split_factor"]
+    return out
+
+
+def clean_shares(shares: pd.DataFrame, known_events: dict = KNOWN_EVENTS,
+                 manual_drops: dict = MANUAL_DROPS) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Remove MANUAL_DROPS and isolated spikes from split-adjusted share counts, and list every remaining jump.
+    A spike: a jump of more than JUMP that returns to within REVERT_TOLERANCE of the earlier value
+    within REVERT_DAYS -> the observations in between are dropped.
+    Remaining jumps are 'kept (known event)' if listed in known_events, else 'flagged for review'
+    (kept as reported until reviewed). Returns (cleaned shares, events table).
+    """
+    keep, events = [], []
+    manual = pd.Series([(s, d.strftime("%Y-%m-%d")) in manual_drops for s, d in zip(shares["symbol"], shares["date"])],
+                       index=shares.index)
+    for (symbol, date), reason in manual_drops.items():
+        hit = shares[(shares["symbol"] == symbol) & (shares["date"] == pd.Timestamp(date))]
+        if len(hit):
+            events.append({"symbol": symbol, "date": pd.Timestamp(date).date(), "before": np.nan,
+                           "after": hit["shares_adj"].iloc[0], "change %": np.nan, "action": f"manual drop: {reason}"})
+    shares = shares[~manual]
+    for symbol, g in shares.sort_values("date").groupby("symbol"):
+        dates, values = g["date"].to_numpy(), g["shares_adj"].to_numpy()
+        drop = np.zeros(len(g), dtype=bool)
+        last_kept = 0                                           # compare with the last value we keep
+        i = 1
+        while i < len(g):
+            before = values[last_kept]
+            if abs(values[i] / before - 1) > JUMP:
+                horizon = dates[i] + np.timedelta64(REVERT_DAYS, "D")
+                j = i
+                while j < len(g) and dates[j] <= horizon and abs(values[j] / before - 1) > REVERT_TOLERANCE:
+                    j += 1
+                if j < len(g) and dates[j] <= horizon:              # came back: a spike
+                    drop[i:j] = True
+                    events.append({"symbol": symbol, "date": pd.Timestamp(dates[i]).date(), "before": before,
+                                   "after": values[i], "change %": round(100 * (values[i] / before - 1), 1),
+                                   "action": f"spike removed ({j - i} obs)"})
+                    last_kept, i = j, j + 1
+                    continue
+                month = pd.Timestamp(dates[i]).strftime("%Y-%m")
+                known = known_events.get((symbol, month))
+                events.append({"symbol": symbol, "date": pd.Timestamp(dates[i]).date(), "before": before,
+                               "after": values[i], "change %": round(100 * (values[i] / before - 1), 1),
+                               "action": f"kept (known event: {known})" if known else "flagged for review (kept)"})
+            last_kept = i
+            i += 1
+        keep.append(g[~drop])
+    return pd.concat(keep, ignore_index=True), pd.DataFrame(events)
+
+
+def float_factors(info: pd.DataFrame, overrides: dict = FLOAT_OVERRIDES) -> pd.DataFrame:
+    """
+    Free-float factor per ticker, assumed constant over time (today's value).
+    Default: floatShares / sharesOutstanding, capped at 1. Alphabet: float over ALL share classes
+    (impliedSharesOutstanding), since sharesOutstanding counts one class only. Plus manual overrides.
+    """
+    out = info[["ticker", "float_shares", "shares_out", "implied_shares_out"]].copy()
+    out["factor"] = (out["float_shares"] / out["shares_out"]).clip(upper=1.0)
+    out["source"] = "yfinance floatShares / sharesOutstanding"
+    alphabet = out["ticker"].isin(["GOOGL", "GOOG"])
+    out.loc[alphabet, "factor"] = out.loc[alphabet, "float_shares"] / out.loc[alphabet, "implied_shares_out"]
+    out.loc[alphabet, "source"] = "Alphabet: floatShares / impliedSharesOutstanding (all share classes)"
+    for ticker, (factor, why) in overrides.items():
+        out.loc[out["ticker"] == ticker, ["factor", "source"]] = [factor, why]
+    return out[["ticker", "factor", "source"]]
 
 
 def quarter_end_reviews(calendar: pd.DatetimeIndex, start=BACKTEST_START, end=BACKTEST_END) -> pd.DatetimeIndex:
@@ -307,6 +437,58 @@ def main(argv=None) -> int:
         print(f"\nNo headlines at all ({int((total == 0).sum())}): {sorted(total[total == 0].index)}")
         print(f"Exactly 10 headlines in total (suspected cap in the dataset): {sorted(total[total == 10].index)}")
         print(f"Fewest headlines (non-zero, 15 lowest): {total[total > 0].head(15).to_dict()}")
+
+        section("7. SHARE-DATA CLEANING (split basis, spikes, remaining jumps) AND FREE-FLOAT FACTORS")
+        splits = pd.read_csv(SPLITS_CSV, parse_dates=["date"])
+        in_data = splits[(splits["date"] >= "2015-01-01") & (splits["date"] <= "2026-12-31")]
+        print(f"Splits downloaded: {len(splits)} for {splits['symbol'].nunique()} symbols; "
+              f"from 2015 on: {len(in_data)} "
+              f"{ {f'{s} {d.date()}': r for s, d, r in zip(in_data['symbol'], in_data['date'], in_data['ratio'])} }")
+        adjusted = split_adjust_shares(shares, splits)
+        clean, events = clean_shares(adjusted)
+        clean.to_csv(SHARES_CLEAN_CSV, index=False)
+        print(f"Share observations: {len(adjusted):,} -> {len(clean):,} after removing spikes "
+              f"(saved to {SHARES_CLEAN_CSV.relative_to(PROJECT_ROOT)})")
+        if len(events):
+            events["ticker"] = events["symbol"].map(sym_to_ticker)
+            events["in backtest window"] = (pd.to_datetime(events["date"]) >= "2015-10-01") & \
+                                           (pd.to_datetime(events["date"]) <= BACKTEST_END)
+            with pd.option_context("display.width", 250, "display.float_format", "{:,.0f}".format,
+                                   "display.max_colwidth", 80):
+                for label, part in (("Manual drops (reviewed)", events[events["action"].str.startswith("manual")]),
+                                    ("Spikes removed", events[events["action"].str.startswith("spike")]),
+                                    ("Known corporate events (kept)", events[events["action"].str.startswith("kept")]),
+                                    ("FLAGGED for review (kept as reported until you decide)",
+                                     events[events["action"].str.startswith("flagged")])):
+                    print(f"\n{label}: {len(part)}")
+                    if len(part):
+                        cols = ["ticker", "date", "before", "after", "change %", "in backtest window", "action"]
+                        print(indent(part[cols].to_string(index=False)))
+
+        # Re-scan: market-cap jumps without a matching price move, after cleaning (backtest window)
+        window = close.loc["2015-12-31":BACKTEST_END]
+        residual = []
+        for sym in universe["yf_symbol"]:
+            if sym not in window or window[sym].notna().sum() == 0:
+                continue
+            h = clean[clean["symbol"] == sym].assign(shares=lambda d: d["shares_adj"])
+            mcap = window[sym] * shares_asof(h, sym, window.index).to_numpy()
+            change, price_change = mcap.pct_change().abs(), window[sym].pct_change().abs()
+            for d in change[(change > 0.3) & (price_change < 0.2)].index:
+                residual.append(f"{sym_to_ticker.get(sym, sym)} {d.date()} ({100 * change[d]:+.0f}%)")
+        print(f"\nAfter cleaning, market-cap jumps > 30% without a price move > 20% (2016 - Jun 2020): "
+              f"{residual or 'none'}")
+
+        factors = float_factors(info)
+        print("\nFree-float factors (today's value, assumed constant 2016-2020):")
+        print(f"  distribution: {pd.cut(factors['factor'], [0, 0.5, 0.8, 0.9, 0.95, 1.0]).value_counts().sort_index().to_dict()}")
+        special = factors[factors["source"] != "yfinance floatShares / sharesOutstanding"]
+        low = factors[factors["factor"] < 0.8]
+        with pd.option_context("display.width", 250, "display.max_colwidth", 110):
+            print("  overrides / special cases:")
+            print(indent(special.round(3).to_string(index=False), "    "))
+            print("  factors below 0.8 (genuine insider/parent holdings unless overridden):")
+            print(indent(low.round(3).to_string(index=False), "    "))
 
     REPORT_PATH.write_text(buffer.getvalue(), encoding="utf-8")
     print(f"\nReport saved to {REPORT_PATH.relative_to(PROJECT_ROOT)}")
