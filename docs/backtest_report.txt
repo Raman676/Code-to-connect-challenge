@@ -1,0 +1,74 @@
+Backtest report - generated 2026-10-06 19:33 by src/backtest.py
+Period 2016-01-04 -> 2020-06-30 (1131 trading days); costs 10 bps per unit traded; universe 100 companies (current S&P 100, Alphabet once)
+Assumptions: free-float factors are today's values, held constant (BRK.B 0.85 is our estimate); current S&P 100 members used for 2016-2020 (survivorship bias); ^OEX is a price index (no dividends);
+META and BKNG share counts back-filled with their first known count before their share history starts; LIN, RTX and DELL unranked until their share history starts.
+
+====================================================================================================
+CONSTITUENTS AT EACH REVIEW (exact-20 rule with the 20/25 buffer)
+====================================================================================================
+2015-12-31 (traded 2016-01-04, 93 ranked)
+    AAPL:1 GOOGL:2 MSFT:3 XOM:4 GE:5 AMZN:6 JNJ:7 META:8 WFC:9 BRK.B:10 JPM:11 PG:12 T:13 PFE:14 V:15 VZ:16 BAC:17 DIS:18 KO:19 HD:20
+2016-03-31 (traded 2016-04-01, 93 ranked)  + CVX  - BAC (rank 27)
+    AAPL:1 GOOGL:2 MSFT:3 XOM:4 META:5 JNJ:6 BRK.B:7 GE:8 AMZN:9 WFC:10 T:11 PG:12 VZ:13 JPM:14 V:15 PFE:16 KO:17 CVX:18 HD:19 DIS:20
+2016-06-30 (traded 2016-07-01, 93 ranked)  + MRK  - DIS (rank 21)
+    AAPL:1 GOOGL:2 MSFT:3 XOM:4 JNJ:5 META:6 AMZN:7 BRK.B:8 GE:9 T:10 WFC:11 VZ:12 JPM:13 PG:14 PFE:15 CVX:16 V:17 KO:18 MRK:19 HD:20
+2016-09-30 (traded 2016-10-03, 93 ranked)  + CSCO  - HD (rank 22)
+    AAPL:1 GOOGL:2 MSFT:3 XOM:4 AMZN:5 META:6 JNJ:7 BRK.B:8 GE:9 T:10 PG:11 JPM:12 WFC:13 VZ:14 PFE:15 V:16 CVX:17 MRK:18 KO:19 CSCO:20
+2016-12-30 (traded 2017-01-03, 93 ranked)  + BAC, C, CMCSA, DIS  - CSCO (rank 27), KO (rank 24), MRK (rank 23), V (rank 21)
+    AAPL:1 MSFT:2 GOOGL:3 XOM:4 BRK.B:5 AMZN:6 JNJ:7 META:8 JPM:9 GE:10 WFC:11 T:12 PG:13 BAC:14 VZ:15 CVX:16 PFE:17 C:18 DIS:19 CMCSA:20
+2017-03-31 (traded 2017-04-03, 93 ranked)  + V  - C (rank 25)
+    AAPL:1 GOOGL:2 MSFT:3 AMZN:4 META:5 BRK.B:6 XOM:7 JNJ:8 JPM:9 WFC:10 GE:11 T:12 BAC:13 PG:14 V:15 PFE:16 VZ:17 CVX:18 DIS:19 CMCSA:20
+2017-06-30 (traded 2017-07-03, 93 ranked)  + C, HD  - DIS (rank 26), VZ (rank 22)
+    AAPL:1 GOOGL:2 MSFT:3 AMZN:4 META:5 BRK.B:6 JNJ:7 XOM:8 JPM:9 WFC:10 BAC:11 GE:12 T:13 PG:14 V:15 PFE:16 CVX:17 C:18 CMCSA:19 HD:20
+2017-09-29 (traded 2017-10-02, 93 ranked)  + VZ  - CMCSA (rank 22)
+    AAPL:1 GOOGL:2 MSFT:3 META:4 AMZN:5 BRK.B:6 JNJ:7 XOM:8 JPM:9 WFC:10 BAC:11 V:12 T:13 PG:14 CVX:15 GE:16 PFE:17 VZ:18 C:19 HD:20
+2017-12-29 (traded 2018-01-02, 93 ranked)  + UNH  - GE (rank 32)
+    AAPL:1 MSFT:2 GOOGL:3 AMZN:4 META:5 BRK.B:6 JPM:7 JNJ:8 XOM:9 BAC:10 WFC:11 V:12 T:13 PG:14 CVX:15 HD:16 VZ:17 UNH:18 PFE:19 C:20
+2018-03-29 (traded 2018-04-02, 93 ranked)  + INTC  - C (rank 24)
+    AAPL:1 MSFT:2 GOOGL:3 AMZN:4 META:5 BRK.B:6 JPM:7 JNJ:8 XOM:9 BAC:10 V:11 WFC:12 T:13 INTC:14 HD:15 CVX:16 UNH:17 PFE:18 PG:19 VZ:20
+2018-06-29 (traded 2018-07-02, 93 ranked)  + MA  - PG (rank 22)
+    AAPL:1 MSFT:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 JPM:7 XOM:8 JNJ:9 V:10 BAC:11 WFC:12 UNH:13 CVX:14 HD:15 PFE:16 VZ:17 MA:18 INTC:19 T:20
+2018-09-28 (traded 2018-10-01, 93 ranked)  + BA, CSCO  - INTC (rank 23), T (rank 22)
+    AAPL:1 MSFT:2 AMZN:3 GOOGL:4 BRK.B:5 META:6 JPM:7 JNJ:8 XOM:9 V:10 BAC:11 WFC:12 UNH:13 PFE:14 HD:15 MA:16 CVX:17 CSCO:18 VZ:19 BA:20
+2018-12-31 (traded 2019-01-02, 95 ranked)  + MRK, PG, T  - BA (rank 24), CSCO (rank 21), HD (rank 22)
+    MSFT:1 AAPL:2 AMZN:3 GOOGL:4 BRK.B:5 META:6 JNJ:7 JPM:8 V:9 XOM:10 PFE:11 BAC:12 UNH:13 VZ:14 PG:15 WFC:16 T:17 MRK:18 CVX:19 MA:20
+2019-03-29 (traded 2019-04-01, 95 ranked)  + CSCO  - MRK (rank 23)
+    MSFT:1 AAPL:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 JNJ:7 V:8 XOM:9 JPM:10 BAC:11 PG:12 VZ:13 MA:14 CSCO:15 UNH:16 PFE:17 T:18 CVX:19 WFC:20
+2019-06-28 (traded 2019-07-01, 96 ranked)  + DIS, HD  - CVX (rank 21), WFC (rank 23)
+    MSFT:1 AAPL:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 V:7 JNJ:8 JPM:9 XOM:10 PG:11 BAC:12 MA:13 DIS:14 T:15 PFE:16 VZ:17 CSCO:18 UNH:19 HD:20
+2019-09-30 (traded 2019-10-01, 96 ranked)  + CVX, MRK, WFC  - CSCO (rank 23), PFE (rank 28), UNH (rank 25)
+    MSFT:1 AAPL:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 V:7 JPM:8 JNJ:9 PG:10 XOM:11 T:12 MA:13 BAC:14 HD:15 VZ:16 DIS:17 WFC:18 MRK:19 CVX:20
+2019-12-31 (traded 2020-01-02, 96 ranked)  + INTC, UNH  - CVX (rank 22), WFC (rank 21)
+    AAPL:1 MSFT:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 JPM:7 V:8 JNJ:9 BAC:10 PG:11 MA:12 XOM:13 T:14 UNH:15 DIS:16 VZ:17 HD:18 MRK:19 INTC:20
+2020-03-31 (traded 2020-04-01, 96 ranked)  + PFE, WMT  - DIS (rank 21), XOM (rank 26)
+    MSFT:1 AAPL:2 AMZN:3 GOOGL:4 META:5 BRK.B:6 V:7 JNJ:8 JPM:9 PG:10 MA:11 UNH:12 VZ:13 T:14 INTC:15 HD:16 WMT:17 MRK:18 BAC:19 PFE:20
+
+Constituent changes over the period: 29 additions, 29 deletions over 17 reviews
+
+====================================================================================================
+KEY METRICS (vs ^OEX; and A-capped vs A)
+====================================================================================================
+  strategy                            A A-capped ^OEX (price only)
+  total return %                 98.731   97.624            59.193
+  CAGR %                         16.551   16.406            10.925
+  volatility %                   20.354   20.277            19.347
+  Sharpe                          0.795    0.791             0.571
+  Sortino                         0.736    0.729             0.526
+  max drawdown %                -29.697  -29.705           -31.531
+  tracking error %                3.755    3.680               NaN
+  information ratio               1.371    1.360               NaN
+  beta                            1.035    1.031               NaN
+  alpha % (annual)                4.765    4.663               NaN
+  turnover % per year (one-way)  19.016   20.148               NaN
+  cost bps per year               3.803    4.030               NaN
+  constituent changes            29.000   29.000               NaN
+  max single weight %            16.188   14.367               NaN
+  max weight holder                AAPL     AAPL               NaN
+  avg largest sector weight %    25.878   25.343               NaN
+  avg sector HHI                  0.183    0.182               NaN
+
+A-capped vs A: tracking error 0.23%, information ratio -0.61
+A: member-days without a price (return set to 0): 0
+A-capped: member-days without a price (return set to 0): 0
+
+Daily NAVs saved to data\outputs\backtest_nav.csv

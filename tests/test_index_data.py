@@ -79,6 +79,19 @@ def test_clean_shares_manual_drops():
     assert events["action"].tolist() == ["manual drop: bad value"]       # nothing else flagged
 
 
+def test_backfill_shares():
+    clean = pd.DataFrame({"symbol": ["META", "META", "MSFT"],
+                          "date": pd.to_datetime(["2022-06-09", "2022-07-30", "2015-09-01"]),
+                          "shares": [2.7e9, 2.69e9, 8e9], "shares_adj": [2.7e9, 2.69e9, 8e9]})
+    out = idx.backfill_shares(clean, symbols={"META": "x", "MSFT": "y"}, since="2009-01-01")
+    meta = out[out["symbol"] == "META"].sort_values("date")
+    assert meta["date"].iloc[0] == pd.Timestamp("2009-01-01") and meta["shares_adj"].iloc[0] == 2.7e9
+    assert meta["backfilled"].tolist() == [True, False, False]
+    msft = out[out["symbol"] == "MSFT"]
+    assert len(msft) == 2 and msft["backfilled"].sum() == 1        # listed -> one back-filled row
+    assert len(idx.backfill_shares(clean, symbols={}, since="2009-01-01")) == 3
+
+
 def test_float_factors():
     info = pd.DataFrame({"ticker": ["A", "B", "GOOGL", "BRK.B"], "float_shares": [90.0, 120.0, 89.0, 1.0],
                          "shares_out": [100.0, 100.0, 50.0, 1000.0], "implied_shares_out": [100.0, 100.0, 100.0, 1000.0]})

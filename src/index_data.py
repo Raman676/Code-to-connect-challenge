@@ -63,6 +63,15 @@ MANUAL_DROPS = {
     # One-day value of 750M between ~612M values; the +23% jump is just under the 25% spike threshold.
     ("NVDA", "2020-03-17"): "one-day outlier (750M vs ~612M)",
 }
+# yfinance share history starts when a company took its CURRENT ticker. For these two, earlier
+# counts are back-filled with the first known split-adjusted count (approved 2026-10-06): their
+# share counts barely changed in 2016-2020. LIN, RTX and DELL are NOT back-filled (mergers or
+# restructurings changed their share counts a lot), so they stay unranked before their data starts.
+BACKFILL_SHARES = {
+    "META": "ticker was FB until June 2022; share history starts 2022-06",
+    "BKNG": "ticker was PCLN until Feb 2018; share history starts 2017-08",
+}
+BACKFILL_FROM = "2009-01-01"
 # Free-float factors that replace yfinance's floatShares / sharesOutstanding (see the report)
 FLOAT_OVERRIDES = {
     "BRK.B": (0.85, "our estimate: excludes roughly Buffett's ~15% economic stake; yfinance float unusable"),
@@ -284,6 +293,20 @@ def clean_shares(shares: pd.DataFrame, known_events: dict = KNOWN_EVENTS,
             i += 1
         keep.append(g[~drop])
     return pd.concat(keep, ignore_index=True), pd.DataFrame(events)
+
+
+def backfill_shares(clean: pd.DataFrame, symbols: dict = BACKFILL_SHARES, since: str = BACKFILL_FROM) -> pd.DataFrame:
+    """Add one observation dated `since` holding each listed symbol's first known split-adjusted count,
+    so the as-of lookup has a value before the share history starts. Marked backfilled=True."""
+    out = clean.assign(backfilled=False)
+    extra = []
+    for symbol in symbols:
+        h = out[out["symbol"] == symbol].sort_values("date")
+        if h.empty or h["date"].iloc[0] <= pd.Timestamp(since):
+            continue
+        first = h.iloc[0]
+        extra.append({**first.to_dict(), "date": pd.Timestamp(since), "backfilled": True})
+    return pd.concat([out, pd.DataFrame(extra)], ignore_index=True) if extra else out
 
 
 def float_factors(info: pd.DataFrame, overrides: dict = FLOAT_OVERRIDES) -> pd.DataFrame:
