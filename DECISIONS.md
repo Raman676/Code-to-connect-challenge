@@ -170,3 +170,69 @@ rare for large companies.
   not re-run, so these headlines were still part of the training data for that run;
   future runs drop them before training.
 Why: a ticker must always refer to the same company.
+**News type: keyword rule classifier (10 categories)**
+- Categories: Credit Event, Analyst Rating, Earnings, Merger/Acquisition, Legal/Regulatory,
+  Management Change, Product Launch, Macroeconomic, Geopolitical, Other.
+- First match wins, in that order. Credit Event goes first so "debt downgrade" isn't
+  caught as an analyst downgrade. Case-insensitive, whole words only.
+- Distribution on 64,028 walk-forward headlines: Earnings 19.6%, Analyst Rating 14.8%,
+  M&A 2.7%, Geopolitical 2.3%, Management Change 1.8%, Legal 1.1%, Product Launch 1.0%,
+  Macro 1.0%, Credit Event 0.2%, Other 55.5%.
+Why: no labelled news-type data exists to train on; analyst headlines are formulaic,
+so rules are fast, transparent and need no GPU. The rules favour precision: anything
+unclear goes to Other.
+Limitation: 55.5% Other (mostly market roundups); rules can misfire (e.g. "Apple Beats"
+headphones -> Earnings, coronavirus sell-off -> Earnings via "outlook").
+Next step: a learned classifier.
+
+**News-type hand check**
+- 100 random headlines (seed 42) in docs/news_type_check.csv, marked Y/N by me.
+- Method: read the headline with the prediction hidden, decide the main topic first,
+  then compare. Y if the predicted type is a reasonable main topic; "Other" is correct
+  only if none of the 9 categories fit. Judge the headline's category, not whether the
+  ticker is right. For each N, record the correct type in a true_type column.
+- Accuracy: [fill in] (python src/news_type.py --accuracy)
+
+**Engine output: engine_signals.csv + FastAPI**
+- 66,158 rows: 64,028 news (walk-forward, out-of-sample, 2016 to Jun 2020) + 2,130
+  tweets (test period Sep-Oct 2018). 90 tickers, ~10 MB, committed.
+- Columns: date, company_name, ticker, source (news/social), text, sentiment_score
+  (-1..1), impact (severity 1-10), news_type, confidence.
+- confidence = |sentiment_score| for now (a proper confidence is computed per stock
+  in the index's signal step). Not a calibrated probability.
+- 1,000-row sample in data/samples/engine_signals_sample.csv.
+- API (src/api.py): GET /health, /signals (filters: ticker, dates, source, news_type,
+  limit), /signals/summary?ticker=. Run: uvicorn src.api:app --reload.
+Why: the problem statement asks for output via a simple API or a file; we provide both.
+
+**Tweet impact on the same 1-10 scale as news**
+- Tweet severity now also uses the decile-of-training-predictions rule (it was squeezed
+  into 4-7). Ranking unchanged (Spearman 0.114).
+Why: one consistent impact scale across sources.
+
+**Engine summary report**
+- docs/engine_report.txt: sources, models and why, key results, news-type distribution,
+  output schema, run commands, limitations. The single reference for the README and deck.
+
+**Meta and Booking share counts back-filled**
+- Early missing share counts filled with the first known count, split-adjusted.
+- LIN, RTX and DELL stay unranked before their share data starts.
+Why: Meta and Booking were large S&P 100 members for the whole window and must be
+eligible for the top 20. Back-filling a short gap introduces only a small error.
+
+**Mentor's methodology document kept out of the repo**
+- docs/index construction.docx is gitignored.
+Why: it's Rajesh's document; the README describes our implementation in my own words.
+
+**Planned simplification for the index signal step**
+- An "event" = all headlines for one company on one date (mean sentiment, max severity),
+  instead of clustering similar headlines by text.
+Why: exact duplicates are already removed; company-day events are simple to build and
+explain, and match how the labels were evaluated.
+
+**Workflow change (Oct 6)**
+- From here on: no Claude Code. Code comes from Claude on my phone; I apply it in
+  VS Code, run the tests, and commit after each working step.
+- Handoff: HANDOFF_FOR_CLAUDE.md, IMPLEMENTATION_PLAN.md and docs/STATUS.md
+  (STATUS.md takes priority where they differ).
+- Backup: pushed to GitHub before switching.

@@ -1,5 +1,7 @@
 ﻿# Project: AI/NLP Financial Risk Engine (S&P Global & Crisil Hackathon 2026)
 
+Start of every session: read DECISIONS.md, docs/STATUS.md and handoff/ first.
+
 ## Goal
 Ingest financial text from 2 sources (tweets + news headlines), output structured
 risk signals, and use them to rebalance a mock stock index (Module A).

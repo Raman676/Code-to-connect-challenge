@@ -1,7 +1,22 @@
 # Project status — AI/NLP Risk Engine + news-sentiment-tilted index
 
-*Last updated 2026-10-06. For a developer taking over this repository. The hackathon deadline in
-`CLAUDE.md` is 2026-10-10.*
+*Last updated 2026-10-07. For a developer taking over this repository. The hackathon deadline in
+`CLAUDE.md` is 2026-10-10 (target: submit Fri 2026-10-09).*
+
+## 0. Current state at a glance (2026-10-07)
+
+- **Last code commit:** `0762630` (universe, weights, backtest engine, Strategies A and A-capped). No code
+  has changed since; all 85 tests passed at that commit.
+- **Working tree:** clean after the 2026-10-07 handover commit, which added:
+  - `DECISIONS.md` entries: news-type classifier and hand-check method, engine output + API,
+    tweet impact scale, engine report, META/BKNG back-fill, mentor's document gitignored,
+    the **planned company-day event simplification** (see step 1) and the Oct 6 workflow change.
+  - `handoff/`: `HANDOFF_FOR_CLAUDE.md`, `IMPLEMENTATION_PLAN.md` (step-by-step plan to Oct 9) and
+    `MY_PROJECT_PREP.md` (the owner's jury prep notes). Where they differ from this file, **this file wins**.
+- **Next step:** step 1 in section 4 (`src/signals.py`). Nothing for it exists yet.
+- **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
+  `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.
+- **Session start rule** (in `CLAUDE.md`): read `DECISIONS.md`, this file and `handoff/` first.
 
 The project has two parts:
 
@@ -176,9 +191,11 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
 ### Step 1: `src/signals.py`, security-level sentiment and confidence (methodology §9–13)
 - **Input:** `data/processed/signals_walkforward.csv`, which has per headline: `date, ticker, text, p_1..p_10, sentiment_score, severity, tone_*`. Add `news_type` with `news_type.add_news_type`.
 - **Availability:** a headline dated d can first be used at the close of the **first trading day after d** (call it T). Weights set at T's close earn the return from T to T+1. The trading calendar is `MarketData.close.index`.
-- **Event clustering (§11):** within one ticker, headlines whose **masked** text (`text_prep.mask_text`) has TF-IDF cosine ≥ 0.8 within 2 trading days form one event (use union-find). Per event:
+- **Events (§11), simplified per `DECISIONS.md` ("Planned simplification for the index signal step"):**
+  an event = all headlines for one ticker on one date (exact duplicates are already removed). This replaces
+  the earlier plan of TF-IDF cosine ≥ 0.8 clustering with union-find. Per event:
   - S = mean `sentiment_score`
-  - importance I = mean `severity` ÷ 10
+  - importance I = **max** `severity` ÷ 10
   - model confidence = mean |P(pos) − P(neg)|, where P(pos) = p_10 + p_6 + p_4 and P(neg) = p_7 + p_5 + p_1
   - availability day = the earliest headline's availability day
 - **Security sentiment (§10):** for ticker i on day T, over events available in (T−15, T] trading days:
@@ -193,7 +210,7 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
 - **Output:** a daily panel (date, ticker, S, C, S_eff, n_events, active = S_eff ≠ 0) for every S&P 100 ticker, 2016-01-04 → 2020-06-30.
   - Note: news ends 2020-06-11, so signals decay to zero over the last ~13 trading days.
 - **Variant (D-tone):** the same pipeline using `tone_score` instead of `sentiment_score`, and |tone_pos − tone_neg| as model confidence.
-- **Tests:** decay, the 15-day window, clustering (near-duplicates merge, different text doesn't), the confidence formula, the neutral zone, the availability lag (a weekend item becomes usable on Monday).
+- **Tests:** decay, the 15-day window, events (same ticker + same date merge, different dates don't), the confidence formula, the neutral zone, the availability lag (a weekend item becomes usable on Monday).
 
 ### Step 2: Strategies B, C, D, D-tone (§14–18, 22, 24) in `backtest.py`
 - **Membership:** from `run_reviews`, as in A. **Base weights** = FFMC weights of the current members, recomputed **daily** (§23).
@@ -259,6 +276,8 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
   - **News-type weights for importance** (see step 1).
   - **Tweet severity model.** The full model (Spearman 0.274) is in use, although trailing volatility alone does better (0.408).
   - **News-type accuracy is unknown** until the owner fills in `docs/news_type_check.csv`; 55.5% of headlines are "Other".
+  - **Workflow:** per `DECISIONS.md` (Oct 6), code may come from Claude on the owner's phone and be applied
+    by hand in VS Code; commit after each working step either way.
 - **Committed results that are slightly stale:**
   - **Walk-forward training data.** The run's training data still included 99 old SanDisk headlines. They were removed from the output afterwards, and future runs drop them before training. A re-run is optional (~45 min).
   - **Masking changes.** The masking lists were extended after `docs/model_report.txt` was produced: ambiguous tickers such as COST, LOW and NOW are now masked only as "(TICKER)". Re-running `run_model.py` gives slightly different numbers than the committed report.
