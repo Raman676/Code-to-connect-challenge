@@ -42,12 +42,15 @@ def test_export_writes_all_sheets(tmp=Path(__file__).resolve().parent / "_tmp_ex
     reviews = pd.DataFrame({"review": [days[0]], "effective": [days[1]], "members": [["X", "Y"]],
                             "added": [[]], "removed": [[]]})
     base = pd.DataFrame(0.5, index=days, columns=["X", "Y"])
-    summary = ex.export_all(navs, res, pd.Series(0.0, index=days), base, pd.Series({"X": "IT", "Y": "IT"}), reviews)
+    summary = ex.export_all(navs, res, pd.Series(0.0, index=days), base, pd.Series({"X": "IT", "Y": "IT"}), reviews,
+                            {0.3: res["D"], 1.0: res["D"]})
     assert list(summary.index) == ["A-capped", "D", ex.OEX]
     with pd.ExcelFile(ex.XLSX_PATH) as book:              # 'with' closes the file again (Windows)
         sheets = book.sheet_names
     assert sheets == ["Summary", "Yearly", "Daily_NAV", "Daily_Weights_D", "Turnover_Costs", "Constituents",
-                      "Definitions"]
+                      "Sensitivity", "Definitions"]
+    sens = pd.read_excel(ex.XLSX_PATH, sheet_name="Sensitivity")
+    assert sens["alpha"].tolist() == [0.3, 1.0] and np.allclose(sens["CAGR - A-capped (pp)"], 0)
     assert ex.SUMMARY_CSV.exists()
     for f in tmp.iterdir():
         f.unlink()

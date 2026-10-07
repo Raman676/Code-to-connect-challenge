@@ -43,6 +43,7 @@ REPORT_PATH = PROJECT_ROOT / "docs" / "backtest_report.txt"
 NAV_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_nav.csv"
 COST_BPS = 10
 TRADING_DAYS = 252
+SENSITIVITY_ALPHAS = (0.3, 1.0, 3.0)
 
 
 # ---------------------------------------------------------------------------
@@ -102,7 +103,7 @@ def daily_base_weights(ffmc_table: pd.DataFrame, reviews: pd.DataFrame, days: pd
 
 
 def sentiment_target_fn(base_table: pd.DataFrame, s_eff: pd.DataFrame, conf: pd.DataFrame,
-                        effective_days, mode: str, relaxed_days: list | None = None):
+                        effective_days, mode: str, relaxed_days: list | None = None, alpha: float = wt.ALPHA):
     """
     Strategies B, C and D: new target weights every day.
     s_eff / conf rows are used for the same day with NO shift: signals.py already applied the one lag
@@ -110,6 +111,7 @@ def sentiment_target_fn(base_table: pd.DataFrame, s_eff: pd.DataFrame, conf: pd.
       B  normalise(base x exp(alpha x S_eff))            C = 1, no risk controls
       C  normalise(base x exp(alpha x S_eff x C))        no risk controls
       D  C's raw weights + tilt band, 12% cap, 1 pp daily change limit (weights.constrained_weights)
+    alpha is the tilt strength (0.30 in the methodology; other values for the sensitivity test).
     """
     effective_days = set(effective_days)
 
@@ -117,8 +119,8 @@ def sentiment_target_fn(base_table: pd.DataFrame, s_eff: pd.DataFrame, conf: pd.
         base = base_table.loc[day].dropna()
         s = s_eff.loc[day]
         if mode == "B":
-            return wt.normalise(wt.tilt(base, s, 1.0))
-        raw = wt.tilt(base, s, conf.loc[day])
+            return wt.normalise(wt.tilt(base, s, 1.0, alpha))
+        raw = wt.tilt(base, s, conf.loc[day], alpha)
         if mode == "C":
             return wt.normalise(raw)
         w, relaxed = wt.constrained_weights(raw, base, held, review_day=day in effective_days)
@@ -224,6 +226,13 @@ def main() -> int:
             fn = sentiment_target_fn(base_table, sig[v]["S_eff"], sig[v]["C"], reviews["effective"], mode, relaxed[name])
             results[name] = simulate(data.adj_close, days, fn)
         navs = pd.DataFrame({name: res["daily"]["nav_after_cost"] for name, res in results.items()})
+        # sensitivity: Strategy D with stronger tilts (everything else unchanged)
+        sensitivity = {wt.ALPHA: results["D"]}
+        for alpha in SENSITIVITY_ALPHAS:
+            if alpha != wt.ALPHA:
+                fn = sentiment_target_fn(base_table, sig["main"]["S_eff"], sig["main"]["C"], reviews["effective"],
+                                         "D", alpha=alpha)
+                sensitivity[alpha] = simulate(data.adj_close, days, fn)
         navs["^OEX (price only)"] = oex / oex.iloc[0]
 
         section("KEY METRICS (vs ^OEX; and A-capped vs A)")
@@ -250,10 +259,13 @@ def main() -> int:
         navs.to_csv(NAV_CSV, float_format="%.6f")
         print(f"\nDaily NAVs saved to {NAV_CSV.relative_to(PROJECT_ROOT)}")
 
-        summary = ex.export_all(navs, results, rf, base_table, data.sectors, reviews)
+        summary = ex.export_all(navs, results, rf, base_table, data.sectors, reviews, sensitivity)
         section("SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)")
         with pd.option_context("display.width", 250, "display.max_columns", 30, "display.float_format", "{:,.3f}".format):
             print(indent(summary.T.to_string()))
+        section("SENSITIVITY: Strategy D with different alpha (also in the Excel file)")
+        with pd.option_context("display.width", 250, "display.float_format", "{:,.3f}".format):
+            print(indent(ex.sensitivity_table(sensitivity, results["A-capped"], rf, base_table).to_string()))
         ch.make_charts(navs, results["D"], base_table, sig["main"]["S_eff"])
         print(f"\nCharts saved to {ch.FIGURE_DIR.relative_to(PROJECT_ROOT)}")
 

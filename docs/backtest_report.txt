@@ -1,4 +1,4 @@
-Backtest report - generated 2026-10-07 22:53 by src/backtest.py
+Backtest report - generated 2026-10-07 23:16 by src/backtest.py
 Period 2016-01-04 -> 2020-06-30 (1131 trading days); costs 10 bps per unit traded; universe 100 companies (current S&P 100, Alphabet once)
 Assumptions: free-float factors are today's values, held constant (BRK.B 0.85 is our estimate); current S&P 100 members used for 2016-2020 (survivorship bias); ^OEX is a price index (no dividends);
 META and BKNG share counts back-filled with their first known count before their share history starts; LIN, RTX and DELL unranked until their share history starts.
@@ -98,5 +98,14 @@ SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)
   avg |tilt| %                    0.310     0.776   0.560   0.089   0.892   0.965                NaN
   max single weight %            16.188    14.367  16.275  16.108  12.000  12.000                NaN
   top sector weight %            25.878    25.343  25.860  25.857  25.143  25.131                NaN
+
+====================================================================================================
+SENSITIVITY: Strategy D with different alpha (also in the Excel file)
+====================================================================================================
+         CAGR %  volatility %  Sharpe  max drawdown %  turnover % per year (one-way)  total costs %  avg |tilt| %  total return - A-capped (pp)  CAGR - A-capped (pp)
+  alpha                                                                                                                                                              
+  0.300  16.247        20.251   0.786         -29.642                         50.366          0.452         0.892                        -1.203                -0.158
+  1.000  16.200        20.241   0.784         -29.588                         80.875          0.726         1.055                        -1.562                -0.206
+  3.000  16.070        20.219   0.779         -29.476                        155.856          1.399         1.499                        -2.540                -0.335
 
 Charts saved to docs\figures

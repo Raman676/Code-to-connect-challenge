@@ -85,6 +85,8 @@ def test_sentiment_targets_b_c_d():
     b = bt.sentiment_target_fn(base, s, c, [days[0]], "B")(days[1], None)
     cc = bt.sentiment_target_fn(base, s, c, [days[0]], "C")(days[1], None)
     assert b["X"] > cc["X"] > 0.6 and np.isclose(b.sum(), 1) and np.isclose(cc.sum(), 1)
+    strong = bt.sentiment_target_fn(base, s, c, [days[0]], "C", alpha=3.0)(days[1], None)
+    assert strong["X"] > cc["X"]                                # a larger alpha tilts more
     # D: ten equal stocks, X has full positive sentiment. Raw tilt 13.5% -> band/cap allow 12%, but from
     # yesterday's 10% the 1 pp daily limit lets X rise only to 11%.
     names = list("XABCDEFGHI")

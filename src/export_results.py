@@ -3,7 +3,7 @@ Backtest results to Excel and CSV.
 
 Called by src/backtest.py (run that). Writes
   data/outputs/backtest_results.xlsx  sheets Summary, Yearly, Daily_NAV, Daily_Weights_D, Turnover_Costs,
-                                      Constituents, Definitions
+                                      Constituents, Sensitivity, Definitions
   data/outputs/backtest_summary.csv   the Summary sheet
 """
 from __future__ import annotations
@@ -47,6 +47,8 @@ DEFINITIONS = [
     ("Strategies", "A: FFMC Top 20, reviewed quarterly, weights drift. A-capped: A with 12% cap at reviews. "
                    "B: tilt with C = 1. C: tilt with C. D: C + band +-25%, 12% cap, 1 pp daily limit. "
                    "D-tone: D with finbert-tone scores. Alpha = 0.30."),
+    ("Sensitivity", "Strategy D re-run with alpha = 0.3 (base case), 1.0 and 3.0; everything else unchanged. "
+                    "Return differences are in percentage points vs A-capped."),
     ("Assumption: free float", "Free-float factors are today's values, held constant. BRK.B 0.85 is our estimate."),
     ("Assumption: universe", "Current S&P 100 members used for 2016-2020: survivorship bias flatters all strategies."),
     ("Assumption: ^OEX", "^OEX is a price index (no dividends), about 2% a year easier to beat."),
@@ -102,7 +104,24 @@ def constituents_sheet(reviews: pd.DataFrame) -> pd.DataFrame:
                          "entries": reviews["added"].map(", ".join), "exits": reviews["removed"].map(", ".join)})
 
 
-def export_all(navs, results, rf, base_table, sectors, reviews) -> pd.DataFrame:
+def sensitivity_table(runs: dict, a_capped: dict, rf, base_table) -> pd.DataFrame:
+    """One row per alpha for Strategy D: performance, trading and the return difference vs A-capped."""
+    ref = bt.performance(a_capped["daily"]["nav_after_cost"], rf)
+    rows = []
+    for alpha, res in runs.items():
+        perf = bt.performance(res["daily"]["nav_after_cost"], rf)
+        years = len(res["daily"]) / bt.TRADING_DAYS
+        rows.append({"alpha": alpha, "CAGR %": perf["CAGR %"], "volatility %": perf["volatility %"],
+                     "Sharpe": perf["Sharpe"], "max drawdown %": perf["max drawdown %"],
+                     "turnover % per year (one-way)": 100 * res["daily"]["traded"].sum() / 2 / years,
+                     "total costs %": 100 * res["daily"]["cost"].sum(),
+                     "avg |tilt| %": 100 * avg_abs_tilt(res["weights"], base_table),
+                     "total return - A-capped (pp)": perf["total return %"] - ref["total return %"],
+                     "CAGR - A-capped (pp)": perf["CAGR %"] - ref["CAGR %"]})
+    return pd.DataFrame(rows).set_index("alpha")
+
+
+def export_all(navs, results, rf, base_table, sectors, reviews, sensitivity: dict | None = None) -> pd.DataFrame:
     summary = summary_table(navs, results, rf, base_table, sectors, reviews)
     d_weights = pd.DataFrame(results["D"]["weights"]).T.fillna(0.0)
     base = base_table.reindex(d_weights.index).fillna(0.0)
@@ -117,6 +136,8 @@ def export_all(navs, results, rf, base_table, sectors, reviews) -> pd.DataFrame:
               "Daily_Weights_D": weights_sheet,
               "Turnover_Costs": pd.DataFrame(costs),
               "Constituents": constituents_sheet(reviews),
+              "Sensitivity": (sensitivity_table(sensitivity, results["A-capped"], rf, base_table)
+                              if sensitivity else pd.DataFrame()),
               "Definitions": pd.DataFrame(DEFINITIONS, columns=["metric", "definition and assumptions"])}
     XLSX_PATH.parent.mkdir(parents=True, exist_ok=True)
     with pd.ExcelWriter(XLSX_PATH) as writer:
