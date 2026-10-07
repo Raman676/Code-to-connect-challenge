@@ -16,3 +16,6 @@ docs/index construction.docx
 # Python
 __pycache__/
 *.pyc
+
+# Personal notes (kept locally, not part of the submission)
+handoff/
