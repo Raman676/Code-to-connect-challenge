@@ -8,9 +8,16 @@ Timing  At each trading day's close the portfolio (whose weights have drifted wi
         earn the next day's return (adjusted closes, so dividends are included).
         Review membership is traded at the close of the trading day after the review.
         The backtest starts fully invested at the first effective day (no cost for the initial build).
-Strategies (so far)
+Strategies
   A          FFMC Top 20; FFMC weights at each review, then the weights drift with prices.
   A-capped   as A, with the 12% cap applied at each review.
+  B          daily FFMC weights tilted by S_eff (C = 1), no risk controls.
+  C          daily FFMC weights tilted by S_eff x C, no risk controls.
+  D          C + tilt band +-25%, 12% cap and 1 pp daily change limit.
+  D-tone     D with finbert-tone scores instead of our sentiment model.
+Signals come from src/signals.py, which applies the only lag (news dated d -> weights at d+1's close).
+Also writes data/outputs/backtest_results.xlsx, backtest_summary.csv and docs/figures/*.png
+(src/export_results.py, src/charts.py).
 Benchmarks  ^OEX (S&P 100 PRICE index: no dividends, so about 2%/year easier to beat) and Strategy A.
 """
 from __future__ import annotations
@@ -26,6 +33,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import index_data as idx  # noqa: E402
+import signals as sg  # noqa: E402
 import universe as uv  # noqa: E402
 import weights as wt  # noqa: E402
 from inspect_data import Tee, indent, section  # noqa: E402
@@ -82,6 +90,44 @@ def review_target_fn(data: uv.MarketData, ffmc_table: pd.DataFrame, reviews: pd.
     return target
 
 
+def daily_base_weights(ffmc_table: pd.DataFrame, reviews: pd.DataFrame, days: pd.DatetimeIndex) -> pd.DataFrame:
+    """FFMC weights of the current members, recomputed every day (section 23). NaN = not a member."""
+    effective = reviews.set_index("effective")["members"]
+    ffmc_filled = ffmc_table.ffill()                       # a missing price keeps the last known FFMC
+    rows = {}
+    for day in days:
+        members = effective[effective.index <= day].iloc[-1]
+        rows[day] = wt.base_weights(ffmc_filled.loc[day, members])
+    return pd.DataFrame(rows).T
+
+
+def sentiment_target_fn(base_table: pd.DataFrame, s_eff: pd.DataFrame, conf: pd.DataFrame,
+                        effective_days, mode: str, relaxed_days: list | None = None):
+    """
+    Strategies B, C and D: new target weights every day.
+    s_eff / conf rows are used for the same day with NO shift: signals.py already applied the one lag
+    (news dated d -> row d+1), and simulate() earns the next day's return on these weights.
+      B  normalise(base x exp(alpha x S_eff))            C = 1, no risk controls
+      C  normalise(base x exp(alpha x S_eff x C))        no risk controls
+      D  C's raw weights + tilt band, 12% cap, 1 pp daily change limit (weights.constrained_weights)
+    """
+    effective_days = set(effective_days)
+
+    def target(day, held):
+        base = base_table.loc[day].dropna()
+        s = s_eff.loc[day]
+        if mode == "B":
+            return wt.normalise(wt.tilt(base, s, 1.0))
+        raw = wt.tilt(base, s, conf.loc[day])
+        if mode == "C":
+            return wt.normalise(raw)
+        w, relaxed = wt.constrained_weights(raw, base, held, review_day=day in effective_days)
+        if relaxed and relaxed_days is not None:
+            relaxed_days.append(day)
+        return w
+    return target
+
+
 # ---------------------------------------------------------------------------
 # Metrics (section 25)
 # ---------------------------------------------------------------------------
@@ -134,6 +180,8 @@ def portfolio_stats(result: dict, sectors: pd.Series, reviews: pd.DataFrame) -> 
 # ---------------------------------------------------------------------------
 
 def main() -> int:
+    import charts as ch                # imported here: both modules import backtest themselves
+    import export_results as ex
     data = uv.load_market_data()
     ffmc_table = uv.ffmc(data)
     calendar = data.close.index
@@ -167,6 +215,14 @@ def main() -> int:
 
         results = {name: simulate(data.adj_close, days, review_target_fn(data, ffmc_table, reviews, capped))
                    for name, capped in (("A", False), ("A-capped", True))}
+        base_table = daily_base_weights(ffmc_table, reviews, days)
+        tickers = ffmc_table.columns
+        sig = {v: sg.build_signals(calendar, tickers, variant=v) for v in ("main", "tone")}
+        relaxed = {}
+        for name, mode, v in (("B", "B", "main"), ("C", "C", "main"), ("D", "D", "main"), ("D-tone", "D", "tone")):
+            relaxed[name] = []
+            fn = sentiment_target_fn(base_table, sig[v]["S_eff"], sig[v]["C"], reviews["effective"], mode, relaxed[name])
+            results[name] = simulate(data.adj_close, days, fn)
         navs = pd.DataFrame({name: res["daily"]["nav_after_cost"] for name, res in results.items()})
         navs["^OEX (price only)"] = oex / oex.iloc[0]
 
@@ -186,10 +242,20 @@ def main() -> int:
               f"information ratio {vs_a['information ratio']:.2f}")
         for name, res in results.items():
             print(f"{name}: member-days without a price (return set to 0): {res['stale_prices']}")
+        for name, d in relaxed.items():
+            if name.startswith("D"):
+                print(f"{name}: days where the 1 pp change limit had to be relaxed: {len(d)}")
 
         NAV_CSV.parent.mkdir(parents=True, exist_ok=True)
         navs.to_csv(NAV_CSV, float_format="%.6f")
         print(f"\nDaily NAVs saved to {NAV_CSV.relative_to(PROJECT_ROOT)}")
+
+        summary = ex.export_all(navs, results, rf, base_table, data.sectors, reviews)
+        section("SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)")
+        with pd.option_context("display.width", 250, "display.max_columns", 30, "display.float_format", "{:,.3f}".format):
+            print(indent(summary.T.to_string()))
+        ch.make_charts(navs, results["D"], base_table, sig["main"]["S_eff"])
+        print(f"\nCharts saved to {ch.FIGURE_DIR.relative_to(PROJECT_ROOT)}")
 
     REPORT_PATH.write_text(buffer.getvalue(), encoding="utf-8")
     print(f"Report saved to {REPORT_PATH.relative_to(PROJECT_ROOT)}")

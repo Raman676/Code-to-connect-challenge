@@ -13,7 +13,14 @@
     the **planned company-day event simplification** (see step 1) and the Oct 6 workflow change.
   - `handoff/`: `HANDOFF_FOR_CLAUDE.md`, `IMPLEMENTATION_PLAN.md` (step-by-step plan to Oct 9) and
     `MY_PROJECT_PREP.md` (the owner's jury prep notes). Where they differ from this file, **this file wins**.
-- **Next step:** step 1 in section 4 (`src/signals.py`). Nothing for it exists yet.
+- **Done 2026-10-07 (later commit):** steps 1, 2 and part of 4. `src/signals.py` (company-day events; the only
+  lag: news dated d -> weights at d+1's close), Strategies B, C, D, D-tone in `backtest.py`,
+  `src/export_results.py` (`data/outputs/backtest_results.xlsx` with 7 sheets + `backtest_summary.csv`) and
+  `src/charts.py` (`docs/figures/`: index levels, drawdowns, D weights, active signals). 99 tests pass.
+  Result: no strategy beats A-capped meaningfully (D: alpha -0.12%/yr, IR -1.05 vs A-capped) - as the
+  next-day check predicted. Run: `python src/backtest.py` (~3 min).
+- **Next step:** step 3 leftovers (daily IC, Fama-MacBeth, news-event performance), then the dashboard (step 5).
+  News-type importance weights: left out (all types equal); a possible next step.
 - **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
   `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.
 - **Session start rule** (in `CLAUDE.md`): read `DECISIONS.md`, this file and `handoff/` first.

@@ -1,4 +1,4 @@
-Backtest report - generated 2026-10-06 19:33 by src/backtest.py
+Backtest report - generated 2026-10-07 22:53 by src/backtest.py
 Period 2016-01-04 -> 2020-06-30 (1131 trading days); costs 10 bps per unit traded; universe 100 companies (current S&P 100, Alphabet once)
 Assumptions: free-float factors are today's values, held constant (BRK.B 0.85 is our estimate); current S&P 100 members used for 2016-2020 (survivorship bias); ^OEX is a price index (no dividends);
 META and BKNG share counts back-filled with their first known count before their share history starts; LIN, RTX and DELL unranked until their share history starts.
@@ -48,27 +48,55 @@ Constituent changes over the period: 29 additions, 29 deletions over 17 reviews
 ====================================================================================================
 KEY METRICS (vs ^OEX; and A-capped vs A)
 ====================================================================================================
-  strategy                            A A-capped ^OEX (price only)
-  total return %                 98.731   97.624            59.193
-  CAGR %                         16.551   16.406            10.925
-  volatility %                   20.354   20.277            19.347
-  Sharpe                          0.795    0.791             0.571
-  Sortino                         0.736    0.729             0.526
-  max drawdown %                -29.697  -29.705           -31.531
-  tracking error %                3.755    3.680               NaN
-  information ratio               1.371    1.360               NaN
-  beta                            1.035    1.031               NaN
-  alpha % (annual)                4.765    4.663               NaN
-  turnover % per year (one-way)  19.016   20.148               NaN
-  cost bps per year               3.803    4.030               NaN
-  constituent changes            29.000   29.000               NaN
-  max single weight %            16.188   14.367               NaN
-  max weight holder                AAPL     AAPL               NaN
-  avg largest sector weight %    25.878   25.343               NaN
-  avg sector HHI                  0.183    0.182               NaN
+  strategy                            A A-capped       B       C       D  D-tone ^OEX (price only)
+  total return %                 98.731   97.624  97.846  98.806  96.421  95.893            59.193
+  CAGR %                         16.551   16.406  16.435  16.561  16.247  16.178            10.925
+  volatility %                   20.354   20.277  20.339  20.347  20.251  20.247            19.347
+  Sharpe                          0.795    0.791   0.791   0.796   0.786   0.783             0.571
+  Sortino                         0.736    0.729   0.731   0.735   0.724   0.721             0.526
+  max drawdown %                -29.697  -29.705 -29.603 -29.644 -29.642 -29.617           -31.531
+  tracking error %                3.755    3.680   3.778   3.772   3.673   3.671               NaN
+  information ratio               1.371    1.360   1.335   1.366   1.325   1.309               NaN
+  beta                            1.035    1.031   1.034   1.034   1.030   1.030               NaN
+  alpha % (annual)                4.765    4.663   4.674   4.778   4.536   4.477               NaN
+  turnover % per year (one-way)  19.016   20.148  99.646  41.446  50.366  68.936               NaN
+  cost bps per year               3.803    4.030  19.929   8.289  10.073  13.787               NaN
+  constituent changes            29.000   29.000  29.000  29.000  29.000  29.000               NaN
+  max single weight %            16.188   14.367  16.275  16.108  12.000  12.000               NaN
+  max weight holder                AAPL     AAPL    AAPL    AAPL    AAPL    AAPL               NaN
+  avg largest sector weight %    25.878   25.343  25.860  25.857  25.143  25.131               NaN
+  avg sector HHI                  0.183    0.182   0.183   0.183   0.181   0.181               NaN
 
 A-capped vs A: tracking error 0.23%, information ratio -0.61
 A: member-days without a price (return set to 0): 0
 A-capped: member-days without a price (return set to 0): 0
+B: member-days without a price (return set to 0): 0
+C: member-days without a price (return set to 0): 0
+D: member-days without a price (return set to 0): 0
+D-tone: member-days without a price (return set to 0): 0
+D: days where the 1 pp change limit had to be relaxed: 0
+D-tone: days where the 1 pp change limit had to be relaxed: 0
 
 Daily NAVs saved to data\outputs\backtest_nav.csv
+
+====================================================================================================
+SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)
+====================================================================================================
+  strategy                            A  A-capped       B       C       D  D-tone  ^OEX (price only)
+  total return %                 98.731    97.624  97.846  98.806  96.421  95.893             59.193
+  CAGR %                         16.551    16.406  16.435  16.561  16.247  16.178             10.925
+  volatility %                   20.354    20.277  20.339  20.347  20.251  20.247             19.347
+  Sharpe                          0.795     0.791   0.791   0.796   0.786   0.783              0.571
+  Sortino                         0.736     0.729   0.731   0.735   0.724   0.721              0.526
+  max drawdown %                -29.697   -29.705 -29.603 -29.644 -29.642 -29.617            -31.531
+  tracking error % vs A-capped    0.231     0.000   0.246   0.233   0.135   0.140              3.680
+  information ratio vs A-capped   0.606       NaN   0.152   0.633  -1.052  -1.443             -1.360
+  alpha % vs A-capped             0.080     0.000  -0.010   0.093  -0.120  -0.178             -4.023
+  turnover % per year (one-way)  19.016    20.148  99.646  41.446  50.366  68.936                NaN
+  total costs %                   0.171     0.181   0.894   0.372   0.452   0.619                NaN
+  constituent changes            29.000    29.000  29.000  29.000  29.000  29.000                NaN
+  avg |tilt| %                    0.310     0.776   0.560   0.089   0.892   0.965                NaN
+  max single weight %            16.188    14.367  16.275  16.108  12.000  12.000                NaN
+  top sector weight %            25.878    25.343  25.860  25.857  25.143  25.131                NaN
+
+Charts saved to docs\figures
