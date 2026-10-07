@@ -1,0 +1,49 @@
+Analysis report - generated 2026-10-07 23:43 by src/analysis.py
+Period 2016-01-04 -> 2020-06-30; members = the Top-20 index constituents each day; S_eff = our sentiment model, known at day t's close (news dated t-1 or earlier).
+
+====================================================================================================
+1. DAILY IC: Spearman(S_eff at t, return t -> t+1) across members
+====================================================================================================
+  days with variation in S_eff: 1085 of 1131
+  mean IC 0.0099   t-stat 1.40   hit rate (IC > 0) 52.5%
+  by year (mean IC): 2016: 0.0112, 2017: 0.0014, 2018: 0.0141, 2019: -0.0003, 2020: 0.0372
+
+====================================================================================================
+2. FAMA-MACBETH: next-day return on S_eff, past 1-day and past 5-day return
+====================================================================================================
+                     mean coef   t-stat  days
+  intercept            0.00058  1.66877  1085
+  S_eff                0.00104  0.99185  1085
+  past 1-day return    0.02266  1.69592  1085
+  past 5-day return   -0.00652 -1.21113  1085
+  Coefficients are in return units (0.001 = 0.1%). |t| > 2 would be significant at about 5%.
+
+====================================================================================================
+3a. TOP 1% NEWS DAYS by sum(|S| x I): return earned next day, vs Strategy A
+====================================================================================================
+  11 days: 2020-02-28, 2020-03-02, 2020-03-03, 2020-03-04, 2020-03-05, 2020-03-06, 2020-03-09, 2020-03-10, 2020-03-12, 2020-03-13, 2020-03-17
+            mean active bp per day  sum active bp  days beating A
+  A                           0.00           0.00               0
+  A-capped                   -1.76         -19.38               4
+  B                           0.49           5.44               6
+  C                           0.31           3.45               6
+  D                          -1.34         -14.70               4
+  D-tone                     -1.07         -11.81               6
+
+====================================================================================================
+3b. COVID WINDOW 2020-02-19 -> 2020-04-30
+====================================================================================================
+            return %  vs A (pp)
+  A            -9.13       0.00
+  A-capped     -9.18      -0.05
+  B            -9.05       0.08
+  C            -9.06       0.07
+  D            -9.07       0.06
+  D-tone       -9.06       0.07
+
+====================================================================================================
+NOTES
+====================================================================================================
+  Market impact is not modelled (10 bp per unit traded only).
+  IC and Fama-MacBeth use only days where S_eff differs across members; most members have no
+  news on most days (S_eff = 0), so the tests have less power than the day count suggests.

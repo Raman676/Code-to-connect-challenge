@@ -168,7 +168,7 @@ def save_dashboard_csvs(results: dict, base_table: pd.DataFrame, signals: dict) 
         frames.append(long.assign(strategy=name))
     weights = pd.concat(frames)[["date", "strategy", "ticker", "weight", "base_weight"]]
     weights.to_csv(WEIGHTS_CSV, index=False, float_format="%.6f")
-    panels = {k: v.rename_axis("date").stack().rename(k) for k, v in signals.items()}
+    panels = {k: v.rename_axis("date").stack().rename(k) for k, v in signals.items() if k != "I"}
     daily = pd.concat(panels, axis=1).reset_index().rename(columns={"level_1": "ticker"})
     daily = daily[daily["n_events"] > 0]                   # only stocks with news in the 15-day window
     daily.to_csv(SIGNALS_CSV, index=False, float_format="%.4f")

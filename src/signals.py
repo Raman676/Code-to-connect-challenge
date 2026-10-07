@@ -19,6 +19,7 @@ Steps
                   agreement        = |sum(w x sign(S))| / sum(w)
                   source quality   = 1.0 (news only)
   6. Neutral    S_eff = 0 if |S| < 0.15                                               (section 13)
+  Also I = sum(I x F) / sum(F), the freshness-weighted importance (used to find heavy-news days).
 News-type weights for importance are left out on purpose (all types count equally); see STATUS.md.
 """
 from __future__ import annotations
@@ -94,6 +95,7 @@ def security_signals(events: pd.DataFrame, calendar: pd.DatetimeIndex, tickers) 
     independence = 1 - np.exp(-sums["F"] / 2)
     agreement = sums["w_sign"].abs() / sums["w"]
     C = model_conf * independence * agreement * SOURCE_QUALITY
+    importance = sums["w"] / sums["F"]
 
     def panel(values: pd.Series) -> pd.DataFrame:
         wide = values.unstack("ticker").reindex(index=range(len(calendar)), columns=list(tickers))
@@ -102,7 +104,7 @@ def security_signals(events: pd.DataFrame, calendar: pd.DatetimeIndex, tickers) 
 
     s_panel = panel(S)
     return {"S": s_panel, "C": panel(C), "S_eff": s_panel.where(s_panel.abs() >= NEUTRAL_ZONE, 0.0),
-            "n_events": panel(sums["n_events"]).astype(int)}
+            "n_events": panel(sums["n_events"]).astype(int), "I": panel(importance)}
 
 
 def build_signals(calendar: pd.DatetimeIndex, tickers, variant: str = "main",

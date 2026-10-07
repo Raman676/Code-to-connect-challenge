@@ -22,7 +22,11 @@
 - **Done (dashboard):** `app.py` (Streamlit, 5 tabs: Index, Weights, Signals feed, Engine results,
   Sensitivity), helpers in `src/dashboard_data.py`. Run: `streamlit run app.py` (after `python src/backtest.py`).
   Strategy D alpha sensitivity (0.3/1.0/3.0) is in the Excel file and `backtest_sensitivity.csv`. 106 tests pass.
-- **Next step:** step 3 leftovers (daily IC, Fama-MacBeth, news-event performance), then submission docs.
+- **Done (step 3):** `src/analysis.py` -> `docs/analysis_report.txt` (run after the backtest, ~1 min).
+  Daily IC mean 0.0099 (t 1.40, hit rate 52.5%); Fama-MacBeth S_eff coef 0.00104 (t 0.99); neither
+  significant. Top-1% news days (all Feb-Mar 2020): D -14.7 bp vs A in total; COVID window: all within 0.1 pp of A.
+  `signals.py` now also returns an importance panel I (used to rank news-heavy days).
+- **Next step:** submission docs (README template, LICENSE, docs/architecture.png), then the owner's deck and video.
   News-type importance weights: left out (all types equal); a possible next step.
 - **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
   `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.
@@ -77,7 +81,9 @@ Read these first: `DECISIONS.md` (every design decision and its reason), `docs/e
 | News type | `python src/news_type.py` (`--accuracy` after the hand check) | counts + `docs/news_type_check.csv` | <1 min |
 | Engine output | `python src/build_engine_output.py` | `data/outputs/engine_signals.csv` (+ sample) | <1 min |
 | API | `uvicorn src.api:app --reload` | http://127.0.0.1:8000/docs | — |
-| Index backtest (A, A-capped) | `python src/backtest.py` | `docs/backtest_report.txt`, `data/outputs/backtest_nav.csv` | ~1 min |
+| Index backtest (all strategies) | `python src/backtest.py` | `docs/backtest_report.txt`, `data/outputs/backtest_*.csv/.xlsx`, `docs/figures/` | ~4 min |
+| Predictive tests (IC, Fama-MacBeth, events) | `python src/analysis.py` | `docs/analysis_report.txt` | ~1 min |
+| Dashboard | `streamlit run app.py` | http://localhost:8501 | — |
 
 **Tests:** one plain script per module (pytest isn't installed; the files also work under pytest).
 ```
