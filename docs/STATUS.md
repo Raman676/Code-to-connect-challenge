@@ -19,7 +19,10 @@
   `src/charts.py` (`docs/figures/`: index levels, drawdowns, D weights, active signals). 99 tests pass.
   Result: no strategy beats A-capped meaningfully (D: alpha -0.12%/yr, IR -1.05 vs A-capped) - as the
   next-day check predicted. Run: `python src/backtest.py` (~3 min).
-- **Next step:** step 3 leftovers (daily IC, Fama-MacBeth, news-event performance), then the dashboard (step 5).
+- **Done (dashboard):** `app.py` (Streamlit, 5 tabs: Index, Weights, Signals feed, Engine results,
+  Sensitivity), helpers in `src/dashboard_data.py`. Run: `streamlit run app.py` (after `python src/backtest.py`).
+  Strategy D alpha sensitivity (0.3/1.0/3.0) is in the Excel file and `backtest_sensitivity.csv`. 106 tests pass.
+- **Next step:** step 3 leftovers (daily IC, Fama-MacBeth, news-event performance), then submission docs.
   News-type importance weights: left out (all types equal); a possible next step.
 - **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
   `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.

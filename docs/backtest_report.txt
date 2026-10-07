@@ -1,4 +1,4 @@
-Backtest report - generated 2026-10-07 23:16 by src/backtest.py
+Backtest report - generated 2026-10-07 23:33 by src/backtest.py
 Period 2016-01-04 -> 2020-06-30 (1131 trading days); costs 10 bps per unit traded; universe 100 companies (current S&P 100, Alphabet once)
 Assumptions: free-float factors are today's values, held constant (BRK.B 0.85 is our estimate); current S&P 100 members used for 2016-2020 (survivorship bias); ^OEX is a price index (no dividends);
 META and BKNG share counts back-filled with their first known count before their share history starts; LIN, RTX and DELL unranked until their share history starts.

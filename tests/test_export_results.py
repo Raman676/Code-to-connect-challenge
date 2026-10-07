@@ -57,6 +57,25 @@ def test_export_writes_all_sheets(tmp=Path(__file__).resolve().parent / "_tmp_ex
     tmp.rmdir()
 
 
+def test_save_dashboard_csvs(tmp=Path(__file__).resolve().parent / "_tmp_dash"):
+    tmp.mkdir(exist_ok=True)
+    ex.WEIGHTS_CSV, ex.SIGNALS_CSV = tmp / "w.csv", tmp / "s.csv"
+    days = pd.bdate_range("2019-01-02", periods=2)
+    res = {"D": {"weights": {d: pd.Series({"X": 0.7, "Y": 0.3}) for d in days}}}
+    base = pd.DataFrame({"X": [0.6, 0.6], "Y": [0.4, 0.4], "Z": [np.nan, np.nan]}, index=days)
+    panel = pd.DataFrame({"X": [0.5, 0.0], "Y": [0.0, 0.0]}, index=days)
+    sig = {"S": panel, "C": panel, "S_eff": panel, "n_events": (panel != 0).astype(int)}
+    ex.save_dashboard_csvs(res, base, sig)
+    w = pd.read_csv(ex.WEIGHTS_CSV)
+    assert len(w) == 4 and list(w.columns) == ["date", "strategy", "ticker", "weight", "base_weight"]
+    assert np.isclose(w.loc[w["ticker"] == "X", "base_weight"], 0.6).all()
+    s = pd.read_csv(ex.SIGNALS_CSV)
+    assert len(s) == 1 and s["ticker"][0] == "X" and s["S_eff"][0] == 0.5
+    for f in tmp.iterdir():
+        f.unlink()
+    tmp.rmdir()
+
+
 def main() -> int:
     tests = [(n, f) for n, f in globals().items() if n.startswith("test_") and callable(f)]
     failures = 0

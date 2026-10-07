@@ -19,6 +19,9 @@ import backtest as bt  # noqa: E402
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 XLSX_PATH = PROJECT_ROOT / "data" / "outputs" / "backtest_results.xlsx"
 SUMMARY_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_summary.csv"
+WEIGHTS_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_weights.csv"          # for the dashboard
+SIGNALS_CSV = PROJECT_ROOT / "data" / "outputs" / "signals_daily.csv"            # for the dashboard
+SENSITIVITY_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_sensitivity.csv"
 COMPARE_TO = "A-capped"
 OEX = "^OEX (price only)"
 
@@ -148,4 +151,24 @@ def export_all(navs, results, rf, base_table, sectors, reviews, sensitivity: dic
                 df.index = pd.Index(df.index.date, name="date")
             df.to_excel(writer, sheet_name=name, index=keep_index)
     summary.to_csv(SUMMARY_CSV, float_format="%.4f")
+    if sensitivity:
+        sheets["Sensitivity"].to_csv(SENSITIVITY_CSV, float_format="%.4f")
     return summary
+
+
+def save_dashboard_csvs(results: dict, base_table: pd.DataFrame, signals: dict) -> None:
+    """Long-format files the dashboard reads: weights of every strategy, and the daily stock signals."""
+    frames = []
+    for name, res in results.items():
+        w = pd.DataFrame(res["weights"]).T.rename_axis("date")
+        long = w.stack().rename("weight").reset_index().rename(columns={"level_1": "ticker"})
+        long = long[long["weight"] > 0]
+        base = base_table.rename_axis("date").stack().dropna().rename("base_weight").reset_index()
+        long = long.merge(base.rename(columns={"level_1": "ticker"}), on=["date", "ticker"], how="left")
+        frames.append(long.assign(strategy=name))
+    weights = pd.concat(frames)[["date", "strategy", "ticker", "weight", "base_weight"]]
+    weights.to_csv(WEIGHTS_CSV, index=False, float_format="%.6f")
+    panels = {k: v.rename_axis("date").stack().rename(k) for k, v in signals.items()}
+    daily = pd.concat(panels, axis=1).reset_index().rename(columns={"level_1": "ticker"})
+    daily = daily[daily["n_events"] > 0]                   # only stocks with news in the 15-day window
+    daily.to_csv(SIGNALS_CSV, index=False, float_format="%.4f")

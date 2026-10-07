@@ -266,6 +266,7 @@ def main() -> int:
         section("SENSITIVITY: Strategy D with different alpha (also in the Excel file)")
         with pd.option_context("display.width", 250, "display.float_format", "{:,.3f}".format):
             print(indent(ex.sensitivity_table(sensitivity, results["A-capped"], rf, base_table).to_string()))
+        ex.save_dashboard_csvs(results, base_table, sig["main"])
         ch.make_charts(navs, results["D"], base_table, sig["main"]["S_eff"])
         print(f"\nCharts saved to {ch.FIGURE_DIR.relative_to(PROJECT_ROOT)}")
 
