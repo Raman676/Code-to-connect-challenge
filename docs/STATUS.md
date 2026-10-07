@@ -1,7 +1,7 @@
 # Project status — AI/NLP Risk Engine + news-sentiment-tilted index
 
-*Last updated 2026-10-07. For a developer taking over this repository. The hackathon deadline in
-`CLAUDE.md` is 2026-10-10 (target: submit Fri 2026-10-09).*
+*Last updated 2026-10-07. For a developer taking over this repository. The hackathon deadline
+is 2026-10-10 (target: submit Fri 2026-10-09).*
 
 ## 0. Current state at a glance (2026-10-07)
 
@@ -10,9 +10,7 @@
 - **Working tree:** clean after the 2026-10-07 handover commit, which added:
   - `DECISIONS.md` entries: news-type classifier and hand-check method, engine output + API,
     tweet impact scale, engine report, META/BKNG back-fill, mentor's document gitignored,
-    the **planned company-day event simplification** (see step 1) and the Oct 6 workflow change.
-  - `handoff/`: `HANDOFF_FOR_CLAUDE.md`, `IMPLEMENTATION_PLAN.md` (step-by-step plan to Oct 9) and
-    `MY_PROJECT_PREP.md` (the owner's jury prep notes). Where they differ from this file, **this file wins**.
+    and the **planned company-day event simplification** (see step 1).
 - **Done 2026-10-07 (later commit):** steps 1, 2 and part of 4. `src/signals.py` (company-day events; the only
   lag: news dated d -> weights at d+1's close), Strategies B, C, D, D-tone in `backtest.py`,
   `src/export_results.py` (`data/outputs/backtest_results.xlsx` with 7 sheets + `backtest_summary.csv`) and
@@ -30,7 +28,6 @@
   News-type importance weights: left out (all types equal); a possible next step.
 - **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
   `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.
-- **Session start rule** (in `CLAUDE.md`): read `DECISIONS.md`, this file and `handoff/` first.
 
 The project has two parts:
 
@@ -292,8 +289,6 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
   - **News-type weights for importance** (see step 1).
   - **Tweet severity model.** The full model (Spearman 0.274) is in use, although trailing volatility alone does better (0.408).
   - **News-type accuracy is unknown** until the owner fills in `docs/news_type_check.csv`; 55.5% of headlines are "Other".
-  - **Workflow:** per `DECISIONS.md` (Oct 6), code may come from Claude on the owner's phone and be applied
-    by hand in VS Code; commit after each working step either way.
 - **Committed results that are slightly stale:**
   - **Walk-forward training data.** The run's training data still included 99 old SanDisk headlines. They were removed from the output afterwards, and future runs drop them before training. A re-run is optional (~45 min).
   - **Masking changes.** The masking lists were extended after `docs/model_report.txt` was produced: ambiguous tickers such as COST, LOW and NOW are now masked only as "(TICKER)". Re-running `run_model.py` gives slightly different numbers than the committed report.
@@ -306,7 +301,7 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
     - BRK.B 0.85 is our estimate
     - current S&P 100 members are used historically (survivorship bias)
     - `^OEX` is price-only
-- **Project conventions** (`CLAUDE.md`):
+- **Project conventions:**
   - one step at a time, with the owner's approval
   - ask before installing packages or downloading data
   - ask before deviating from an approved plan

@@ -25,7 +25,7 @@ Each item is labelled by what the stock did after it, not by human judgment.
 - Impact is directional (bear/bull), not severity. Deliberate choice:
   sentiment = immediate reaction, impact = how the move evolves over a week.
 
-**Tooling: Claude Code with approval mode**
+**Workflow: every change reviewed**
 I review every change before it is applied.
 the tweet return columns are unreliable, so returns and volatility come from yfinance
 the full tweet file, deduplicated, US companies only
@@ -229,10 +229,3 @@ Why: it's Rajesh's document; the README describes our implementation in my own w
   instead of clustering similar headlines by text.
 Why: exact duplicates are already removed; company-day events are simple to build and
 explain, and match how the labels were evaluated.
-
-**Workflow change (Oct 6)**
-- From here on: no Claude Code. Code comes from Claude on my phone; I apply it in
-  VS Code, run the tests, and commit after each working step.
-- Handoff: HANDOFF_FOR_CLAUDE.md, IMPLEMENTATION_PLAN.md and docs/STATUS.md
-  (STATUS.md takes priority where they differ).
-- Backup: pushed to GitHub before switching.
