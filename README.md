@@ -43,6 +43,8 @@ numbers.
 
 ![Architecture](docs/architecture.png)
 
+A file-by-file walkthrough of the repository is in [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md).
+
 | Layer | What it does | Code |
 |---|---|---|
 | Data validation | Raw-data checks, broken-row repair, duplicates, timestamp check | `src/inspect_data.py` |
