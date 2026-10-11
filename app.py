@@ -51,8 +51,10 @@ with tab_index:
     window = 100 * window / window.iloc[0]                 # rebase to 100 at the chosen start date
     st.plotly_chart(px.line(window, labels={"value": "index level (base 100)", "index": ""}),
                     width="stretch")
-    st.subheader("Metrics, full period (vs A-capped)")
+    st.subheader("Metrics, full period (relative metrics vs ^OEX, the parent index, and vs Strategy A)")
     st.dataframe(data["summary"].T.style.format("{:.3f}", na_rep="-"), width="stretch")
+    st.caption("^OEX is price-only (no dividends) while the strategies include dividends: active return and "
+               "alpha vs ^OEX are overstated by about 2% a year. Tracking error is barely affected.")
 
 # ---- 2 Weights --------------------------------------------------------------------------------------------
 with tab_weights:
@@ -93,5 +95,5 @@ with tab_sens:
     st.subheader("Strategy D with tilt strength alpha = 0.3 (base), 1.0 and 3.0")
     st.dataframe(sens.style.format("{:.3f}"), width="stretch")
     st.plotly_chart(px.bar(sens.reset_index().astype({"alpha": str}), x="alpha",
-                           y=["CAGR - A-capped (pp)", "total costs %"], barmode="group",
+                           y=["active return % vs A", "total costs %"], barmode="group",
                            title="Stronger tilts raise costs, not returns"), width="stretch")

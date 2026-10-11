@@ -18,7 +18,9 @@ Strategies
 Signals come from src/signals.py, which applies the only lag (news dated d -> weights at d+1's close).
 Also writes data/outputs/backtest_results.xlsx, backtest_summary.csv and docs/figures/*.png
 (src/export_results.py, src/charts.py).
-Benchmarks  ^OEX (S&P 100 PRICE index: no dividends, so about 2%/year easier to beat) and Strategy A.
+Benchmarks  ^OEX, the parent index (primary), and Strategy A (secondary: isolates the news tilt).
+            ^OEX is a PRICE index (no dividends) while the strategies include dividends, so active return
+            and alpha vs ^OEX are overstated by about the dividend yield (~2%/year); tracking error is barely affected.
 """
 from __future__ import annotations
 
@@ -152,15 +154,31 @@ def performance(nav: pd.Series, rf: pd.Series, bench_r: pd.Series | None = None)
            "Sortino": excess.mean() / np.sqrt((downside ** 2).mean()) * np.sqrt(TRADING_DAYS),
            "max drawdown %": 100 * (nav / nav.cummax() - 1).min()}
     if bench_r is not None:
-        b = bench_r.reindex(r.index).fillna(0.0)
-        active = r - b
-        te = active.std() * np.sqrt(TRADING_DAYS)
-        b_ex = b - rf.reindex(r.index).fillna(0.0)
-        beta = np.cov(excess, b_ex)[0, 1] / b_ex.var()
-        out.update({"tracking error %": 100 * te,
-                    "information ratio": active.mean() * TRADING_DAYS / te if te > 0 else np.nan,
-                    "beta": beta, "alpha % (annual)": 100 * (excess.mean() - beta * b_ex.mean()) * TRADING_DAYS})
+        out.update(relative_metrics(r, bench_r, rf))
     return out
+
+
+def relative_metrics(r: pd.Series, bench_r: pd.Series, rf: pd.Series) -> dict:
+    """
+    Daily strategy returns r against a benchmark's daily returns bench_r (^OEX or Strategy A).
+      active return %    annualised mean of (r - bench_r)
+      tracking error %   std of (r - bench_r) x sqrt(252)
+      information ratio  active return / tracking error
+      beta, alpha        CAPM regression of excess returns (over the T-bill) on the benchmark's excess returns
+    """
+    r = r.dropna()
+    b = bench_r.reindex(r.index).fillna(0.0)
+    rf_r = rf.reindex(r.index).fillna(0.0)
+    active = r - b
+    te = active.std() * np.sqrt(TRADING_DAYS)
+    active_ann = active.mean() * TRADING_DAYS
+    excess, b_ex = r - rf_r, b - rf_r
+    beta = np.cov(excess, b_ex)[0, 1] / b_ex.var()
+    return {"active return %": 100 * active_ann,
+            "tracking error %": 100 * te,
+            "information ratio": active_ann / te if te > 1e-12 else np.nan,     # 1e-12: same series -> NaN
+            "beta": beta,
+            "alpha % (annual)": 100 * (excess.mean() - beta * b_ex.mean()) * TRADING_DAYS}
 
 
 def portfolio_stats(result: dict, sectors: pd.Series, reviews: pd.DataFrame) -> dict:
@@ -235,7 +253,7 @@ def main() -> int:
                 sensitivity[alpha] = simulate(data.adj_close, days, fn)
         navs["^OEX (price only)"] = oex / oex.iloc[0]
 
-        section("KEY METRICS (vs ^OEX; and A-capped vs A)")
+        section("KEY METRICS (relative metrics vs ^OEX, the parent index)")
         rows = []
         oex_r = navs["^OEX (price only)"].pct_change()
         for name in navs.columns:
@@ -246,9 +264,8 @@ def main() -> int:
         table = pd.DataFrame(rows).set_index("strategy").T
         with pd.option_context("display.width", 200, "display.float_format", "{:,.3f}".format):
             print(indent(table.to_string()))
-        vs_a = performance(navs["A-capped"], rf, navs["A"].pct_change())
-        print(f"\nA-capped vs A: tracking error {vs_a['tracking error %']:.2f}%, "
-              f"information ratio {vs_a['information ratio']:.2f}")
+        print("\n^OEX is price-only (no dividends): active return and alpha vs ^OEX are overstated by about "
+              "the dividend yield (~2%/year); tracking error is barely affected.")
         for name, res in results.items():
             print(f"{name}: member-days without a price (return set to 0): {res['stale_prices']}")
         for name, d in relaxed.items():
@@ -260,12 +277,12 @@ def main() -> int:
         print(f"\nDaily NAVs saved to {NAV_CSV.relative_to(PROJECT_ROOT)}")
 
         summary = ex.export_all(navs, results, rf, base_table, data.sectors, reviews, sensitivity)
-        section("SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)")
+        section("SUMMARY: relative metrics vs ^OEX (primary) and vs Strategy A (also in backtest_results.xlsx)")
         with pd.option_context("display.width", 250, "display.max_columns", 30, "display.float_format", "{:,.3f}".format):
             print(indent(summary.T.to_string()))
         section("SENSITIVITY: Strategy D with different alpha (also in the Excel file)")
         with pd.option_context("display.width", 250, "display.float_format", "{:,.3f}".format):
-            print(indent(ex.sensitivity_table(sensitivity, results["A-capped"], rf, base_table).to_string()))
+            print(indent(ex.sensitivity_table(sensitivity, navs, rf, base_table).to_string()))
         ex.save_dashboard_csvs(results, base_table, sig["main"])
         ch.make_charts(navs, results["D"], base_table, sig["main"]["S_eff"])
         print(f"\nCharts saved to {ch.FIGURE_DIR.relative_to(PROJECT_ROOT)}")

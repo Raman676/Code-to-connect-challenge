@@ -4,7 +4,9 @@ Backtest results to Excel and CSV.
 Called by src/backtest.py (run that). Writes
   data/outputs/backtest_results.xlsx  sheets Summary, Yearly, Daily_NAV, Daily_Weights_D, Turnover_Costs,
                                       Constituents, Sensitivity, Definitions
-  data/outputs/backtest_summary.csv   the Summary sheet
+  data/outputs/backtest_summary.csv   the Summary sheet, one row per strategy (the Excel sheet has one column each)
+Relative metrics are measured against ^OEX, the parent index (primary benchmark), and against Strategy A
+(plain FFMC Top 20; shows the effect of the news tilt alone).
 """
 from __future__ import annotations
 
@@ -22,8 +24,8 @@ SUMMARY_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_summary.csv"
 WEIGHTS_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_weights.csv"          # for the dashboard
 SIGNALS_CSV = PROJECT_ROOT / "data" / "outputs" / "signals_daily.csv"            # for the dashboard
 SENSITIVITY_CSV = PROJECT_ROOT / "data" / "outputs" / "backtest_sensitivity.csv"
-COMPARE_TO = "A-capped"
 OEX = "^OEX (price only)"
+BENCHMARKS = ((OEX, "^OEX"), ("A", "A"))      # (column in navs, short name used in the metric names)
 
 DEFINITIONS = [
     ("Period", "2016-01-04 to 2020-06-30, daily closes. NAV starts at 100."),
@@ -35,9 +37,16 @@ DEFINITIONS = [
     ("Sharpe", "Mean daily excess return over the 13-week T-bill (^IRX) / std of daily returns x sqrt(252)."),
     ("Sortino", "Mean daily excess return / root mean square of negative excess returns x sqrt(252)."),
     ("Max drawdown %", "Largest fall of NAV from its previous peak."),
-    ("Tracking error % vs A-capped", "Std of daily (strategy - A-capped) returns x sqrt(252)."),
-    ("Information ratio vs A-capped", "Annualised mean active return vs A-capped / tracking error."),
-    ("Alpha % vs A-capped", "CAPM alpha, annual: mean excess return - beta x mean A-capped excess return, x 252."),
+    ("Benchmarks", "Primary: ^OEX, the parent index (S&P 100). Secondary: Strategy A (plain FFMC Top 20), "
+                   "which isolates the effect of the news tilt. Same formulas for both."),
+    ("Active return % vs X", "Annualised mean of the daily difference (strategy return - X return) x 252."),
+    ("Tracking error % vs X", "Std of daily (strategy return - X return) x sqrt(252)."),
+    ("Information ratio vs X", "Active return vs X / tracking error vs X."),
+    ("Beta vs X", "Slope of a regression of daily strategy excess returns on X's excess returns (over the T-bill)."),
+    ("Alpha % vs X", "CAPM alpha, annual: (mean excess return - beta x mean X excess return) x 252."),
+    ("Dividends and ^OEX", "^OEX is price-only (no dividends); the strategies include dividends. Active return "
+                           "and alpha vs ^OEX are therefore overstated by roughly the dividend yield (~2%/yr). "
+                           "Tracking error and beta are barely affected (dividends are small and smooth day to day)."),
     ("Turnover % per year (one-way)", "Half the sum of |weight changes| over all trades, per year."),
     ("Total costs %", "10 bp x the full sum of |weight changes| over the whole period (not halved)."),
     ("Constituent changes", "Number of additions over the 17 quarterly reviews (each addition has one deletion)."),
@@ -51,10 +60,10 @@ DEFINITIONS = [
                    "B: tilt with C = 1. C: tilt with C. D: C + band +-25%, 12% cap, 1 pp daily limit. "
                    "D-tone: D with finbert-tone scores. Alpha = 0.30."),
     ("Sensitivity", "Strategy D re-run with alpha = 0.3 (base case), 1.0 and 3.0; everything else unchanged. "
-                    "Return differences are in percentage points vs A-capped."),
+                    "Relative metrics vs ^OEX and vs Strategy A, as in the Summary."),
     ("Assumption: free float", "Free-float factors are today's values, held constant. BRK.B 0.85 is our estimate."),
     ("Assumption: universe", "Current S&P 100 members used for 2016-2020: survivorship bias flatters all strategies."),
-    ("Assumption: ^OEX", "^OEX is a price index (no dividends), about 2% a year easier to beat."),
+    ("Assumption: ^OEX", "^OEX is a price index (no dividends), about 2% a year easier to beat (see above)."),
     ("Assumption: costs", "10 bp per unit of weight traded; no market impact; initial build is free."),
     ("Assumption: news", "News ends 2020-06-11, so tilts fade out over the last trading days."),
 ]
@@ -67,17 +76,28 @@ def avg_abs_tilt(weights: dict, base_table: pd.DataFrame) -> float:
     return float((w.reindex(columns=base.columns, fill_value=0.0) - base).abs().sum(axis=1).mean() / 2)
 
 
+def relative_columns(nav: pd.Series, navs: pd.DataFrame, rf) -> dict:
+    """Active return, TE, IR, beta and alpha of one NAV series vs ^OEX and vs Strategy A."""
+    out = {}
+    for column, short in BENCHMARKS:
+        rel = bt.relative_metrics(nav.pct_change(), navs[column].pct_change(), rf)
+        out.update({f"active return % vs {short}": rel["active return %"],
+                    f"tracking error % vs {short}": rel["tracking error %"],
+                    f"information ratio vs {short}": rel["information ratio"],
+                    f"beta vs {short}": rel["beta"],
+                    f"alpha % vs {short}": rel["alpha % (annual)"]})
+    return out
+
+
 def summary_table(navs, results, rf, base_table, sectors, reviews) -> pd.DataFrame:
-    compare = navs[COMPARE_TO].pct_change()
+    """One row per strategy, the parent index ^OEX first."""
+    order = [OEX] + [c for c in navs.columns if c != OEX]
     rows = []
-    for name in navs.columns:
-        perf = bt.performance(navs[name], rf, compare)
+    for name in order:
+        perf = bt.performance(navs[name], rf)
         row = {"strategy": name, "total return %": perf["total return %"], "CAGR %": perf["CAGR %"],
                "volatility %": perf["volatility %"], "Sharpe": perf["Sharpe"], "Sortino": perf["Sortino"],
-               "max drawdown %": perf["max drawdown %"],
-               "tracking error % vs A-capped": perf["tracking error %"],
-               "information ratio vs A-capped": perf["information ratio"],
-               "alpha % vs A-capped": perf["alpha % (annual)"]}
+               "max drawdown %": perf["max drawdown %"], **relative_columns(navs[name], navs, rf)}
         if name in results:
             stats = bt.portfolio_stats(results[name], sectors, reviews)
             row.update({"turnover % per year (one-way)": stats["turnover % per year (one-way)"],
@@ -107,20 +127,21 @@ def constituents_sheet(reviews: pd.DataFrame) -> pd.DataFrame:
                          "entries": reviews["added"].map(", ".join), "exits": reviews["removed"].map(", ".join)})
 
 
-def sensitivity_table(runs: dict, a_capped: dict, rf, base_table) -> pd.DataFrame:
-    """One row per alpha for Strategy D: performance, trading and the return difference vs A-capped."""
-    ref = bt.performance(a_capped["daily"]["nav_after_cost"], rf)
+def sensitivity_table(runs: dict, navs: pd.DataFrame, rf, base_table) -> pd.DataFrame:
+    """One row per alpha for Strategy D: performance, trading, and relative metrics vs ^OEX and vs A."""
     rows = []
     for alpha, res in runs.items():
-        perf = bt.performance(res["daily"]["nav_after_cost"], rf)
+        nav = res["daily"]["nav_after_cost"]
+        perf = bt.performance(nav, rf)
+        rel = relative_columns(nav, navs, rf)
         years = len(res["daily"]) / bt.TRADING_DAYS
         rows.append({"alpha": alpha, "CAGR %": perf["CAGR %"], "volatility %": perf["volatility %"],
                      "Sharpe": perf["Sharpe"], "max drawdown %": perf["max drawdown %"],
                      "turnover % per year (one-way)": 100 * res["daily"]["traded"].sum() / 2 / years,
                      "total costs %": 100 * res["daily"]["cost"].sum(),
                      "avg |tilt| %": 100 * avg_abs_tilt(res["weights"], base_table),
-                     "total return - A-capped (pp)": perf["total return %"] - ref["total return %"],
-                     "CAGR - A-capped (pp)": perf["CAGR %"] - ref["CAGR %"]})
+                     **{k: rel[k] for k in ("tracking error % vs ^OEX", "information ratio vs ^OEX",
+                                            "active return % vs A", "tracking error % vs A", "information ratio vs A")}})
     return pd.DataFrame(rows).set_index("alpha")
 
 
@@ -133,13 +154,13 @@ def export_all(navs, results, rf, base_table, sectors, reviews, sensitivity: dic
     for name, res in results.items():
         costs[f"{name} turnover (one-way)"] = res["daily"]["traded"] / 2
         costs[f"{name} cost"] = res["daily"]["cost"]
-    sheets = {"Summary": summary,
+    sheets = {"Summary": summary.T.rename_axis("metric"),         # one column per strategy, ^OEX first
               "Yearly": yearly_returns(navs),
               "Daily_NAV": 100 * navs / navs.iloc[0],
               "Daily_Weights_D": weights_sheet,
               "Turnover_Costs": pd.DataFrame(costs),
               "Constituents": constituents_sheet(reviews),
-              "Sensitivity": (sensitivity_table(sensitivity, results["A-capped"], rf, base_table)
+              "Sensitivity": (sensitivity_table(sensitivity, navs, rf, base_table)
                               if sensitivity else pd.DataFrame()),
               "Definitions": pd.DataFrame(DEFINITIONS, columns=["metric", "definition and assumptions"])}
     XLSX_PATH.parent.mkdir(parents=True, exist_ok=True)

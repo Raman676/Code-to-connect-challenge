@@ -33,6 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 REPORT_PATH = PROJECT_ROOT / "docs" / "analysis_report.txt"
 COVID = ("2020-02-19", "2020-04-30")
 TOP_SHARE = 0.01
+OEX = "^OEX (price only)"                  # parent index column in backtest_nav.csv
 
 
 def t_stat(x: pd.Series) -> float:
@@ -90,10 +91,14 @@ def active_on_days(navs: pd.DataFrame, days: pd.DatetimeIndex, ref: str = "A") -
                          "days beating A": (active > 0).sum()})
 
 
-def window_returns(navs: pd.DataFrame, start: str, end: str, ref: str = "A") -> pd.DataFrame:
+def window_returns(navs: pd.DataFrame, start: str, end: str, refs: tuple = ("A",)) -> pd.DataFrame:
+    """Total return over the window, and the difference in percentage points vs each reference column."""
     w = navs.loc[start:end]
     total = 100 * (w.iloc[-1] / w.iloc[0] - 1)
-    return pd.DataFrame({"return %": total, "vs A (pp)": total - total[ref]})
+    out = pd.DataFrame({"return %": total})
+    for ref in refs:
+        out[f"vs {ref} (pp)"] = total - total[ref]
+    return out
 
 
 def main() -> int:
@@ -112,7 +117,8 @@ def main() -> int:
     next_r = (prices.shift(-1) / prices - 1).loc[days]          # return from t to t+1 (tradable)
     past_1 = (prices / prices.shift(1) - 1).loc[days]
     past_5 = (prices / prices.shift(5) - 1).loc[days]
-    navs = pd.read_csv(bt.NAV_CSV, index_col=0, parse_dates=True).drop(columns="^OEX (price only)")
+    all_navs = pd.read_csv(bt.NAV_CSV, index_col=0, parse_dates=True)      # strategies + ^OEX (parent index)
+    navs = all_navs.drop(columns=OEX)
 
     buffer = io.StringIO()
     with contextlib.redirect_stdout(Tee(sys.stdout, buffer)):
@@ -141,12 +147,14 @@ def main() -> int:
 
         section(f"3b. COVID WINDOW {COVID[0]} -> {COVID[1]}")
         with pd.option_context("display.float_format", "{:,.2f}".format):
-            print(indent(window_returns(navs, *COVID).to_string()))
+            print(indent(window_returns(all_navs[[OEX, *navs.columns]], *COVID, refs=(OEX, "A")).to_string()))
 
         section("NOTES")
         print(indent("Market impact is not modelled (10 bp per unit traded only).\n"
                      "IC and Fama-MacBeth use only days where S_eff differs across members; most members have no\n"
-                     "news on most days (S_eff = 0), so the tests have less power than the day count suggests."))
+                     "news on most days (S_eff = 0), so the tests have less power than the day count suggests.\n"
+                     "^OEX (parent index) is price-only; the strategies include dividends, so differences vs ^OEX\n"
+                     "are overstated by roughly the dividend yield (~2%/yr, ~0.4 pp over the COVID window)."))
 
     REPORT_PATH.write_text(buffer.getvalue(), encoding="utf-8")
     print(f"Report saved to {REPORT_PATH.relative_to(PROJECT_ROOT)}")

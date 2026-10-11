@@ -1,4 +1,4 @@
-Backtest report - generated 2026-10-07 23:33 by src/backtest.py
+Backtest report - generated 2026-10-11 13:19 by src/backtest.py
 Period 2016-01-04 -> 2020-06-30 (1131 trading days); costs 10 bps per unit traded; universe 100 companies (current S&P 100, Alphabet once)
 Assumptions: free-float factors are today's values, held constant (BRK.B 0.85 is our estimate); current S&P 100 members used for 2016-2020 (survivorship bias); ^OEX is a price index (no dividends);
 META and BKNG share counts back-filled with their first known count before their share history starts; LIN, RTX and DELL unranked until their share history starts.
@@ -46,7 +46,7 @@ CONSTITUENTS AT EACH REVIEW (exact-20 rule with the 20/25 buffer)
 Constituent changes over the period: 29 additions, 29 deletions over 17 reviews
 
 ====================================================================================================
-KEY METRICS (vs ^OEX; and A-capped vs A)
+KEY METRICS (relative metrics vs ^OEX, the parent index)
 ====================================================================================================
   strategy                            A A-capped       B       C       D  D-tone ^OEX (price only)
   total return %                 98.731   97.624  97.846  98.806  96.421  95.893            59.193
@@ -55,6 +55,7 @@ KEY METRICS (vs ^OEX; and A-capped vs A)
   Sharpe                          0.795    0.791   0.791   0.796   0.786   0.783             0.571
   Sortino                         0.736    0.729   0.731   0.735   0.724   0.721             0.526
   max drawdown %                -29.697  -29.705 -29.603 -29.644 -29.642 -29.617           -31.531
+  active return %                 5.147    5.006   5.044   5.154   4.865   4.804               NaN
   tracking error %                3.755    3.680   3.778   3.772   3.673   3.671               NaN
   information ratio               1.371    1.360   1.335   1.366   1.325   1.309               NaN
   beta                            1.035    1.031   1.034   1.034   1.030   1.030               NaN
@@ -67,7 +68,7 @@ KEY METRICS (vs ^OEX; and A-capped vs A)
   avg largest sector weight %    25.878   25.343  25.860  25.857  25.143  25.131               NaN
   avg sector HHI                  0.183    0.182   0.183   0.183   0.181   0.181               NaN
 
-A-capped vs A: tracking error 0.23%, information ratio -0.61
+^OEX is price-only (no dividends): active return and alpha vs ^OEX are overstated by about the dividend yield (~2%/year); tracking error is barely affected.
 A: member-days without a price (return set to 0): 0
 A-capped: member-days without a price (return set to 0): 0
 B: member-days without a price (return set to 0): 0
@@ -80,32 +81,39 @@ D-tone: days where the 1 pp change limit had to be relaxed: 0
 Daily NAVs saved to data\outputs\backtest_nav.csv
 
 ====================================================================================================
-SUMMARY vs A-capped (also in data/outputs/backtest_results.xlsx)
+SUMMARY: relative metrics vs ^OEX (primary) and vs Strategy A (also in backtest_results.xlsx)
 ====================================================================================================
-  strategy                            A  A-capped       B       C       D  D-tone  ^OEX (price only)
-  total return %                 98.731    97.624  97.846  98.806  96.421  95.893             59.193
-  CAGR %                         16.551    16.406  16.435  16.561  16.247  16.178             10.925
-  volatility %                   20.354    20.277  20.339  20.347  20.251  20.247             19.347
-  Sharpe                          0.795     0.791   0.791   0.796   0.786   0.783              0.571
-  Sortino                         0.736     0.729   0.731   0.735   0.724   0.721              0.526
-  max drawdown %                -29.697   -29.705 -29.603 -29.644 -29.642 -29.617            -31.531
-  tracking error % vs A-capped    0.231     0.000   0.246   0.233   0.135   0.140              3.680
-  information ratio vs A-capped   0.606       NaN   0.152   0.633  -1.052  -1.443             -1.360
-  alpha % vs A-capped             0.080     0.000  -0.010   0.093  -0.120  -0.178             -4.023
-  turnover % per year (one-way)  19.016    20.148  99.646  41.446  50.366  68.936                NaN
-  total costs %                   0.171     0.181   0.894   0.372   0.452   0.619                NaN
-  constituent changes            29.000    29.000  29.000  29.000  29.000  29.000                NaN
-  avg |tilt| %                    0.310     0.776   0.560   0.089   0.892   0.965                NaN
-  max single weight %            16.188    14.367  16.275  16.108  12.000  12.000                NaN
-  top sector weight %            25.878    25.343  25.860  25.857  25.143  25.131                NaN
+  strategy                       ^OEX (price only)       A  A-capped       B       C       D  D-tone
+  total return %                            59.193  98.731    97.624  97.846  98.806  96.421  95.893
+  CAGR %                                    10.925  16.551    16.406  16.435  16.561  16.247  16.178
+  volatility %                              19.347  20.354    20.277  20.339  20.347  20.251  20.247
+  Sharpe                                     0.571   0.795     0.791   0.791   0.796   0.786   0.783
+  Sortino                                    0.526   0.736     0.729   0.731   0.735   0.724   0.721
+  max drawdown %                           -31.531 -29.697   -29.705 -29.603 -29.644 -29.642 -29.617
+  active return % vs ^OEX                    0.000   5.147     5.006   5.044   5.154   4.865   4.804
+  tracking error % vs ^OEX                   0.000   3.755     3.680   3.778   3.772   3.673   3.671
+  information ratio vs ^OEX                    NaN   1.371     1.360   1.335   1.366   1.325   1.309
+  beta vs ^OEX                               1.000   1.035     1.031   1.034   1.034   1.030   1.030
+  alpha % vs ^OEX                            0.000   4.765     4.663   4.674   4.778   4.536   4.477
+  active return % vs A                      -5.147   0.000    -0.140  -0.103   0.007  -0.282  -0.343
+  tracking error % vs A                      3.755   0.000     0.231   0.104   0.056   0.311   0.315
+  information ratio vs A                    -1.371     NaN    -0.606  -0.984   0.125  -0.905  -1.089
+  beta vs A                                  0.935   1.000     0.996   0.999   1.000   0.995   0.995
+  alpha % vs A                              -4.090   0.000    -0.078  -0.091   0.012  -0.198  -0.256
+  turnover % per year (one-way)                NaN  19.016    20.148  99.646  41.446  50.366  68.936
+  total costs %                                NaN   0.171     0.181   0.894   0.372   0.452   0.619
+  constituent changes                          NaN  29.000    29.000  29.000  29.000  29.000  29.000
+  avg |tilt| %                                 NaN   0.310     0.776   0.560   0.089   0.892   0.965
+  max single weight %                          NaN  16.188    14.367  16.275  16.108  12.000  12.000
+  top sector weight %                          NaN  25.878    25.343  25.860  25.857  25.143  25.131
 
 ====================================================================================================
 SENSITIVITY: Strategy D with different alpha (also in the Excel file)
 ====================================================================================================
-         CAGR %  volatility %  Sharpe  max drawdown %  turnover % per year (one-way)  total costs %  avg |tilt| %  total return - A-capped (pp)  CAGR - A-capped (pp)
-  alpha                                                                                                                                                              
-  0.300  16.247        20.251   0.786         -29.642                         50.366          0.452         0.892                        -1.203                -0.158
-  1.000  16.200        20.241   0.784         -29.588                         80.875          0.726         1.055                        -1.562                -0.206
-  3.000  16.070        20.219   0.779         -29.476                        155.856          1.399         1.499                        -2.540                -0.335
+         CAGR %  volatility %  Sharpe  max drawdown %  turnover % per year (one-way)  total costs %  avg |tilt| %  tracking error % vs ^OEX  information ratio vs ^OEX  active return % vs A  tracking error % vs A  information ratio vs A
+  alpha                                                                                                                                                                                                                                    
+  0.300  16.247        20.251   0.786         -29.642                         50.366          0.452         0.892                     3.673                      1.325                -0.282                  0.311                  -0.905
+  1.000  16.200        20.241   0.784         -29.588                         80.875          0.726         1.055                     3.676                      1.312                -0.325                  0.322                  -1.010
+  3.000  16.070        20.219   0.779         -29.476                        155.856          1.399         1.499                     3.686                      1.277                -0.441                  0.358                  -1.232
 
 Charts saved to docs\figures

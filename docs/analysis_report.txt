@@ -1,4 +1,4 @@
-Analysis report - generated 2026-10-07 23:43 by src/analysis.py
+Analysis report - generated 2026-10-11 13:37 by src/analysis.py
 Period 2016-01-04 -> 2020-06-30; members = the Top-20 index constituents each day; S_eff = our sentiment model, known at day t's close (news dated t-1 or earlier).
 
 ====================================================================================================
@@ -33,13 +33,14 @@ Period 2016-01-04 -> 2020-06-30; members = the Top-20 index constituents each da
 ====================================================================================================
 3b. COVID WINDOW 2020-02-19 -> 2020-04-30
 ====================================================================================================
-            return %  vs A (pp)
-  A            -9.13       0.00
-  A-capped     -9.18      -0.05
-  B            -9.05       0.08
-  C            -9.06       0.07
-  D            -9.07       0.06
-  D-tone       -9.06       0.07
+                     return %  vs ^OEX (price only) (pp)  vs A (pp)
+  ^OEX (price only)    -11.91                       0.00      -2.78
+  A                     -9.13                       2.78       0.00
+  A-capped              -9.18                       2.74      -0.05
+  B                     -9.05                       2.86       0.08
+  C                     -9.06                       2.85       0.07
+  D                     -9.07                       2.84       0.06
+  D-tone                -9.06                       2.85       0.07
 
 ====================================================================================================
 NOTES
@@ -47,3 +48,5 @@ NOTES
   Market impact is not modelled (10 bp per unit traded only).
   IC and Fama-MacBeth use only days where S_eff differs across members; most members have no
   news on most days (S_eff = 0), so the tests have less power than the day count suggests.
+  ^OEX (parent index) is price-only; the strategies include dividends, so differences vs ^OEX
+  are overstated by roughly the dividend yield (~2%/yr, ~0.4 pp over the COVID window).

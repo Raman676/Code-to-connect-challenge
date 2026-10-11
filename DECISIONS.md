@@ -229,3 +229,20 @@ Why: it's Rajesh's document; the README describes our implementation in my own w
   instead of clustering similar headlines by text.
 Why: exact duplicates are already removed; company-day events are simple to build and
 explain, and match how the labels were evaluated.
+
+## 2026-10-11
+
+**TE/IR/alpha now vs parent index ^OEX (primary) and Strategy A; previously vs A-capped, which was wrong**
+- Every strategy (A, A-capped, B, C, D, D-tone) now reports active return, tracking error,
+  information ratio, beta and alpha against ^OEX, the parent index (primary benchmark), and
+  against Strategy A, plain FFMC Top 20 (secondary: shows the effect of the news tilt alone).
+- Same formulas for both: TE = std(daily strategy - benchmark) x sqrt(252); active return =
+  annualised mean of that difference; IR = active return / TE; beta and alpha from a CAPM
+  regression of daily excess returns (over the T-bill) on the benchmark's excess returns.
+- All "vs A-capped" metrics removed (Summary, Sensitivity, reports, dashboard, README).
+- ^OEX is price-only while our strategies include dividends: active return and alpha vs
+  ^OEX are overstated by roughly the dividend yield (~2%/yr); TE is barely affected. Stated
+  in the Definitions sheet and the reports.
+Why: A-capped is one of our own strategies, not a benchmark. Tracking error is measured
+against the index a fund is benchmarked to, here the parent index. A stays as a second
+reference because it isolates the sentiment tilt.

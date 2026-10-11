@@ -5,6 +5,12 @@ is 2026-10-10 (target: submit Fri 2026-10-09).*
 
 ## 0. Current state at a glance (2026-10-07)
 
+- **2026-10-11: benchmark fix.** Tracking error, information ratio, beta and alpha are now measured vs `^OEX`, the
+  parent index (primary), and vs Strategy A (secondary: the news tilt alone). Before they were measured vs A-capped,
+  which was wrong (A-capped is one of our strategies). D vs ^OEX: TE 3.67%, IR 1.33, beta 1.030; D vs A: TE 0.31%,
+  IR -0.91 (active return -0.28%/yr). `^OEX` is price-only, so active return and alpha vs `^OEX` are overstated by
+  roughly the dividend yield (~2%/yr); TE is barely affected. 114 tests pass.
+
 - **Last code commit:** `0762630` (universe, weights, backtest engine, Strategies A and A-capped). No code
   has changed since; all 85 tests passed at that commit.
 - **Working tree:** clean after the 2026-10-07 handover commit, which added:
@@ -15,8 +21,8 @@ is 2026-10-10 (target: submit Fri 2026-10-09).*
   lag: news dated d -> weights at d+1's close), Strategies B, C, D, D-tone in `backtest.py`,
   `src/export_results.py` (`data/outputs/backtest_results.xlsx` with 7 sheets + `backtest_summary.csv`) and
   `src/charts.py` (`docs/figures/`: index levels, drawdowns, D weights, active signals). 99 tests pass.
-  Result: no strategy beats A-capped meaningfully (D: alpha -0.12%/yr, IR -1.05 vs A-capped) - as the
-  next-day check predicted. Run: `python src/backtest.py` (~3 min).
+  Result: no sentiment strategy beats Strategy A meaningfully (D vs A: active return -0.28%/yr, TE 0.31%, IR -0.91;
+  see the 2026-10-11 note above) - as the next-day check predicted. Run: `python src/backtest.py` (~3 min).
 - **Done (dashboard):** `app.py` (Streamlit, 5 tabs: Index, Weights, Signals feed, Engine results,
   Sensitivity), helpers in `src/dashboard_data.py`. Run: `streamlit run app.py` (after `python src/backtest.py`).
   Strategy D alpha sensitivity (0.3/1.0/3.0) is in the Excel file and `backtest_sensitivity.csv`. 106 tests pass.
@@ -186,7 +192,8 @@ The most important finding is the next-day check. Sentiment matches the **same-d
 | Constituent changes | 29 additions, 29 deletions over 17 reviews | same | — |
 | Largest sector weight (average) / sector HHI | 25.9% / 0.183 | 25.3% / 0.182 | — |
 
-A-capped vs A: tracking error 0.23%, information ratio −0.61.
+Vs Strategy A: A-capped TE 0.23% / IR −0.61; B 0.10% / −0.98; C 0.06% / 0.13; D 0.31% / −0.91; D-tone 0.32% / −1.09.
+`^OEX` is price-only, so active return and alpha vs `^OEX` are overstated by roughly the dividend yield (~2%/yr).
 
 **How to read these numbers:**
 - **Most of the alpha vs `^OEX` isn't skill.** About 2% a year is dividends that `^OEX` excludes; most of the rest is **survivorship bias** (today's S&P 100 members applied to 2016–2020) and concentration in the mega caps.
@@ -232,7 +239,7 @@ A-capped vs A: tracking error 0.23%, information ratio −0.61.
   - **C:** `normalise(tilt(base, S_eff, C))`, no risk controls.
   - **D:** `constrained_weights(tilt(base, S_eff, C), base, previous=drifted weights, review_day=(day is an effective date))`. Count the `relaxed` days.
   - **D-tone:** D with the finbert-tone signals.
-- **Comparisons:** D vs A-capped (the fair capped comparison; note that A-capped caps only at reviews), and every strategy vs A and vs `^OEX`.
+- **Comparisons (changed 2026-10-11):** every strategy's TE, IR, beta and alpha vs `^OEX` (parent index, primary) and vs Strategy A (secondary). No metric is measured vs A-capped.
 - **Also save** `data/outputs/backtest_weights.csv` (date, strategy, ticker, weight, base_weight, S_eff, C): about 140k rows, needed for the charts and dashboard.
 
 ### Step 3: remaining §25 metrics

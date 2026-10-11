@@ -52,6 +52,22 @@ def test_performance_metrics():
     assert np.isclose(with_bench["tracking error %"], 0.0) and np.isclose(with_bench["beta"], 1.0)
 
 
+def test_relative_metrics():
+    days = pd.bdate_range("2019-01-02", periods=5)
+    bench = pd.Series([np.nan, 0.01, -0.02, 0.015, 0.0], index=days)
+    rf = pd.Series(0.0, index=days)
+    active = pd.Series([np.nan, 0.001, -0.001, 0.002, 0.0], index=days)
+    rel = bt.relative_metrics(bench + active, bench, rf)
+    te = active.dropna().std() * np.sqrt(252)
+    assert np.isclose(rel["tracking error %"], 100 * te)
+    assert np.isclose(rel["active return %"], 100 * active.mean() * 252)
+    assert np.isclose(rel["information ratio"], active.mean() * 252 / te)
+    same = bt.relative_metrics(bench, bench, rf)                       # vs itself: TE 0, beta 1, IR undefined
+    assert np.isclose(same["tracking error %"], 0) and np.isclose(same["beta"], 1) and np.isnan(same["information ratio"])
+    double = bt.relative_metrics(2 * bench, bench, rf)                 # twice the benchmark: beta 2, alpha 0
+    assert np.isclose(double["beta"], 2) and np.isclose(double["alpha % (annual)"], 0)
+
+
 def test_daily_rf():
     rf = bt.daily_rf(pd.Series([5.0], index=DAYS[:1]), DAYS)
     assert np.allclose(rf, 1.05 ** (1 / 252) - 1)                       # forward-filled

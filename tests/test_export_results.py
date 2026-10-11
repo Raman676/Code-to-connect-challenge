@@ -36,21 +36,28 @@ def test_export_writes_all_sheets(tmp=Path(__file__).resolve().parent / "_tmp_ex
     days = pd.bdate_range("2019-01-02", periods=5)
     w = {d: pd.Series({"X": 0.5, "Y": 0.5}) for d in days}
     daily = pd.DataFrame({"nav_after_cost": [1, 1.01, 1.02, 1.0, 1.03], "cost": 0.0, "traded": 0.0}, index=days)
-    res = {"A-capped": {"daily": daily, "weights": w}, "D": {"daily": daily, "weights": w}}
-    navs = pd.DataFrame({"A-capped": daily["nav_after_cost"], "D": daily["nav_after_cost"],
+    other = daily.assign(nav_after_cost=[1, 1.02, 1.01, 1.0, 1.04])
+    res = {"A": {"daily": daily, "weights": w}, "D": {"daily": other, "weights": w}}
+    navs = pd.DataFrame({"A": daily["nav_after_cost"], "D": other["nav_after_cost"],
                          ex.OEX: daily["nav_after_cost"]})
     reviews = pd.DataFrame({"review": [days[0]], "effective": [days[1]], "members": [["X", "Y"]],
                             "added": [[]], "removed": [[]]})
     base = pd.DataFrame(0.5, index=days, columns=["X", "Y"])
     summary = ex.export_all(navs, res, pd.Series(0.0, index=days), base, pd.Series({"X": "IT", "Y": "IT"}), reviews,
                             {0.3: res["D"], 1.0: res["D"]})
-    assert list(summary.index) == ["A-capped", "D", ex.OEX]
+    assert list(summary.index) == [ex.OEX, "A", "D"]                 # parent index first
+    assert "tracking error % vs A-capped" not in summary.columns
+    assert np.isclose(summary.loc["A", "tracking error % vs ^OEX"], 0)   # A == ^OEX in this test
+    assert summary.loc["D", "tracking error % vs ^OEX"] > 0
+    assert np.isclose(summary.loc["D", "tracking error % vs A"], summary.loc["D", "tracking error % vs ^OEX"])
     with pd.ExcelFile(ex.XLSX_PATH) as book:              # 'with' closes the file again (Windows)
         sheets = book.sheet_names
     assert sheets == ["Summary", "Yearly", "Daily_NAV", "Daily_Weights_D", "Turnover_Costs", "Constituents",
                       "Sensitivity", "Definitions"]
+    sheet = pd.read_excel(ex.XLSX_PATH, sheet_name="Summary", index_col=0)
+    assert list(sheet.columns) == [ex.OEX, "A", "D"]                 # one column per strategy, ^OEX first
     sens = pd.read_excel(ex.XLSX_PATH, sheet_name="Sensitivity")
-    assert sens["alpha"].tolist() == [0.3, 1.0] and np.allclose(sens["CAGR - A-capped (pp)"], 0)
+    assert sens["alpha"].tolist() == [0.3, 1.0] and sens["tracking error % vs ^OEX"].gt(0).all()
     assert ex.SUMMARY_CSV.exists()
     for f in tmp.iterdir():
         f.unlink()

@@ -58,6 +58,8 @@ def test_window_returns():
     navs = pd.DataFrame({"A": [1.0, 1.1], "D": [1.0, 1.2]}, index=DAYS[:2])
     w = an.window_returns(navs, str(DAYS[0].date()), str(DAYS[1].date()))
     assert np.isclose(w.loc["D", "vs A (pp)"], 10)
+    two = an.window_returns(navs, str(DAYS[0].date()), str(DAYS[1].date()), refs=("D", "A"))
+    assert list(two.columns) == ["return %", "vs D (pp)", "vs A (pp)"] and np.isclose(two.loc["A", "vs D (pp)"], -10)
 
 
 def main() -> int:

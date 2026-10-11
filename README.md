@@ -157,18 +157,22 @@ Legal 1.1%, Product Launch 1.0%, Macro 1.0%, Credit Event 0.2%, Other 55.5%.
 
 **Index backtest, 2016-01-04 to 2020-06-30** (`docs/backtest_report.txt`, `data/outputs/backtest_results.xlsx`)
 
-| Strategy | Total return | CAGR | Volatility | Sharpe | Max drawdown | Turnover / yr | Alpha vs A-capped |
-|---|---|---|---|---|---|---|---|
-| A: FFMC Top 20 | 98.7% | 16.55% | 20.35% | 0.795 | -29.7% | 19.0% | +0.08% |
-| A-capped: A with 12% cap at reviews | 97.6% | 16.41% | 20.28% | 0.792 | -29.7% | 20.1% | - |
-| B: sentiment tilt, no confidence | 97.8% | 16.44% | 20.34% | 0.791 | -29.6% | 99.6% | -0.01% |
-| C: tilt x confidence | 98.8% | 16.56% | 20.35% | 0.796 | -29.6% | 41.4% | +0.09% |
-| **D: C + risk controls** | 96.4% | 16.25% | 20.25% | 0.786 | -29.6% | 50.4% | -0.12% |
-| D-tone: D with FinBERT-tone | 95.9% | 16.18% | 20.25% | 0.783 | -29.6% | 68.9% | -0.18% |
-| `^OEX` (price only) | 59.2% | 10.93% | 19.35% | 0.571 | -31.5% | - | - |
+| Strategy | Total return | CAGR | Volatility | Sharpe | Max drawdown | TE / IR vs `^OEX` | TE / IR vs A | Turnover / yr |
+|---|---|---|---|---|---|---|---|---|
+| `^OEX` (parent index, price only) | 59.2% | 10.93% | 19.35% | 0.571 | -31.5% | - | 3.76% / -1.37 | - |
+| A: FFMC Top 20 | 98.7% | 16.55% | 20.35% | 0.795 | -29.7% | 3.76% / 1.37 | - | 19.0% |
+| A-capped: A with 12% cap at reviews | 97.6% | 16.41% | 20.28% | 0.791 | -29.7% | 3.68% / 1.36 | 0.23% / -0.61 | 20.1% |
+| B: sentiment tilt, no confidence | 97.8% | 16.44% | 20.34% | 0.791 | -29.6% | 3.78% / 1.34 | 0.10% / -0.98 | 99.6% |
+| C: tilt x confidence | 98.8% | 16.56% | 20.35% | 0.796 | -29.6% | 3.77% / 1.37 | 0.06% / 0.13 | 41.4% |
+| **D: C + risk controls** | 96.4% | 16.25% | 20.25% | 0.786 | -29.6% | 3.67% / 1.33 | 0.31% / -0.91 | 50.4% |
+| D-tone: D with FinBERT-tone | 95.9% | 16.18% | 20.25% | 0.783 | -29.6% | 3.67% / 1.31 | 0.32% / -1.09 | 68.9% |
 
-- **Sensitivity:** a stronger tilt makes D worse. With alpha 0.3 / 1.0 / 3.0, D's CAGR trails A-capped by 0.16 /
-  0.21 / 0.34 pp a year, because turnover rises from 50% to 156% a year and the extra cost outweighs any signal.
+TE = tracking error, IR = information ratio. `^OEX` is the primary benchmark; Strategy A isolates the news tilt.
+`^OEX` is price-only while the strategies include dividends, so active return vs `^OEX` is overstated by roughly
+the dividend yield (~2% a year); tracking error is barely affected.
+
+- **Sensitivity:** a stronger tilt makes D worse. With alpha 0.3 / 1.0 / 3.0, D's active return vs Strategy A is -0.28 /
+  -0.33 / -0.44% a year, because turnover rises from 50% to 156% a year and the extra cost outweighs any signal.
 - **Does sentiment predict beyond FFMC and price?** (`docs/analysis_report.txt`) No:
   - Daily IC (cross-sectional rank correlation with the next-day return): mean 0.0099, t = 1.40, positive on 52.5%
     of days.
