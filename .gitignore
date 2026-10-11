@@ -19,3 +19,4 @@ __pycache__/
 
 # Personal notes (kept locally, not part of the submission)
 handoff/
+.venv/
