@@ -1,7 +1,7 @@
 # AI/NLP Financial Risk Engine with a Sentiment-Tilted Top-20 Index - S&P Global & Crisil Campus Hackathon
 
 **Candidate Name:** Raman Dubey **College Email ID:** ramandubey@kgpian.iitkgp.ac.in **College / Campus:** Indian Institute of Technology, Kharagpur
-**Demo Video Link:** [youtube] **Slide Deck Link (if hosted externally):** https://canva.link/z89m9p1zvgyv43h (Also submitted)
+**Demo Video Link:** (https://youtu.be/TMo3C6fNvIk) **Slide Deck Link (if hosted externally):** https://canva.link/z89m9p1zvgyv43h (Also submitted)
 
 
 ## 1. Project Overview / Problem Statement & Approach
