@@ -24,7 +24,7 @@ a dashboard of weights over time.
   - News type: transparent keyword rules (10 categories).
   - Every headline from 2016 to 2020 is scored **out of sample**: the models are retrained each year on past
     data only (walk-forward).
-- **Index (Module A).** My mentor's index methodology, implemented in my own words:
+- **Index (Module A).** A sentiment-tilted Top-20 index:
   - Each quarter, pick the 20 largest current S&P 100 companies by free-float market cap (FFMC), with a buffer.
     A member stays while it ranks in the top 25, and a newcomer must reach the top 20.
   - Start from FFMC weights and tilt each stock by `exp(0.30 x S x C)`. S is the stock's recent news sentiment

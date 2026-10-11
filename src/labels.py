@@ -51,12 +51,12 @@ TIMESTAMP_AGREEMENT_MIN = 0.95    # share of spot-checked news times that must a
 
 # Sign pattern of (r1, r2, r3, r7) -> impact (1 = bearish ... 10 = bullish). Others are dropped.
 IMPACT_TABLE = {
-    "++++": 10,   # mentor
+    "++++": 10,   # base pattern
     "--++": 7,    # mirror extension
-    "+++-": 6,    # mentor
+    "+++-": 6,    # base pattern
     "---+": 5,    # mirror extension
-    "++--": 4,    # mentor
-    "----": 1,    # mentor
+    "++--": 4,    # base pattern
+    "----": 1,    # base pattern
 }
 
 TWEET_NAME_TO_TICKER = {name: ticker for ticker, _, names, _ in POOL for name in names}

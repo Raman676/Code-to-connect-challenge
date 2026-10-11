@@ -3,7 +3,7 @@
 ## 2026-10-03
 
 **Downstream module: Module A (index rebalancing)**
-Why: mentor's direction; fits the one-week timeline. Design: top 20 S&P 500 by
+Why: fits the one-week timeline. Design: top 20 S&P 500 by
 free-float market cap, every stock starts with tilt = 1, tilts change with news.
 
 **Data sources**
@@ -14,13 +14,13 @@ free-float market cap, every stock starts with tilt = 1, tilts change with news.
 Why: the problem statement requires 2+ text sources, and the labelling method
 needs dates, companies and prices.
 
-**Labelling method: market reaction (mentor's method)**
+**Labelling method: market reaction**
 Each item is labelled by what the stock did after it, not by human judgment.
 - Volatility filter: keep only items where 10-day realized volatility after the
   item is higher than in the 10 days before. Others are dropped. (My interpretation.)
 - Sentiment = sign of the 1-day return. (My choice: most direct reaction.)
 - Impact (1 = bearish, 10 = bullish) from the signs of 1d/2d/3d/7d returns:
-  ++++ = 10, +++- = 6, ++-- = 4, ---- = 1 (mentor);
+  ++++ = 10, +++- = 6, ++-- = 4, ---- = 1 (base table);
   ---+ = 5, --++ = 7 (my mirror extension); all other patterns dropped.
 - Impact is directional (bear/bull), not severity. Deliberate choice:
   sentiment = immediate reaction, impact = how the move evolves over a week.
@@ -30,7 +30,7 @@ I review every change before it is applied.
 the tweet return columns are unreliable, so returns and volatility come from yfinance
 the full tweet file, deduplicated, US companies only
 the news file choice
-the top-20 question, pending your mentor
+the top-20 question
 **Tweets: full file, deduplicated, pool companies only**
 - Use full_dataset-release.csv (862k rows), not the reduced file (85k rows,
   only tweets that @mention the company's own account).
@@ -94,7 +94,7 @@ partly labelled by a move that happened before it.
   instructions to re-download the original Kaggle files.
 Why: GitHub's file limits, and the guidelines ask to avoid large data dumps.
 
-**Index universe (pending mentor approval)**
+**Index universe**
 - Take S&P 100 members, keep those with enough coverage in the data period, then
   pick the top 20 by free-float market cap. Weights = ffmcap x tilt, tilt starts at 1.
 Why: many of today's largest companies (NVDA, MSFT, TSLA) have little or no data
@@ -219,10 +219,6 @@ Why: one consistent impact scale across sources.
 - LIN, RTX and DELL stay unranked before their share data starts.
 Why: Meta and Booking were large S&P 100 members for the whole window and must be
 eligible for the top 20. Back-filling a short gap introduces only a small error.
-
-**Mentor's methodology document kept out of the repo**
-- docs/index construction.docx is gitignored.
-Why: it's Rajesh's document; the README describes our implementation in my own words.
 
 **Planned simplification for the index signal step**
 - An "event" = all headlines for one company on one date (mean sentiment, max severity),

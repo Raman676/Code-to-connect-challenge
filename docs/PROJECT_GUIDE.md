@@ -44,7 +44,7 @@ raw text -> check & clean -> market-reaction labels -> mask company names -> tra
 | `requirements.txt` | Every Python package with its exact version. Install with `pip install -r requirements.txt`. |
 | `DECISIONS.md` | The decision log: every important design choice, **with the reason**. Use it to answer "why did you do X?". |
 | `app.py` | The **Streamlit dashboard** (5 tabs). Run `streamlit run app.py`. |
-| `.gitignore` | Files git must not upload: raw Kaggle data (too large), caches, the mentor's private document, personal notes. |
+| `.gitignore` | Files git must not upload: raw Kaggle data (too large), caches, personal notes. |
 
 ---
 

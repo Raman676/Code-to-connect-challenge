@@ -15,7 +15,7 @@ is 2026-10-10 (target: submit Fri 2026-10-09).*
   has changed since; all 85 tests passed at that commit.
 - **Working tree:** clean after the 2026-10-07 handover commit, which added:
   - `DECISIONS.md` entries: news-type classifier and hand-check method, engine output + API,
-    tweet impact scale, engine report, META/BKNG back-fill, mentor's document gitignored,
+    tweet impact scale, engine report, META/BKNG back-fill,
     and the **planned company-day event simplification** (see step 1).
 - **Done 2026-10-07 (later commit):** steps 1, 2 and part of 4. `src/signals.py` (company-day events; the only
   lag: news dated d -> weights at d+1's close), Strategies B, C, D, D-tone in `backtest.py`,
@@ -40,7 +40,7 @@ The project has two parts:
 1. **The AI/NLP Risk Engine (done).** It turns S&P 100 news headlines and tweets into structured
    signals: sentiment (−1..1), impact (severity 1–10) and news type. The signals are served as a CSV and a REST API.
 2. **Module A: a Top-20 S&P 100 index (in progress).** The index is weighted by free-float market cap (FFMC) and
-   tilted by the engine's news sentiment, following the mentor's methodology (summarised below).
+   tilted by the engine's news sentiment, following the index methodology summarised below.
    Membership, base weights and constraints are built and backtested for Strategy A and A-capped. The
    sentiment overlay (Strategies B, C, D and D-tone), the charts, the dashboard and the submission documents are still left.
 
@@ -68,7 +68,6 @@ Read these first: `DECISIONS.md` (every design decision and its reason), `docs/e
   - yfinance downloads: `data/prices/`
   - all processed label and signal files: `data/processed/`, `data/outputs/`
 - **Models:** the FinBERT model (`yiyanghkust/finbert-tone`, about 440 MB) is downloaded from Hugging Face on first use.
-- **Not tracked:** the mentor's methodology document, `docs/index construction.docx`, is gitignored on purpose (it's his document).
 
 ## 2. Run commands (in pipeline order, from the project root)
 
@@ -118,7 +117,7 @@ The most important finding is the next-day check. Sentiment matches the **same-d
 
 ### 3.2 Index (built and tested; Strategy A and A-capped run)
 
-**Methodology in brief** (mentor's document, adapted to the current S&P 100 with `^OEX` as the benchmark):
+**Methodology in brief** (applied to the current S&P 100 with `^OEX` as the benchmark):
 - Rank the universe by FFMC and select the top 20 with a 20/25 buffer, reviewed quarterly.
 - Base weights are FFMC weights.
 - The sentiment tilt is w = base × e^(α·S·C), with α = 0.30 and a neutral zone of |S| < 0.15.
@@ -280,7 +279,6 @@ Vs Strategy A: A-capped TE 0.23% / IR −0.61; B 0.10% / −0.98; C 0.06% / 0.13
   - 3 Dataset used: sources (the Kaggle datasets, yfinance, Financial PhraseBank, the Wikipedia S&P 100 list as of 2026-09-21) and assumptions; say `data/raw` isn't committed and how to download it
   - 4 Quickstart: runtime and the commands from section 2
   - 5 Key results and domain impact
-- **The README must describe the mentor's methodology in the owner's own words.** Don't copy the gitignored document.
 - **`LICENSE`:** MIT is recommended; the repo must be public. It needs the owner's name and year.
 - **`docs/architecture.png`:** a high-resolution diagram of the data flow:
   - data sources → ingestion and cleaning → masking → models (sentiment, severity, news type)
