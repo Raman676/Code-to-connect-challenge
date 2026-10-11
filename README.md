@@ -101,20 +101,66 @@ and dashboard run without the raw files.
 
 ## 4. Quickstart & Installation
 
-Tested with Python 3.11.3 on Windows 11 (PowerShell), from the project root.
+Tested with Python 3.11.3 on Windows 11. Run these in Windows PowerShell, one after another, on a fresh clone.
+**The raw Kaggle data is NOT needed for the demo:** the processed data, model outputs and backtest results are in the repo.
 
-```powershell
-pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
-$env:PYTHONIOENCODING='utf-8'
-```
+1. Clone the repository.
+   ```powershell
+   git clone https://github.com/Raman676/Code-to-connect-challenge.git
+   ```
+   You should see: `Cloning into 'Code-to-connect-challenge'...` and then `done.`
 
-**Fast path: results, API and dashboard from the committed data (no raw data needed).**
+2. Go into the project folder.
+   ```powershell
+   cd Code-to-connect-challenge
+   ```
+   You should see: the prompt now ends in `Code-to-connect-challenge>`.
+
+3. Create a virtual environment.
+   ```powershell
+   python -m venv .venv
+   ```
+   You should see: no output; a new `.venv` folder appears.
+
+4. Activate it.
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
+   ```
+   You should see: the prompt starts with `(.venv)`. If PowerShell blocks the script, run
+   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` first (this window only), then try again.
+
+5. Install the packages (CPU build of PyTorch; a few minutes).
+   ```powershell
+   pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+   ```
+   You should see: a line starting with `Successfully installed` at the end.
+
+6. Run all tests (about 1 minute).
+   ```powershell
+   python run_tests.py
+   ```
+   You should see: one `PASS` line per test file, then `23/23 test files passed`.
+
+7. Start the dashboard.
+   ```powershell
+   streamlit run app.py
+   ```
+   You should see: `Local URL: http://localhost:8501`, and the dashboard (tabs Index, Weights, Signals feed,
+   Engine results, Sensitivity) opens in the browser. Press Ctrl+C to stop it.
+
+8. Start the REST API (in the same window after Ctrl+C, or in a second window with `.venv` activated).
+   ```powershell
+   uvicorn src.api:app
+   ```
+   You should see: `Uvicorn running on http://127.0.0.1:8000`. Open http://127.0.0.1:8000/docs for the API page;
+   http://127.0.0.1:8000/health returns `{"status":"ok","rows":66158,"file":"engine_signals.csv"}`.
+
+**Re-running the backtest and analysis** (optional, also from the committed data). Set
+`$env:PYTHONIOENCODING='utf-8'` first, then:
 
 ```powershell
 python src/backtest.py           # all strategies -> docs/backtest_report.txt, data/outputs/backtest_results.xlsx, docs/figures/  (~4 min)
 python src/analysis.py           # daily IC, Fama-MacBeth, news events -> docs/analysis_report.txt                          (~1 min)
-uvicorn src.api:app --reload     # REST API -> http://127.0.0.1:8000/docs  (/health, /signals, /signals/summary)
-streamlit run app.py             # dashboard -> http://localhost:8501
 ```
 
 **Full pipeline from the raw Kaggle files (in this order).**
@@ -134,7 +180,41 @@ streamlit run app.py             # dashboard -> http://localhost:8501
 | 11 | `python src/analysis.py` | `docs/analysis_report.txt` | ~1 min |
 | 12 | `python src/architecture.py` | `docs/architecture.png` | seconds |
 
-**Tests:** `python tests/test_<module>.py` (for example `python tests/test_weights.py`). They also run under pytest.
+### Testing
+
+```powershell
+python run_tests.py
+```
+
+This runs every `tests/test_*.py` file in its own process, prints a PASS/FAIL line per file and the total, and exits
+with a non-zero code if any file fails. One file can also be run on its own, e.g. `python tests/test_weights.py`.
+No raw data, network or model download is needed.
+
+| Test file | What it checks |
+|---|---|
+| `test_analysis.py` | Daily IC, Fama-MacBeth regression, news-event and window returns (`src/analysis.py`) |
+| `test_api.py` | REST API endpoints and filters, on a small made-up signals file (`src/api.py`) |
+| `test_app.py` | The Streamlit dashboard runs headless on the real output files; every tab renders without errors |
+| `test_architecture.py` | The architecture diagram is drawn and its steps are in pipeline order |
+| `test_backtest.py` | Backtest engine: weight drift, trading costs, the one-day news lag, performance and benchmark metrics |
+| `test_build_engine_output.py` | The engine output file (columns and values), from small made-up inputs |
+| `test_charts.py` | Active-signal count and that all four chart PNGs are written |
+| `test_dashboard_data.py` | The dashboard's data loading and filtering helpers |
+| `test_export_results.py` | Summary (^OEX first), yearly returns, average tilt, all Excel sheets and the dashboard CSVs |
+| `test_index_data.py` | S&P 100 data helpers: share-count cleaning and back-fill, free-float factors, review dates (no network) |
+| `test_inspect_data.py` | Raw-data inspection helpers, on tiny made-up CSV files |
+| `test_labels.py` | Market-reaction labels: date anchoring, return and volatility windows, sign patterns and impact table |
+| `test_model_checks.py` | Model-check helpers (no model download) |
+| `test_modeling.py` | Sentiment scoring, baselines, TF-IDF model, embedding cache and the date split with a gap |
+| `test_news_type.py` | The keyword rules that assign the 10 news types |
+| `test_prices.py` | Price caching logic, with a fake downloader (no network) |
+| `test_sentiment_data.py` | Loading and processing the Financial PhraseBank benchmark |
+| `test_severity.py` | The impact (severity 1-10) model, on small made-up data |
+| `test_signals.py` | Stock-level sentiment and confidence: decay, 15-day window, events, neutral zone, lag |
+| `test_text_prep.py` | Company-name masking and the per-company-day tweet cap |
+| `test_universe.py` | Index membership: quarterly reviews, exact 20 members with the 20/25 buffer, FFMC |
+| `test_walk_forward.py` | Walk-forward: yearly training windows with gaps and no leakage, next-day return timing |
+| `test_weights.py` | Base weights, sentiment tilt, 12% cap, tilt band and 1 pp daily limit |
 
 **API example:** `http://127.0.0.1:8000/signals?ticker=AAPL&start=2020-03-01&end=2020-03-31&source=news`
 
