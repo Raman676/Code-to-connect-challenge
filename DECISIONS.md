@@ -56,7 +56,7 @@ Same duplicate reasoning as tweets.
 - Pending: the raw file labels every time as US summer time (-04:00), even in winter.
   Test whether the one-hour gaps are exactly the winter rows. If so, correct the raw
   times and re-run the same rule.
-- Result: [fill in]
+- Result: not done (time). News stays date-only, which is the safe choice.
 
 **Prices, anchors and horizons**
 - yfinance daily adjusted closes, 2009-2020, for the pool. Cached in
@@ -191,7 +191,7 @@ Next step: a learned classifier.
   then compare. Y if the predicted type is a reasonable main topic; "Other" is correct
   only if none of the 9 categories fit. Judge the headline's category, not whether the
   ticker is right. For each N, record the correct type in a true_type column.
-- Accuracy: [fill in] (python src/news_type.py --accuracy)
+- Accuracy: not done (time); the file is ready for it (python src/news_type.py --accuracy).
 
 **Engine output: engine_signals.csv + FastAPI**
 - 66,158 rows: 64,028 news (walk-forward, out-of-sample, 2016 to Jun 2020) + 2,130

@@ -1,7 +1,7 @@
 # AI/NLP Financial Risk Engine with a Sentiment-Tilted Top-20 Index - S&P Global & Crisil Campus Hackathon
 
 **Candidate Name:** Raman Dubey **College Email ID:** ramandubey@kgpian.iitkgp.ac.in **College / Campus:** Indian Institute of Technology, Kharagpur
-**Demo Video Link:** (https://youtu.be/TMo3C6fNvIk) **Slide Deck Link (if hosted externally):** https://canva.link/z89m9p1zvgyv43h (Also submitted)
+**Demo Video Link:** (https://youtu.be/TMo3C6fNvIk) **Slide Deck Link (if hosted externally):** https://canva.link/z89m9p1zvgyv43h (Also submitted; PDF in the repo: [docs/presentation.pdf](docs/presentation.pdf))
 
 
 ## 1. Project Overview / Problem Statement & Approach
@@ -107,15 +107,15 @@ Tested with Python 3.11.3 on Windows 11. Run these in Windows PowerShell, one af
 
 1. Clone the repository.
    ```powershell
-   git clone https://github.com/Raman676/Code-to-connect-challenge.git
+   git clone https://github.com/Raman676/iitkgp-raman-dubey-hackathon.git
    ```
-   You should see: `Cloning into 'Code-to-connect-challenge'...` and then `done.`
+   You should see: `Cloning into 'iitkgp-raman-dubey-hackathon'...` and then `done.`
 
 2. Go into the project folder.
    ```powershell
-   cd Code-to-connect-challenge
+   cd iitkgp-raman-dubey-hackathon
    ```
-   You should see: the prompt now ends in `Code-to-connect-challenge>`.
+   You should see: the prompt now ends in `iitkgp-raman-dubey-hackathon>`.
 
 3. Create a virtual environment.
    ```powershell

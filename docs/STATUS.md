@@ -30,19 +30,19 @@ is 2026-10-10 (target: submit Fri 2026-10-09).*
   Daily IC mean 0.0099 (t 1.40, hit rate 52.5%); Fama-MacBeth S_eff coef 0.00104 (t 0.99); neither
   significant. Top-1% news days (all Feb-Mar 2020): D -14.7 bp vs A in total; COVID window: all within 0.1 pp of A.
   `signals.py` now also returns an importance panel I (used to rank news-heavy days).
-- **Next step:** submission docs (README template, LICENSE, docs/architecture.png), then the owner's deck and video.
-  News-type importance weights: left out (all types equal); a possible next step.
-- **Waiting on the owner:** news-type hand check (`docs/news_type_check.csv`, accuracy placeholder in
-  `DECISIONS.md`), news-type importance weights, permission to install `streamlit`.
+- **Done (submission):** README (template, quickstart, testing), LICENSE, `docs/architecture.png`,
+  `docs/presentation.pdf`, demo video link, `run_tests.py`. Submitted 2026-10-11.
+- **Not done (possible next steps):** news-type hand check (`docs/news_type_check.csv`), news-type importance
+  weights (all types weighted equally), daylight-saving check on news timestamps.
 
 The project has two parts:
 
 1. **The AI/NLP Risk Engine (done).** It turns S&P 100 news headlines and tweets into structured
    signals: sentiment (−1..1), impact (severity 1–10) and news type. The signals are served as a CSV and a REST API.
-2. **Module A: a Top-20 S&P 100 index (in progress).** The index is weighted by free-float market cap (FFMC) and
+2. **Module A: a Top-20 S&P 100 index (done).** The index is weighted by free-float market cap (FFMC) and
    tilted by the engine's news sentiment, following the index methodology summarised below.
-   Membership, base weights and constraints are built and backtested for Strategy A and A-capped. The
-   sentiment overlay (Strategies B, C, D and D-tone), the charts, the dashboard and the submission documents are still left.
+   Membership, base weights, constraints, all six strategies (A, A-capped, B, C, D, D-tone), the charts, the
+   dashboard and the submission documents are done.
 
 Read these first: `DECISIONS.md` (every design decision and its reason), `docs/engine_report.txt`
 (the finished engine on one page) and `docs/backtest_report.txt` (current index results).
